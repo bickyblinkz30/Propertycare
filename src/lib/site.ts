@@ -1,0 +1,187 @@
+/*
+  Single source of truth for site content + contact details.
+  The homepage is the master prototype — future pages derive content shape from here.
+*/
+
+// --- Contact (primary conversion path: WhatsApp → SMS → Call) ---
+const RAW_PHONE = "07922909983";
+const INTL_PHONE = "447922909983"; // UK, no leading 0, no +
+
+export const contact = {
+  display: "07922 909983",
+  tel: "+447922909983",
+  sms: `sms:+447922909983`,
+  whatsapp: `https://wa.me/${INTL_PHONE}?text=${encodeURIComponent(
+    "Hi Propertycare, I'd like a quote for a transformation.",
+  )}`,
+  raw: RAW_PHONE,
+  email: "hello@propertycarepe.co.uk", // placeholder — confirm before launch
+  primaryArea: "Sunderland",
+} as const;
+
+export const brand = {
+  name: "Propertycare",
+  full: "Propertycare Paints & Electrics",
+  tagline: "Premium Property Transformations",
+  positioning:
+    "The North East's only single-team whole-property transformation specialists.",
+} as const;
+
+// --- Services (outcome-led, never task-led) ---
+export const services = [
+  {
+    key: "painting",
+    title: "Painting & Decorating",
+    outcome:
+      "Flawless, hard-wearing finishes that transform how a room feels.",
+    cta: "Request a painting estimate",
+  },
+  {
+    key: "electrical",
+    title: "Electrical & Lighting",
+    outcome:
+      "Modern electrical upgrades that improve safety, convenience and ambience.",
+    cta: "Speak with an electrician",
+  },
+  {
+    key: "media-walls",
+    title: "Media Walls",
+    outcome:
+      "Bespoke media walls — joinery, fire and integrated electrics in one seamless feature.",
+    cta: "Get a media wall quote",
+  },
+  {
+    key: "maintenance",
+    title: "Property Maintenance",
+    outcome:
+      "Reliable, tidy upkeep that protects and elevates your property over time.",
+    cta: "Arrange property maintenance",
+  },
+] as const;
+
+// --- Trust signals ---
+export const trustItems = [
+  "Fully Insured",
+  "Free Quotations",
+  "Professional Workmanship",
+  "Residential & Commercial",
+] as const;
+
+export const accreditations = [
+  "NICEIC / Part P",
+  "TrustMark",
+  "Dulux Select",
+  "Public Liability Insured",
+  "Written Workmanship Guarantee",
+] as const;
+
+// --- Transformations (named, dated case studies — placeholder content) ---
+export const transformations = [
+  {
+    title: "The Concord Media Wall",
+    location: "Concord, Washington · NE37",
+    year: "2025",
+    type: "Living Room",
+    scope: "Bespoke media wall · electric fire · integrated lighting · full repaint",
+    intro:
+      "A dated chimney breast reimagined as a warm, cinematic centrepiece with concealed cabling and ambient light.",
+    tone: { from: "#2a2622", to: "#3b3a36" },
+    toneAfter: { from: "#16110b", to: "#3a2a17" },
+  },
+  {
+    title: "Sulgrave Townhouse Repaint",
+    location: "Sulgrave, Washington · NE37",
+    year: "2025",
+    type: "Whole Home",
+    scope: "Full interior repaint · premium decorative finishes · feature wall",
+    intro:
+      "Tired magnolia replaced with a calm, contemporary palette and crisp, hard-wearing finishes throughout.",
+    tone: { from: "#26241f", to: "#34322c" },
+    toneAfter: { from: "#0f1512", to: "#23362b" },
+  },
+  {
+    title: "Seaham Coastal Rewire & Lighting",
+    location: "Seaham · SR7",
+    year: "2025",
+    type: "Period Property",
+    scope: "Full rewire · smart lighting · EICR · feature pendant install",
+    intro:
+      "A coastal period home brought up to modern safety standards with layered, atmospheric lighting.",
+    tone: { from: "#222428", to: "#33373d" },
+    toneAfter: { from: "#0c1118", to: "#1c2b3a" },
+  },
+] as const;
+
+// --- Why choose us ---
+export const whyChooseUs = [
+  {
+    title: "One Accountable Team",
+    body: "Painting, electrical, media walls and maintenance under a single roof — no juggling trades.",
+  },
+  {
+    title: "Certified & Insured",
+    body: "NICEIC / Part P registered electrical work and full public liability cover as standard.",
+  },
+  {
+    title: "Written Guarantee",
+    body: "Every transformation is backed by a clear, written workmanship guarantee.",
+  },
+  {
+    title: "Premium Finishes",
+    body: "Specialist materials and meticulous preparation for finishes that last and impress.",
+  },
+  {
+    title: "Local & Established",
+    body: "Rooted in Sunderland and trusted across the North East, with real local references.",
+  },
+  {
+    title: "Transparent Fixed Quotes",
+    body: "Itemised, no-surprise pricing agreed up front — and a home left clean and respected.",
+  },
+] as const;
+
+// --- Branded process ---
+export const processSteps = [
+  { n: "01", title: "Consult", body: "A free, no-obligation conversation about your space and goals." },
+  { n: "02", title: "Design", body: "We shape the finishes, layout and details into a clear vision." },
+  { n: "03", title: "Quote", body: "A transparent, itemised fixed quote — no surprises." },
+  { n: "04", title: "Transform", body: "One accountable team delivers, tidy and on schedule." },
+  { n: "05", title: "Aftercare", body: "Guaranteed workmanship and support long after we leave." },
+] as const;
+
+// --- Service areas ---
+export const serviceAreas = [
+  "Sunderland",
+  "Washington",
+  "Seaham",
+  "South Shields",
+  "Gateshead",
+  "Newcastle upon Tyne",
+  "Durham",
+  "Chester-le-Street",
+  "Jarrow",
+  "Hebburn",
+  "Peterlee",
+] as const;
+
+// --- Testimonials (placeholder — replace with verified, attributed reviews) ---
+export const testimonials = [
+  {
+    quote:
+      "The media wall completely changed our living room — the finish and the hidden wiring are flawless. Tidy, professional and exactly on quote.",
+    name: "Rachel M.",
+    detail: "Concord, Washington",
+  },
+  {
+    quote:
+      "They repainted the whole house and rewired the kitchen. One team, one point of contact, no stress. The standard of work is genuinely premium.",
+    name: "David & Helen T.",
+    detail: "Sulgrave, Washington",
+  },
+  {
+    quote:
+      "Honest, certified and meticulous. The lighting design transformed how our period home feels in the evenings.",
+    name: "Andrew P.",
+    detail: "Seaham",
+  },
+] as const;
