@@ -1,3 +1,4 @@
+"use client";
 import Nav from "./components/Nav";
 import FloatingContacts from "./components/FloatingContacts";
 import ScrollReveal from "./components/ScrollReveal";
