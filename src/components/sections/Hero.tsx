@@ -16,7 +16,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] items-end overflow-hidden pb-14 pt-28 md:items-center md:pb-0"
+      className="relative flex min-h-[100svh] items-end overflow-hidden pb-14 pt-32 md:items-center md:pb-0 md:pt-40"
     >
       {/* Cinematic backdrop (placeholder for video/photography) */}
       <div aria-hidden className="hero-visual absolute inset-0 -z-10">

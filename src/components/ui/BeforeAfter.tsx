@@ -3,23 +3,28 @@
 import { useCallback, useRef, useState } from "react";
 
 /*
-  Signature interaction: drag-wipe before/after slider.
-  Placeholder visuals use CSS gradients (before = muted, after = warm/rich) until
-  real on-site photography is shot — swap the gradient divs for <Image> then.
-  Keyboard-accessible (range semantics) and degrades to a labelled split.
+  TODO: Replace with client before/after images.
+  Current placeholder URLs point to Unsplash interior photography.
+  Update `beforeImg` / `afterImg` props at call sites once real project photos are available.
 */
+const PLACEHOLDER_BEFORE = "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&q=80";
+const PLACEHOLDER_AFTER = "https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&q=80";
+
 type Tone = { from: string; to: string };
 
 export function BeforeAfter({
-  before,
-  after,
+  beforeImg,
+  afterImg,
   beforeLabel = "Before",
   afterLabel = "After",
   caption,
   className = "",
 }: {
+  /* `before` / `after` (Tone gradients) kept in type for API compatibility — unused while image placeholders are active */
   before: Tone;
   after: Tone;
+  beforeImg?: string;
+  afterImg?: string;
   beforeLabel?: string;
   afterLabel?: string;
   caption?: string;
@@ -28,6 +33,9 @@ export function BeforeAfter({
   const [pos, setPos] = useState(50);
   const ref = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
+
+  const imgBefore = beforeImg ?? PLACEHOLDER_BEFORE;
+  const imgAfter = afterImg ?? PLACEHOLDER_AFTER;
 
   const setFromClientX = useCallback((clientX: number) => {
     const el = ref.current;
@@ -57,10 +65,11 @@ export function BeforeAfter({
         className="relative aspect-[4/3] w-full select-none overflow-hidden rounded-xl ring-1 ring-white/10 sm:aspect-[16/10]"
       >
         {/* After (full, underneath) */}
-        <div
-          aria-hidden
-          className="absolute inset-0"
-          style={{ background: `linear-gradient(135deg, ${after.from}, ${after.to})` }}
+        <img
+          src={imgAfter}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+          draggable={false}
         />
         <span className="absolute right-3 top-3 z-10 rounded-full bg-black/50 px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.14em] text-fg backdrop-blur-sm">
           {afterLabel}
@@ -70,21 +79,20 @@ export function BeforeAfter({
         <div
           aria-hidden
           className="absolute inset-0"
-          style={{
-            background: `linear-gradient(135deg, ${before.from}, ${before.to})`,
-            clipPath: `inset(0 ${100 - pos}% 0 0)`,
-          }}
-        />
+          style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
+        >
+          <img
+            src={imgBefore}
+            alt=""
+            className="h-full w-full object-cover"
+            draggable={false}
+          />
+        </div>
         <span
           className="absolute left-3 top-3 z-10 rounded-full bg-black/50 px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.14em] text-fg backdrop-blur-sm"
           style={{ opacity: pos > 14 ? 1 : 0 }}
         >
           {beforeLabel}
-        </span>
-
-        {/* Faint "sample visual" note (placeholder honesty, removed with real imagery) */}
-        <span className="pointer-events-none absolute bottom-3 left-1/2 z-10 -translate-x-1/2 text-[0.65rem] uppercase tracking-[0.18em] text-white/35">
-          Sample visual
         </span>
 
         {/* Handle */}

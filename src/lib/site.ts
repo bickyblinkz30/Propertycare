@@ -76,6 +76,11 @@ export const accreditations = [
 ] as const;
 
 // --- Transformations (named, dated case studies — placeholder content) ---
+/*
+  TODO: Replace with client before/after images.
+  Current placeholder URLs point to Unsplash interior photography.
+  Swap `placeholderBefore` / `placeholderAfter` with real project photos.
+*/
 export const transformations = [
   {
     title: "The Concord Media Wall",
@@ -87,6 +92,8 @@ export const transformations = [
       "A dated chimney breast reimagined as a warm, cinematic centrepiece with concealed cabling and ambient light.",
     tone: { from: "#2a2622", to: "#3b3a36" },
     toneAfter: { from: "#16110b", to: "#3a2a17" },
+    placeholderBefore: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&q=80",
+    placeholderAfter: "https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&q=80",
   },
   {
     title: "Sulgrave Townhouse Repaint",
@@ -98,6 +105,8 @@ export const transformations = [
       "Tired magnolia replaced with a calm, contemporary palette and crisp, hard-wearing finishes throughout.",
     tone: { from: "#26241f", to: "#34322c" },
     toneAfter: { from: "#0f1512", to: "#23362b" },
+    placeholderBefore: "https://images.unsplash.com/photo-1596008194705-f2b6b8e3f26b?w=800&q=80",
+    placeholderAfter: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
   },
   {
     title: "Seaham Coastal Rewire & Lighting",
@@ -109,6 +118,8 @@ export const transformations = [
       "A coastal period home brought up to modern safety standards with layered, atmospheric lighting.",
     tone: { from: "#222428", to: "#33373d" },
     toneAfter: { from: "#0c1118", to: "#1c2b3a" },
+    placeholderBefore: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=80",
+    placeholderAfter: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80",
   },
 ] as const;
 

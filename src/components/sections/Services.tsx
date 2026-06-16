@@ -1,4 +1,4 @@
-import { services, contact } from "@/lib/site";
+import { services } from "@/lib/site";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { RevealStagger, StaggerItem } from "@/components/ui/Reveal";
 import { ArrowIcon } from "@/components/icons";

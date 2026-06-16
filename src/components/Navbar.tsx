@@ -1,15 +1,17 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { contact, brand } from "@/lib/site";
 import { WhatsAppIcon } from "@/components/icons";
 
 const links = [
-  { label: "Services", href: "#services" },
-  { label: "Transformations", href: "#transformations" },
-  { label: "Why Us", href: "#why" },
-  { label: "Areas", href: "#areas" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/#services" },
+  { label: "Portfolio", href: "/#transformations" },
+  { label: "Why Choose Us", href: "/#why" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function Navbar() {
@@ -39,25 +41,25 @@ export function Navbar() {
       }`}
     >
       <nav className="container-px flex h-16 items-center justify-between md:h-20">
-        <a href="#top" className="flex items-baseline gap-2" aria-label={`${brand.full} home`}>
-          <span className="font-[var(--font-heading)] text-lg font-bold tracking-tight text-fg">
+        <Link href="/" className="flex items-baseline gap-2" aria-label={`${brand.full} home`}>
+          <span className="font-[var(--font-heading)] text-base font-bold tracking-tight text-fg md:text-lg">
             {brand.name}
           </span>
           <span className="hidden text-[0.65rem] uppercase tracking-[0.18em] text-accent sm:inline">
             Paints &amp; Electrics
           </span>
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
             <li key={l.href}>
-              <a
+              <Link
                 href={l.href}
                 className="text-sm text-muted transition-colors hover:text-fg"
               >
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -111,13 +113,13 @@ export function Navbar() {
         <ul className="container-px flex flex-col gap-1 py-4">
           {links.map((l) => (
             <li key={l.href}>
-              <a
+              <Link
                 href={l.href}
                 onClick={() => setMenuOpen(false)}
                 className="block py-2 text-lg text-fg"
               >
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
           <li className="pt-2">

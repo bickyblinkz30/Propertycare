@@ -27,16 +27,13 @@ export function Transformations() {
                   className="relative aspect-[4/3] w-full overflow-hidden"
                   aria-hidden
                 >
-                  <div
-                    className="absolute inset-0 transition-transform duration-700 group-hover:scale-105"
-                    style={{
-                      background: `linear-gradient(135deg, ${t.toneAfter.from}, ${t.toneAfter.to})`,
-                    }}
+                  <img
+                    src={t.placeholderAfter}
+                    alt=""
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    draggable={false}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <span className="absolute bottom-3 left-1/2 -translate-x-1/2 text-[0.62rem] uppercase tracking-[0.18em] text-white/35">
-                    Sample visual
-                  </span>
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <p className="eyebrow mb-2 text-[0.7rem]">

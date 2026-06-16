@@ -24,6 +24,8 @@ export function Showcase() {
           <BeforeAfter
             before={featured.tone}
             after={featured.toneAfter}
+            beforeImg={featured.placeholderBefore}
+            afterImg={featured.placeholderAfter}
             caption={`${featured.title} — ${featured.location}`}
           />
           <div>
