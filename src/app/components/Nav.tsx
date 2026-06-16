@@ -20,10 +20,11 @@ export default function Nav() {
   }, [open]);
 
   const links = [
+    ["Home", "/"],
+    ["About", "/about"],
     ["Services", "#services"],
     ["Portfolio", "#transformations"],
     ["Why Us", "#whyus"],
-    ["Areas", "#areas"],
     ["Contact", "#contact"],
   ];
 
@@ -50,7 +51,7 @@ export default function Nav() {
                 src="/images/propertycare-logo.jpg"
                 alt="Property Care Paint & Electrics"
                 style={{
-                  height: scrolled ? 56 : 72,
+                  height: scrolled ? 46 : 60,
                   width: "auto",
                   display: "block",
                   transition: "height 0.5s cubic-bezier(0.16,1,0.3,1)",

@@ -86,18 +86,18 @@ export default function Home() {
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(10,9,8,0.95) 0%, rgba(10,9,8,0.7) 50%, rgba(10,9,8,0.3) 100%)" }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,9,8,0.98) 0%, rgba(10,9,8,0.4) 40%, transparent 70%)" }} />
 
-          <div style={{ position: "relative", zIndex: 2, padding: "0 52px 120px", maxWidth: 920, width: "100%" }}>
+          <div style={{ position: "relative", zIndex: 2, padding: "140px 52px 140px", maxWidth: 920, width: "100%" }}>
 
             {/* Orange tagline tab */}
             <div className="h-a1" style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "rgba(245,130,32,0.15)", border: "1px solid rgba(245,130,32,0.4)", padding: "8px 16px", borderRadius: 4, marginBottom: 32 }}>
               <span style={{ width: 7, height: 7, background: "#F58220", borderRadius: "50%", flexShrink: 0 }} />
               <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#F58220" }}>
-                Sunderland's Trusted Property Specialists
+                Sunderland&rsquo;s Trusted Property Specialists
               </span>
             </div>
 
             <h1 className="h-a2" style={{
-              fontSize: "clamp(48px, 7.5vw, 96px)",
+              fontSize: "clamp(54px, 8.5vw, 112px)",
               fontWeight: 900,
               lineHeight: 0.95,
               letterSpacing: "-0.025em",
@@ -110,14 +110,14 @@ export default function Home() {
             </h1>
 
             <p className="h-a3" style={{
-              fontSize: "clamp(16px, 1.6vw, 20px)",
-              fontWeight: 400,
-              color: "rgba(255,255,255,0.85)",
-              lineHeight: 1.6,
-              maxWidth: 620,
-              marginBottom: 44,
+              fontSize: "clamp(18px, 1.8vw, 22px)",
+              fontWeight: 500,
+              color: "rgba(255,255,255,0.88)",
+              lineHeight: 1.65,
+              maxWidth: 640,
+              marginBottom: 48,
             }}>
-              One certified team delivering premium painting, decorating, electrical and property maintenance across Sunderland and the North East. <strong style={{ color: "#fff", fontWeight: 700 }}>Free survey. Written guarantee. No surprises.</strong>
+              One certified team delivering premium painting, decorating, electrical and property maintenance across Sunderland and the North East. <strong style={{ color: "#fff", fontWeight: 800 }}>Free survey. Written guarantee. No surprises.</strong>
             </p>
 
             <div className="h-a4" style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center", marginBottom: 36 }}>
@@ -197,8 +197,8 @@ export default function Home() {
               <div>
                 <div className="rv"><OrangeTab>Who we are</OrangeTab></div>
                 <h2 className="rv rv-d1" style={{
-                  fontSize: "clamp(36px, 4.5vw, 60px)",
-                  fontWeight: 800, lineHeight: 1.05,
+                  fontSize: "clamp(42px, 5.5vw, 72px)",
+                  fontWeight: 900, lineHeight: 1.05,
                   letterSpacing: "-0.02em", color: "#0A0908", marginBottom: 28,
                   textTransform: "uppercase",
                 }}>
@@ -243,8 +243,8 @@ export default function Home() {
           <div style={{ maxWidth: 1400, margin: "0 auto" }}>
             <div style={{ textAlign: "center", marginBottom: 72 }}>
               <div className="rv"><OrangeTab center>What We Do</OrangeTab></div>
-              <h2 className="rv rv-d1" style={{
-                fontSize: "clamp(38px, 4.5vw, 60px)",
+                <h2 className="rv rv-d1" style={{
+                  fontSize: "clamp(42px, 5.5vw, 72px)",
                 fontWeight: 800, lineHeight: 1.05,
                 letterSpacing: "-0.02em", color: "#0A0908",
                 textTransform: "uppercase", marginBottom: 16,
@@ -288,7 +288,7 @@ export default function Home() {
                   </div>
                   <div style={{ padding: "32px 28px 36px", flex: 1, display: "flex", flexDirection: "column" }}>
                     <div className="svc-icon-wrap">{icon}</div>
-                    <h3 style={{ fontSize: 22, fontWeight: 800, marginBottom: 12, lineHeight: 1.2, color: "#0A0908", letterSpacing: "-0.01em" }}>
+                    <h3 style={{ fontSize: 24, fontWeight: 900, marginBottom: 12, lineHeight: 1.2, color: "#0A0908", letterSpacing: "-0.01em" }}>
                       {title}
                     </h3>
                     <p style={{ fontSize: 14, color: "#6B6460", lineHeight: 1.6, marginBottom: 20, fontWeight: 400 }}>{intro}</p>
@@ -324,8 +324,8 @@ export default function Home() {
               <div>
                 <div className="rv"><OrangeTab>See The Difference</OrangeTab></div>
                 <h2 className="rv rv-d1" style={{
-                  fontSize: "clamp(36px, 4.5vw, 56px)",
-                  fontWeight: 800, lineHeight: 1.05,
+                  fontSize: "clamp(40px, 5vw, 64px)",
+                  fontWeight: 900, lineHeight: 1.05,
                   letterSpacing: "-0.02em", color: "#0A0908", marginBottom: 24,
                   textTransform: "uppercase",
                 }}>
@@ -365,7 +365,7 @@ export default function Home() {
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 56, flexWrap: "wrap", gap: 24 }}>
               <div>
                 <div className="rv"><OrangeTab>Transformations</OrangeTab></div>
-                <h2 className="rv rv-d1" style={{ fontSize: "clamp(36px, 4vw, 56px)", fontWeight: 800, lineHeight: 1.05, letterSpacing: "-0.02em", color: "#0A0908", textTransform: "uppercase" }}>
+                <h2 className="rv rv-d1" style={{ fontSize: "clamp(40px, 4.8vw, 64px)", fontWeight: 900, lineHeight: 1.05, letterSpacing: "-0.02em", color: "#0A0908", textTransform: "uppercase" }}>
                   A Selection of<br /><span style={{ color: "#F58220" }}>Recent Work</span>
                 </h2>
               </div>
@@ -402,7 +402,7 @@ export default function Home() {
             <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 80, marginBottom: 72 }} className="grid-2">
               <div>
                 <div className="rv"><OrangeTab>Why Property Care</OrangeTab></div>
-                <h2 className="rv rv-d1" style={{ fontSize: "clamp(36px, 4vw, 56px)", fontWeight: 800, lineHeight: 1.05, letterSpacing: "-0.02em", color: "#fff", textTransform: "uppercase" }}>
+                <h2 className="rv rv-d1" style={{ fontSize: "clamp(40px, 4.8vw, 64px)", fontWeight: 900, lineHeight: 1.05, letterSpacing: "-0.02em", color: "#fff", textTransform: "uppercase" }}>
                   Trust Us With<br /><span style={{ color: "#F58220" }}>Your Property</span>
                 </h2>
               </div>
@@ -473,7 +473,7 @@ export default function Home() {
           <div style={{ maxWidth: 1280, margin: "0 auto" }}>
             <div style={{ textAlign: "center", marginBottom: 64 }}>
               <div className="rv"><OrangeTab center>Client Reviews · 5★ Rated</OrangeTab></div>
-              <h2 className="rv rv-d1" style={{ fontSize: "clamp(36px, 4vw, 56px)", fontWeight: 800, lineHeight: 1.05, letterSpacing: "-0.02em", color: "#0A0908", textTransform: "uppercase" }}>
+              <h2 className="rv rv-d1" style={{ fontSize: "clamp(40px, 4.8vw, 64px)", fontWeight: 900, lineHeight: 1.05, letterSpacing: "-0.02em", color: "#0A0908", textTransform: "uppercase" }}>
                 Trusted By<br /><span style={{ color: "#F58220" }}>North East Homeowners</span>
               </h2>
             </div>
@@ -514,7 +514,7 @@ export default function Home() {
             <div style={{ maxWidth: 800, margin: "0 auto" }}>
               <div className="rv"><OrangeTab center>Start Your Transformation</OrangeTab></div>
               <h2 className="rv rv-d1" style={{
-                fontSize: "clamp(42px, 5.5vw, 72px)",
+                fontSize: "clamp(48px, 6.5vw, 84px)",
                 fontWeight: 900, lineHeight: 1.02, letterSpacing: "-0.025em",
                 color: "#fff", marginBottom: 24, textTransform: "uppercase",
               }}>

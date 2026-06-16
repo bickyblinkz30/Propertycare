@@ -1,6 +1,14 @@
 "use client";
 import { useEffect, useRef } from "react";
 
+/*
+  TODO: Replace with client before/after photos.
+  Current images are placeholder Unsplash interiors stored locally in /public/images/placeholders/.
+  Swap the `beforeImg` / `afterImg` src values once real project photography is available.
+*/
+const beforeImg = "/images/placeholders/before-1.jpg";
+const afterImg = "/images/placeholders/after-1.jpg";
+
 export default function BeforeAfterSlider() {
   const wrapRef = useRef<HTMLDivElement>(null);
   const beforeRef = useRef<HTMLDivElement>(null);
@@ -62,25 +70,15 @@ export default function BeforeAfterSlider() {
       onTouchStart={(e) => start(e.touches[0].clientX)}
       style={{ position: "relative", height: 500, overflow: "hidden", borderRadius: 4, cursor: "ew-resize", userSelect: "none", boxShadow: "0 20px 60px rgba(10,9,8,0.18)" }}
     >
-      {/* AFTER */}
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, #f5f0e8, #ede5d8)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <div style={{ position: "relative", width: "60%", height: "70%" }}>
-          <div style={{ position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)", width: "72%", height: "85%", background: "#0A0908", borderRadius: 4, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 10, boxShadow: "0 24px 64px rgba(10,9,8,0.32)" }}>
-            <div style={{ width: "75%", height: "46%", background: "#040404", border: "1px solid #2e2c2a" }} />
-            <div style={{ width: "75%", height: 4, background: "linear-gradient(to right, transparent, #F58220, #FF9533, #F58220, transparent)", filter: "blur(1.5px)", borderRadius: 2 }} />
-          </div>
-          <div style={{ position: "absolute", bottom: -10, left: "-20%", right: "-20%", height: 18, background: "#d4c4a8", borderRadius: "50% 50% 0 0" }} />
-        </div>
+      {/* AFTER (full image underneath) */}
+      <div style={{ position: "absolute", inset: 0 }}>
+        <img src={afterImg} alt="Renovated interior" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
         <div style={{ position: "absolute", top: 16, right: 16, background: "#F58220", color: "#fff", fontSize: 11, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", padding: "6px 13px", borderRadius: 2 }}>After</div>
       </div>
 
-      {/* BEFORE */}
-      <div ref={beforeRef} style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, #ece0cf, #e0d4c0)", display: "flex", alignItems: "center", justifyContent: "center", clipPath: "inset(0 50% 0 0)" }}>
-        <div style={{ position: "relative", width: "60%", height: "70%" }}>
-          <div style={{ position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)", width: "55%", height: "80%", background: "#c8b89a", border: "2px solid #b8a88a", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <div style={{ width: "60%", height: "40%", border: "2px solid #a89878", background: "#b0a080" }} />
-          </div>
-        </div>
+      {/* BEFORE (clipped by slider position) */}
+      <div ref={beforeRef} style={{ position: "absolute", inset: 0, clipPath: "inset(0 50% 0 0)" }}>
+        <img src={beforeImg} alt="Before renovation" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
         <div style={{ position: "absolute", top: 16, left: 16, background: "#0A0908", color: "#fff", fontSize: 11, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", padding: "6px 13px", borderRadius: 2 }}>Before</div>
       </div>
 
