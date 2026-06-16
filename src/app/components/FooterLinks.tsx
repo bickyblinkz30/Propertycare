@@ -5,13 +5,13 @@ const COLS = [
     h: "Services",
     items: [
       ["Painting & Decorating", "#services"],
-      ["Electrical & Lighting", "#services"],
-      ["Bespoke Media Walls", "#services"],
+      ["Electrical Services", "#services"],
+      ["TV Media Wall Installation", "#services"],
       ["Property Maintenance", "#services"],
     ],
   },
   {
-    h: "Areas",
+    h: "Areas Covered",
     items: [
       ["Sunderland", "#areas"],
       ["Washington", "#areas"],
@@ -23,11 +23,12 @@ const COLS = [
     ],
   },
   {
-    h: "Contact",
+    h: "Quick Links",
     items: [
       ["WhatsApp Us", "https://wa.me/447922909983"],
       ["Text Message", "sms:+447922909983"],
       ["07922 909983", "tel:+447922909983"],
+      ["Get a Free Quote", "#contact"],
     ],
   },
 ];
@@ -37,37 +38,28 @@ export default function FooterLinks() {
     <>
       {COLS.map(({ h, items }) => (
         <div key={h}>
-          <div
-            style={{
-              fontSize: 9,
-              letterSpacing: "0.26em",
-              textTransform: "uppercase",
-              color: "#B8935A",
-              marginBottom: 20,
-              fontWeight: 500,
-            }}
-          >
+          <div style={{
+            fontSize: 11,
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "#F58220",
+            marginBottom: 22,
+            fontWeight: 700,
+          }}>
             {h}
           </div>
           <ul style={{ listStyle: "none" }}>
             {items.map(([label, href]) => (
-              <li key={label} style={{ marginBottom: 11 }}>
+              <li key={label} style={{ marginBottom: 13 }}>
                 <a
                   href={href}
                   className="footer-link"
                   style={{
-                    fontSize: 13,
-                    color: "#9E9488",
+                    fontSize: 14,
+                    color: "#C9C0B4",
                     textDecoration: "none",
-                    fontWeight: 300,
-                    transition: "color 0.25s",
+                    fontWeight: 500,
                   }}
-                  onMouseEnter={(e) =>
-                    ((e.currentTarget as HTMLAnchorElement).style.color = "#F8F5F0")
-                  }
-                  onMouseLeave={(e) =>
-                    ((e.currentTarget as HTMLAnchorElement).style.color = "#9E9488")
-                  }
                 >
                   {label}
                 </a>
