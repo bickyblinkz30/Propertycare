@@ -60,18 +60,18 @@ export default function BeforeAfterSlider() {
       ref={wrapRef}
       onMouseDown={(e) => start(e.clientX)}
       onTouchStart={(e) => start(e.touches[0].clientX)}
-      style={{ position: "relative", height: 460, overflow: "hidden", borderRadius: 2, cursor: "ew-resize", userSelect: "none" }}
+      style={{ position: "relative", height: 500, overflow: "hidden", borderRadius: 4, cursor: "ew-resize", userSelect: "none", boxShadow: "0 20px 60px rgba(10,9,8,0.18)" }}
     >
       {/* AFTER */}
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, #f5f0e8, #ede5d8)", display: "flex", alignItems: "center", justifyContent: "center" }}>
         <div style={{ position: "relative", width: "60%", height: "70%" }}>
-          <div style={{ position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)", width: "72%", height: "85%", background: "#1A1917", borderRadius: 2, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 10, boxShadow: "0 24px 64px rgba(26,25,23,0.28)" }}>
-            <div style={{ width: "75%", height: "46%", background: "#0a0a0a", border: "1px solid #2e2c2a" }} />
-            <div style={{ width: "75%", height: 3, background: "linear-gradient(to right, transparent, #B8935A, rgba(255,140,60,0.7), #B8935A, transparent)", filter: "blur(1.5px)" }} />
+          <div style={{ position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)", width: "72%", height: "85%", background: "#0A0908", borderRadius: 4, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 10, boxShadow: "0 24px 64px rgba(10,9,8,0.32)" }}>
+            <div style={{ width: "75%", height: "46%", background: "#040404", border: "1px solid #2e2c2a" }} />
+            <div style={{ width: "75%", height: 4, background: "linear-gradient(to right, transparent, #F58220, #FF9533, #F58220, transparent)", filter: "blur(1.5px)", borderRadius: 2 }} />
           </div>
           <div style={{ position: "absolute", bottom: -10, left: "-20%", right: "-20%", height: 18, background: "#d4c4a8", borderRadius: "50% 50% 0 0" }} />
         </div>
-        <div style={{ position: "absolute", top: 14, right: 14, background: "#1A5C3A", color: "#fff", fontSize: 9, letterSpacing: "0.22em", textTransform: "uppercase", padding: "5px 11px" }}>After</div>
+        <div style={{ position: "absolute", top: 16, right: 16, background: "#F58220", color: "#fff", fontSize: 11, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", padding: "6px 13px", borderRadius: 2 }}>After</div>
       </div>
 
       {/* BEFORE */}
@@ -81,14 +81,14 @@ export default function BeforeAfterSlider() {
             <div style={{ width: "60%", height: "40%", border: "2px solid #a89878", background: "#b0a080" }} />
           </div>
         </div>
-        <div style={{ position: "absolute", top: 14, left: 14, background: "rgba(26,25,23,0.75)", color: "#F8F5F0", fontSize: 9, letterSpacing: "0.22em", textTransform: "uppercase", padding: "5px 11px" }}>Before</div>
+        <div style={{ position: "absolute", top: 16, left: 16, background: "#0A0908", color: "#fff", fontSize: 11, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", padding: "6px 13px", borderRadius: 2 }}>Before</div>
       </div>
 
       {/* Divider */}
-      <div ref={divRef} style={{ position: "absolute", top: 0, bottom: 0, width: 2, background: "#B8935A", left: "50%", transform: "translateX(-50%)", zIndex: 10, pointerEvents: "none" }} />
+      <div ref={divRef} style={{ position: "absolute", top: 0, bottom: 0, width: 3, background: "#F58220", left: "50%", transform: "translateX(-50%)", zIndex: 10, pointerEvents: "none", boxShadow: "0 0 10px rgba(245,130,32,0.5)" }} />
       {/* Knob */}
-      <div ref={knobRef} style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 46, height: 46, background: "#B8935A", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none", zIndex: 11, boxShadow: "0 4px 20px rgba(0,0,0,0.22)" }}>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
+      <div ref={knobRef} style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 52, height: 52, background: "#F58220", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none", zIndex: 11, boxShadow: "0 6px 24px rgba(245,130,32,0.5)" }}>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5">
           <path d="M8 9l-4 3 4 3M16 9l4 3-4 3" />
         </svg>
       </div>
