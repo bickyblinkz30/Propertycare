@@ -3,8 +3,7 @@ import { useEffect } from "react";
 
 export default function ScrollReveal() {
   useEffect(() => {
-    const sel = ".rv, .rv-scale, .img-wrap";
-    const els = document.querySelectorAll(sel);
+    const els = document.querySelectorAll(".rv, .rv-scale, .img-wrap");
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
