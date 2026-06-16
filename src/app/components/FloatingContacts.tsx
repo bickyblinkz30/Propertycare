@@ -1,3 +1,5 @@
+"use client";
+
 export default function FloatingContacts() {
   return (
     <div className="floating-contacts">
