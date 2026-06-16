@@ -1,14 +1,14 @@
 const ITEMS = [
-  "✦ Free Quotations — No Obligation",
-  "✦ Fully Insured & Certified",
-  "✦ NICEIC / Part P Electricians",
-  "✦ 5★ Rated Across the North East",
-  "✦ Written Workmanship Guarantee",
-  "✦ Same-Week Surveys Available",
-  "✦ Residential & Commercial",
-  "✦ Sunderland & The North East",
-  "✦ Premium Painting & Decorating",
-  "✦ Bespoke Media Walls",
+  "Free Quotations — No Obligation",
+  "Fully Insured & Certified",
+  "NICEIC Approved Electricians",
+  "5★ Rated Across the North East",
+  "Written Workmanship Guarantee",
+  "Residential & Commercial",
+  "Sunderland & The North East",
+  "Experienced & Reliable Team",
+  "Premium Quality Workmanship",
+  "Fast Response Times",
 ];
 
 export default function Marquee() {
@@ -16,18 +16,17 @@ export default function Marquee() {
 
   return (
     <div style={{
-      background: "#1A1917",
-      borderTop: "1px solid rgba(184,147,90,0.3)",
-      borderBottom: "1px solid rgba(184,147,90,0.15)",
+      background: "#0A0908",
+      borderTop: "3px solid #F58220",
+      borderBottom: "1px solid rgba(245,130,32,0.2)",
     }}>
       <div className="mq-outer" style={{ position: "relative" }}>
-        {/* Fade edges */}
         {(["left", "right"] as const).map((side) => (
           <div key={side} style={{
             position: "absolute",
             [side]: 0, top: 0, bottom: 0,
-            width: 100,
-            background: `linear-gradient(to ${side === "left" ? "right" : "left"}, #1A1917, transparent)`,
+            width: 80,
+            background: `linear-gradient(to ${side === "left" ? "right" : "left"}, #0A0908, transparent)`,
             zIndex: 2, pointerEvents: "none",
           }} />
         ))}
@@ -37,20 +36,31 @@ export default function Marquee() {
             <div key={i} style={{
               display: "inline-flex",
               alignItems: "center",
-              padding: "17px 44px",
-              borderRight: "1px solid rgba(184,147,90,0.1)",
+              padding: "20px 40px",
               flexShrink: 0,
-              gap: 12,
+              gap: 14,
               whiteSpace: "nowrap",
             }}>
+              {/* Orange check icon */}
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F58220" strokeWidth="3" style={{ flexShrink: 0 }}>
+                <path d="M5 13l4 4L19 7" />
+              </svg>
               <span style={{
-                fontSize: 10,
-                fontWeight: 400,
-                letterSpacing: "0.22em",
+                fontSize: 13,
+                fontWeight: 700,
+                letterSpacing: "0.1em",
                 textTransform: "uppercase",
-                color: "rgba(253,252,251,0.55)",
+                color: "#fff",
               }}>
                 {text}
+              </span>
+              <span style={{
+                color: "#F58220",
+                fontSize: 18,
+                fontWeight: 700,
+                marginLeft: 14,
+              }}>
+                ●
               </span>
             </div>
           ))}
