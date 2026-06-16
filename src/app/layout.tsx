@@ -45,7 +45,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               name: "Propertycare Paints & Electrics",
-              description: "Premium painting & decorating, electrical, media walls and property maintenance in Sunderland and the North East.",
+              description:
+                "Premium painting & decorating, electrical, media walls and property maintenance in Sunderland and the North East.",
               telephone: "+447922909983",
               address: {
                 "@type": "PostalAddress",
@@ -53,7 +54,10 @@ export default function RootLayout({
                 addressRegion: "Tyne and Wear",
                 addressCountry: "GB",
               },
-              areaServed: ["Sunderland","Washington","Seaham","South Shields","Gateshead","Newcastle upon Tyne","Durham"],
+              areaServed: [
+                "Sunderland","Washington","Seaham","South Shields",
+                "Gateshead","Newcastle upon Tyne","Durham",
+              ],
               openingHours: "Mo-Fr 07:00-18:00",
               priceRange: "££",
             }),
