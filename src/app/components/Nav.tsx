@@ -23,7 +23,7 @@ export default function Nav() {
     ["Home", "/"],
     ["About", "/about"],
     ["Services", "/services"],
-    ["Portfolio", "#transformations"],
+    ["Portfolio", "/portfolio"],
     ["Why Us", "#whyus"],
     ["Contact", "#contact"],
   ];
