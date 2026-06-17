@@ -1,11 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const WA = "https://wa.me/447922909982?text=Hi%20Property%20Care%2C%20I%27d%20like%20a%20free%20quote.";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 80);
@@ -66,7 +68,7 @@ export default function Nav() {
           }} className="dsk-links">
             {links.map(([label, href]) => (
               <li key={label}>
-                <a href={href} className="nav-link">{label}</a>
+                <a href={href} className={`nav-link${pathname === href ? " nav-active" : ""}`}>{label}</a>
               </li>
             ))}
           </ul>

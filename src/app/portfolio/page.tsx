@@ -5,6 +5,7 @@ import FloatingContacts from "../components/FloatingContacts";
 import ScrollReveal from "../components/ScrollReveal";
 import BeforeAfterSlider from "../components/BeforeAfterSlider";
 import FooterLinks from "../components/FooterLinks";
+import { motion } from "framer-motion";
 
 const WA = "https://wa.me/447922909982?text=Hi%20Property%20Care%2C%20I%27d%20like%20a%20free%20quote.";
 
@@ -19,6 +20,14 @@ const IMG = {
   p6:    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=85&auto=format&fit=crop",
   p7:    "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=900&q=85&auto=format&fit=crop",
   p8:    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=85&auto=format&fit=crop",
+  p9:    "https://images.unsplash.com/photo-1616137466211-f939a420be84?w=900&q=85&auto=format&fit=crop",
+  p10:   "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=900&q=85&auto=format&fit=crop",
+  p11:   "https://images.unsplash.com/photo-1600585153490-76fb20a32601?w=900&q=85&auto=format&fit=crop",
+  p12:   "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=900&q=85&auto=format&fit=crop",
+  p13:   "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=900&q=85&auto=format&fit=crop",
+  p14:   "https://images.unsplash.com/photo-1600305029164-c3c3d0c5e86e?w=900&q=85&auto=format&fit=crop",
+  p15:   "https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?w=900&q=85&auto=format&fit=crop",
+  p16:   "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=900&q=85&auto=format&fit=crop",
   cta:   "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1400&q=82&auto=format&fit=crop",
 };
 
@@ -47,14 +56,34 @@ function StarRating({ filled = 5 }: { filled?: number }) {
 }
 
 const ALL_PROJECTS = [
+  // Painting & Decorating (6)
   { title: "Interior Living Room Transformation", cat: "Painting & Decorating", img: IMG.p1, desc: "Complete living room repaint with feature wall and premium decorative finishes.", loc: "Sunderland" },
   { title: "Complete Exterior Repaint", cat: "Painting & Decorating", img: IMG.p2, desc: "Full exterior repaint including woodwork, soffits and masonry for a period property.", loc: "Washington" },
-  { title: "Consumer Unit Upgrade", cat: "Electrical", img: IMG.p3, desc: "Modern consumer unit installation with full EICR certification and smart RCD protection.", loc: "Seaham" },
-  { title: "Bespoke Media Wall Installation", cat: "Media Walls", img: IMG.p4, desc: "Custom media wall with electric fire, concealed cabling and integrated ambient lighting.", loc: "Sunderland" },
-  { title: "Landlord Property Refresh", cat: "Property Maintenance", img: IMG.p5, desc: "Full tenant changeover refresh including repaint, minor repairs and electrical safety check.", loc: "Gateshead" },
-  { title: "Full Electrical Rewiring", cat: "Electrical", img: IMG.p6, desc: "Complete rewiring of a three-bedroom home with smart lighting and new consumer unit.", loc: "Newcastle" },
   { title: "Kitchen Repaint & Refresh", cat: "Painting & Decorating", img: IMG.p7, desc: "Kitchen cabinet repaint, wall preparation and durable satinwood finish throughout.", loc: "Durham" },
+  { title: "Commercial Office Decorating", cat: "Painting & Decorating", img: IMG.p11, desc: "Full office interior redecorated with hard-wearing matt emulsion and satinwood trim.", loc: "Newcastle" },
+  { title: "Hallway & Staircase Renovation", cat: "Painting & Decorating", img: IMG.p12, desc: "Transformed a narrow hallway with feature wall, dado rail and fresh neutral palette.", loc: "Sunderland" },
+  { title: "Feature Wall Design", cat: "Painting & Decorating", img: IMG.p9, desc: "Bespoke accent wall with geometric paint effect and complementary colour scheme.", loc: "Gateshead" },
+  // Electrical (6)
+  { title: "Consumer Unit Upgrade", cat: "Electrical", img: IMG.p3, desc: "Modern consumer unit installation with full EICR certification and smart RCD protection.", loc: "Seaham" },
+  { title: "Full Electrical Rewiring", cat: "Electrical", img: IMG.p6, desc: "Complete rewiring of a three-bedroom home with smart lighting and new consumer unit.", loc: "Newcastle" },
+  { title: "Smart Lighting Installation", cat: "Electrical", img: IMG.p13, desc: "Integrated smart lighting system with dimmable zones, motion sensors and app control.", loc: "Sunderland" },
+  { title: "Garden & Outdoor Lighting", cat: "Electrical", img: IMG.p14, desc: "Low-voltage garden lighting with IP-rated fittings, deck lights and feature spotlights.", loc: "Durham" },
+  { title: "Electrical Fault Repair", cat: "Electrical", img: IMG.p10, desc: "Diagnosed and repaired intermittent power fault, replaced damaged wiring and tested circuits.", loc: "South Shields" },
+  { title: "Video Doorbell Installation", cat: "Electrical", img: IMG.p15, desc: "Hardwired video doorbell with chime kit, transformer upgrade and WiFi configuration.", loc: "Washington" },
+  // Property Maintenance (6)
+  { title: "Landlord Property Refresh", cat: "Property Maintenance", img: IMG.p5, desc: "Full tenant changeover refresh including repaint, minor repairs and electrical safety check.", loc: "Gateshead" },
   { title: "Routine Property Maintenance", cat: "Property Maintenance", img: IMG.p8, desc: "Annual maintenance check including gutter clearance, sealant refresh and minor joinery repairs.", loc: "South Shields" },
+  { title: "General Repairs & Joinery", cat: "Property Maintenance", img: IMG.p16, desc: "Door adjustments, skirting replacement, sash cord repair and general joinery throughout.", loc: "Sunderland" },
+  { title: "Property Inspection Report", cat: "Property Maintenance", img: IMG.p11, desc: "Comprehensive property condition inspection with photographic evidence and priority actions.", loc: "Newcastle" },
+  { title: "Rental Property Maintenance", cat: "Property Maintenance", img: IMG.p2, desc: "Ongoing maintenance contract for HMO property including gas, electrical and fabric checks.", loc: "Sunderland" },
+  { title: "Emergency Maintenance Call-Out", cat: "Property Maintenance", img: IMG.p8, desc: "Emergency call-out for burst pipe isolation, electrical fault and temporary board-up.", loc: "Seaham" },
+  // Media Walls (6)
+  { title: "Bespoke Media Wall Installation", cat: "Media Walls", img: IMG.p4, desc: "Custom media wall with electric fire, concealed cabling and integrated ambient lighting.", loc: "Sunderland" },
+  { title: "Contemporary LED Feature Wall", cat: "Media Walls", img: IMG.p9, desc: "Modern LED-backlit media wall with floating shelves, downlighters and hidden cable system.", loc: "Washington" },
+  { title: "Living Room Centrepiece", cat: "Media Walls", img: IMG.p13, desc: "Full-width media wall as the room centrepiece with stone-effect cladding and TV recess.", loc: "Gateshead" },
+  { title: "Luxury TV Wall with Fireplace", cat: "Media Walls", img: IMG.p14, desc: "Premium media wall with inset electric fire, oak shelving and colour-changing LED strips.", loc: "Durham" },
+  { title: "Floating Media Unit", cat: "Media Walls", img: IMG.p10, desc: "Floating wall-mounted media unit with concealed storage, cable management and LED glow.", loc: "Newcastle" },
+  { title: "Modern Feature Wall with Panelling", cat: "Media Walls", img: IMG.p15, desc: "Media wall with decorative panelling, picture light and integrated soundbar recess.", loc: "Sunderland" },
 ];
 
 const CATEGORIES = ["All Projects", "Painting & Decorating", "Electrical", "Property Maintenance", "Media Walls"];
@@ -179,10 +208,16 @@ export default function Portfolio() {
             </div>
 
             {/* Project grid */}
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 28 }} className="grid-3">
-              {filtered.map((project, i) => (
-                <div key={project.title} className={`port-card rv rv-d${(i % 3) + 1}`} style={{ height: 400 }}>
-                  {/* TODO: Replace with client project photos */}
+            <div key={activeCat} style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 28 }} className="grid-3">
+              {filtered.map((project) => (
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  key={project.title}
+                  className="port-card"
+                  style={{ height: 400 }}
+                >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={project.img} alt={project.title} />
                   <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,9,8,0.95) 0%, transparent 60%)", padding: 28, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
@@ -193,7 +228,7 @@ export default function Portfolio() {
                     <div style={{ fontSize: 12, color: "rgba(255,255,255,0.65)", marginBottom: 8, fontWeight: 500, letterSpacing: "0.04em" }}>{project.loc}</div>
                     <p style={{ fontSize: 13, color: "rgba(255,255,255,0.75)", lineHeight: 1.55, fontWeight: 400 }}>{project.desc}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 

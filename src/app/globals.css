@@ -68,28 +68,19 @@ body {
   transition: padding 0.5s cubic-bezier(0.16,1,0.3,1), background 0.5s, border-color 0.5s, box-shadow 0.5s;
 }
 
-.nav-link {
-  position: relative;
-  color: rgba(255,255,255,0.85);
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 8px 0;
-  transition: color 0.25s;
-}
+.nav-link { position: relative; color: rgba(255,255,255,0.85); text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 0; transition: color 0.25s; }
+
 .nav-scrolled .nav-link { color: #1A1917; }
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 0; height: 2px;
-  background: #F58220;
-  transition: width 0.4s cubic-bezier(0.16,1,0.3,1);
-}
+
+.nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #F58220; transition: width 0.4s cubic-bezier(0.16,1,0.3,1); }
+
 .nav-link:hover { color: #F58220 !important; }
+
 .nav-link:hover::after { width: 100%; }
+
+.nav-link.nav-active { color: #F58220 !important; }
+
+.nav-link.nav-active::after { width: 100%; }
 
 /* ════════════════════════════════════
    HERO ENTRANCE
