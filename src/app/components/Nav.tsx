@@ -22,7 +22,7 @@ export default function Nav() {
   const links = [
     ["Home", "/"],
     ["About", "/about"],
-    ["Services", "#services"],
+    ["Services", "/services"],
     ["Portfolio", "#transformations"],
     ["Why Us", "#whyus"],
     ["Contact", "#contact"],

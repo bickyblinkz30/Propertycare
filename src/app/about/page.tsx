@@ -215,10 +215,10 @@ export default function About() {
                 <div className="rv rv-d3" style={{ marginBottom: 28 }}>
                   <h4 style={{ fontSize: 16, fontWeight: 800, color: "#0A0908", marginBottom: 12, letterSpacing: "0.02em" }}>Professional Biography</h4>
                   <p style={{ fontSize: 15, color: "#3D3A37", lineHeight: 1.8, fontWeight: 400, marginBottom: 16 }}>
-                    Chukwundi founded Property Care Paint &amp; Electrics with a clear mission: deliver premium property transformations through one accountable team. With combined expertise in painting, decorating, and electrical work, he personally ensures every project meets the highest standards of craftsmanship and professionalism.
+                    Chukwudi founded Property Care Paint &amp; Electrics with a clear mission: deliver premium property transformations through one accountable team. With combined expertise in painting, decorating, and electrical work, he personally ensures every project meets the highest standards of craftsmanship and professionalism.
                   </p>
                   <p style={{ fontSize: 15, color: "#3D3A37", lineHeight: 1.8, fontWeight: 400 }}>
-                    From full interior repaints to complex electrical installations and property maintenance, Chukwundi brings hands-on experience, NICEIC certification, and an unwavering commitment to quality to every job across Sunderland and the North East.
+                    From full interior repaints to complex electrical installations and property maintenance, Chukwudi brings hands-on experience, NICEIC certification, and an unwavering commitment to quality to every job across Sunderland and the North East.
                   </p>
                 </div>
 
