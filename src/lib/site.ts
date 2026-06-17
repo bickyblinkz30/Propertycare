@@ -4,13 +4,13 @@
 */
 
 // --- Contact (primary conversion path: WhatsApp → SMS → Call) ---
-const RAW_PHONE = "07922909983";
-const INTL_PHONE = "447922909983"; // UK, no leading 0, no +
+const RAW_PHONE = "07922909982";
+const INTL_PHONE = "447922909982"; // UK, no leading 0, no +
 
 export const contact = {
-  display: "07922 909983",
-  tel: "+447922909983",
-  sms: `sms:+447922909983`,
+  display: "07922 909982",
+  tel: "+447922909982",
+  sms: `sms:+447922909982`,
   whatsapp: `https://wa.me/${INTL_PHONE}?text=${encodeURIComponent(
     "Hi Propertycare, I'd like a quote for a transformation.",
   )}`,

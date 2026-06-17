@@ -5,7 +5,7 @@ import FloatingContacts from "../components/FloatingContacts";
 import ScrollReveal from "../components/ScrollReveal";
 import FooterLinks from "../components/FooterLinks";
 
-const WA = "https://wa.me/447922909983?text=Hi%20Property%20Care%2C%20I%27d%20like%20a%20free%20quote.";
+const WA = "https://wa.me/447922909982?text=Hi%20Property%20Care%2C%20I%27d%20like%20a%20free%20quote.";
 
 function OrangeTab({ children, center = false }: { children: React.ReactNode; center?: boolean }) {
   return (
@@ -31,7 +31,10 @@ export default function About() {
             HERO
         ══════════════════════════════════════ */}
         <section style={{ position: "relative", minHeight: "80vh", display: "flex", alignItems: "center", overflow: "hidden", background: "#0A0908" }}>
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(10,9,8,0.98) 0%, rgba(10,9,8,0.88) 50%, rgba(10,9,8,0.7) 100%)" }} />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=88&auto=format&fit=crop" alt="Professional painting and decorating craftsmanship" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", opacity: 0.4 }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(10,9,8,0.95) 0%, rgba(10,9,8,0.7) 50%, rgba(10,9,8,0.3) 100%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,9,8,0.98) 0%, rgba(10,9,8,0.4) 40%, transparent 70%)" }} />
           <div style={{ position: "relative", zIndex: 2, padding: "140px 52px", maxWidth: 920, width: "100%" }}>
             <div className="h-a1" style={{ marginBottom: 32 }}>
               <OrangeTab>About Property Care</OrangeTab>
@@ -138,46 +141,125 @@ export default function About() {
         </section>
 
         {/* ══════════════════════════════════════
-            TEAM (placeholder)
+            FOUNDER — single professional profile
         ══════════════════════════════════════ */}
         <section style={{ padding: "120px 52px", background: "#FDFCFB" }}>
-          <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-            <div className="rv" style={{ textAlign: "center", marginBottom: 72 }}>
-              <OrangeTab center>Meet The Team</OrangeTab>
+          <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+            <div className="rv" style={{ textAlign: "center", marginBottom: 64 }}>
+              <OrangeTab center>Meet The Founder</OrangeTab>
               <h2 className="rv rv-d1" style={{
                 fontSize: "clamp(40px, 4.8vw, 64px)",
                 fontWeight: 900, lineHeight: 1.05,
                 letterSpacing: "-0.02em", color: "#0A0908",
                 textTransform: "uppercase",
               }}>
-                The People Behind<br /><span style={{ color: "#F58220" }}>The Transformations.</span>
+                The Person Behind<br /><span style={{ color: "#F58220" }}>The Transformations.</span>
               </h2>
-              <p className="rv rv-d2" style={{ fontSize: 16, color: "#6B6460", maxWidth: 480, margin: "20px auto 0", lineHeight: 1.7 }}>
-                Team information and photography coming soon.
-              </p>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 28 }} className="grid-3">
-              {[
-                { role: "CEO / Founder", placeholder: true },
-                { role: "Lead Painter & Decorator", placeholder: true },
-                { role: "Certified Electrician", placeholder: true },
-              ].map((m, i) => (
-                <div key={m.role} className={`rv rv-d${i + 1}`} style={{ textAlign: "center" }}>
-                  <div style={{
-                    aspectRatio: "1/1", width: "100%", maxWidth: 300, margin: "0 auto 24px",
-                    background: "#F8F5F0", borderRadius: 4, border: "2px solid #E8E2D9",
-                    display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 8,
-                  }}>
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C9C0B4" strokeWidth="1.5">
-                      <path d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                    </svg>
-                    <span style={{ fontSize: 10, color: "#C9C0B4", letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 600 }}>Photo coming soon</span>
-                  </div>
-                  <div style={{ fontSize: 17, fontWeight: 800, color: "#0A0908", marginBottom: 6 }}>{m.role}</div>
-                  <div style={{ fontSize: 12, color: "#9E9488", fontWeight: 600, letterSpacing: "0.06em" }}>Biography pending</div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1.8fr", gap: 64, alignItems: "start" }} className="grid-2">
+              {/* Portrait */}
+              <div className="rv rv-d1">
+                <div style={{
+                  width: "100%", maxWidth: 380, margin: "0 auto",
+                  borderRadius: 4, overflow: "hidden",
+                  border: "3px solid #F58220",
+                  boxShadow: "0 20px 60px rgba(10,9,8,0.15)",
+                }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=85&auto=format&fit=crop"
+                    alt="Chukwudi Emmanuel Ifeanyi — Founder & Managing Director"
+                    style={{ width: "100%", height: 440, objectFit: "cover", display: "block" }}
+                  />
                 </div>
-              ))}
+              </div>
+
+              {/* Info */}
+              <div>
+                <div className="rv rv-d1" style={{ marginBottom: 24 }}>
+                  <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#F58220", marginBottom: 12 }}>
+                    Founder &amp; Managing Director
+                  </div>
+                  <h3 style={{
+                    fontSize: "clamp(28px, 3.5vw, 42px)",
+                    fontWeight: 900, lineHeight: 1.1,
+                    letterSpacing: "-0.02em", color: "#0A0908",
+                    marginBottom: 8,
+                  }}>
+                    Chukwudi Emmanuel Ifeanyi
+                  </h3>
+                  <p style={{ fontSize: 15, color: "#6B6460", fontWeight: 500, letterSpacing: "0.04em" }}>
+                    Property Care Paint &amp; Electrics
+                  </p>
+                </div>
+
+                {/* Expertise tags */}
+                <div className="rv rv-d2" style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 32 }}>
+                  {[
+                    "Painter & Decorator",
+                    "Electrical Specialist",
+                    "Property Maintenance Professional",
+                  ].map((tag) => (
+                    <span key={tag} style={{
+                      background: "rgba(245,130,32,0.1)", border: "1px solid rgba(245,130,32,0.3)",
+                      padding: "8px 16px", fontSize: 12, fontWeight: 700,
+                      letterSpacing: "0.06em", color: "#F58220", borderRadius: 4,
+                    }}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Biography */}
+                <div className="rv rv-d3" style={{ marginBottom: 28 }}>
+                  <h4 style={{ fontSize: 16, fontWeight: 800, color: "#0A0908", marginBottom: 12, letterSpacing: "0.02em" }}>Professional Biography</h4>
+                  <p style={{ fontSize: 15, color: "#3D3A37", lineHeight: 1.8, fontWeight: 400, marginBottom: 16 }}>
+                    Chukwundi founded Property Care Paint &amp; Electrics with a clear mission: deliver premium property transformations through one accountable team. With combined expertise in painting, decorating, and electrical work, he personally ensures every project meets the highest standards of craftsmanship and professionalism.
+                  </p>
+                  <p style={{ fontSize: 15, color: "#3D3A37", lineHeight: 1.8, fontWeight: 400 }}>
+                    From full interior repaints to complex electrical installations and property maintenance, Chukwundi brings hands-on experience, NICEIC certification, and an unwavering commitment to quality to every job across Sunderland and the North East.
+                  </p>
+                </div>
+
+                {/* Experience */}
+                <div className="rv rv-d4" style={{ marginBottom: 28 }}>
+                  <h4 style={{ fontSize: 16, fontWeight: 800, color: "#0A0908", marginBottom: 12, letterSpacing: "0.02em" }}>Experience</h4>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                    {[
+                      { yr: "2020 — Present", title: "Founder & Managing Director", org: "Property Care Paint & Electrics, Sunderland" },
+                      { yr: "2017 — 2020", title: "Senior Painter & Decorator", org: "North East Property Services" },
+                      { yr: "2014 — 2017", title: "Electrical Installations Engineer", org: "UK Building Solutions Ltd" },
+                    ].map((exp) => (
+                      <div key={exp.yr} style={{ display: "flex", gap: 20, padding: "14px 18px", background: "#F8F5F0", borderRadius: 4, borderLeft: "3px solid #F58220" }}>
+                        <div style={{ fontSize: 12, fontWeight: 700, color: "#F58220", flexShrink: 0, width: 130, letterSpacing: "0.04em" }}>{exp.yr}</div>
+                        <div>
+                          <div style={{ fontSize: 14, fontWeight: 700, color: "#0A0908" }}>{exp.title}</div>
+                          <div style={{ fontSize: 12, color: "#6B6460", fontWeight: 500 }}>{exp.org}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Service Expertise */}
+                <div className="rv rv-d5">
+                  <h4 style={{ fontSize: 16, fontWeight: 800, color: "#0A0908", marginBottom: 12, letterSpacing: "0.02em" }}>Service Expertise</h4>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+                    {[
+                      { icon: "🎨", label: "Painting & Decorating" },
+                      { icon: "⚡", label: "Electrical Installations" },
+                      { icon: "🖥️", label: "Media Walls" },
+                      { icon: "🔧", label: "Property Maintenance" },
+                    ].map((s) => (
+                      <div key={s.label} style={{ display: "flex", alignItems: "center", gap: 12, padding: "14px 16px", background: "#FDFCFB", border: "1px solid #E8E2D9", borderRadius: 4 }}>
+                        <span style={{ fontSize: 20, lineHeight: 1 }}>{s.icon}</span>
+                        <span style={{ fontSize: 13, fontWeight: 700, color: "#0A0908", letterSpacing: "0.02em" }}>{s.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -230,13 +312,13 @@ export default function About() {
                 <p style={{ fontSize: 14, color: "#C9C0B4", lineHeight: 1.7, maxWidth: 320, marginBottom: 24, fontWeight: 400 }}>
                   The North East&apos;s premium single-team property transformation specialists. Sunderland and surrounding areas. Residential &amp; commercial.
                 </p>
-                <a href="tel:+447922909983" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 14, background: "rgba(245,130,32,0.1)", border: "1px solid rgba(245,130,32,0.3)", padding: "14px 20px", borderRadius: 4, marginBottom: 24 }}>
+                <a href="tel:+447922909982" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 14, background: "rgba(245,130,32,0.1)", border: "1px solid rgba(245,130,32,0.3)", padding: "14px 20px", borderRadius: 4, marginBottom: 24 }}>
                   <div style={{ width: 36, height: 36, background: "#F58220", borderRadius: 4, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5"><path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
                   </div>
                   <div>
                     <div style={{ fontSize: 9, letterSpacing: "0.22em", textTransform: "uppercase", color: "#F58220", fontWeight: 700, marginBottom: 2 }}>Call us free</div>
-                    <div style={{ fontSize: 19, fontWeight: 800, color: "#fff", letterSpacing: "0.02em", lineHeight: 1 }}>07922 909983</div>
+                    <div style={{ fontSize: 19, fontWeight: 800, color: "#fff", letterSpacing: "0.02em", lineHeight: 1 }}>07922 909982</div>
                   </div>
                 </a>
                 <div style={{ display: "flex", gap: 7, flexWrap: "wrap" }}>

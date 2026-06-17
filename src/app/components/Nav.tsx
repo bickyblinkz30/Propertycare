@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-const WA = "https://wa.me/447922909983?text=Hi%20Property%20Care%2C%20I%27d%20like%20a%20free%20quote.";
+const WA = "https://wa.me/447922909982?text=Hi%20Property%20Care%2C%20I%27d%20like%20a%20free%20quote.";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -73,7 +73,7 @@ export default function Nav() {
 
           {/* ── RIGHT — phone + CTA ── */}
           <div style={{ display: "flex", alignItems: "center", gap: 24 }} className="dsk-right">
-            <a href="tel:+447922909983" style={{ textDecoration: "none", display: "flex", flexDirection: "column" }} className="nav-phone">
+            <a href="tel:+447922909982" style={{ textDecoration: "none", display: "flex", flexDirection: "column" }} className="nav-phone">
               <span style={{
                 fontSize: 9,
                 letterSpacing: "0.2em",
@@ -93,7 +93,7 @@ export default function Nav() {
                 lineHeight: 1,
                 transition: "font-size 0.5s cubic-bezier(0.16,1,0.3,1), color 0.5s",
               }}>
-                07922 909983
+                07922 909982
               </span>
             </a>
 
@@ -179,13 +179,13 @@ export default function Nav() {
           <a href={WA} className="btn-orange" style={{ justifyContent: "center" }}>
             <span>WhatsApp — Free Quote</span>
           </a>
-          <a href="tel:+447922909983" style={{
+          <a href="tel:+447922909982" style={{
             display: "flex", justifyContent: "center", alignItems: "center",
             gap: 10, padding: "18px", background: "#0A0908", borderRadius: 4,
             fontSize: 22, fontWeight: 800, color: "#fff", textDecoration: "none", letterSpacing: "0.02em",
           }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
-            07922 909983
+            07922 909982
           </a>
         </div>
 

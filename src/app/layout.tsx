@@ -55,7 +55,7 @@ export default function RootLayout({
               name: "Property Care Paint & Electrics",
               description:
                 "Premium painting, decorating, electrical and property maintenance in Sunderland and the North East.",
-              telephone: "+447922909983",
+              telephone: "+447922909982",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Sunderland",

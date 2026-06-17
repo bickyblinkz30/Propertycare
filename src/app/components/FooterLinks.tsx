@@ -25,9 +25,9 @@ const COLS = [
   {
     h: "Quick Links",
     items: [
-      ["WhatsApp Us", "https://wa.me/447922909983"],
-      ["Text Message", "sms:+447922909983"],
-      ["07922 909983", "tel:+447922909983"],
+      ["WhatsApp Us", "https://wa.me/447922909982"],
+      ["Text Message", "sms:+447922909982"],
+      ["07922 909982", "tel:+447922909982"],
       ["Get a Free Quote", "#contact"],
     ],
   },
