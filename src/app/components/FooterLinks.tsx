@@ -28,7 +28,7 @@ const COLS = [
       ["WhatsApp Us", "https://wa.me/447922909982"],
       ["Text Message", "sms:+447922909982"],
       ["07922 909982", "tel:+447922909982"],
-      ["Get a Free Quote", "#contact"],
+      ["Get a Free Quote", "/contact"],
     ],
   },
 ];

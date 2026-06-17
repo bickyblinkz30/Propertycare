@@ -25,7 +25,7 @@ export default function Nav() {
     ["Services", "/services"],
     ["Portfolio", "/portfolio"],
     ["Why Us", "/why-choose-us"],
-    ["Contact", "#contact"],
+    ["Contact", "/contact"],
   ];
 
   return (
