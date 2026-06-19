@@ -1,6 +1,7 @@
 "use client";
+import { serviceAreas } from "@/lib/site";
 
-const COLS = [
+const COLS: { h: string; items: [string, string][] }[] = [
   {
     h: "Services",
     items: [
@@ -12,15 +13,9 @@ const COLS = [
   },
   {
     h: "Areas Covered",
-    items: [
-      ["Sunderland", "#areas"],
-      ["Washington", "#areas"],
-      ["Seaham", "#areas"],
-      ["South Shields", "#areas"],
-      ["Gateshead", "#areas"],
-      ["Newcastle", "#areas"],
-      ["Durham", "#areas"],
-    ],
+    // Sourced from the canonical service-area list in src/lib/site.ts so it
+    // can never drift from the homepage / contact / FAQ lists again.
+    items: serviceAreas.map((area) => [area, "#areas"] as [string, string]),
   },
   {
     h: "Quick Links",

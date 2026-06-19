@@ -161,19 +161,52 @@ export const processSteps = [
 ] as const;
 
 // --- Service areas ---
+/*
+  Canonical coverage list — the single source of truth for every rendered
+  service-area list, the footer, the FAQ copy and the JSON-LD structured data.
+
+  CONFIRM WITH CLIENT: this is the working default while the real coverage list
+  is confirmed. It uses the most complete (18-town) version from the original
+  homepage. Spelling is standardized to "Houghton-le-Spring" and
+  "Chester-le-Street"; marketing copy uses "Newcastle", and only the JSON-LD
+  structured data below uses the full place name "Newcastle upon Tyne".
+*/
+export const primaryArea = "Sunderland";
+
 export const serviceAreas = [
   "Sunderland",
   "Washington",
   "Seaham",
   "South Shields",
   "Gateshead",
-  "Newcastle upon Tyne",
+  "Newcastle",
   "Durham",
   "Chester-le-Street",
   "Jarrow",
   "Hebburn",
   "Peterlee",
+  "Boldon",
+  "Cleadon",
+  "Whitburn",
+  "Ryhope",
+  "Fulwell",
+  "East Boldon",
+  "Houghton-le-Spring",
 ] as const;
+
+// Everything except the primary area, for grids that render the primary
+// area separately as a highlighted header (homepage + contact page).
+export const secondaryServiceAreas: readonly string[] = serviceAreas.filter(
+  (a) => a !== primaryArea,
+);
+
+// Prose form for FAQ answers, e.g. "Sunderland, Washington, … and the wider North East".
+export const serviceAreasSentence = `${serviceAreas.join(", ")} and the wider North East`;
+
+// Structured-data (JSON-LD) variant — uses the full legal place name for Newcastle.
+export const serviceAreasStructured: readonly string[] = serviceAreas.map((a) =>
+  a === "Newcastle" ? "Newcastle upon Tyne" : a,
+);
 
 // --- Testimonials (placeholder — replace with verified, attributed reviews) ---
 export const testimonials = [

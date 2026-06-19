@@ -4,15 +4,10 @@ import Nav from "../components/Nav";
 import FloatingContacts from "../components/FloatingContacts";
 import ScrollReveal from "../components/ScrollReveal";
 import FooterLinks from "../components/FooterLinks";
+import { primaryArea, secondaryServiceAreas, serviceAreasSentence } from "@/lib/site";
+import { contactImages as IMG } from "@/lib/images";
 
 const WA = "https://wa.me/447922909982?text=Hi%20Property%20Care%2C%20I%27d%20like%20a%20free%20quote.";
-
-// TODO: Replace with client-supplied images
-const IMG = {
-  hero: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=88&auto=format&fit=crop",
-  cta:  "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1400&q=82&auto=format&fit=crop",
-  founder: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=85&auto=format&fit=crop",
-};
 
 function OrangeTab({ children, center = false }: { children: React.ReactNode; center?: boolean }) {
   return (
@@ -361,10 +356,10 @@ export default function Contact() {
               <div className="rv rv-d1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: "#E8E2D9", border: "1px solid #E8E2D9", borderRadius: 4, overflow: "hidden" }}>
                 <div style={{ gridColumn: "1 / -1", background: "#0A0908", padding: "20px 22px" }}>
                   <div style={{ width: 24, height: 3, background: "#F58220", marginBottom: 8 }} />
-                  <span style={{ fontSize: 22, fontWeight: 800, color: "#fff", letterSpacing: "-0.01em" }}>Sunderland</span>
+                  <span style={{ fontSize: 22, fontWeight: 800, color: "#fff", letterSpacing: "-0.01em" }}>{primaryArea}</span>
                   <span style={{ fontSize: 10, color: "#F58220", marginLeft: 10, letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 800 }}>Primary</span>
                 </div>
-                {["Washington", "South Shields", "Seaham", "Houghton-le-Spring", "Gateshead", "Newcastle", "Durham", "Jarrow", "Hebburn", "Peterlee", "Chester-le-Street"].map((a) => (
+                {secondaryServiceAreas.map((a) => (
                   <div key={a} className="area-cell" style={{ background: "#FDFCFB", padding: "18px 16px" }}>
                     <div style={{ width: 14, height: 2, background: "#F58220", marginBottom: 6 }} />
                     <span style={{ fontSize: 12, letterSpacing: "0.06em", color: "#0A0908", fontWeight: 700, textTransform: "uppercase" }}>{a}</span>
@@ -372,38 +367,28 @@ export default function Contact() {
                 ))}
               </div>
 
-              {/* TODO: Replace with live service area map if required */}
+              {/*
+                CONFIRM WITH CLIENT: no business address/postcode exists on the
+                site yet, so this map is centred on Sunderland city centre
+                (54.9069, -1.3838) as a placeholder. Once the client confirms
+                their trading address, replace the `q=` coordinates in the src
+                URL below with the real address (e.g. q=SR1+1AA) so the pin
+                lands on the actual location.
+              */}
               <div className="rv rv-d2" style={{
-                background: "#F8F5F0", border: "2px solid #E8E2D9", borderRadius: 4,
-                height: 380, display: "flex", alignItems: "center", justifyContent: "center",
-                position: "relative", overflow: "hidden",
+                border: "2px solid #E8E2D9", borderRadius: 4,
+                height: 380, overflow: "hidden",
               }}>
-                <div style={{ position: "absolute", inset: 0, opacity: 0.08 }}>
-                  <svg viewBox="0 0 400 380" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
-                    <path d="M200 30 L280 70 L320 150 L280 240 L200 280 L120 240 L80 150 L120 70 Z" fill="none" stroke="#F58220" strokeWidth="2" />
-                    <circle cx="200" cy="150" r="8" fill="#F58220" />
-                    <text x="200" y="155" textAnchor="middle" fill="#F58220" fontSize="8" fontWeight="700" dy=".3em">SR</text>
-                    {([[170,100,"Washington"],[230,100,"Seaham"],[150,200,"South Shields"],[250,200,"Gateshead"],[200,90,"NE"],[140,130,"DH"]] as [number, number, string][]).map(([x, y, label]) => (
-                      <g key={label}>
-                        <circle cx={x} cy={y} r="3" fill="#F58220" opacity="0.6" />
-                        <text x={x} y={y - 8} textAnchor="middle" fill="#0A0908" fontSize="7" fontWeight="600" opacity="0.5">{label}</text>
-                      </g>
-                    ))}
-                  </svg>
-                </div>
-                <div style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
-                  <div style={{ width: 64, height: 64, background: "#FFE8D4", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px" }}>
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F58220" strokeWidth="2">
-                      <path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                      <path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                    </svg>
-                  </div>
-                  <div style={{ fontSize: 16, fontWeight: 800, color: "#0A0908", marginBottom: 6, letterSpacing: "-0.01em" }}>Service Area Map</div>
-                  <div style={{ fontSize: 12, color: "#9E9488", fontWeight: 500 }}>Sunderland &amp; The North East</div>
-                  <div style={{ marginTop: 12, padding: "6px 14px", background: "rgba(245,130,32,0.1)", border: "1px solid rgba(245,130,32,0.3)", borderRadius: 4, display: "inline-block" }}>
-                    <span style={{ fontSize: 10, fontWeight: 700, color: "#F58220", letterSpacing: "0.06em" }}>Map placeholder — live map coming soon</span>
-                  </div>
-                </div>
+                <iframe
+                  title="Property Care Paint & Electrics service area — Sunderland"
+                  src="https://maps.google.com/maps?q=54.9069,-1.3838&z=11&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, display: "block" }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
               </div>
             </div>
           </div>
@@ -460,7 +445,7 @@ export default function Contact() {
               <Accordion question="Do you work on commercial properties?" answer="Yes. We provide services for both residential homeowners and commercial clients across Sunderland and the North East." />
               <Accordion question="Are you fully insured?" answer="Absolutely. We carry full public liability insurance and all electrical work is NICEIC / Part P certified for your peace of mind." />
               <Accordion question="Can I combine multiple services?" answer="Yes. Booking painting, electrical and maintenance together means one team, one point of contact and a coordinated schedule — saving you time and hassle." />
-              <Accordion question="What areas do you cover?" answer="We cover Sunderland, Washington, Seaham, South Shields, Gateshead, Newcastle, Durham, Chester-le-Street, Jarrow, Hebburn, Peterlee and the wider North East." />
+              <Accordion question="What areas do you cover?" answer={`We cover ${serviceAreasSentence}.`} />
               <Accordion question="Do you offer landlord maintenance services?" answer="Yes. We offer dedicated landlord maintenance including routine inspections, tenant changeover refreshes and reactive repairs." />
             </div>
           </div>
@@ -482,7 +467,7 @@ export default function Contact() {
                 Google<br /><span style={{ color: "#F58220" }}>Reviews</span>
               </h2>
               <p className="rv rv-d2" style={{ fontSize: 13, color: "#9E9488", marginTop: 16, letterSpacing: "0.06em", fontWeight: 500 }}>
-                Client reviews coming soon.
+                What our clients say about working with us.
               </p>
             </div>
 

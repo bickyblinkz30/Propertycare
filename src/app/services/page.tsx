@@ -4,23 +4,9 @@ import Nav from "../components/Nav";
 import FloatingContacts from "../components/FloatingContacts";
 import ScrollReveal from "../components/ScrollReveal";
 import FooterLinks from "../components/FooterLinks";
+import { servicesImages as IMG } from "@/lib/images";
 
 const WA = "https://wa.me/447922909982?text=Hi%20Property%20Care%2C%20I%27d%20like%20a%20free%20quote.";
-
-// TODO: Replace with client-supplied images
-const IMG = {
-  hero:     "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=88&auto=format&fit=crop",
-  paint:    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=85&auto=format&fit=crop",
-  electric: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=900&q=85&auto=format&fit=crop",
-  maint:    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=85&auto=format&fit=crop",
-  media:    "https://images.unsplash.com/photo-1593784991095-a205069470b6?w=900&q=85&auto=format&fit=crop",
-  showcase1: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&q=85&auto=format&fit=crop",
-  showcase2: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=85&auto=format&fit=crop",
-  showcase3: "https://images.unsplash.com/photo-1600607687939-ce8a6d24cca4?w=800&q=85&auto=format&fit=crop",
-  showcase4: "https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&q=85&auto=format&fit=crop",
-  showcase5: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=85&auto=format&fit=crop",
-  cta:      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1400&q=82&auto=format&fit=crop",
-};
 
 function OrangeTab({ children, center = false }: { children: React.ReactNode; center?: boolean }) {
   return (
@@ -380,7 +366,7 @@ export default function Services() {
                 Project<br /><span style={{ color: "#F58220" }}>Showcase</span>
               </h2>
               <p className="rv rv-d2" style={{ fontSize: 13, color: "#9E9488", marginTop: 16, letterSpacing: "0.06em", fontWeight: 500 }}>
-                Client project images coming soon.
+                A selection of our recent work.
               </p>
             </div>
 

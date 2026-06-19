@@ -4,15 +4,10 @@ import Nav from "../components/Nav";
 import FloatingContacts from "../components/FloatingContacts";
 import ScrollReveal from "../components/ScrollReveal";
 import FooterLinks from "../components/FooterLinks";
+import { serviceAreasSentence } from "@/lib/site";
+import { whyChooseUsImages as IMG } from "@/lib/images";
 
 const WA = "https://wa.me/447922909982?text=Hi%20Property%20Care%2C%20I%27d%20like%20a%20free%20quote.";
-
-// TODO: Replace with client-supplied images
-const IMG = {
-  hero: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=88&auto=format&fit=crop",
-  cta:  "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1400&q=82&auto=format&fit=crop",
-  founder: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=85&auto=format&fit=crop",
-};
 
 function OrangeTab({ children, center = false }: { children: React.ReactNode; center?: boolean }) {
   return (
@@ -73,7 +68,7 @@ export default function WhyChooseUs() {
     { q: "Do you offer free quotations?", a: "Yes. Every quote is free, no-obligation and itemised so you know exactly what you're paying for with no hidden costs." },
     { q: "Are you insured?", a: "Absolutely. We carry full public liability insurance and all electrical work is NICEIC / Part P certified." },
     { q: "Do you work on commercial properties?", a: "Yes. We provide services for both residential homeowners and commercial clients across Sunderland and the North East." },
-    { q: "What areas do you cover?", a: "We cover Sunderland, Washington, Seaham, South Shields, Gateshead, Newcastle, Durham, Chester-le-Street, Jarrow, Hebburn, Peterlee and the wider North East." },
+    { q: "What areas do you cover?", a: `We cover ${serviceAreasSentence}.` },
     { q: "Can I combine multiple services?", a: "Yes. Booking multiple services together means one team, one point of contact and a coordinated schedule — saving you time and hassle." },
   ];
 

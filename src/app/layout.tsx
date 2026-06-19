@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { serviceAreasStructured } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -62,10 +63,7 @@ export default function RootLayout({
                 addressRegion: "Tyne and Wear",
                 addressCountry: "GB",
               },
-              areaServed: [
-                "Sunderland","Washington","Seaham","South Shields",
-                "Gateshead","Newcastle upon Tyne","Durham",
-              ],
+              areaServed: serviceAreasStructured,
               openingHours: "Mo-Fr 07:00-18:00",
               priceRange: "££",
             }),

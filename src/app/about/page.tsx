@@ -4,6 +4,7 @@ import Nav from "../components/Nav";
 import FloatingContacts from "../components/FloatingContacts";
 import ScrollReveal from "../components/ScrollReveal";
 import FooterLinks from "../components/FooterLinks";
+import { aboutImages } from "@/lib/images";
 
 const WA = "https://wa.me/447922909982?text=Hi%20Property%20Care%2C%20I%27d%20like%20a%20free%20quote.";
 
@@ -32,7 +33,7 @@ export default function About() {
         ══════════════════════════════════════ */}
         <section style={{ position: "relative", minHeight: "80vh", display: "flex", alignItems: "center", overflow: "hidden", background: "#0A0908" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=88&auto=format&fit=crop" alt="Professional painting and decorating craftsmanship" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", opacity: 0.4 }} />
+          <img src={aboutImages.hero} alt="Professional painting and decorating craftsmanship" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", opacity: 0.4 }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(10,9,8,0.95) 0%, rgba(10,9,8,0.7) 50%, rgba(10,9,8,0.3) 100%)" }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,9,8,0.98) 0%, rgba(10,9,8,0.4) 40%, transparent 70%)" }} />
           <div style={{ position: "relative", zIndex: 2, padding: "140px 52px", maxWidth: 920, width: "100%" }}>
@@ -168,7 +169,7 @@ export default function About() {
                 }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=85&auto=format&fit=crop"
+                    src={aboutImages.founder}
                     alt="Chukwudi Emmanuel Ifeanyi — Founder & Managing Director"
                     style={{ width: "100%", height: 440, objectFit: "cover", display: "block" }}
                   />

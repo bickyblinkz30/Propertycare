@@ -5,19 +5,8 @@ import ScrollReveal from "./components/ScrollReveal";
 import BeforeAfterSlider from "./components/BeforeAfterSlider";
 import Marquee from "./components/Marquee";
 import FooterLinks from "./components/FooterLinks";
-
-const IMG = {
-  hero:     "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=88&auto=format&fit=crop",
-  about:    "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=960&q=82&auto=format&fit=crop",
-  paint:    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=82&auto=format&fit=crop",
-  electric: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=82&auto=format&fit=crop",
-  media:    "https://images.unsplash.com/photo-1593784991095-a205069470b6?w=800&q=82&auto=format&fit=crop",
-  maint:    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=82&auto=format&fit=crop",
-  p1:       "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=900&q=82&auto=format&fit=crop",
-  p2:       "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=82&auto=format&fit=crop",
-  p3:       "https://images.unsplash.com/photo-1600607687939-ce8a6d24cca4?w=900&q=82&auto=format&fit=crop",
-  cta:      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1400&q=82&auto=format&fit=crop",
-};
+import { primaryArea, secondaryServiceAreas } from "@/lib/site";
+import { beforeAfterTransformations, homeImages as IMG } from "@/lib/images";
 
 const WA = "https://wa.me/447922909982?text=Hi%20Property%20Care%2C%20I%27d%20like%20a%20free%20quote.";
 
@@ -350,8 +339,10 @@ export default function Home() {
                   <a href="#contact" className="btn-orange"><span>Request Similar</span></a>
                 </div>
               </div>
-              <div className="rv rv-d1">
-                <BeforeAfterSlider />
+              <div className="rv rv-d1" style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+                {beforeAfterTransformations.map((t) => (
+                  <BeforeAfterSlider key={t.caption ?? t.afterImg} {...t} />
+                ))}
               </div>
             </div>
           </div>
@@ -452,10 +443,10 @@ export default function Home() {
               <div className="rv rv-d1" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 1, background: "#E8E2D9", border: "1px solid #E8E2D9", borderRadius: 4, overflow: "hidden" }}>
                 <div style={{ gridColumn: "1 / -1", background: "#0A0908", padding: "26px 22px" }}>
                   <div style={{ width: 24, height: 3, background: "#F58220", marginBottom: 10 }} />
-                  <span style={{ fontSize: 26, fontWeight: 800, color: "#fff", letterSpacing: "-0.01em" }}>Sunderland</span>
+                  <span style={{ fontSize: 26, fontWeight: 800, color: "#fff", letterSpacing: "-0.01em" }}>{primaryArea}</span>
                   <span style={{ fontSize: 10, color: "#F58220", marginLeft: 12, letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 800 }}>Primary</span>
                 </div>
-                {["Washington","Seaham","South Shields","Gateshead","Newcastle","Durham","Jarrow","Hebburn","Peterlee","Chester-le-St","Boldon","Cleadon","Whitburn","Ryhope","Fulwell","East Boldon","Houghton"].map((a) => (
+                {secondaryServiceAreas.map((a) => (
                   <div key={a} className="area-cell" style={{ background: "#FDFCFB", padding: "20px 18px" }}>
                     <div style={{ width: 14, height: 2, background: "#F58220", marginBottom: 8 }} />
                     <span style={{ fontSize: 12, letterSpacing: "0.06em", color: "#0A0908", fontWeight: 700, textTransform: "uppercase" }}>{a}</span>
