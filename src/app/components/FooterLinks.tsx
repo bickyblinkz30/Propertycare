@@ -1,6 +1,20 @@
 "use client";
 import { serviceAreas } from "@/lib/site";
 
+// Footer shows the primary area + closest towns, then a derived "+ N more"
+// link — sourced from the canonical serviceAreas list (no separate hardcoded
+// list) so it never drifts, while keeping the footer column compact.
+const FOOTER_AREA_COUNT = 7;
+const footerAreaItems: [string, string][] = serviceAreas
+  .slice(0, FOOTER_AREA_COUNT)
+  .map((area) => [area, "#areas"] as [string, string]);
+if (serviceAreas.length > FOOTER_AREA_COUNT) {
+  footerAreaItems.push([
+    `+ ${serviceAreas.length - FOOTER_AREA_COUNT} more areas`,
+    "#areas",
+  ]);
+}
+
 const COLS: { h: string; items: [string, string][] }[] = [
   {
     h: "Services",
@@ -13,9 +27,7 @@ const COLS: { h: string; items: [string, string][] }[] = [
   },
   {
     h: "Areas Covered",
-    // Sourced from the canonical service-area list in src/lib/site.ts so it
-    // can never drift from the homepage / contact / FAQ lists again.
-    items: serviceAreas.map((area) => [area, "#areas"] as [string, string]),
+    items: footerAreaItems,
   },
   {
     h: "Quick Links",
