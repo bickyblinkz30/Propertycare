@@ -37,7 +37,7 @@ export default function FooterLinks() {
             fontSize: 11,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "#F58220",
+            color: "#C9A227",
             marginBottom: 22,
             fontWeight: 700,
           }}>

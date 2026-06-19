@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { serviceAreasStructured } from "@/lib/site";
 
@@ -7,6 +7,15 @@ const inter = Inter({
   subsets: ["latin"],
   weight: ["300","400","500","600","700","800","900"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+// FIX 13 — serif display face for headings (paired with Inter for body).
+// CONFIRM WITH CLIENT: Playfair Display is a first-pass choice for review.
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["500","600","700","800","900"],
+  variable: "--font-playfair",
   display: "swap",
 });
 
@@ -19,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Property Care Paint & Electrics | Premium Property Services",
     description:
-      "One certified team for painting, electrical, media walls and maintenance across Sunderland and the North East.",
+      "One certified team for painting, electrical, media walls and maintenance across Sunderland and the surrounding areas.",
     type: "website",
     locale: "en_GB",
   },
@@ -39,14 +48,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-GB" className={inter.variable}>
+    <html lang="en-GB" className={`${inter.variable} ${playfair.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap"
-          rel="stylesheet"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -55,7 +58,7 @@ export default function RootLayout({
               "@type": "LocalBusiness",
               name: "Property Care Paint & Electrics",
               description:
-                "Premium painting, decorating, electrical and property maintenance in Sunderland and the North East.",
+                "Premium painting, decorating, electrical and property maintenance in Sunderland and the surrounding areas.",
               telephone: "+447922909982",
               address: {
                 "@type": "PostalAddress",

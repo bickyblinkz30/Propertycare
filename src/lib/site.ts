@@ -209,6 +209,8 @@ export const serviceAreasStructured: readonly string[] = serviceAreas.map((a) =>
 );
 
 // --- Testimonials (placeholder — replace with verified, attributed reviews) ---
+// Single canonical source: Home, Portfolio and Contact all render this same
+// list through the shared TestimonialCarousel. 9 placeholder entries for now.
 export const testimonials = [
   {
     quote:
@@ -226,6 +228,42 @@ export const testimonials = [
     quote:
       "Honest, certified and meticulous. The lighting design transformed how our period home feels in the evenings.",
     name: "Andrew P.",
+    detail: "Seaham",
+  },
+  {
+    quote:
+      "Excellent workmanship from start to finish. Professional, reliable and very tidy. The team transformed our living room beyond what we imagined.",
+    name: "Sarah M.",
+    detail: "Sunderland",
+  },
+  {
+    quote:
+      "Highly recommended. The decorating work exceeded expectations — clean lines, perfect finish and left everything spotless. Will use again.",
+    name: "James T.",
+    detail: "Washington",
+  },
+  {
+    quote:
+      "Had a full rewire and media wall installed. One team, one point of contact, no hassle. The quality speaks for itself.",
+    name: "Lisa P.",
+    detail: "Seaham",
+  },
+  {
+    quote:
+      "Excellent workmanship and great communication throughout the project. The team were professional, tidy and completed on schedule.",
+    name: "Michael R.",
+    detail: "Sunderland",
+  },
+  {
+    quote:
+      "Very professional service and completed on time. The painting and decorating work exceeded our expectations. Will definitely use again.",
+    name: "Sarah W.",
+    detail: "Washington",
+  },
+  {
+    quote:
+      "Had a media wall installed and the whole experience was seamless. From quote to completion, everything was clear and well managed.",
+    name: "David K.",
     detail: "Seaham",
   },
 ] as const;

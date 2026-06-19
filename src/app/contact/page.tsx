@@ -4,7 +4,8 @@ import Nav from "../components/Nav";
 import FloatingContacts from "../components/FloatingContacts";
 import ScrollReveal from "../components/ScrollReveal";
 import FooterLinks from "../components/FooterLinks";
-import { primaryArea, secondaryServiceAreas, serviceAreasSentence } from "@/lib/site";
+import TestimonialCarousel from "../components/TestimonialCarousel";
+import { primaryArea, secondaryServiceAreas, serviceAreasSentence, testimonials } from "@/lib/site";
 import { contactImages as IMG } from "@/lib/images";
 
 const WA = "https://wa.me/447922909982?text=Hi%20Property%20Care%2C%20I%27d%20like%20a%20free%20quote.";
@@ -12,32 +13,20 @@ const WA = "https://wa.me/447922909982?text=Hi%20Property%20Care%2C%20I%27d%20li
 function OrangeTab({ children, center = false }: { children: React.ReactNode; center?: boolean }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20, justifyContent: center ? "center" : "flex-start" }}>
-      <span style={{ display: "block", width: 36, height: 3, background: "#F58220", flexShrink: 0 }} />
-      <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#F58220" }}>
+      <span style={{ display: "block", width: 36, height: 3, background: "#C9A227", flexShrink: 0 }} />
+      <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#C9A227" }}>
         {children}
       </span>
-      {center && <span style={{ display: "block", width: 36, height: 3, background: "#F58220", flexShrink: 0 }} />}
+      {center && <span style={{ display: "block", width: 36, height: 3, background: "#C9A227", flexShrink: 0 }} />}
     </div>
   );
 }
 
-function CheckIcon({ size = 16, color = "#F58220" }: { size?: number; color?: string }) {
+function CheckIcon({ size = 16, color = "#C9A227" }: { size?: number; color?: string }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
       <path d="M5 13l4 4L19 7" />
     </svg>
-  );
-}
-
-function StarRating({ filled = 5 }: { filled?: number }) {
-  return (
-    <div style={{ display: "flex", gap: 3 }}>
-      {[1, 2, 3, 4, 5].map((i) => (
-        <svg key={i} width="16" height="16" viewBox="0 0 24 24" fill={i <= filled ? "#F58220" : "#E8E2D9"}>
-          <path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
-        </svg>
-      ))}
-    </div>
   );
 }
 
@@ -57,7 +46,7 @@ function Accordion({ question, answer }: { question: string; answer: string }) {
         <span style={{
           transform: open ? "rotate(45deg)" : "rotate(0deg)",
           transition: "transform 0.35s cubic-bezier(0.16,1,0.3,1)",
-          fontSize: 22, fontWeight: 300, color: "#F58220", flexShrink: 0, marginLeft: 16,
+          fontSize: 22, fontWeight: 300, color: "#C9A227", flexShrink: 0, marginLeft: 16,
         }}>
           +
         </span>
@@ -102,8 +91,8 @@ export default function Contact() {
         <section style={{ position: "relative", minHeight: "80vh", display: "flex", alignItems: "center", overflow: "hidden", background: "#0A0908" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={IMG.hero} alt="Contact Property Care Paint & Electrics" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%", opacity: 0.4 }} />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(10,9,8,0.95) 0%, rgba(10,9,8,0.7) 50%, rgba(10,9,8,0.3) 100%)" }} />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,9,8,0.98) 0%, rgba(10,9,8,0.4) 40%, transparent 70%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(10,10,10,0.98) 0%, rgba(10,10,10,0.86) 45%, rgba(10,10,10,0.55) 100%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,10,10,0.99) 0%, rgba(10,10,10,0.55) 45%, transparent 78%)" }} />
           <div style={{ position: "relative", zIndex: 2, padding: "140px 52px", maxWidth: 920, width: "100%" }}>
             <div className="h-a1" style={{ marginBottom: 32 }}>
               <OrangeTab>Get In Touch</OrangeTab>
@@ -115,7 +104,7 @@ export default function Contact() {
               marginBottom: 28, textTransform: "uppercase",
             }}>
               Contact<br />
-              <span style={{ color: "#F58220" }}>Property Care</span>
+              <span style={{ color: "#C9A227" }}>Property Care</span>
             </h1>
             <p className="h-a3" style={{
               fontSize: "clamp(18px, 1.8vw, 22px)",
@@ -136,7 +125,7 @@ export default function Contact() {
               <a href="tel:+447922909982" className="btn-outline-light">Call 07922 909982</a>
             </div>
           </div>
-          <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 4, background: "#F58220" }} />
+          <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 4, background: "#C9A227" }} />
         </section>
 
         {/* ══════════════════════════════════════
@@ -152,19 +141,19 @@ export default function Contact() {
                 letterSpacing: "-0.02em", color: "#0A0908",
                 textTransform: "uppercase",
               }}>
-                Get In Touch<br /><span style={{ color: "#F58220" }}>Instantly</span>
+                Get In Touch<br /><span style={{ color: "#C9A227" }}>Instantly</span>
               </h2>
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24 }} className="grid-3">
               <a href="tel:+447922909982" style={{ textDecoration: "none" }}>
                 <div className="rv rv-d1" style={{ background: "#FDFCFB", border: "1px solid #E8E2D9", borderRadius: 4, padding: "36px 28px", textAlign: "center", transition: "transform 0.3s, box-shadow 0.3s" }}>
-                  <div style={{ width: 56, height: 56, background: "#FFE8D4", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 18px" }}>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58220" strokeWidth="2">
+                  <div style={{ width: 56, height: 56, background: "#F3EBD3", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 18px" }}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C9A227" strokeWidth="2">
                       <path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                     </svg>
                   </div>
-                  <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#F58220", marginBottom: 8 }}>Call Us</div>
+                  <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#C9A227", marginBottom: 8 }}>Call Us</div>
                   <div style={{ fontSize: 18, fontWeight: 800, color: "#0A0908", letterSpacing: "-0.01em" }}>07922 909982</div>
                 </div>
               </a>
@@ -176,31 +165,31 @@ export default function Contact() {
                       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                     </svg>
                   </div>
-                  <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#F58220", marginBottom: 8 }}>WhatsApp</div>
+                  <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#C9A227", marginBottom: 8 }}>WhatsApp</div>
                   <div style={{ fontSize: 15, fontWeight: 700, color: "#0A0908", letterSpacing: "0.02em" }}>Connect Instantly</div>
                 </div>
               </a>
 
               <a href="mailto:hello@propertycarepe.co.uk" style={{ textDecoration: "none" }}>
                 <div className="rv rv-d3" style={{ background: "#FDFCFB", border: "1px solid #E8E2D9", borderRadius: 4, padding: "36px 28px", textAlign: "center", transition: "transform 0.3s, box-shadow 0.3s" }}>
-                  <div style={{ width: 56, height: 56, background: "#FFE8D4", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 18px" }}>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58220" strokeWidth="2">
+                  <div style={{ width: 56, height: 56, background: "#F3EBD3", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 18px" }}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C9A227" strokeWidth="2">
                       <path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                     </svg>
                   </div>
-                  <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#F58220", marginBottom: 8 }}>Email</div>
+                  <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#C9A227", marginBottom: 8 }}>Email</div>
                   <div style={{ fontSize: 14, fontWeight: 700, color: "#0A0908", letterSpacing: "0.02em", wordBreak: "break-all" }}>hello@propertycarepe.co.uk</div>
                 </div>
               </a>
 
               <div className="rv rv-d4" style={{ background: "#FDFCFB", border: "1px solid #E8E2D9", borderRadius: 4, padding: "36px 28px", textAlign: "center" }}>
-                <div style={{ width: 56, height: 56, background: "#FFE8D4", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 18px" }}>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F58220" strokeWidth="2">
+                <div style={{ width: 56, height: 56, background: "#F3EBD3", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 18px" }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C9A227" strokeWidth="2">
                     <path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                     <path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                   </svg>
                 </div>
-                <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#F58220", marginBottom: 8 }}>Service Area</div>
+                <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#C9A227", marginBottom: 8 }}>Service Area</div>
                 <div style={{ fontSize: 15, fontWeight: 700, color: "#0A0908", letterSpacing: "0.02em" }}>Sunderland &amp; Surrounding Areas</div>
               </div>
             </div>
@@ -220,7 +209,7 @@ export default function Contact() {
                 letterSpacing: "-0.02em", color: "#0A0908",
                 textTransform: "uppercase",
               }}>
-                Request A Free<br /><span style={{ color: "#F58220" }}>Quotation</span>
+                Request A Free<br /><span style={{ color: "#C9A227" }}>Quotation</span>
               </h2>
             </div>
 
@@ -269,7 +258,7 @@ export default function Contact() {
                 <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
                   {["Phone Call", "WhatsApp", "Email"].map((method) => (
                     <label key={method} style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer", fontSize: 15, fontWeight: 500, color: "#3D3A37" }}>
-                      <input type="radio" name="contactMethod" value={method} checked={form.contactMethod === method} onChange={handleChange} required style={{ accentColor: "#F58220", width: 18, height: 18 }} />
+                      <input type="radio" name="contactMethod" value={method} checked={form.contactMethod === method} onChange={handleChange} required style={{ accentColor: "#C9A227", width: 18, height: 18 }} />
                       {method}
                     </label>
                   ))}
@@ -305,23 +294,19 @@ export default function Contact() {
                 letterSpacing: "-0.02em", color: "#0A0908",
                 textTransform: "uppercase",
               }}>
-                Why Homeowners &amp; Businesses<br /><span style={{ color: "#F58220" }}>Contact Us</span>
+                What To Expect<br /><span style={{ color: "#C9A227" }}>When You Get In Touch</span>
               </h2>
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 1, background: "#E8E2D9", border: "1px solid #E8E2D9", borderRadius: 4, overflow: "hidden" }} className="grid-3">
               {[
-                ["Free Quotations", "No-obligation quotes with transparent, itemised pricing agreed up front."],
-                ["Fully Insured", "Full public liability insurance for complete peace of mind."],
-                ["Residential & Commercial", "Experienced in both domestic homes and business premises."],
-                ["Reliable Service", "Punctual, tidy and respectful of your home and schedule."],
-                ["Experienced Professional", "Skilled tradespeople with years of hands-on industry experience."],
-                ["Quality Workmanship", "Premium materials and meticulous preparation for lasting results."],
-                ["Fast Response", "We typically reply within the hour — no call centres, no scripts."],
-                ["Customer Satisfaction", "Written workmanship guarantee on every project."],
+                ["Fast, Friendly Response", "We typically reply within the hour by WhatsApp, call or text — no call centres, no scripts."],
+                ["Free, No-Obligation Quote", "Every quote is itemised and pressure-free, so you know exactly where you stand before deciding."],
+                ["Speak To The Founder", "You deal directly with the person who oversees your project — not a sales team."],
+                ["Flexible Around You", "We arrange surveys and work around your schedule, including evenings where possible."],
               ].map(([t, d], i) => (
                 <div key={t} className={`rv rv-d${(i % 4) + 1}`} style={{ background: "#FDFCFB", padding: "36px 24px" }}>
-                  <div style={{ width: 40, height: 40, background: "#FFE8D4", borderRadius: 6, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
+                  <div style={{ width: 40, height: 40, background: "#F3EBD3", borderRadius: 6, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
                     <CheckIcon size={18} />
                   </div>
                   <div style={{ fontSize: 16, fontWeight: 800, color: "#0A0908", marginBottom: 8, letterSpacing: "-0.01em" }}>{t}</div>
@@ -345,23 +330,23 @@ export default function Contact() {
                 letterSpacing: "-0.02em", color: "#0A0908",
                 textTransform: "uppercase",
               }}>
-                Areas We<br /><span style={{ color: "#F58220" }}>Cover</span>
+                Areas We<br /><span style={{ color: "#C9A227" }}>Cover</span>
               </h2>
               <p className="rv rv-d2" style={{ fontSize: 16, color: "#3D3A37", maxWidth: 600, margin: "16px auto 0", lineHeight: 1.7, fontWeight: 400 }}>
-                Property Care Paint &amp; Electrics proudly serves Sunderland and surrounding areas.
+                Property Care Paint &amp; Electrics proudly serves Sunderland and the surrounding areas.
               </p>
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "start" }} className="grid-2">
               <div className="rv rv-d1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: "#E8E2D9", border: "1px solid #E8E2D9", borderRadius: 4, overflow: "hidden" }}>
                 <div style={{ gridColumn: "1 / -1", background: "#0A0908", padding: "20px 22px" }}>
-                  <div style={{ width: 24, height: 3, background: "#F58220", marginBottom: 8 }} />
+                  <div style={{ width: 24, height: 3, background: "#C9A227", marginBottom: 8 }} />
                   <span style={{ fontSize: 22, fontWeight: 800, color: "#fff", letterSpacing: "-0.01em" }}>{primaryArea}</span>
-                  <span style={{ fontSize: 10, color: "#F58220", marginLeft: 10, letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 800 }}>Primary</span>
+                  <span style={{ fontSize: 10, color: "#C9A227", marginLeft: 10, letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 800 }}>Primary</span>
                 </div>
                 {secondaryServiceAreas.map((a) => (
                   <div key={a} className="area-cell" style={{ background: "#FDFCFB", padding: "18px 16px" }}>
-                    <div style={{ width: 14, height: 2, background: "#F58220", marginBottom: 6 }} />
+                    <div style={{ width: 14, height: 2, background: "#C9A227", marginBottom: 6 }} />
                     <span style={{ fontSize: 12, letterSpacing: "0.06em", color: "#0A0908", fontWeight: 700, textTransform: "uppercase" }}>{a}</span>
                   </div>
                 ))}
@@ -397,7 +382,7 @@ export default function Contact() {
         {/* ══════════════════════════════════════
             CTA BANNER
         ══════════════════════════════════════ */}
-        <section style={{ background: "#0A0908", borderTop: "4px solid #F58220", borderBottom: "4px solid #F58220", padding: "100px 52px", textAlign: "center" }}>
+        <section style={{ background: "#0A0908", borderTop: "4px solid #C9A227", borderBottom: "4px solid #C9A227", padding: "100px 52px", textAlign: "center" }}>
           <div style={{ maxWidth: 800, margin: "0 auto" }}>
             <div className="rv">
               <OrangeTab center>Start Today</OrangeTab>
@@ -407,7 +392,7 @@ export default function Contact() {
               fontWeight: 900, lineHeight: 1.02, letterSpacing: "-0.025em",
               color: "#fff", marginBottom: 20, textTransform: "uppercase",
             }}>
-              Ready To Discuss<br /><span style={{ color: "#F58220" }}>Your Project?</span>
+              Ready To Discuss<br /><span style={{ color: "#C9A227" }}>Your Project?</span>
             </h2>
             <p className="rv rv-d2" style={{
               fontSize: 17, fontWeight: 400, color: "rgba(255,255,255,0.8)",
@@ -435,18 +420,18 @@ export default function Contact() {
                 letterSpacing: "-0.02em", color: "#0A0908",
                 textTransform: "uppercase",
               }}>
-                Frequently Asked<br /><span style={{ color: "#F58220" }}>Questions</span>
+                Frequently Asked<br /><span style={{ color: "#C9A227" }}>Questions</span>
               </h2>
             </div>
 
             <div className="rv rv-d1" style={{ background: "#FDFCFB", border: "1px solid #E8E2D9", borderRadius: 4, padding: "8px 32px" }}>
               <Accordion question="How quickly can I receive a quotation?" answer="We typically respond within 24 hours. For urgent enquiries, call or WhatsApp us and we'll aim to get back to you the same day." />
+              <Accordion question="What's the best way to get in touch?" answer="WhatsApp is fastest — we typically reply within the hour. You can also call, text or send the quote form on this page, whichever suits you best." />
               <Accordion question="Do you provide free quotes?" answer="Yes. Every quote is free, no-obligation and itemised so you know exactly what you're paying for with no hidden costs." />
-              <Accordion question="Do you work on commercial properties?" answer="Yes. We provide services for both residential homeowners and commercial clients across Sunderland and the North East." />
-              <Accordion question="Are you fully insured?" answer="Absolutely. We carry full public liability insurance and all electrical work is NICEIC / Part P certified for your peace of mind." />
-              <Accordion question="Can I combine multiple services?" answer="Yes. Booking painting, electrical and maintenance together means one team, one point of contact and a coordinated schedule — saving you time and hassle." />
+              <Accordion question="What happens after I request a quote?" answer="We'll arrange a free, no-obligation survey at a time that suits you, then send a clear, itemised written quote — with no pressure to proceed." />
               <Accordion question="What areas do you cover?" answer={`We cover ${serviceAreasSentence}.`} />
-              <Accordion question="Do you offer landlord maintenance services?" answer="Yes. We offer dedicated landlord maintenance including routine inspections, tenant changeover refreshes and reactive repairs." />
+              <Accordion question="Do I need to be home for the survey?" answer="Ideally yes, so we can talk through your goals and see the space — but we're flexible and can arrange the visit around your schedule." />
+              <Accordion question="How soon can you start?" answer="It depends on our current bookings and the size of the job. Get in touch and we'll give you realistic availability when we provide your quote." />
             </div>
           </div>
         </section>
@@ -464,31 +449,15 @@ export default function Contact() {
                 letterSpacing: "-0.02em", color: "#0A0908",
                 textTransform: "uppercase",
               }}>
-                Google<br /><span style={{ color: "#F58220" }}>Reviews</span>
+                Google<br /><span style={{ color: "#C9A227" }}>Reviews</span>
               </h2>
               <p className="rv rv-d2" style={{ fontSize: 13, color: "#9E9488", marginTop: 16, letterSpacing: "0.06em", fontWeight: 500 }}>
                 What our clients say about working with us.
               </p>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 28 }} className="grid-3">
-              {[
-                { q: "Excellent workmanship and great communication throughout the project. The team were professional, tidy and completed on schedule.", name: "Michael R.", loc: "Sunderland", d: 1 },
-                { q: "Very professional service and completed on time. The painting and decorating work exceeded our expectations. Will definitely use again.", name: "Sarah W.", loc: "Washington", d: 2 },
-                { q: "Had a media wall installed and the whole experience was seamless. From quote to completion, everything was clear and well managed.", name: "David K.", loc: "Seaham", d: 3 },
-              ].map(({ q, name, loc, d }) => (
-                <div key={name} className={`testi-card rv rv-d${d}`} style={{ background: "#F8F5F0", border: "2px solid #E8E2D9", padding: "36px 32px", position: "relative", borderRadius: 4 }}>
-                  <div style={{ position: "absolute", top: 0, left: 0, width: 60, height: 4, background: "#F58220" }} />
-                  <StarRating />
-                  <p style={{ fontSize: 15, fontWeight: 400, color: "#1A1917", lineHeight: 1.7, marginTop: 16, marginBottom: 24 }}>
-                    &ldquo;{q}&rdquo;
-                  </p>
-                  <div style={{ borderTop: "1px solid #E8E2D9", paddingTop: 16 }}>
-                    <div style={{ fontSize: 14, fontWeight: 800, marginBottom: 2, color: "#0A0908", letterSpacing: "-0.01em" }}>{name}</div>
-                    <div style={{ fontSize: 11, color: "#F58220", letterSpacing: "0.14em", textTransform: "uppercase", fontWeight: 700 }}>{loc}</div>
-                  </div>
-                </div>
-              ))}
+            <div className="rv rv-d1">
+              <TestimonialCarousel items={testimonials} />
             </div>
           </div>
         </section>
@@ -506,31 +475,15 @@ export default function Contact() {
                 letterSpacing: "-0.02em", color: "#0A0908",
                 textTransform: "uppercase",
               }}>
-                Speak With The<br /><span style={{ color: "#F58220" }}>Founder Directly</span>
+                Speak With The<br /><span style={{ color: "#C9A227" }}>Founder Directly</span>
               </h2>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 48, alignItems: "center" }} className="grid-2">
-              {/* TODO: Replace with founder image and biography */}
-              <div className="rv rv-d1">
-                <div style={{
-                  width: "100%", maxWidth: 300, margin: "0 auto",
-                  borderRadius: 4, overflow: "hidden",
-                  border: "3px solid #F58220",
-                  boxShadow: "0 20px 60px rgba(10,9,8,0.15)",
-                }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={IMG.founder}
-                    alt="Chukwudi Emmanuel Ifeanyi — Founder & Managing Director"
-                    style={{ width: "100%", height: 340, objectFit: "cover", display: "block" }}
-                  />
-                </div>
-              </div>
-
+            <div style={{ maxWidth: 720, margin: "0 auto" }}>
+              {/* Text-only — founder photo intentionally omitted until a real headshot is available */}
               <div>
                 <div className="rv rv-d1">
-                  <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#F58220", marginBottom: 8 }}>
+                  <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#C9A227", marginBottom: 8 }}>
                     Founder &amp; Managing Director
                   </div>
                   <h3 style={{
@@ -549,9 +502,9 @@ export default function Contact() {
                 <div className="rv rv-d2" style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 20 }}>
                   {["Painter & Decorator", "Electrical Specialist", "Property Maintenance Professional"].map((tag) => (
                     <span key={tag} style={{
-                      background: "rgba(245,130,32,0.1)", border: "1px solid rgba(245,130,32,0.3)",
+                      background: "rgba(201,162,39,0.1)", border: "1px solid rgba(201,162,39,0.3)",
                       padding: "6px 12px", fontSize: 11, fontWeight: 700,
-                      letterSpacing: "0.06em", color: "#F58220", borderRadius: 4,
+                      letterSpacing: "0.06em", color: "#C9A227", borderRadius: 4,
                     }}>
                       {tag}
                     </span>
@@ -584,7 +537,7 @@ export default function Contact() {
               fontWeight: 900, lineHeight: 1.02, letterSpacing: "-0.025em",
               color: "#fff", marginBottom: 20, textTransform: "uppercase",
             }}>
-              Get Your Free<br /><span style={{ color: "#F58220" }}>Quote Today</span>
+              Get Your Free<br /><span style={{ color: "#C9A227" }}>Quote Today</span>
             </h2>
             <p className="rv rv-d2" style={{
               fontSize: 17, fontWeight: 400, color: "rgba(255,255,255,0.8)",
@@ -602,7 +555,7 @@ export default function Contact() {
         {/* ══════════════════════════════════════
             FOOTER
         ══════════════════════════════════════ */}
-        <footer style={{ background: "#0A0908", padding: "80px 52px 36px", borderTop: "4px solid #F58220" }}>
+        <footer style={{ background: "#0A0908", padding: "80px 52px 36px", borderTop: "4px solid #C9A227" }}>
           <div style={{ maxWidth: 1400, margin: "0 auto" }}>
             <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr", gap: 56, marginBottom: 60 }} className="footer-grid">
               <div>
@@ -611,27 +564,27 @@ export default function Contact() {
                   <img src="/images/propertycare-logo.jpg" alt="Property Care Paint & Electrics" style={{ height: 90, width: "auto", display: "block" }} />
                 </div>
                 <p style={{ fontSize: 14, color: "#C9C0B4", lineHeight: 1.7, maxWidth: 320, marginBottom: 24, fontWeight: 400 }}>
-                  The North East&apos;s premium single-team property transformation specialists. Sunderland and surrounding areas. Residential &amp; commercial.
+                  The North East&apos;s premium single-team property transformation specialists. Sunderland and the surrounding areas. Residential &amp; commercial.
                 </p>
-                <a href="tel:+447922909982" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 14, background: "rgba(245,130,32,0.1)", border: "1px solid rgba(245,130,32,0.3)", padding: "14px 20px", borderRadius: 4, marginBottom: 24 }}>
-                  <div style={{ width: 36, height: 36, background: "#F58220", borderRadius: 4, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <a href="tel:+447922909982" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 14, background: "rgba(201,162,39,0.1)", border: "1px solid rgba(201,162,39,0.3)", padding: "14px 20px", borderRadius: 4, marginBottom: 24 }}>
+                  <div style={{ width: 36, height: 36, background: "#C9A227", borderRadius: 4, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5"><path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
                   </div>
                   <div>
-                    <div style={{ fontSize: 9, letterSpacing: "0.22em", textTransform: "uppercase", color: "#F58220", fontWeight: 700, marginBottom: 2 }}>Call us free</div>
+                    <div style={{ fontSize: 9, letterSpacing: "0.22em", textTransform: "uppercase", color: "#C9A227", fontWeight: 700, marginBottom: 2 }}>Call us free</div>
                     <div style={{ fontSize: 19, fontWeight: 800, color: "#fff", letterSpacing: "0.02em", lineHeight: 1 }}>07922 909982</div>
                   </div>
                 </a>
                 <div style={{ display: "flex", gap: 7, flexWrap: "wrap" }}>
                   {["NICEIC", "Part P", "Insured", "Guaranteed"].map((c) => (
-                    <span key={c} style={{ background: "rgba(245,130,32,0.08)", border: "1px solid rgba(245,130,32,0.25)", padding: "4px 10px", fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: "#F58220", borderRadius: 2, fontWeight: 700 }}>{c}</span>
+                    <span key={c} style={{ background: "rgba(201,162,39,0.08)", border: "1px solid rgba(201,162,39,0.25)", padding: "4px 10px", fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A227", borderRadius: 2, fontWeight: 700 }}>{c}</span>
                   ))}
                 </div>
               </div>
               <FooterLinks />
             </div>
 
-            <div style={{ height: 1, background: "linear-gradient(to right, rgba(245,130,32,0.4), rgba(245,130,32,0.12), transparent)", marginBottom: 28 }} />
+            <div style={{ height: 1, background: "linear-gradient(to right, rgba(201,162,39,0.4), rgba(201,162,39,0.12), transparent)", marginBottom: 28 }} />
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 11, color: "rgba(255,255,255,0.35)", letterSpacing: "0.04em", flexWrap: "wrap", gap: 10, fontWeight: 500 }}>
               <span>© 2025 Property Care Paint &amp; Electrics. Fully insured · NICEIC / Part P · Written guarantee.</span>
               <span>Premium property transformations across the North East.</span>

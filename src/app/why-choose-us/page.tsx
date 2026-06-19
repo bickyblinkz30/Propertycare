@@ -4,7 +4,6 @@ import Nav from "../components/Nav";
 import FloatingContacts from "../components/FloatingContacts";
 import ScrollReveal from "../components/ScrollReveal";
 import FooterLinks from "../components/FooterLinks";
-import { serviceAreasSentence } from "@/lib/site";
 import { whyChooseUsImages as IMG } from "@/lib/images";
 
 const WA = "https://wa.me/447922909982?text=Hi%20Property%20Care%2C%20I%27d%20like%20a%20free%20quote.";
@@ -12,16 +11,16 @@ const WA = "https://wa.me/447922909982?text=Hi%20Property%20Care%2C%20I%27d%20li
 function OrangeTab({ children, center = false }: { children: React.ReactNode; center?: boolean }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20, justifyContent: center ? "center" : "flex-start" }}>
-      <span style={{ display: "block", width: 36, height: 3, background: "#F58220", flexShrink: 0 }} />
-      <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#F58220" }}>
+      <span style={{ display: "block", width: 36, height: 3, background: "#C9A227", flexShrink: 0 }} />
+      <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#C9A227" }}>
         {children}
       </span>
-      {center && <span style={{ display: "block", width: 36, height: 3, background: "#F58220", flexShrink: 0 }} />}
+      {center && <span style={{ display: "block", width: 36, height: 3, background: "#C9A227", flexShrink: 0 }} />}
     </div>
   );
 }
 
-function CheckIcon({ size = 16, color = "#F58220" }: { size?: number; color?: string }) {
+function CheckIcon({ size = 16, color = "#C9A227" }: { size?: number; color?: string }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
       <path d="M5 13l4 4L19 7" />
@@ -45,7 +44,7 @@ function Accordion({ question, answer }: { question: string; answer: string }) {
         <span style={{
           transform: open ? "rotate(45deg)" : "rotate(0deg)",
           transition: "transform 0.35s cubic-bezier(0.16,1,0.3,1)",
-          fontSize: 22, fontWeight: 300, color: "#F58220", flexShrink: 0, marginLeft: 16,
+          fontSize: 22, fontWeight: 300, color: "#C9A227", flexShrink: 0, marginLeft: 16,
         }}>
           +
         </span>
@@ -65,11 +64,11 @@ function Accordion({ question, answer }: { question: string; answer: string }) {
 export default function WhyChooseUs() {
   const faqs = [
     { q: "Why should I choose Property Care Paint & Electrics?", a: "We deliver premium painting, decorating, electrical and maintenance through one accountable team. Certified, insured, and backed by a written guarantee — no juggling trades, no finger-pointing." },
-    { q: "Do you offer free quotations?", a: "Yes. Every quote is free, no-obligation and itemised so you know exactly what you're paying for with no hidden costs." },
     { q: "Are you insured?", a: "Absolutely. We carry full public liability insurance and all electrical work is NICEIC / Part P certified." },
-    { q: "Do you work on commercial properties?", a: "Yes. We provide services for both residential homeowners and commercial clients across Sunderland and the North East." },
-    { q: "What areas do you cover?", a: `We cover ${serviceAreasSentence}.` },
-    { q: "Can I combine multiple services?", a: "Yes. Booking multiple services together means one team, one point of contact and a coordinated schedule — saving you time and hassle." },
+    { q: "Is your work guaranteed?", a: "Yes. Every project is backed by a clear, written workmanship guarantee. If something isn't right, we put it right — no arguments, no excuses." },
+    { q: "Are your electricians certified?", a: "Yes. All electrical work is carried out to NICEIC / Part P standards and properly certified for your records and peace of mind." },
+    { q: "Will the same team see my project through?", a: "Yes. One accountable team handles your project from first survey to final sign-off, with a single point of contact throughout — no subcontractor churn." },
+    { q: "Do you tidy up after the work?", a: "Always. We protect floors and furniture, clean as we go and leave your property tidy. Respect for your home is part of our standard." },
   ];
 
   return (
@@ -85,8 +84,8 @@ export default function WhyChooseUs() {
         <section style={{ position: "relative", minHeight: "80vh", display: "flex", alignItems: "center", overflow: "hidden", background: "#0A0908" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={IMG.hero} alt="Professional property services" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%", opacity: 0.4 }} />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(10,9,8,0.95) 0%, rgba(10,9,8,0.7) 50%, rgba(10,9,8,0.3) 100%)" }} />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,9,8,0.98) 0%, rgba(10,9,8,0.4) 40%, transparent 70%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(10,10,10,0.98) 0%, rgba(10,10,10,0.86) 45%, rgba(10,10,10,0.55) 100%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,10,10,0.99) 0%, rgba(10,10,10,0.55) 45%, transparent 78%)" }} />
           <div style={{ position: "relative", zIndex: 2, padding: "140px 52px", maxWidth: 920, width: "100%" }}>
             <div className="h-a1" style={{ marginBottom: 32 }}>
               <OrangeTab>Why Trust Us</OrangeTab>
@@ -98,7 +97,7 @@ export default function WhyChooseUs() {
               marginBottom: 28, textTransform: "uppercase",
             }}>
               Why Choose<br />
-              <span style={{ color: "#F58220" }}>Property Care?</span>
+              <span style={{ color: "#C9A227" }}>Property Care?</span>
             </h1>
             <p className="h-a3" style={{
               fontSize: "clamp(18px, 1.8vw, 22px)",
@@ -119,7 +118,7 @@ export default function WhyChooseUs() {
               <a href="tel:+447922909982" className="btn-outline-light">Call Now</a>
             </div>
           </div>
-          <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 4, background: "#F58220" }} />
+          <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 4, background: "#C9A227" }} />
         </section>
 
         {/* ══════════════════════════════════════
@@ -135,7 +134,7 @@ export default function WhyChooseUs() {
                 letterSpacing: "-0.02em", color: "#0A0908",
                 textTransform: "uppercase",
               }}>
-                A Company Built<br /><span style={{ color: "#F58220" }}>On Trust</span>
+                A Company Built<br /><span style={{ color: "#C9A227" }}>On Trust</span>
               </h2>
             </div>
             <div className="rv rv-d2" style={{ maxWidth: 780, margin: "0 auto", textAlign: "center" }}>
@@ -159,7 +158,7 @@ export default function WhyChooseUs() {
                 letterSpacing: "-0.02em", color: "#0A0908",
                 textTransform: "uppercase",
               }}>
-                Why Homeowners &amp;<br /><span style={{ color: "#F58220" }}>Businesses Trust Us</span>
+                Why Homeowners &amp;<br /><span style={{ color: "#C9A227" }}>Businesses Trust Us</span>
               </h2>
             </div>
 
@@ -176,7 +175,7 @@ export default function WhyChooseUs() {
                   background: "#FDFCFB", border: "1px solid #E8E2D9", borderRadius: 4,
                   padding: "40px 32px", transition: "transform 0.3s, box-shadow 0.3s",
                 }}>
-                  <div style={{ width: 52, height: 52, background: "#FFE8D4", borderRadius: 6, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 20 }}>
+                  <div style={{ width: 52, height: 52, background: "#F3EBD3", borderRadius: 6, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 20 }}>
                     <CheckIcon size={22} />
                   </div>
                   <div style={{ fontSize: 19, fontWeight: 800, color: "#0A0908", marginBottom: 12, letterSpacing: "-0.01em" }}>{t}</div>
@@ -200,7 +199,7 @@ export default function WhyChooseUs() {
                 letterSpacing: "-0.02em", color: "#0A0908",
                 textTransform: "uppercase",
               }}>
-                Why Clients<br /><span style={{ color: "#F58220" }}>Recommend Us</span>
+                Why Clients<br /><span style={{ color: "#C9A227" }}>Recommend Us</span>
               </h2>
             </div>
 
@@ -214,7 +213,7 @@ export default function WhyChooseUs() {
                 ["Customer Satisfaction", "Your satisfaction is guaranteed. We don't sign off until you're happy."],
               ].map(([t, d], i) => (
                 <div key={t} className={`rv rv-d${(i % 3) + 1}`} style={{ background: "#FDFCFB", padding: "40px 32px" }}>
-                  <div style={{ width: 44, height: 44, background: "#FFE8D4", borderRadius: 6, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 18 }}>
+                  <div style={{ width: 44, height: 44, background: "#F3EBD3", borderRadius: 6, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 18 }}>
                     <CheckIcon size={20} />
                   </div>
                   <div style={{ fontSize: 17, fontWeight: 800, color: "#0A0908", marginBottom: 10, letterSpacing: "-0.01em" }}>{t}</div>
@@ -228,7 +227,7 @@ export default function WhyChooseUs() {
         {/* ══════════════════════════════════════
             OUR PROMISE — dark highlight section
         ══════════════════════════════════════ */}
-        <section style={{ padding: "120px 52px", background: "#0A0908", borderTop: "4px solid #F58220", borderBottom: "4px solid #F58220" }}>
+        <section style={{ padding: "120px 52px", background: "#0A0908", borderTop: "4px solid #C9A227", borderBottom: "4px solid #C9A227" }}>
           <div style={{ maxWidth: 1100, margin: "0 auto" }}>
             <div className="rv" style={{ textAlign: "center", marginBottom: 56 }}>
               <OrangeTab center>Our Promise</OrangeTab>
@@ -238,7 +237,7 @@ export default function WhyChooseUs() {
                 letterSpacing: "-0.02em", color: "#fff",
                 textTransform: "uppercase",
               }}>
-                Our Commitment To<br /><span style={{ color: "#F58220" }}>Every Customer</span>
+                Our Commitment To<br /><span style={{ color: "#C9A227" }}>Every Customer</span>
               </h2>
             </div>
 
@@ -255,8 +254,8 @@ export default function WhyChooseUs() {
                   background: "rgba(248,245,240,0.025)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 4,
                   padding: "36px 28px", textAlign: "center",
                 }}>
-                  <div style={{ width: 52, height: 52, background: "rgba(245,130,32,0.15)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 18px" }}>
-                    <CheckIcon size={22} color="#F58220" />
+                  <div style={{ width: 52, height: 52, background: "rgba(201,162,39,0.15)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 18px" }}>
+                    <CheckIcon size={22} color="#C9A227" />
                   </div>
                   <div style={{ fontSize: 17, fontWeight: 800, color: "#fff", marginBottom: 10, letterSpacing: "-0.01em" }}>{t}</div>
                   <p style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", lineHeight: 1.7, fontWeight: 400 }}>{d}</p>
@@ -280,7 +279,7 @@ export default function WhyChooseUs() {
                   letterSpacing: "-0.02em", color: "#0A0908",
                   textTransform: "uppercase", marginBottom: 24,
                 }}>
-                  Quality You<br /><span style={{ color: "#F58220" }}>Can Trust</span>
+                  Quality You<br /><span style={{ color: "#C9A227" }}>Can Trust</span>
                 </h2>
                 <p className="rv rv-d2" style={{ fontSize: 16, color: "#3D3A37", lineHeight: 1.75, marginBottom: 24, fontWeight: 400 }}>
                   We treat every property as if it were our own and take pride in delivering work that meets the highest standards. Every project is backed by our written workmanship guarantee.
@@ -302,11 +301,11 @@ export default function WhyChooseUs() {
               </div>
               <div className="rv rv-d1">
                 <div style={{
-                  background: "#F8F5F0", border: "2px solid #F58220", borderRadius: 4,
+                  background: "#F8F5F0", border: "2px solid #C9A227", borderRadius: 4,
                   padding: "48px 40px", position: "relative",
                 }}>
-                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 4, background: "#F58220" }} />
-                  <div style={{ fontSize: 52, fontWeight: 900, color: "rgba(245,130,32,0.12)", lineHeight: 1, marginBottom: 16, letterSpacing: "-0.02em" }}>✓</div>
+                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 4, background: "#C9A227" }} />
+                  <div style={{ fontSize: 52, fontWeight: 900, color: "rgba(201,162,39,0.12)", lineHeight: 1, marginBottom: 16, letterSpacing: "-0.02em" }}>✓</div>
                   <div style={{ fontSize: 22, fontWeight: 800, color: "#0A0908", marginBottom: 16, letterSpacing: "-0.01em" }}>
                     Written Guarantee On Every Project
                   </div>
@@ -315,7 +314,7 @@ export default function WhyChooseUs() {
                   </p>
                   <div style={{ marginTop: 24, padding: "18px 0 0", borderTop: "1px solid #E8E2D9" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                      <div style={{ width: 8, height: 8, background: "#F58220", borderRadius: "50%" }} />
+                      <div style={{ width: 8, height: 8, background: "#C9A227", borderRadius: "50%" }} />
                       <span style={{ fontSize: 12, fontWeight: 700, color: "#0A0908", letterSpacing: "0.04em" }}>Peace of mind, included with every project</span>
                     </div>
                   </div>
@@ -338,7 +337,7 @@ export default function WhyChooseUs() {
                 letterSpacing: "-0.02em", color: "#0A0908",
                 textTransform: "uppercase",
               }}>
-                Frequently Asked<br /><span style={{ color: "#F58220" }}>Questions</span>
+                Frequently Asked<br /><span style={{ color: "#C9A227" }}>Questions</span>
               </h2>
             </div>
 
@@ -363,31 +362,15 @@ export default function WhyChooseUs() {
                 letterSpacing: "-0.02em", color: "#0A0908",
                 textTransform: "uppercase",
               }}>
-                The Person Behind<br /><span style={{ color: "#F58220" }}>The Business</span>
+                The Person Behind<br /><span style={{ color: "#C9A227" }}>The Business</span>
               </h2>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 56, alignItems: "center" }} className="grid-2">
-              {/* TODO: Replace with founder photo */}
-              <div className="rv rv-d1">
-                <div style={{
-                  width: "100%", maxWidth: 340, margin: "0 auto",
-                  borderRadius: 4, overflow: "hidden",
-                  border: "3px solid #F58220",
-                  boxShadow: "0 20px 60px rgba(10,9,8,0.15)",
-                }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={IMG.founder}
-                    alt="Chukwudi Emmanuel Ifeanyi — Founder & Managing Director"
-                    style={{ width: "100%", height: 380, objectFit: "cover", display: "block" }}
-                  />
-                </div>
-              </div>
-
+            <div style={{ maxWidth: 720, margin: "0 auto" }}>
+              {/* Text-only — founder photo intentionally omitted until a real headshot is available */}
               <div>
                 <div className="rv rv-d1">
-                  <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#F58220", marginBottom: 10 }}>
+                  <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#C9A227", marginBottom: 10 }}>
                     Founder &amp; Managing Director
                   </div>
                   <h3 style={{
@@ -410,9 +393,9 @@ export default function WhyChooseUs() {
                     "Property Maintenance Professional",
                   ].map((tag) => (
                     <span key={tag} style={{
-                      background: "rgba(245,130,32,0.1)", border: "1px solid rgba(245,130,32,0.3)",
+                      background: "rgba(201,162,39,0.1)", border: "1px solid rgba(201,162,39,0.3)",
                       padding: "7px 14px", fontSize: 11, fontWeight: 700,
-                      letterSpacing: "0.06em", color: "#F58220", borderRadius: 4,
+                      letterSpacing: "0.06em", color: "#C9A227", borderRadius: 4,
                     }}>
                       {tag}
                     </span>
@@ -444,7 +427,7 @@ export default function WhyChooseUs() {
                 fontWeight: 900, lineHeight: 1.02, letterSpacing: "-0.025em",
                 color: "#fff", marginBottom: 24, textTransform: "uppercase",
               }}>
-                Let&rsquo;s Discuss<br /><span style={{ color: "#F58220" }}>Your Project</span>
+                Let&rsquo;s Discuss<br /><span style={{ color: "#C9A227" }}>Your Project</span>
               </h2>
               <p className="rv rv-d2" style={{
                 fontSize: 18, fontWeight: 400, color: "rgba(255,255,255,0.8)",
@@ -477,7 +460,7 @@ export default function WhyChooseUs() {
         {/* ══════════════════════════════════════
             FOOTER
         ══════════════════════════════════════ */}
-        <footer style={{ background: "#0A0908", padding: "80px 52px 36px", borderTop: "4px solid #F58220" }}>
+        <footer style={{ background: "#0A0908", padding: "80px 52px 36px", borderTop: "4px solid #C9A227" }}>
           <div style={{ maxWidth: 1400, margin: "0 auto" }}>
             <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr", gap: 56, marginBottom: 60 }} className="footer-grid">
               <div>
@@ -486,27 +469,27 @@ export default function WhyChooseUs() {
                   <img src="/images/propertycare-logo.jpg" alt="Property Care Paint & Electrics" style={{ height: 90, width: "auto", display: "block" }} />
                 </div>
                 <p style={{ fontSize: 14, color: "#C9C0B4", lineHeight: 1.7, maxWidth: 320, marginBottom: 24, fontWeight: 400 }}>
-                  The North East&apos;s premium single-team property transformation specialists. Sunderland and surrounding areas. Residential &amp; commercial.
+                  The North East&apos;s premium single-team property transformation specialists. Sunderland and the surrounding areas. Residential &amp; commercial.
                 </p>
-                <a href="tel:+447922909982" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 14, background: "rgba(245,130,32,0.1)", border: "1px solid rgba(245,130,32,0.3)", padding: "14px 20px", borderRadius: 4, marginBottom: 24 }}>
-                  <div style={{ width: 36, height: 36, background: "#F58220", borderRadius: 4, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <a href="tel:+447922909982" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 14, background: "rgba(201,162,39,0.1)", border: "1px solid rgba(201,162,39,0.3)", padding: "14px 20px", borderRadius: 4, marginBottom: 24 }}>
+                  <div style={{ width: 36, height: 36, background: "#C9A227", borderRadius: 4, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5"><path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
                   </div>
                   <div>
-                    <div style={{ fontSize: 9, letterSpacing: "0.22em", textTransform: "uppercase", color: "#F58220", fontWeight: 700, marginBottom: 2 }}>Call us free</div>
+                    <div style={{ fontSize: 9, letterSpacing: "0.22em", textTransform: "uppercase", color: "#C9A227", fontWeight: 700, marginBottom: 2 }}>Call us free</div>
                     <div style={{ fontSize: 19, fontWeight: 800, color: "#fff", letterSpacing: "0.02em", lineHeight: 1 }}>07922 909982</div>
                   </div>
                 </a>
                 <div style={{ display: "flex", gap: 7, flexWrap: "wrap" }}>
                   {["NICEIC", "Part P", "Insured", "Guaranteed"].map((c) => (
-                    <span key={c} style={{ background: "rgba(245,130,32,0.08)", border: "1px solid rgba(245,130,32,0.25)", padding: "4px 10px", fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: "#F58220", borderRadius: 2, fontWeight: 700 }}>{c}</span>
+                    <span key={c} style={{ background: "rgba(201,162,39,0.08)", border: "1px solid rgba(201,162,39,0.25)", padding: "4px 10px", fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A227", borderRadius: 2, fontWeight: 700 }}>{c}</span>
                   ))}
                 </div>
               </div>
               <FooterLinks />
             </div>
 
-            <div style={{ height: 1, background: "linear-gradient(to right, rgba(245,130,32,0.4), rgba(245,130,32,0.12), transparent)", marginBottom: 28 }} />
+            <div style={{ height: 1, background: "linear-gradient(to right, rgba(201,162,39,0.4), rgba(201,162,39,0.12), transparent)", marginBottom: 28 }} />
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 11, color: "rgba(255,255,255,0.35)", letterSpacing: "0.04em", flexWrap: "wrap", gap: 10, fontWeight: 500 }}>
               <span>© 2025 Property Care Paint &amp; Electrics. Fully insured · NICEIC / Part P · Written guarantee.</span>
               <span>Premium property transformations across the North East.</span>

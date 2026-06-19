@@ -1,11 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Brand: anchored on logo black + orange ── */
-  --color-orange:       #F58220;
-  --color-orange-hover: #FF9533;
-  --color-orange-soft:  #FFE8D4;
-  --color-orange-deep:  #D86E12;
+  /* ── Brand: charcoal-black + gold/brass accent ──
+     FIX 13 (luxury first pass) — exact accent + fonts to be CONFIRMED WITH CLIENT.
+     Token names kept as --color-orange* to avoid touching every reference; the
+     VALUES are now the brass/gold palette. This block is the single place to
+     retune the accent. */
+  --color-orange:       #C9A227;  /* accent — brass/gold */
+  --color-orange-hover: #D9B84A;  /* lighter gold (hover) */
+  --color-orange-soft:  #F3EBD3;  /* soft gold tint (icon backings) */
+  --color-orange-deep:  #A8851E;  /* deep brass */
 
   --color-black:        #0A0908;
   --color-charcoal:     #1A1917;
@@ -19,8 +23,19 @@
   --color-stone-mid:    #C9C0B4;
   --color-stone-dark:   #9E9488;
 
-  --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-body:    "Inter", system-ui, sans-serif;
+  /* Serif display (headings) paired with the sans body. Loaded via next/font. */
+  --font-display: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-body:    var(--font-inter), "Inter", system-ui, sans-serif;
+}
+
+/* Semantic accent + elevation tokens — adjust luxury treatment in one place. */
+:root {
+  --accent:        #C9A227;
+  --accent-hover:  #D9B84A;
+  --accent-deep:   #A8851E;
+  --ease-lux:      cubic-bezier(0.16, 1, 0.3, 1);
+  --card-shadow:        0 10px 30px rgba(10,9,8,0.06);
+  --card-shadow-hover:  0 30px 80px rgba(10,9,8,0.20);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -40,9 +55,18 @@ body {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #F8F5F0; }
 ::-webkit-scrollbar-thumb { background: #C9C0B4; border-radius: 10px; }
-::selection { background: #F58220; color: #fff; }
+::selection { background: #C9A227; color: #fff; }
 
-.font-display { font-family: "Cormorant Garamond", Georgia, serif; }
+.font-display { font-family: var(--font-display); }
+
+/* FIX 13 — serif display headings paired with the sans body for premium contrast. */
+h1, h2, h3 { font-family: var(--font-display); }
+
+/* FIX 13 — testimonial carousel slide-in */
+@keyframes testiFade {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
 /* ════════════════════════════════════
    NAV — bold, glassmorphism, shrink
@@ -62,7 +86,7 @@ body {
   background: rgba(255,255,255,0.95);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid rgba(245,130,32,0.18);
+  border-bottom: 1px solid rgba(201,162,39,0.18);
   padding: 12px 48px;
   box-shadow: 0 4px 32px rgba(10,9,8,0.08);
   transition: padding 0.5s cubic-bezier(0.16,1,0.3,1), background 0.5s, border-color 0.5s, box-shadow 0.5s;
@@ -72,13 +96,13 @@ body {
 
 .nav-scrolled .nav-link { color: #1A1917; }
 
-.nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #F58220; transition: width 0.4s cubic-bezier(0.16,1,0.3,1); }
+.nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #C9A227; transition: width 0.4s cubic-bezier(0.16,1,0.3,1); }
 
-.nav-link:hover { color: #F58220 !important; }
+.nav-link:hover { color: #C9A227 !important; }
 
 .nav-link:hover::after { width: 100%; }
 
-.nav-link.nav-active { color: #F58220 !important; }
+.nav-link.nav-active { color: #C9A227 !important; }
 
 .nav-link.nav-active::after { width: 100%; }
 
@@ -137,7 +161,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: #F58220;
+  background: #C9A227;
   color: #fff;
   text-decoration: none;
   padding: 18px 34px;
@@ -151,17 +175,17 @@ body {
   overflow: hidden;
   position: relative;
   transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s;
-  box-shadow: 0 6px 20px rgba(245,130,32,0.28);
+  box-shadow: 0 6px 20px rgba(201,162,39,0.28);
 }
 .btn-orange::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: #FF9533;
+  background: #D9B84A;
   transform: translateX(-101%);
   transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
 }
-.btn-orange:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(245,130,32,0.42); }
+.btn-orange:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(201,162,39,0.42); }
 .btn-orange:hover::after { transform: translateX(0); }
 .btn-orange > * { position: relative; z-index: 1; }
 .btn-orange span { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 10px; }
@@ -182,7 +206,7 @@ body {
   border: 2px solid #0A0908;
   transition: background 0.25s, border-color 0.25s, transform 0.3s cubic-bezier(0.16,1,0.3,1);
 }
-.btn-dark:hover { background: #F58220; border-color: #F58220; transform: translateY(-3px); }
+.btn-dark:hover { background: #C9A227; border-color: #C9A227; transform: translateY(-3px); }
 
 .btn-outline-light {
   display: inline-flex;
@@ -200,7 +224,7 @@ body {
   border: 2px solid rgba(255,255,255,0.4);
   transition: border-color 0.25s, color 0.25s, background 0.25s, transform 0.3s cubic-bezier(0.16,1,0.3,1);
 }
-.btn-outline-light:hover { border-color: #F58220; color: #F58220; background: rgba(245,130,32,0.06); transform: translateY(-3px); }
+.btn-outline-light:hover { border-color: #C9A227; color: #C9A227; background: rgba(201,162,39,0.06); transform: translateY(-3px); }
 
 .btn-outline-dark {
   display: inline-flex;
@@ -237,23 +261,23 @@ body {
   position: absolute;
   top: 0; left: 0;
   width: 0; height: 4px;
-  background: #F58220;
+  background: #C9A227;
   transition: width 0.5s cubic-bezier(0.16,1,0.3,1);
   z-index: 2;
 }
 .svc-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 28px 70px rgba(10,9,8,0.16);
-  border-color: rgba(245,130,32,0.3);
+  border-color: rgba(201,162,39,0.3);
 }
 .svc-card:hover::before { width: 100%; }
-.svc-card:hover .svc-icon-wrap { background: #F58220; }
+.svc-card:hover .svc-icon-wrap { background: #C9A227; }
 .svc-card:hover .svc-icon-wrap svg { color: #fff !important; }
 
 .svc-icon-wrap {
   width: 64px;
   height: 64px;
-  background: #FFE8D4;
+  background: #F3EBD3;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -265,7 +289,7 @@ body {
 .svc-icon-wrap svg {
   width: 32px;
   height: 32px;
-  color: #F58220;
+  color: #C9A227;
   transition: color 0.3s;
 }
 
@@ -296,15 +320,15 @@ body {
 .testi-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 24px 60px rgba(10,9,8,0.12);
-  border-color: rgba(245,130,32,0.3);
+  border-color: rgba(201,162,39,0.3);
 }
 
 /* ════════════════════════════════════
    WHY US CARDS
 ════════════════════════════════════ */
 .why-card { transition: background 0.3s; }
-.why-card:hover { background: rgba(245,130,32,0.08) !important; }
-.why-card:hover .why-num { color: #F58220 !important; opacity: 0.8 !important; }
+.why-card:hover { background: rgba(201,162,39,0.08) !important; }
+.why-card:hover .why-num { color: #C9A227 !important; opacity: 0.8 !important; }
 
 /* ════════════════════════════════════
    FLOATING CONTACTS
@@ -369,14 +393,14 @@ body {
    AREAS
 ════════════════════════════════════ */
 .area-cell { transition: background 0.2s, color 0.2s; }
-.area-cell:hover { background: #FFE8D4 !important; color: #F58220 !important; }
+.area-cell:hover { background: #F3EBD3 !important; color: #C9A227 !important; }
 .area-cell:hover span { color: #0A0908 !important; }
 
 /* ════════════════════════════════════
    FOOTER LINKS
 ════════════════════════════════════ */
 .footer-link { transition: color 0.25s; }
-.footer-link:hover { color: #F58220 !important; }
+.footer-link:hover { color: #C9A227 !important; }
 
 /* ════════════════════════════════════
    IMAGE WIPE REVEAL
@@ -386,7 +410,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: #F58220;
+  background: #C9A227;
   transform: scaleX(1);
   transform-origin: right;
   transition: transform 0.9s cubic-bezier(0.16,1,0.3,1);
@@ -404,3 +428,22 @@ body {
   .floating-contacts { bottom: 16px; right: 14px; }
   .fab { width: 50px; height: 50px; }
 }
+
+/* ════════════════════════════════════
+   FIX 13 — ELEVATED CARD TREATMENT (first pass)
+   Deeper shadows, more generous whitespace, smoother hover transitions.
+════════════════════════════════════ */
+.svc-card, .testi-card {
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s var(--ease-lux), box-shadow 0.3s var(--ease-lux), border-color 0.3s var(--ease-lux);
+}
+.svc-card:hover, .testi-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: rgba(201,162,39,0.45);
+}
+.port-card { box-shadow: var(--card-shadow); transition: transform 0.3s var(--ease-lux), box-shadow 0.3s var(--ease-lux); }
+.port-card:hover { box-shadow: var(--card-shadow-hover); }
+.svc-card .svc-icon-wrap { margin-bottom: 26px; }
+/* Slightly tighter, more refined letterforms on the serif headings */
+h1, h2, h3 { font-feature-settings: "liga" 1, "kern" 1; }

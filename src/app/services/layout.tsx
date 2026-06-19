@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Services | Property Care Paint & Electrics",
     description:
-      "Professional painting, decorating, electrical and property maintenance services in Sunderland and the North East.",
+      "Professional painting, decorating, electrical and property maintenance services in Sunderland and the surrounding areas.",
   },
 };
 
