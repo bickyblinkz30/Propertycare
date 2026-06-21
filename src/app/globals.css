@@ -1,15 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Brand: charcoal-black + gold/brass accent ──
-     FIX 13 (luxury first pass) — exact accent + fonts to be CONFIRMED WITH CLIENT.
-     Token names kept as --color-orange* to avoid touching every reference; the
-     VALUES are now the brass/gold palette. This block is the single place to
-     retune the accent. */
-  --color-orange:       #C9A227;  /* accent — brass/gold */
-  --color-orange-hover: #D9B84A;  /* lighter gold (hover) */
-  --color-orange-soft:  #F3EBD3;  /* soft gold tint (icon backings) */
-  --color-orange-deep:  #A8851E;  /* deep brass */
+  /* ── Brand: charcoal-black + accent ──
+     Single source of truth for the accent colour. Change it HERE only — every
+     accent hex/rgba in the codebase references these tokens via var(), so a
+     colour change is a one-line edit (no sitewide find-replace). */
+  --color-accent:       #F58220;  /* accent */
+  --color-accent-hover: #FF9533;  /* lighter (hover) */
+  --color-accent-soft:  #FFE8D4;  /* soft tint (icon backings) */
+  --color-accent-deep:  #D86E12;  /* deep */
 
   --color-black:        #0A0908;
   --color-charcoal:     #1A1917;
@@ -28,11 +27,11 @@
   --font-body:    var(--font-inter), "Inter", system-ui, sans-serif;
 }
 
-/* Semantic accent + elevation tokens — adjust luxury treatment in one place. */
 :root {
-  --accent:        #C9A227;
-  --accent-hover:  #D9B84A;
-  --accent-deep:   #A8851E;
+  /* RGB channels of --color-accent, for rgba(var(--color-accent-rgb), <alpha>).
+     Keep in sync with --color-accent above. */
+  --color-accent-rgb: 245, 130, 32;
+  /* Elevation + easing tokens (FIX 13). */
   --ease-lux:      cubic-bezier(0.16, 1, 0.3, 1);
   --card-shadow:        0 10px 30px rgba(10,9,8,0.06);
   --card-shadow-hover:  0 30px 80px rgba(10,9,8,0.20);
@@ -55,7 +54,7 @@ body {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #F8F5F0; }
 ::-webkit-scrollbar-thumb { background: #C9C0B4; border-radius: 10px; }
-::selection { background: #C9A227; color: #fff; }
+::selection { background: var(--color-accent); color: #fff; }
 
 .font-display { font-family: var(--font-display); }
 
@@ -86,7 +85,7 @@ h1, h2, h3 { font-family: var(--font-display); }
   background: rgba(255,255,255,0.95);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid rgba(201,162,39,0.18);
+  border-bottom: 1px solid rgba(var(--color-accent-rgb),0.18);
   padding: 12px 48px;
   box-shadow: 0 4px 32px rgba(10,9,8,0.08);
   transition: padding 0.5s cubic-bezier(0.16,1,0.3,1), background 0.5s, border-color 0.5s, box-shadow 0.5s;
@@ -96,13 +95,13 @@ h1, h2, h3 { font-family: var(--font-display); }
 
 .nav-scrolled .nav-link { color: #1A1917; }
 
-.nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #C9A227; transition: width 0.4s cubic-bezier(0.16,1,0.3,1); }
+.nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--color-accent); transition: width 0.4s cubic-bezier(0.16,1,0.3,1); }
 
-.nav-link:hover { color: #C9A227 !important; }
+.nav-link:hover { color: var(--color-accent) !important; }
 
 .nav-link:hover::after { width: 100%; }
 
-.nav-link.nav-active { color: #C9A227 !important; }
+.nav-link.nav-active { color: var(--color-accent) !important; }
 
 .nav-link.nav-active::after { width: 100%; }
 
@@ -161,7 +160,7 @@ h1, h2, h3 { font-family: var(--font-display); }
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: #C9A227;
+  background: var(--color-accent);
   color: #fff;
   text-decoration: none;
   padding: 18px 34px;
@@ -175,17 +174,17 @@ h1, h2, h3 { font-family: var(--font-display); }
   overflow: hidden;
   position: relative;
   transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s;
-  box-shadow: 0 6px 20px rgba(201,162,39,0.28);
+  box-shadow: 0 6px 20px rgba(var(--color-accent-rgb),0.28);
 }
 .btn-orange::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: #D9B84A;
+  background: var(--color-accent-hover);
   transform: translateX(-101%);
   transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
 }
-.btn-orange:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(201,162,39,0.42); }
+.btn-orange:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(var(--color-accent-rgb),0.42); }
 .btn-orange:hover::after { transform: translateX(0); }
 .btn-orange > * { position: relative; z-index: 1; }
 .btn-orange span { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 10px; }
@@ -206,7 +205,7 @@ h1, h2, h3 { font-family: var(--font-display); }
   border: 2px solid #0A0908;
   transition: background 0.25s, border-color 0.25s, transform 0.3s cubic-bezier(0.16,1,0.3,1);
 }
-.btn-dark:hover { background: #C9A227; border-color: #C9A227; transform: translateY(-3px); }
+.btn-dark:hover { background: var(--color-accent); border-color: var(--color-accent); transform: translateY(-3px); }
 
 .btn-outline-light {
   display: inline-flex;
@@ -224,7 +223,7 @@ h1, h2, h3 { font-family: var(--font-display); }
   border: 2px solid rgba(255,255,255,0.4);
   transition: border-color 0.25s, color 0.25s, background 0.25s, transform 0.3s cubic-bezier(0.16,1,0.3,1);
 }
-.btn-outline-light:hover { border-color: #C9A227; color: #C9A227; background: rgba(201,162,39,0.06); transform: translateY(-3px); }
+.btn-outline-light:hover { border-color: var(--color-accent); color: var(--color-accent); background: rgba(var(--color-accent-rgb),0.06); transform: translateY(-3px); }
 
 .btn-outline-dark {
   display: inline-flex;
@@ -261,23 +260,23 @@ h1, h2, h3 { font-family: var(--font-display); }
   position: absolute;
   top: 0; left: 0;
   width: 0; height: 4px;
-  background: #C9A227;
+  background: var(--color-accent);
   transition: width 0.5s cubic-bezier(0.16,1,0.3,1);
   z-index: 2;
 }
 .svc-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 28px 70px rgba(10,9,8,0.16);
-  border-color: rgba(201,162,39,0.3);
+  border-color: rgba(var(--color-accent-rgb),0.3);
 }
 .svc-card:hover::before { width: 100%; }
-.svc-card:hover .svc-icon-wrap { background: #C9A227; }
+.svc-card:hover .svc-icon-wrap { background: var(--color-accent); }
 .svc-card:hover .svc-icon-wrap svg { color: #fff !important; }
 
 .svc-icon-wrap {
   width: 64px;
   height: 64px;
-  background: #F3EBD3;
+  background: var(--color-accent-soft);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -289,7 +288,7 @@ h1, h2, h3 { font-family: var(--font-display); }
 .svc-icon-wrap svg {
   width: 32px;
   height: 32px;
-  color: #C9A227;
+  color: var(--color-accent);
   transition: color 0.3s;
 }
 
@@ -320,15 +319,15 @@ h1, h2, h3 { font-family: var(--font-display); }
 .testi-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 24px 60px rgba(10,9,8,0.12);
-  border-color: rgba(201,162,39,0.3);
+  border-color: rgba(var(--color-accent-rgb),0.3);
 }
 
 /* ════════════════════════════════════
    WHY US CARDS
 ════════════════════════════════════ */
 .why-card { transition: background 0.3s; }
-.why-card:hover { background: rgba(201,162,39,0.08) !important; }
-.why-card:hover .why-num { color: #C9A227 !important; opacity: 0.8 !important; }
+.why-card:hover { background: rgba(var(--color-accent-rgb),0.08) !important; }
+.why-card:hover .why-num { color: var(--color-accent) !important; opacity: 0.8 !important; }
 
 /* ════════════════════════════════════
    FLOATING CONTACTS
@@ -393,14 +392,14 @@ h1, h2, h3 { font-family: var(--font-display); }
    AREAS
 ════════════════════════════════════ */
 .area-cell { transition: background 0.2s, color 0.2s; }
-.area-cell:hover { background: #F3EBD3 !important; color: #C9A227 !important; }
+.area-cell:hover { background: var(--color-accent-soft) !important; color: var(--color-accent) !important; }
 .area-cell:hover span { color: #0A0908 !important; }
 
 /* ════════════════════════════════════
    FOOTER LINKS
 ════════════════════════════════════ */
 .footer-link { transition: color 0.25s; }
-.footer-link:hover { color: #C9A227 !important; }
+.footer-link:hover { color: var(--color-accent) !important; }
 
 /* ════════════════════════════════════
    IMAGE WIPE REVEAL
@@ -410,7 +409,7 @@ h1, h2, h3 { font-family: var(--font-display); }
   content: '';
   position: absolute;
   inset: 0;
-  background: #C9A227;
+  background: var(--color-accent);
   transform: scaleX(1);
   transform-origin: right;
   transition: transform 0.9s cubic-bezier(0.16,1,0.3,1);
@@ -440,7 +439,7 @@ h1, h2, h3 { font-family: var(--font-display); }
 .svc-card:hover, .testi-card:hover {
   transform: translateY(-8px);
   box-shadow: var(--card-shadow-hover);
-  border-color: rgba(201,162,39,0.45);
+  border-color: rgba(var(--color-accent-rgb),0.45);
 }
 .port-card { box-shadow: var(--card-shadow); transition: transform 0.3s var(--ease-lux), box-shadow 0.3s var(--ease-lux); }
 .port-card:hover { box-shadow: var(--card-shadow-hover); }

@@ -17,8 +17,8 @@ export default function Marquee() {
   return (
     <div style={{
       background: "#0A0908",
-      borderTop: "3px solid #C9A227",
-      borderBottom: "1px solid rgba(201,162,39,0.2)",
+      borderTop: "3px solid var(--color-accent)",
+      borderBottom: "1px solid rgba(var(--color-accent-rgb),0.2)",
     }}>
       <div className="mq-outer" style={{ position: "relative" }}>
         {(["left", "right"] as const).map((side) => (
@@ -42,7 +42,7 @@ export default function Marquee() {
               whiteSpace: "nowrap",
             }}>
               {/* Orange check icon */}
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A227" strokeWidth="3" style={{ flexShrink: 0 }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="3" style={{ flexShrink: 0 }}>
                 <path d="M5 13l4 4L19 7" />
               </svg>
               <span style={{
@@ -55,7 +55,7 @@ export default function Marquee() {
                 {text}
               </span>
               <span style={{
-                color: "#C9A227",
+                color: "var(--color-accent)",
                 fontSize: 18,
                 fontWeight: 700,
                 marginLeft: 14,

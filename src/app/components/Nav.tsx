@@ -80,7 +80,7 @@ export default function Nav() {
                 fontSize: 9,
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                color: "#C9A227",
+                color: "var(--color-accent)",
                 fontWeight: 700,
                 textAlign: "right",
                 marginBottom: 2,
@@ -173,7 +173,7 @@ export default function Nav() {
             }}
           >
             <span>{label}</span>
-            <span style={{ color: "#C9A227", fontSize: 16 }}>→</span>
+            <span style={{ color: "var(--color-accent)", fontSize: 16 }}>→</span>
           </a>
         ))}
 
@@ -193,7 +193,7 @@ export default function Nav() {
 
         <div style={{
           position: "absolute", bottom: 0, left: 0, right: 0, height: 4,
-          background: "#C9A227",
+          background: "var(--color-accent)",
         }} />
       </div>
 

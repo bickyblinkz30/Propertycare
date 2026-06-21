@@ -11,16 +11,16 @@ const WA = "https://wa.me/447922909982?text=Hi%20Property%20Care%2C%20I%27d%20li
 function OrangeTab({ children, center = false }: { children: React.ReactNode; center?: boolean }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20, justifyContent: center ? "center" : "flex-start" }}>
-      <span style={{ display: "block", width: 36, height: 3, background: "#C9A227", flexShrink: 0 }} />
-      <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#C9A227" }}>
+      <span style={{ display: "block", width: 36, height: 3, background: "var(--color-accent)", flexShrink: 0 }} />
+      <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--color-accent)" }}>
         {children}
       </span>
-      {center && <span style={{ display: "block", width: 36, height: 3, background: "#C9A227", flexShrink: 0 }} />}
+      {center && <span style={{ display: "block", width: 36, height: 3, background: "var(--color-accent)", flexShrink: 0 }} />}
     </div>
   );
 }
 
-function CheckIcon({ size = 16, color = "#C9A227" }: { size?: number; color?: string }) {
+function CheckIcon({ size = 16, color = "var(--color-accent)" }: { size?: number; color?: string }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
       <path d="M5 13l4 4L19 7" />
@@ -44,7 +44,7 @@ function Accordion({ question, answer }: { question: string; answer: string }) {
         <span style={{
           transform: open ? "rotate(45deg)" : "rotate(0deg)",
           transition: "transform 0.35s cubic-bezier(0.16,1,0.3,1)",
-          fontSize: 22, fontWeight: 300, color: "#C9A227", flexShrink: 0, marginLeft: 16,
+          fontSize: 22, fontWeight: 300, color: "var(--color-accent)", flexShrink: 0, marginLeft: 16,
         }}>
           +
         </span>
@@ -97,7 +97,7 @@ export default function Services() {
               marginBottom: 28, textTransform: "uppercase",
             }}>
               Our Professional<br />
-              <span style={{ color: "#C9A227" }}>Services</span>
+              <span style={{ color: "var(--color-accent)" }}>Services</span>
             </h1>
             <p className="h-a3" style={{
               fontSize: "clamp(18px, 1.8vw, 22px)",
@@ -118,7 +118,7 @@ export default function Services() {
               <a href="tel:+447922909982" className="btn-outline-light">Call Now</a>
             </div>
           </div>
-          <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 4, background: "#C9A227" }} />
+          <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 4, background: "var(--color-accent)" }} />
         </section>
 
         {/* ══════════════════════════════════════
@@ -134,7 +134,7 @@ export default function Services() {
                 letterSpacing: "-0.02em", color: "#0A0908",
                 textTransform: "uppercase",
               }}>
-                Complete Property Services<br /><span style={{ color: "#C9A227" }}>Under One Roof</span>
+                Complete Property Services<br /><span style={{ color: "var(--color-accent)" }}>Under One Roof</span>
               </h2>
             </div>
             <div className="rv rv-d2" style={{ maxWidth: 780, margin: "0 auto", textAlign: "center" }}>
@@ -164,7 +164,7 @@ export default function Services() {
                   letterSpacing: "-0.02em", color: "#0A0908",
                   textTransform: "uppercase", marginBottom: 20,
                 }}>
-                  Painting &amp;<br /><span style={{ color: "#C9A227" }}>Decorating</span>
+                  Painting &amp;<br /><span style={{ color: "var(--color-accent)" }}>Decorating</span>
                 </h2>
                 <p className="rv rv-d2" style={{ fontSize: 16, color: "#3D3A37", lineHeight: 1.75, marginBottom: 28, fontWeight: 400 }}>
                   Transform your home or business with professional painting and decorating services delivered to the highest standards. From a single room refresh to a full property transformation.
@@ -204,7 +204,7 @@ export default function Services() {
                   letterSpacing: "-0.02em", color: "#0A0908",
                   textTransform: "uppercase", marginBottom: 20,
                 }}>
-                  Electrical<br /><span style={{ color: "#C9A227" }}>Services</span>
+                  Electrical<br /><span style={{ color: "var(--color-accent)" }}>Services</span>
                 </h2>
                 <p className="rv rv-d2" style={{ fontSize: 16, color: "#3D3A37", lineHeight: 1.75, marginBottom: 28, fontWeight: 400 }}>
                   Safe, reliable electrical solutions for homes and commercial properties. All work is NICEIC / Part P certified and backed by a written guarantee.
@@ -244,7 +244,7 @@ export default function Services() {
                   letterSpacing: "-0.02em", color: "#0A0908",
                   textTransform: "uppercase", marginBottom: 20,
                 }}>
-                  Property Improvement<br /><span style={{ color: "#C9A227" }}>&amp; Maintenance</span>
+                  Property Improvement<br /><span style={{ color: "var(--color-accent)" }}>&amp; Maintenance</span>
                 </h2>
                 <p className="rv rv-d2" style={{ fontSize: 16, color: "#3D3A37", lineHeight: 1.75, marginBottom: 28, fontWeight: 400 }}>
                   Ongoing property maintenance solutions that keep homes and rental properties in excellent condition. Reliable, tidy and professional.
@@ -268,19 +268,19 @@ export default function Services() {
         {/* ══════════════════════════════════════
             MEDIA WALL — PREMIUM FEATURED SERVICE
         ══════════════════════════════════════ */}
-        <section style={{ padding: "120px 52px", background: "#0A0908", borderTop: "4px solid #C9A227", borderBottom: "4px solid #C9A227" }} id="media-walls">
+        <section style={{ padding: "120px 52px", background: "#0A0908", borderTop: "4px solid var(--color-accent)", borderBottom: "4px solid var(--color-accent)" }} id="media-walls">
           <div style={{ maxWidth: 1280, margin: "0 auto" }}>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 72, alignItems: "center" }} className="grid-2">
               {/* TODO: Replace with client-supplied images */}
-              <div className="rv rv-d1" style={{ borderRadius: 4, overflow: "hidden", boxShadow: "0 20px 60px rgba(10,9,8,0.4)", border: "2px solid rgba(201,162,39,0.25)" }}>
+              <div className="rv rv-d1" style={{ borderRadius: 4, overflow: "hidden", boxShadow: "0 20px 60px rgba(10,9,8,0.4)", border: "2px solid rgba(var(--color-accent-rgb),0.25)" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={IMG.media} alt="Bespoke media wall installation" style={{ width: "100%", height: 480, objectFit: "cover", display: "block" }} />
               </div>
               <div>
                 <div className="rv" style={{ marginBottom: 20 }}>
-                  <div style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "rgba(201,162,39,0.15)", border: "1px solid rgba(201,162,39,0.4)", padding: "6px 14px", borderRadius: 4 }}>
-                    <span style={{ width: 7, height: 7, background: "#C9A227", borderRadius: "50%", flexShrink: 0 }} />
-                    <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A227" }}>Premium Feature</span>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "rgba(var(--color-accent-rgb),0.15)", border: "1px solid rgba(var(--color-accent-rgb),0.4)", padding: "6px 14px", borderRadius: 4 }}>
+                    <span style={{ width: 7, height: 7, background: "var(--color-accent)", borderRadius: "50%", flexShrink: 0 }} />
+                    <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--color-accent)" }}>Premium Feature</span>
                   </div>
                 </div>
                 <h2 className="rv rv-d1" style={{
@@ -289,7 +289,7 @@ export default function Services() {
                   letterSpacing: "-0.02em", color: "#fff",
                   textTransform: "uppercase", marginBottom: 20,
                 }}>
-                  TV Media Wall<br /><span style={{ color: "#C9A227" }}>Installation</span>
+                  TV Media Wall<br /><span style={{ color: "var(--color-accent)" }}>Installation</span>
                 </h2>
                 <p className="rv rv-d2" style={{ fontSize: 16, color: "rgba(255,255,255,0.8)", lineHeight: 1.75, marginBottom: 28, fontWeight: 400 }}>
                   Create a stunning focal point in your home with a professionally installed media wall tailored to your space. Fully integrated with joinery, lighting and concealed cabling.
@@ -323,7 +323,7 @@ export default function Services() {
                 letterSpacing: "-0.02em", color: "#0A0908",
                 textTransform: "uppercase",
               }}>
-                How Every Job<br /><span style={{ color: "#C9A227" }}>Is Delivered</span>
+                How Every Job<br /><span style={{ color: "var(--color-accent)" }}>Is Delivered</span>
               </h2>
             </div>
 
@@ -335,7 +335,7 @@ export default function Services() {
                 ["Tidy, Snag-Free Finish", "Careful preparation, clean working and every finish checked and corrected before sign-off."],
               ].map(([title, desc], i) => (
                 <div key={title} className={`rv rv-d${(i % 4) + 1}`} style={{ background: "#FDFCFB", padding: "40px 28px" }}>
-                  <div style={{ width: 44, height: 44, background: "#F3EBD3", borderRadius: 6, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 18, flexShrink: 0 }}>
+                  <div style={{ width: 44, height: 44, background: "var(--color-accent-soft)", borderRadius: 6, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 18, flexShrink: 0 }}>
                     <CheckIcon size={20} />
                   </div>
                   <div style={{ fontSize: 17, fontWeight: 800, color: "#0A0908", marginBottom: 10, letterSpacing: "-0.01em" }}>{title}</div>
@@ -359,7 +359,7 @@ export default function Services() {
                 letterSpacing: "-0.02em", color: "#0A0908",
                 textTransform: "uppercase",
               }}>
-                Project<br /><span style={{ color: "#C9A227" }}>Showcase</span>
+                Project<br /><span style={{ color: "var(--color-accent)" }}>Showcase</span>
               </h2>
               <p className="rv rv-d2" style={{ fontSize: 13, color: "#9E9488", marginTop: 16, letterSpacing: "0.06em", fontWeight: 500 }}>
                 A selection of our recent work.
@@ -380,7 +380,7 @@ export default function Services() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={img} alt={title} />
                   <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,9,8,0.95) 0%, transparent 60%)", padding: 24, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
-                    <div style={{ display: "inline-flex", alignItems: "center", gap: 8, alignSelf: "flex-start", background: "#C9A227", padding: "5px 11px", borderRadius: 2, marginBottom: 10 }}>
+                    <div style={{ display: "inline-flex", alignItems: "center", gap: 8, alignSelf: "flex-start", background: "var(--color-accent)", padding: "5px 11px", borderRadius: 2, marginBottom: 10 }}>
                       <span style={{ fontSize: 9, fontWeight: 800, letterSpacing: "0.2em", textTransform: "uppercase", color: "#fff" }}>{tag}</span>
                     </div>
                     <div style={{ fontSize: 20, fontWeight: 800, color: "#fff", letterSpacing: "-0.01em" }}>{title}</div>
@@ -408,7 +408,7 @@ export default function Services() {
                 letterSpacing: "-0.02em", color: "#0A0908",
                 textTransform: "uppercase",
               }}>
-                How We<br /><span style={{ color: "#C9A227" }}>Work</span>
+                How We<br /><span style={{ color: "var(--color-accent)" }}>Work</span>
               </h2>
             </div>
 
@@ -421,10 +421,10 @@ export default function Services() {
                 { n: "05", title: "Satisfaction Check", desc: "We follow up to make sure everything meets your expectations." },
               ].map(({ n, title, desc }, i) => (
                 <div key={n} className={`rv rv-d${i + 1}`} style={{
-                  background: "#F8F5F0", borderTop: "4px solid #C9A227", padding: "36px 24px",
+                  background: "#F8F5F0", borderTop: "4px solid var(--color-accent)", padding: "36px 24px",
                   borderRadius: 4, position: "relative",
                 }}>
-                  <div style={{ fontSize: 52, fontWeight: 900, lineHeight: 1, color: "rgba(201,162,39,0.15)", marginBottom: 16, letterSpacing: "-0.02em" }}>{n}</div>
+                  <div style={{ fontSize: 52, fontWeight: 900, lineHeight: 1, color: "rgba(var(--color-accent-rgb),0.15)", marginBottom: 16, letterSpacing: "-0.02em" }}>{n}</div>
                   <div style={{ fontSize: 16, fontWeight: 800, color: "#0A0908", marginBottom: 12, letterSpacing: "-0.01em" }}>{title}</div>
                   <p style={{ fontSize: 13, color: "#6B6460", lineHeight: 1.65, fontWeight: 400 }}>{desc}</p>
                 </div>
@@ -446,7 +446,7 @@ export default function Services() {
                 letterSpacing: "-0.02em", color: "#0A0908",
                 textTransform: "uppercase",
               }}>
-                Frequently Asked<br /><span style={{ color: "#C9A227" }}>Questions</span>
+                Frequently Asked<br /><span style={{ color: "var(--color-accent)" }}>Questions</span>
               </h2>
             </div>
 
@@ -475,7 +475,7 @@ export default function Services() {
                 fontWeight: 900, lineHeight: 1.02, letterSpacing: "-0.025em",
                 color: "#fff", marginBottom: 24, textTransform: "uppercase",
               }}>
-                Ready To Improve<br /><span style={{ color: "#C9A227" }}>Your Property?</span>
+                Ready To Improve<br /><span style={{ color: "var(--color-accent)" }}>Your Property?</span>
               </h2>
               <p className="rv rv-d2" style={{
                 fontSize: 18, fontWeight: 400, color: "rgba(255,255,255,0.8)",
@@ -508,7 +508,7 @@ export default function Services() {
         {/* ══════════════════════════════════════
             FOOTER
         ══════════════════════════════════════ */}
-        <footer style={{ background: "#0A0908", padding: "80px 52px 36px", borderTop: "4px solid #C9A227" }}>
+        <footer style={{ background: "#0A0908", padding: "80px 52px 36px", borderTop: "4px solid var(--color-accent)" }}>
           <div style={{ maxWidth: 1400, margin: "0 auto" }}>
             <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr", gap: 56, marginBottom: 60 }} className="footer-grid">
               <div>
@@ -519,25 +519,25 @@ export default function Services() {
                 <p style={{ fontSize: 14, color: "#C9C0B4", lineHeight: 1.7, maxWidth: 320, marginBottom: 24, fontWeight: 400 }}>
                   The North East&apos;s premium single-team property transformation specialists. Sunderland and the surrounding areas. Residential &amp; commercial.
                 </p>
-                <a href="tel:+447922909982" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 14, background: "rgba(201,162,39,0.1)", border: "1px solid rgba(201,162,39,0.3)", padding: "14px 20px", borderRadius: 4, marginBottom: 24 }}>
-                  <div style={{ width: 36, height: 36, background: "#C9A227", borderRadius: 4, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <a href="tel:+447922909982" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 14, background: "rgba(var(--color-accent-rgb),0.1)", border: "1px solid rgba(var(--color-accent-rgb),0.3)", padding: "14px 20px", borderRadius: 4, marginBottom: 24 }}>
+                  <div style={{ width: 36, height: 36, background: "var(--color-accent)", borderRadius: 4, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5"><path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
                   </div>
                   <div>
-                    <div style={{ fontSize: 9, letterSpacing: "0.22em", textTransform: "uppercase", color: "#C9A227", fontWeight: 700, marginBottom: 2 }}>Call us free</div>
+                    <div style={{ fontSize: 9, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--color-accent)", fontWeight: 700, marginBottom: 2 }}>Call us free</div>
                     <div style={{ fontSize: 19, fontWeight: 800, color: "#fff", letterSpacing: "0.02em", lineHeight: 1 }}>07922 909982</div>
                   </div>
                 </a>
                 <div style={{ display: "flex", gap: 7, flexWrap: "wrap" }}>
                   {["NICEIC", "Part P", "Insured", "Guaranteed"].map((c) => (
-                    <span key={c} style={{ background: "rgba(201,162,39,0.08)", border: "1px solid rgba(201,162,39,0.25)", padding: "4px 10px", fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A227", borderRadius: 2, fontWeight: 700 }}>{c}</span>
+                    <span key={c} style={{ background: "rgba(var(--color-accent-rgb),0.08)", border: "1px solid rgba(var(--color-accent-rgb),0.25)", padding: "4px 10px", fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--color-accent)", borderRadius: 2, fontWeight: 700 }}>{c}</span>
                   ))}
                 </div>
               </div>
               <FooterLinks />
             </div>
 
-            <div style={{ height: 1, background: "linear-gradient(to right, rgba(201,162,39,0.4), rgba(201,162,39,0.12), transparent)", marginBottom: 28 }} />
+            <div style={{ height: 1, background: "linear-gradient(to right, rgba(var(--color-accent-rgb),0.4), rgba(var(--color-accent-rgb),0.12), transparent)", marginBottom: 28 }} />
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 11, color: "rgba(255,255,255,0.35)", letterSpacing: "0.04em", flexWrap: "wrap", gap: 10, fontWeight: 500 }}>
               <span>© 2025 Property Care Paint &amp; Electrics. Fully insured · NICEIC / Part P · Written guarantee.</span>
               <span>Premium property transformations across the North East.</span>
