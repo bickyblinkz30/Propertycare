@@ -41,19 +41,16 @@ export default function Nav() {
           {/* ── LOGO ── */}
           <a href="#top" style={{ textDecoration: "none", display: "flex", alignItems: "center", flexShrink: 0 }}>
             <div style={{
-              // Soft light pill behind the dark logo only over the dark hero
-              // (top state). Scrolled navbar is white, so no backing needed.
-              background: scrolled ? "transparent" : "rgba(255,255,255,0.9)",
-              padding: scrolled ? "4px 12px 4px 0" : "10px 22px",
-              borderRadius: scrolled ? 0 : 999,
-              boxShadow: scrolled ? "none" : "0 4px 18px rgba(10,9,8,0.12)",
+              background: scrolled ? "transparent" : "rgba(255,255,255,0.95)",
+              padding: scrolled ? "4px 12px 4px 0" : "8px 14px",
+              borderRadius: scrolled ? 0 : 6,
               transition: "all 0.5s cubic-bezier(0.16,1,0.3,1)",
               display: "flex",
               alignItems: "center",
             }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/propertycare-logo.png"
+                src="/images/propertycare-logo.jpg"
                 alt="Property Care Paint & Electrics"
                 style={{
                   height: scrolled ? 46 : 60,
@@ -157,7 +154,7 @@ export default function Nav() {
         {/* Logo at top of mobile menu */}
         <div style={{ marginBottom: 40, display: "flex", justifyContent: "center", paddingTop: 8 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/propertycare-logo.png" alt="Property Care" style={{ height: 90, width: "auto" }} />
+          <img src="/images/propertycare-logo.jpg" alt="Property Care" style={{ height: 90, width: "auto" }} />
         </div>
 
         {links.map(([label, href], i) => (

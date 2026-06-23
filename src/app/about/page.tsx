@@ -31,12 +31,12 @@ export default function About() {
         {/* ══════════════════════════════════════
             HERO
         ══════════════════════════════════════ */}
-        <section style={{ position: "relative", minHeight: "80vh", display: "flex", alignItems: "center", overflow: "hidden", background: "#0A0908" }}>
+        <section style={{ position: "relative", minHeight: "55vh", display: "flex", alignItems: "center", overflow: "hidden", background: "#0A0908" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={aboutImages.hero} alt="Professional painting and decorating craftsmanship" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", opacity: 0.4 }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(10,10,10,0.98) 0%, rgba(10,10,10,0.86) 45%, rgba(10,10,10,0.55) 100%)" }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,10,10,0.99) 0%, rgba(10,10,10,0.55) 45%, transparent 78%)" }} />
-          <div style={{ position: "relative", zIndex: 2, padding: "140px 52px", maxWidth: 920, width: "100%" }}>
+          <div style={{ position: "relative", zIndex: 2, padding: "100px 52px 80px", maxWidth: 920, width: "100%" }}>
             <div className="h-a1" style={{ marginBottom: 32 }}>
               <OrangeTab>About Property Care</OrangeTab>
             </div>

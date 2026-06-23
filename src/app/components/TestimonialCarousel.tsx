@@ -22,7 +22,7 @@ function Stars() {
 */
 export default function TestimonialCarousel({
   items,
-  intervalMs = 6500,
+  intervalMs = 4500,
 }: {
   items: readonly Testimonial[];
   intervalMs?: number;
@@ -65,7 +65,7 @@ export default function TestimonialCarousel({
         style={{
           background: "#F8F5F0", border: "2px solid #E8E2D9", borderRadius: 4,
           padding: "52px 56px 44px", position: "relative", textAlign: "center",
-          animation: "testiFade 0.5s cubic-bezier(0.16,1,0.3,1)",
+          animation: "testiFade 0.85s cubic-bezier(0.16,1,0.3,1)",
         }}
       >
         <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: 80, height: 4, background: "var(--color-accent)" }} />

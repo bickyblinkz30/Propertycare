@@ -306,45 +306,66 @@ export default function Home() {
         </section>
 
         {/* ══════════════════════════════════════
-            BEFORE / AFTER
+            BEFORE / AFTER — 45/55 split
         ══════════════════════════════════════ */}
-        <section style={{ padding: "120px 52px", background: "#FDFCFB" }} id="transformations">
-          <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }} className="grid-2">
-              <div>
-                <div className="rv"><OrangeTab>See The Difference</OrangeTab></div>
-                <h2 className="rv rv-d1" style={{
-                  fontSize: "clamp(40px, 5vw, 64px)",
-                  fontWeight: 900, lineHeight: 1.05,
-                  letterSpacing: "-0.02em", color: "#0A0908", marginBottom: 24,
-                  textTransform: "uppercase",
-                }}>
-                  Drag To Reveal<br />
-                  <span style={{ color: "var(--color-accent)" }}>A Real Transformation</span>
-                </h2>
-                <p className="rv rv-d2" style={{ fontSize: 16, color: "#3D3A37", lineHeight: 1.7, maxWidth: 420, marginBottom: 36 }}>
-                  Slide left and right to compare. Every project is documented, dated and backed by our written workmanship guarantee.
-                </p>
-                <div className="rv rv-d3" style={{ marginBottom: 36, padding: "24px 28px", background: "#F8F5F0", borderLeft: "4px solid var(--color-accent)", borderRadius: 4 }}>
-                  <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--color-accent)", marginBottom: 8 }}>
-                    Project · Washington · 2025
+        <section style={{ padding: "120px 0", background: "#FDFCFB", overflow: "hidden" }} id="transformations">
+          <div style={{ maxWidth: 1400, margin: "0 auto", display: "grid", gridTemplateColumns: "45fr 55fr", alignItems: "center" }} className="split-grid">
+
+            {/* LEFT — 45% content block */}
+            <div style={{ padding: "0 56px 0 52px" }}>
+              <div className="rv"><OrangeTab>See The Difference</OrangeTab></div>
+              <h2 className="rv rv-d1" style={{
+                fontSize: "clamp(36px, 4.2vw, 58px)",
+                fontWeight: 900, lineHeight: 1.05,
+                letterSpacing: "-0.02em", color: "#0A0908", marginBottom: 20,
+                textTransform: "uppercase",
+              }}>
+                Real Results,<br />
+                <span style={{ color: "var(--color-accent)" }}>Real Clients</span>
+              </h2>
+              <p className="rv rv-d2" style={{ fontSize: 16, color: "#3D3A37", lineHeight: 1.75, marginBottom: 40, maxWidth: 400 }}>
+                Drag to reveal the transformation. Every project documented, dated, and backed by our written workmanship guarantee.
+              </p>
+
+              {/* 4 trust indicators */}
+              <div className="rv rv-d3" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 44 }}>
+                {[
+                  {
+                    label: "Workmanship Guarantee",
+                    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
+                  },
+                  {
+                    label: "Locally Trusted",
+                    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" fill="currentColor" stroke="none"/></svg>,
+                  },
+                  {
+                    label: "Fully Insured",
+                    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 13l4 4L19 7"/></svg>,
+                  },
+                  {
+                    label: "Free Estimates",
+                    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>,
+                  },
+                ].map(({ label, icon }) => (
+                  <div key={label} className="trust-indicator" style={{ display: "flex", alignItems: "center", gap: 14, padding: "16px 18px", background: "#F8F5F0", borderRadius: 6, border: "1px solid #E8E2D9" }}>
+                    <div style={{ width: 40, height: 40, background: "var(--color-accent-soft)", borderRadius: 6, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, color: "var(--color-accent)" }}>
+                      {icon}
+                    </div>
+                    <span style={{ fontSize: 13, fontWeight: 700, color: "#0A0908", lineHeight: 1.3 }}>{label}</span>
                   </div>
-                  <div style={{ fontSize: 22, fontWeight: 800, color: "#0A0908", marginBottom: 10, letterSpacing: "-0.01em" }}>
-                    Chimney Breast to Cinematic Centrepiece
-                  </div>
-                  <p style={{ fontSize: 14, color: "#3D3A37", lineHeight: 1.65, fontWeight: 400 }}>
-                    Dated chimney breast reimagined as a warm architectural media wall with electric fire, concealed cabling and ambient uplighting.
-                  </p>
-                </div>
-                <div className="rv rv-d4">
-                  <a href="#contact" className="btn-orange"><span>Request Similar</span></a>
-                </div>
-              </div>
-              <div className="rv rv-d1" style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-                {beforeAfterTransformations.map((t) => (
-                  <BeforeAfterSlider key={t.caption ?? t.afterImg} {...t} />
                 ))}
               </div>
+
+              <div className="rv rv-d4">
+                <a href="/portfolio" className="btn-orange">
+                  <span>View Recent Projects <span style={{ marginLeft: 4 }}>→</span></span>
+                </a>
+              </div>
+            </div>
+
+            {/* RIGHT — 55% single large slider */}
+            <div className="rv rv-d1" style={{ paddingRight: 52, paddingLeft: 20 }}>
+              <BeforeAfterSlider {...beforeAfterTransformations[0]} />
             </div>
           </div>
         </section>
