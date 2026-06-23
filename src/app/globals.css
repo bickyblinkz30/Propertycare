@@ -418,6 +418,33 @@ h1, h2, h3 { font-family: var(--font-display); }
 .img-wrap.in::after { transform: scaleX(0); }
 
 /* ════════════════════════════════════
+   TRUST INDICATORS (See The Difference)
+════════════════════════════════════ */
+.trust-indicator {
+  transition: background 0.3s, border-color 0.3s, transform 0.3s var(--ease-lux);
+}
+.trust-indicator:hover {
+  background: var(--color-accent-soft) !important;
+  border-color: rgba(var(--color-accent-rgb),0.35) !important;
+  transform: translateY(-2px);
+}
+
+/* ════════════════════════════════════
+   SPLIT GRID — responsive (45/55)
+════════════════════════════════════ */
+@media (max-width: 900px) {
+  .split-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .split-grid > *:first-child {
+    padding: 0 28px !important;
+  }
+  .split-grid > *:last-child {
+    padding: 28px 28px 0 !important;
+  }
+}
+
+/* ════════════════════════════════════
    RESPONSIVE
 ════════════════════════════════════ */
 @media (max-width: 1024px) {
@@ -429,20 +456,70 @@ h1, h2, h3 { font-family: var(--font-display); }
 }
 
 /* ════════════════════════════════════
-   FIX 13 — ELEVATED CARD TREATMENT (first pass)
-   Deeper shadows, more generous whitespace, smoother hover transitions.
+   ELEVATED CARD TREATMENT
+   Deeper shadows, smoother hover transitions.
 ════════════════════════════════════ */
 .svc-card, .testi-card {
   box-shadow: var(--card-shadow);
-  transition: transform 0.3s var(--ease-lux), box-shadow 0.3s var(--ease-lux), border-color 0.3s var(--ease-lux);
+  transition: transform 0.35s var(--ease-lux), box-shadow 0.35s var(--ease-lux), border-color 0.35s var(--ease-lux);
 }
 .svc-card:hover, .testi-card:hover {
   transform: translateY(-8px);
   box-shadow: var(--card-shadow-hover);
   border-color: rgba(var(--color-accent-rgb),0.45);
 }
-.port-card { box-shadow: var(--card-shadow); transition: transform 0.3s var(--ease-lux), box-shadow 0.3s var(--ease-lux); }
+.port-card { box-shadow: var(--card-shadow); transition: transform 0.35s var(--ease-lux), box-shadow 0.35s var(--ease-lux); }
 .port-card:hover { box-shadow: var(--card-shadow-hover); }
 .svc-card .svc-icon-wrap { margin-bottom: 26px; }
-/* Slightly tighter, more refined letterforms on the serif headings */
 h1, h2, h3 { font-feature-settings: "liga" 1, "kern" 1; }
+
+/* ════════════════════════════════════
+   BUTTON MICRO-INTERACTIONS
+════════════════════════════════════ */
+.btn-orange:active { transform: translateY(-1px) scale(0.98); }
+.btn-outline-dark:active, .btn-outline-light:active, .btn-dark:active { transform: translateY(-1px) scale(0.98); }
+
+/* ════════════════════════════════════
+   GALLERY ZOOM (portfolio cards)
+════════════════════════════════════ */
+.port-card img { transform-origin: center; }
+.port-card:hover img { transform: scale(1.09); }
+
+/* ════════════════════════════════════
+   COUNT-UP NUMBER REVEAL
+════════════════════════════════════ */
+@keyframes numPop {
+  from { opacity: 0; transform: translateY(14px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.count-num { animation: numPop 0.7s var(--ease-lux) both; }
+
+/* ════════════════════════════════════
+   PERFORMANCE — prefers-reduced-motion
+════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  /* Hero entrance */
+  .h-a1, .h-a2, .h-a3, .h-a4, .h-a5, .h-a6 {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+  /* Scroll reveal */
+  .rv, .rv-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  /* Marquee */
+  .mq-track { animation: none !important; }
+  /* Scroll drip */
+  .scroll-drip { animation: none !important; }
+  /* Image wipe */
+  .img-wrap::after { display: none !important; }
+  /* Testimonial fade */
+  .testi-card { animation: none !important; }
+  /* Buttons — remove lift */
+  .btn-orange, .btn-dark, .btn-outline-light, .btn-outline-dark {
+    transition: none !important;
+  }
+  .btn-orange:hover { transform: none !important; }
+}
