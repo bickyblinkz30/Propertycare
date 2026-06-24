@@ -36,7 +36,7 @@ export const ctaBackground = U("photo-1600566753190-17f0baa2a6c3", 1400, 82);
 // --- Per-page image maps ---
 export const homeImages = {
   hero: heroImages.home,
-  about: U("photo-1556909114-f6e7ad7d3136", 960),
+  about: "/images/Property-Care-team-at-work.jpg", // real team-at-work photo (home "about" band)
   paint: "/images/Painting%20and%20Decorating.jpg",
   electric: "/images/Electrical%20Services.jpg",
   media: "/images/TV-Media-Wall-Installation.jpg",
@@ -113,7 +113,7 @@ export const portfolioProjectImages: readonly string[] = [
   "/images/placeholders/before-1.jpg",
   "/images/placeholders/before-2.jpg",
   // Media Walls
-  U("photo-1593784991095-a205069470b6", 900, 85),
+  "/images/Bespoke-Media-Wall-Installation.jpg", // real photo — Bespoke Media Wall Installation card (single image, no slider)
   U("photo-1618220179428-22790b461013", 900, 85),
   U("photo-1600607687939-ce8a6d24cca4", 900, 85),
   U("photo-1600566753190-17f0baa2a6c3", 900, 85),
