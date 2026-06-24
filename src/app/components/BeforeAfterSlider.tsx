@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type PointerEvent as ReactPointerEvent } from "react";
 
 /*
   Drag-to-reveal before/after comparison slider.
@@ -68,32 +68,35 @@ export default function BeforeAfterSlider({
         }
       }, 16);
     }
-
-    const mm = (e: MouseEvent) => { if (dragging.current) setSlider(e.clientX); };
-    const tm = (e: TouchEvent) => { if (dragging.current) setSlider(e.touches[0].clientX); };
-    const up = () => { dragging.current = false; };
-
-    window.addEventListener("mousemove", mm);
-    window.addEventListener("touchmove", tm, { passive: true });
-    window.addEventListener("mouseup", up);
-    window.addEventListener("touchend", up);
-    return () => {
-      stopAuto();
-      window.removeEventListener("mousemove", mm);
-      window.removeEventListener("touchmove", tm);
-      window.removeEventListener("mouseup", up);
-      window.removeEventListener("touchend", up);
-    };
+    return () => stopAuto();
   }, [autoplay]);
 
-  const start = (x: number) => { stopAuto(); dragging.current = true; setSlider(x); };
+  // Pointer Events unify mouse/touch/pen. setPointerCapture keeps move events
+  // flowing to THIS slider even as the finger leaves it — and is per-instance,
+  // so multiple cards never collide. touchAction:"none" stops the browser from
+  // stealing the horizontal drag for page scroll on mobile.
+  const onDown = (e: ReactPointerEvent<HTMLDivElement>) => {
+    stopAuto();
+    dragging.current = true;
+    e.currentTarget.setPointerCapture(e.pointerId);
+    setSlider(e.clientX);
+  };
+  const onMove = (e: ReactPointerEvent<HTMLDivElement>) => {
+    if (dragging.current) setSlider(e.clientX);
+  };
+  const onUp = (e: ReactPointerEvent<HTMLDivElement>) => {
+    dragging.current = false;
+    if (e.currentTarget.hasPointerCapture(e.pointerId)) e.currentTarget.releasePointerCapture(e.pointerId);
+  };
 
   return (
     <div
       ref={wrapRef}
-      onMouseDown={(e) => start(e.clientX)}
-      onTouchStart={(e) => start(e.touches[0].clientX)}
-      style={{ position: "relative", height, overflow: "hidden", borderRadius: 4, cursor: "ew-resize", userSelect: "none", boxShadow: "0 20px 60px rgba(10,9,8,0.18)" }}
+      onPointerDown={onDown}
+      onPointerMove={onMove}
+      onPointerUp={onUp}
+      onPointerCancel={onUp}
+      style={{ position: "relative", height, overflow: "hidden", borderRadius: 4, cursor: "ew-resize", userSelect: "none", touchAction: "none", boxShadow: "0 20px 60px rgba(10,9,8,0.18)" }}
     >
       {/* AFTER (full image underneath) */}
       <div style={{ position: "absolute", inset: 0 }}>
