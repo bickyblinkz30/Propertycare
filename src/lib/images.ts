@@ -137,8 +137,8 @@ export const beforeAfterTransformations: readonly BeforeAfterEntry[] = [
   { beforeImg: "/images/Consumer-Unit-Upgrade-before.jpg", afterImg: "/images/Consumer-Unit-Upgrade-after.jpg", caption: "Consumer Unit Upgrade" },
   { beforeImg: "/images/Feature-Wall-Design-before.png", afterImg: "/images/Feature-Wall-Design-after.png", caption: "Feature Wall Design" },
   { beforeImg: "/images/Full-Electrical-Rewiring-before.png", afterImg: "/images/Full-Electrical-Rewiring-after.png", caption: "Full Electrical Rewiring" },
-  { beforeImg: "/images/Kitchen-Repaint-&-Refresh-before.png", afterImg: "/images/Kitchen-Repaint-&-Refresh-after.png", caption: "Kitchen Repaint & Refresh" },
+  { beforeImg: "/images/Kitchen-Repaint-and-Refresh-before.png", afterImg: "/images/Kitchen-Repaint-and-Refresh-after.png", caption: "Kitchen Repaint & Refresh" },
   { beforeImg: "/images/Smart-Lighting-Installation-before.png", afterImg: "/images/Smart-Lighting-Installation-after.png", caption: "Smart Lighting Installation" },
-  { beforeImg: "/images/Hallway%20&%20Staircase-Renovation-before.jpg", afterImg: "/images/Hallway%20&%20Staircase-Renovation-after.jpeg", caption: "Hallway & Staircase Renovation" },
+  { beforeImg: "/images/Hallway-and-Staircase-Renovation-before.jpg", afterImg: "/images/Hallway-and-Staircase-Renovation-after.jpeg", caption: "Hallway & Staircase Renovation" },
   { beforeImg: "/images/Interior-living-room-Transformation-before.jpeg", afterImg: "/images/Interior-living-room-Transformation-after.jpg", caption: "Interior Living Room Transformation" },
 ];
