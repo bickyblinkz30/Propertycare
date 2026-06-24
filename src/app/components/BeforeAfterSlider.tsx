@@ -16,12 +16,23 @@ export type BeforeAfterEntry = {
   location?: string;
 };
 
+// Presentational props layered on top of the data shape. `height` lets the same
+// slider fill a 400px grid card or a 500px featured frame; `autoplay={false}`
+// stops the auto-sweep loop (used for the many grid-card sliders, which would
+// otherwise each run their own animation timer).
+type BeforeAfterSliderProps = BeforeAfterEntry & {
+  height?: number;
+  autoplay?: boolean;
+};
+
 export default function BeforeAfterSlider({
   beforeImg = "/images/placeholders/before-1.jpg",
   afterImg = "/images/placeholders/after-1.jpg",
   caption,
   location,
-}: BeforeAfterEntry) {
+  height = 500,
+  autoplay = true,
+}: BeforeAfterSliderProps) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const beforeRef = useRef<HTMLDivElement>(null);
   const divRef = useRef<HTMLDivElement>(null);
@@ -46,15 +57,17 @@ export default function BeforeAfterSlider({
   }
 
   useEffect(() => {
-    autoRef.current = setInterval(() => {
-      angleRef.current += dirRef.current * 0.5;
-      if (angleRef.current <= 18 || angleRef.current >= 82) dirRef.current *= -1;
-      const wrap = wrapRef.current;
-      if (wrap) {
-        const r = wrap.getBoundingClientRect();
-        setSlider(r.left + r.width * (angleRef.current / 100));
-      }
-    }, 16);
+    if (autoplay) {
+      autoRef.current = setInterval(() => {
+        angleRef.current += dirRef.current * 0.5;
+        if (angleRef.current <= 18 || angleRef.current >= 82) dirRef.current *= -1;
+        const wrap = wrapRef.current;
+        if (wrap) {
+          const r = wrap.getBoundingClientRect();
+          setSlider(r.left + r.width * (angleRef.current / 100));
+        }
+      }, 16);
+    }
 
     const mm = (e: MouseEvent) => { if (dragging.current) setSlider(e.clientX); };
     const tm = (e: TouchEvent) => { if (dragging.current) setSlider(e.touches[0].clientX); };
@@ -71,7 +84,7 @@ export default function BeforeAfterSlider({
       window.removeEventListener("mouseup", up);
       window.removeEventListener("touchend", up);
     };
-  }, []);
+  }, [autoplay]);
 
   const start = (x: number) => { stopAuto(); dragging.current = true; setSlider(x); };
 
@@ -80,7 +93,7 @@ export default function BeforeAfterSlider({
       ref={wrapRef}
       onMouseDown={(e) => start(e.clientX)}
       onTouchStart={(e) => start(e.touches[0].clientX)}
-      style={{ position: "relative", height: 500, overflow: "hidden", borderRadius: 4, cursor: "ew-resize", userSelect: "none", boxShadow: "0 20px 60px rgba(10,9,8,0.18)" }}
+      style={{ position: "relative", height, overflow: "hidden", borderRadius: 4, cursor: "ew-resize", userSelect: "none", boxShadow: "0 20px 60px rgba(10,9,8,0.18)" }}
     >
       {/* AFTER (full image underneath) */}
       <div style={{ position: "absolute", inset: 0 }}>
