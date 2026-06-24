@@ -2,35 +2,26 @@
 import { useEffect, useRef } from "react";
 
 /*
-  Reusable before/after comparison slider (drag the orange handle — mouse + touch).
-  Used prop-less on the home page (falls back to the placeholder pair below) and
-  data-driven in the Portfolio "See The Difference" gallery (one instance per project).
+  Drag-to-reveal before/after comparison slider.
 
-  Pass `before` / `after` as /images/... paths. Paths are URL-encoded internally,
-  so filenames containing spaces or & (e.g. "Hallway & Staircase-...") work as-is.
-  Set `autoplay={false}` when rendering many sliders at once (the Portfolio grid)
-  to avoid running one animation loop per slider.
+  Image pairs are passed in as props so the same component can power multiple
+  transformations. Defaults point at the local placeholder photos in
+  /public/images/placeholders/ — swap these for real client project photos
+  via the `beforeAfterTransformations` array in src/lib/images.ts.
 */
-const DEFAULT_BEFORE = "/images/placeholders/before-1.jpg";
-const DEFAULT_AFTER = "/images/placeholders/after-1.jpg";
-
-type Props = {
-  before?: string;
-  after?: string;
-  beforeAlt?: string;
-  afterAlt?: string;
-  height?: number;
-  autoplay?: boolean;
+export type BeforeAfterEntry = {
+  beforeImg: string;
+  afterImg: string;
+  caption?: string;
+  location?: string;
 };
 
 export default function BeforeAfterSlider({
-  before = DEFAULT_BEFORE,
-  after = DEFAULT_AFTER,
-  beforeAlt = "Before renovation",
-  afterAlt = "Renovated result",
-  height = 500,
-  autoplay = true,
-}: Props) {
+  beforeImg = "/images/placeholders/before-1.jpg",
+  afterImg = "/images/placeholders/after-1.jpg",
+  caption,
+  location,
+}: BeforeAfterEntry) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const beforeRef = useRef<HTMLDivElement>(null);
   const divRef = useRef<HTMLDivElement>(null);
@@ -55,17 +46,15 @@ export default function BeforeAfterSlider({
   }
 
   useEffect(() => {
-    if (autoplay) {
-      autoRef.current = setInterval(() => {
-        angleRef.current += dirRef.current * 0.5;
-        if (angleRef.current <= 18 || angleRef.current >= 82) dirRef.current *= -1;
-        const wrap = wrapRef.current;
-        if (wrap) {
-          const r = wrap.getBoundingClientRect();
-          setSlider(r.left + r.width * (angleRef.current / 100));
-        }
-      }, 16);
-    }
+    autoRef.current = setInterval(() => {
+      angleRef.current += dirRef.current * 0.5;
+      if (angleRef.current <= 18 || angleRef.current >= 82) dirRef.current *= -1;
+      const wrap = wrapRef.current;
+      if (wrap) {
+        const r = wrap.getBoundingClientRect();
+        setSlider(r.left + r.width * (angleRef.current / 100));
+      }
+    }, 16);
 
     const mm = (e: MouseEvent) => { if (dragging.current) setSlider(e.clientX); };
     const tm = (e: TouchEvent) => { if (dragging.current) setSlider(e.touches[0].clientX); };
@@ -82,42 +71,51 @@ export default function BeforeAfterSlider({
       window.removeEventListener("mouseup", up);
       window.removeEventListener("touchend", up);
     };
-  }, [autoplay]);
+  }, []);
 
   const start = (x: number) => { stopAuto(); dragging.current = true; setSlider(x); };
-
-  const beforeSrc = encodeURI(before);
-  const afterSrc = encodeURI(after);
 
   return (
     <div
       ref={wrapRef}
       onMouseDown={(e) => start(e.clientX)}
       onTouchStart={(e) => start(e.touches[0].clientX)}
-      style={{ position: "relative", height, overflow: "hidden", borderRadius: 4, cursor: "ew-resize", userSelect: "none", boxShadow: "0 20px 60px rgba(10,9,8,0.18)" }}
+      style={{ position: "relative", height: 500, overflow: "hidden", borderRadius: 4, cursor: "ew-resize", userSelect: "none", boxShadow: "0 20px 60px rgba(10,9,8,0.18)" }}
     >
       {/* AFTER (full image underneath) */}
       <div style={{ position: "absolute", inset: 0 }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={afterSrc} alt={afterAlt} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-        <div style={{ position: "absolute", top: 16, right: 16, background: "#F58220", color: "#fff", fontSize: 11, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", padding: "6px 13px", borderRadius: 2 }}>After</div>
+        <img src={afterImg} alt="Renovated interior" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+        <div style={{ position: "absolute", top: 16, right: 16, background: "var(--color-accent)", color: "#fff", fontSize: 11, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", padding: "6px 13px", borderRadius: 2 }}>After</div>
       </div>
 
       {/* BEFORE (clipped by slider position) */}
       <div ref={beforeRef} style={{ position: "absolute", inset: 0, clipPath: "inset(0 50% 0 0)" }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={beforeSrc} alt={beforeAlt} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+        <img src={beforeImg} alt="Before renovation" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
         <div style={{ position: "absolute", top: 16, left: 16, background: "#0A0908", color: "#fff", fontSize: 11, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", padding: "6px 13px", borderRadius: 2 }}>Before</div>
       </div>
 
       {/* Divider */}
-      <div ref={divRef} style={{ position: "absolute", top: 0, bottom: 0, width: 3, background: "#F58220", left: "50%", transform: "translateX(-50%)", zIndex: 10, pointerEvents: "none", boxShadow: "0 0 10px rgba(245,130,32,0.5)" }} />
+      <div ref={divRef} style={{ position: "absolute", top: 0, bottom: 0, width: 3, background: "var(--color-accent)", left: "50%", transform: "translateX(-50%)", zIndex: 10, pointerEvents: "none", boxShadow: "0 0 10px rgba(var(--color-accent-rgb),0.5)" }} />
       {/* Knob */}
-      <div ref={knobRef} style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 52, height: 52, background: "#F58220", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none", zIndex: 11, boxShadow: "0 6px 24px rgba(245,130,32,0.5)" }}>
+      <div ref={knobRef} style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 52, height: 52, background: "var(--color-accent)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none", zIndex: 11, boxShadow: "0 6px 24px rgba(var(--color-accent-rgb),0.5)" }}>
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5">
           <path d="M8 9l-4 3 4 3M16 9l4 3-4 3" />
         </svg>
       </div>
+
+      {/* Optional caption overlay */}
+      {(caption || location) && (
+        <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, zIndex: 12, pointerEvents: "none", padding: "26px 18px 16px", background: "linear-gradient(to top, rgba(10,9,8,0.85), transparent)" }}>
+          {location && (
+            <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--color-accent)", marginBottom: 4 }}>{location}</div>
+          )}
+          {caption && (
+            <div style={{ fontSize: 16, fontWeight: 800, color: "#fff", letterSpacing: "-0.01em", lineHeight: 1.3 }}>{caption}</div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
