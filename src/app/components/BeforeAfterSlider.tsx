@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, type PointerEvent as ReactPointerEvent } from "react";
+import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
 
 /*
   Drag-to-reveal before/after comparison slider.
@@ -33,23 +33,20 @@ export default function BeforeAfterSlider({
   height = 500,
   autoplay = true,
 }: BeforeAfterSliderProps) {
-  const wrapRef = useRef<HTMLDivElement>(null);
-  const beforeRef = useRef<HTMLDivElement>(null);
-  const divRef = useRef<HTMLDivElement>(null);
-  const knobRef = useRef<HTMLDivElement>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const [position, setPosition] = useState(50);
   const dragging = useRef(false);
   const autoRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const angleRef = useRef(50);
   const dirRef = useRef(-1);
 
-  function setSlider(x: number) {
-    const wrap = wrapRef.current;
-    if (!wrap) return;
-    const r = wrap.getBoundingClientRect();
-    const p = Math.max(4, Math.min(96, ((x - r.left) / r.width) * 100));
-    if (beforeRef.current) beforeRef.current.style.clipPath = `inset(0 ${100 - p}% 0 0)`;
-    if (divRef.current) divRef.current.style.left = `${p}%`;
-    if (knobRef.current) knobRef.current.style.left = `${p}%`;
+  // Maps an absolute clientX to a 0-100 percentage within THIS slider's own rect.
+  // Fresh getBoundingClientRect() on every event — no accumulated offsets, no shared state.
+  function calcPct(clientX: number): number {
+    const el = sliderRef.current;
+    if (!el) return 50;
+    const rect = el.getBoundingClientRect();
+    return Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100));
   }
 
   function stopAuto() {
@@ -59,13 +56,10 @@ export default function BeforeAfterSlider({
   useEffect(() => {
     if (autoplay) {
       autoRef.current = setInterval(() => {
+        if (dragging.current) return;
         angleRef.current += dirRef.current * 0.5;
         if (angleRef.current <= 18 || angleRef.current >= 82) dirRef.current *= -1;
-        const wrap = wrapRef.current;
-        if (wrap) {
-          const r = wrap.getBoundingClientRect();
-          setSlider(r.left + r.width * (angleRef.current / 100));
-        }
+        setPosition(angleRef.current);
       }, 16);
     }
     return () => stopAuto();
@@ -79,10 +73,10 @@ export default function BeforeAfterSlider({
     stopAuto();
     dragging.current = true;
     e.currentTarget.setPointerCapture(e.pointerId);
-    setSlider(e.clientX);
+    setPosition(calcPct(e.clientX));
   };
   const onMove = (e: ReactPointerEvent<HTMLDivElement>) => {
-    if (dragging.current) setSlider(e.clientX);
+    if (dragging.current) setPosition(calcPct(e.clientX));
   };
   const onUp = (e: ReactPointerEvent<HTMLDivElement>) => {
     dragging.current = false;
@@ -91,7 +85,7 @@ export default function BeforeAfterSlider({
 
   return (
     <div
-      ref={wrapRef}
+      ref={sliderRef}
       onPointerDown={onDown}
       onPointerMove={onMove}
       onPointerUp={onUp}
@@ -105,17 +99,18 @@ export default function BeforeAfterSlider({
         <div style={{ position: "absolute", top: 16, right: 16, background: "var(--color-accent)", color: "#fff", fontSize: 11, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", padding: "6px 13px", borderRadius: 2 }}>After</div>
       </div>
 
-      {/* BEFORE (clipped by slider position) */}
-      <div ref={beforeRef} style={{ position: "absolute", inset: 0, clipPath: "inset(0 50% 0 0)" }}>
+      {/* BEFORE (clipped to reveal only the left portion) */}
+      <div style={{ position: "absolute", inset: 0, clipPath: `inset(0 ${100 - position}% 0 0)`, pointerEvents: "none" }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={beforeImg} alt="Before renovation" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
         <div style={{ position: "absolute", top: 16, left: 16, background: "#0A0908", color: "#fff", fontSize: 11, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", padding: "6px 13px", borderRadius: 2 }}>Before</div>
       </div>
 
       {/* Divider */}
-      <div ref={divRef} style={{ position: "absolute", top: 0, bottom: 0, width: 3, background: "var(--color-accent)", left: "50%", transform: "translateX(-50%)", zIndex: 10, pointerEvents: "none", boxShadow: "0 0 10px rgba(var(--color-accent-rgb),0.5)" }} />
+      <div style={{ position: "absolute", top: 0, bottom: 0, width: 3, background: "var(--color-accent)", left: `${position}%`, transform: "translateX(-50%)", zIndex: 10, pointerEvents: "none", boxShadow: "0 0 10px rgba(var(--color-accent-rgb),0.5)" }} />
+
       {/* Knob */}
-      <div ref={knobRef} style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 52, height: 52, background: "var(--color-accent)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none", zIndex: 11, boxShadow: "0 6px 24px rgba(var(--color-accent-rgb),0.5)" }}>
+      <div style={{ position: "absolute", top: "50%", left: `${position}%`, transform: "translate(-50%,-50%)", width: 52, height: 52, background: "var(--color-accent)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none", zIndex: 11, boxShadow: "0 6px 24px rgba(var(--color-accent-rgb),0.5)" }}>
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5">
           <path d="M8 9l-4 3 4 3M16 9l4 3-4 3" />
         </svg>
