@@ -291,7 +291,7 @@ export default function About() {
             <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr", gap: 56, marginBottom: 60 }} className="footer-grid">
               <div>
                 <div style={{ background: "#fff", padding: "14px 26px", borderRadius: 999, display: "inline-block", marginBottom: 24 }}>
-                  <img src="/images/propertycare-logo.png" alt="Property Care Paint & Electrics" style={{ height: 90, width: "auto", display: "block" }} />
+                  <img src="/images/propertycare-logo.jpg" alt="Property Care Paint & Electrics" style={{ height: 90, width: "auto", display: "block" }} />
                 </div>
                 <p style={{ fontSize: 14, color: "#C9C0B4", lineHeight: 1.7, maxWidth: 320, marginBottom: 24, fontWeight: 400 }}>
                   The North East&apos;s premium single-team property transformation specialists. Sunderland and the surrounding areas. Residential &amp; commercial.

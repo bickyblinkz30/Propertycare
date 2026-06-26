@@ -8,7 +8,7 @@ import FooterLinks from "../components/FooterLinks";
 import TestimonialCarousel from "../components/TestimonialCarousel";
 import { motion } from "framer-motion";
 import { testimonials } from "@/lib/site";
-import { beforeAfterTransformations, portfolioImages as IMG, portfolioProjectImages, portfolioProjectBeforeImages } from "@/lib/images";
+import { portfolioImages as IMG, portfolioProjectImages, portfolioProjectBeforeImages } from "@/lib/images";
 
 const WA = "https://wa.me/447922909982?text=Hi%20Property%20Care%2C%20I%27d%20like%20a%20free%20quote.";
 
@@ -25,22 +25,30 @@ function OrangeTab({ children, center = false }: { children: React.ReactNode; ce
 }
 
 /*
-  Project metadata only — the image for each card is zipped in by index below
-  from `portfolioProjectImages` in src/lib/images.ts, which guarantees every
-  card gets a UNIQUE photo. Keep this list's order in sync with that array.
+  Project metadata — the single image for each card is zipped in by index below
+  from `portfolioProjectImages` in src/lib/images.ts (every card gets a UNIQUE
+  photo). Keep this list's order in sync with that array.
+
+  BEFORE/AFTER SLIDERS: add `before` + `after` (committed /images paths) to any
+  project and its grid card renders a drag-to-reveal slider instead of the single
+  image — in place, same card size. Both present → slider; absent → single image.
+  Mixed extensions are fine (use each file's REAL extension). To add a future
+  transformation: drop the two files in /public/images and fill these two fields.
+  (The one featured slider — Interior Living Room Transformation — is shown in the
+  "See The Difference" section instead, so its card intentionally has no pair.)
 */
 const PROJECT_DETAILS = [
   // Painting & Decorating (6)
   { title: "Interior Living Room Transformation", cat: "Painting & Decorating", desc: "Complete living room repaint with feature wall and premium decorative finishes.", loc: "Sunderland" },
-  { title: "Complete Exterior Repaint", cat: "Painting & Decorating", desc: "Full exterior repaint including woodwork, soffits and masonry for a period property.", loc: "Washington" },
-  { title: "Kitchen Repaint & Refresh", cat: "Painting & Decorating", desc: "Kitchen cabinet repaint, wall preparation and durable satinwood finish throughout.", loc: "Durham" },
-  { title: "Commercial Office Decorating", cat: "Painting & Decorating", desc: "Full office interior redecorated with hard-wearing matt emulsion and satinwood trim.", loc: "Newcastle" },
-  { title: "Hallway & Staircase Renovation", cat: "Painting & Decorating", desc: "Transformed a narrow hallway with feature wall, dado rail and fresh neutral palette.", loc: "Sunderland" },
-  { title: "Feature Wall Design", cat: "Painting & Decorating", desc: "Bespoke accent wall with geometric paint effect and complementary colour scheme.", loc: "Gateshead" },
+  { title: "Complete Exterior Repaint", cat: "Painting & Decorating", desc: "Full exterior repaint including woodwork, soffits and masonry for a period property.", loc: "Washington", before: "/images/Complete-Exterior-Repaint-before.jpg", after: "/images/Complete-Exterior-Repaint-after.jpg" },
+  { title: "Kitchen Repaint & Refresh", cat: "Painting & Decorating", desc: "Kitchen cabinet repaint, wall preparation and durable satinwood finish throughout.", loc: "Durham", before: "/images/Kitchen-Repaint-and-Refresh-before.png", after: "/images/Kitchen-Repaint-and-Refresh-after.png" },
+  { title: "Commercial Office Decorating", cat: "Painting & Decorating", desc: "Full office interior redecorated with hard-wearing matt emulsion and satinwood trim.", loc: "Newcastle", before: "/images/Commercial-Office-Decorating-before.png", after: "/images/Commercial-Office-Decorating-after.png" },
+  { title: "Hallway & Staircase Renovation", cat: "Painting & Decorating", desc: "Transformed a narrow hallway with feature wall, dado rail and fresh neutral palette.", loc: "Sunderland", before: "/images/Hallway-and-Staircase-Renovation-before.jpg", after: "/images/Hallway-and-Staircase-Renovation-after.jpeg" },
+  { title: "Feature Wall Design", cat: "Painting & Decorating", desc: "Bespoke accent wall with geometric paint effect and complementary colour scheme.", loc: "Gateshead", before: "/images/Feature-Wall-Design-before.png", after: "/images/Feature-Wall-Design-after.png" },
   // Electrical (6)
-  { title: "Consumer Unit Upgrade", cat: "Electrical", desc: "Modern consumer unit installation with full EICR certification and smart RCD protection.", loc: "Seaham" },
-  { title: "Full Electrical Rewiring", cat: "Electrical", desc: "Complete rewiring of a three-bedroom home with smart lighting and new consumer unit.", loc: "Newcastle" },
-  { title: "Smart Lighting Installation", cat: "Electrical", desc: "Integrated smart lighting system with dimmable zones, motion sensors and app control.", loc: "Sunderland" },
+  { title: "Consumer Unit Upgrade", cat: "Electrical", desc: "Modern consumer unit installation with full EICR certification and smart RCD protection.", loc: "Seaham", before: "/images/Consumer-Unit-Upgrade-before.jpg", after: "/images/Consumer-Unit-Upgrade-after.jpg" },
+  { title: "Full Electrical Rewiring", cat: "Electrical", desc: "Complete rewiring of a three-bedroom home with smart lighting and new consumer unit.", loc: "Newcastle", before: "/images/Full-Electrical-Rewiring-before.png", after: "/images/Full-Electrical-Rewiring-after.png" },
+  { title: "Smart Lighting Installation", cat: "Electrical", desc: "Integrated smart lighting system with dimmable zones, motion sensors and app control.", loc: "Sunderland", before: "/images/Smart-Lighting-Installation-before.png", after: "/images/Smart-Lighting-Installation-after.png" },
   { title: "Garden & Outdoor Lighting", cat: "Electrical", desc: "Low-voltage garden lighting with IP-rated fittings, deck lights and feature spotlights.", loc: "Durham" },
   { title: "Electrical Fault Repair", cat: "Electrical", desc: "Diagnosed and repaired intermittent power fault, replaced damaged wiring and tested circuits.", loc: "South Shields" },
   { title: "Video Doorbell Installation", cat: "Electrical", desc: "Hardwired video doorbell with chime kit, transformer upgrade and WiFi configuration.", loc: "Washington" },
@@ -60,11 +68,25 @@ const PROJECT_DETAILS = [
   { title: "Modern Feature Wall with Panelling", cat: "Media Walls", desc: "Media wall with decorative panelling, picture light and integrated soundbar recess.", loc: "Sunderland" },
 ];
 
-const ALL_PROJECTS = PROJECT_DETAILS.map((project, i) => ({
+type Project = {
+  title: string; cat: string; desc: string; loc: string; img: string;
+  before?: string; after?: string; beforeImg: string;
+};
+
+const ALL_PROJECTS: Project[] = PROJECT_DETAILS.map((project, i) => ({
   ...project,
   img: portfolioProjectImages[i],
   beforeImg: portfolioProjectBeforeImages[i],
 }));
+
+// The single featured before/after, shown standalone in the "See The Difference"
+// section (so this pair intentionally has no grid-card slider above).
+const FEATURED = {
+  beforeImg: "/images/Interior-living-room-Transformation-before.jpeg",
+  afterImg: "/images/Interior-living-room-Transformation-after.jpg",
+  caption: "Interior Living Room Transformation",
+  location: "Sunderland",
+};
 
 const CATEGORIES = ["All Projects", "Painting & Decorating", "Electrical", "Property Maintenance", "Media Walls"];
 
@@ -197,21 +219,16 @@ export default function Portfolio() {
                   key={project.title}
                   style={{ position: "relative", borderRadius: 4, overflow: "hidden" }}
                 >
-                  {/*
-                    Slider fills the card. autoplay sweeps the divider until first
-                    touch/click. startOffset staggers each card so they don't sweep in
-                    unison. IntersectionObserver inside the component pauses off-screen.
-                  */}
+                  {/* Autoplay sweeps divider until first tap/click; IntersectionObserver
+                      inside the component pauses off-screen cards. startOffset staggers
+                      each card so they don't sweep in unison. */}
                   <BeforeAfterSlider
                     beforeImg={project.beforeImg}
                     afterImg={project.img}
                     height={400}
                     startOffset={((i * 17) % 65) + 18}
                   />
-                  {/*
-                    Text overlay sits above the slider with pointerEvents: none so
-                    all taps/drags pass through to the slider interaction layer.
-                  */}
+                  {/* Text overlay is pointer-transparent so taps/drags reach the slider */}
                   <div style={{
                     position: "absolute", inset: 0, zIndex: 15, pointerEvents: "none",
                     background: "linear-gradient(to top, rgba(10,9,8,0.92) 0%, transparent 55%)",
@@ -262,20 +279,20 @@ export default function Portfolio() {
                     Featured Project
                   </div>
                   <div style={{ fontSize: 18, fontWeight: 800, color: "#0A0908", letterSpacing: "-0.01em" }}>
-                    Chimney Breast to Cinematic Centrepiece
+                    Interior Living Room Transformation
                   </div>
                   <p style={{ fontSize: 13, color: "#6B6460", marginTop: 6, fontWeight: 400 }}>
-                    Before and after: a dated chimney breast transformed into a modern media wall.
+                    Before and after: a tired living room transformed with a fresh repaint, feature wall and premium decorative finishes.
                   </p>
                 </div>
                 <div className="rv rv-d4">
                   <a href="#contact" className="btn-orange"><span>Request Similar</span></a>
                 </div>
               </div>
-              <div className="rv rv-d1" style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-                {beforeAfterTransformations.map((t) => (
-                  <BeforeAfterSlider key={t.caption ?? t.afterImg} {...t} />
-                ))}
+              <div className="rv rv-d1">
+                {/* The ONE featured before/after slider. Every other pair now lives
+                    inside its Featured Projects grid card above. */}
+                <BeforeAfterSlider {...FEATURED} />
               </div>
             </div>
           </div>
@@ -399,7 +416,7 @@ export default function Portfolio() {
               <div>
                 <div style={{ background: "#fff", padding: "14px 26px", borderRadius: 999, display: "inline-block", marginBottom: 24 }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/images/propertycare-logo.png" alt="Property Care Paint & Electrics" style={{ height: 90, width: "auto", display: "block" }} />
+                  <img src="/images/propertycare-logo.jpg" alt="Property Care Paint & Electrics" style={{ height: 90, width: "auto", display: "block" }} />
                 </div>
                 <p style={{ fontSize: 14, color: "#C9C0B4", lineHeight: 1.7, maxWidth: 320, marginBottom: 24, fontWeight: 400 }}>
                   The North East&apos;s premium single-team property transformation specialists. Sunderland and the surrounding areas. Residential &amp; commercial.

@@ -301,14 +301,15 @@ h1, h2, h3 { font-family: var(--font-display); }
   cursor: pointer;
   border-radius: 4px;
 }
-.port-card img {
+/* Direct-child only — leaves the before/after slider's nested <img>s untouched */
+.port-card > img {
   transition: transform 0.7s cubic-bezier(0.16,1,0.3,1);
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.port-card:hover img { transform: scale(1.07); }
+.port-card:hover > img { transform: scale(1.07); }
 
 /* ════════════════════════════════════
    TESTIMONIALS
@@ -482,8 +483,8 @@ h1, h2, h3 { font-feature-settings: "liga" 1, "kern" 1; }
 /* ════════════════════════════════════
    GALLERY ZOOM (portfolio cards)
 ════════════════════════════════════ */
-.port-card img { transform-origin: center; }
-.port-card:hover img { transform: scale(1.09); }
+.port-card > img { transform-origin: center; }
+.port-card:hover > img { transform: scale(1.09); }
 
 /* ════════════════════════════════════
    COUNT-UP NUMBER REVEAL

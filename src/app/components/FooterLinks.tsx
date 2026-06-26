@@ -52,7 +52,18 @@ export default function FooterLinks() {
           }}>
             {h}
           </div>
-          <ul style={{ listStyle: "none" }}>
+          <ul style={{
+            listStyle: "none",
+            // "Areas Covered" → two columns of four (column-major fill: down
+            // column 1, then column 2). Other footer columns stay single.
+            ...(h === "Areas Covered" ? {
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gridTemplateRows: "repeat(4, auto)",
+              gridAutoFlow: "column",
+              columnGap: 24,
+            } : {}),
+          }}>
             {items.map(([label, href]) => (
               <li key={label} style={{ marginBottom: 13 }}>
                 <a

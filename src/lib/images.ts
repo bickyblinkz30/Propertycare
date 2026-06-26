@@ -36,11 +36,11 @@ export const ctaBackground = U("photo-1600566753190-17f0baa2a6c3", 1400, 82);
 // --- Per-page image maps ---
 export const homeImages = {
   hero: heroImages.home,
-  about: U("photo-1556909114-f6e7ad7d3136", 960),
-  paint: U("photo-1558618666-fcd25c85cd64", 800),
-  electric: U("photo-1621905251189-08b45d6a269e", 800),
-  media: U("photo-1593784991095-a205069470b6", 800),
-  maint: U("photo-1504307651254-35680f356dfd", 800),
+  about: "/images/Property-Care-team-at-work.jpg", // real team-at-work photo (home "about" band)
+  paint: "/images/Painting%20and%20Decorating.jpg",
+  electric: "/images/Electrical%20Services.jpg",
+  media: "/images/TV-Media-Wall-Installation.jpg",
+  maint: "/images/Property-Improvement-and-maintenance.jpg",
   p1: U("photo-1513694203232-719a280e022f", 900),
   p2: U("photo-1484154218962-a197022b5858", 900),
   p3: U("photo-1600607687920-4e2a09cf159d", 900),
@@ -49,10 +49,10 @@ export const homeImages = {
 
 export const servicesImages = {
   hero: heroImages.services,
-  paint: U("photo-1558618666-fcd25c85cd64", 900, 85),
-  electric: U("photo-1621905251189-08b45d6a269e", 900, 85),
-  maint: U("photo-1504307651254-35680f356dfd", 900, 85),
-  media: U("photo-1593784991095-a205069470b6", 900, 85),
+  paint: "/images/Painting%20and%20Decorating.jpg",
+  electric: "/images/Full-Electrical%20Rewiring.jpg",
+  maint: "/images/Property-Improvement-and-maintenance.jpg",
+  media: "/images/TV-Media-Wall-Installation.jpg",
   showcase1: U("photo-1513694203232-719a280e022f", 800, 85),
   showcase2: U("photo-1484154218962-a197022b5858", 800, 85),
   showcase3: U("photo-1600585153490-76fb20a32601", 800, 85),
@@ -113,7 +113,7 @@ export const portfolioProjectImages: readonly string[] = [
   "/images/placeholders/before-1.jpg",
   "/images/placeholders/before-2.jpg",
   // Media Walls
-  U("photo-1593784991095-a205069470b6", 900, 85),
+  "/images/Bespoke-Media-Wall-Installation.jpg", // real photo — Bespoke Media Wall Installation card (single image, no slider)
   U("photo-1618220179428-22790b461013", 900, 85),
   U("photo-1600607687939-ce8a6d24cca4", 900, 85),
   U("photo-1600566753190-17f0baa2a6c3", 900, 85),
@@ -160,28 +160,22 @@ export const portfolioProjectBeforeImages: readonly string[] = [
 
 // --- Before / after transformations (drag-to-reveal slider) ---
 /*
-  Local placeholders live in /public/images/placeholders/.
-  NOTE: only two distinct "before" placeholders exist (before-1, before-2) but
-  three "after" images, so the third entry reuses before-1. Supply a real
-  before/after photo per project to remove the reuse.
+  Real client before/after project photos (committed in /public/images).
+  The Portfolio page renders ONE slider per entry below; the home page shows [0].
+
+  TO ADD A FUTURE TRANSFORMATION:
+    1. Drop two files in /public/images:  {Name}-before.{ext}  +  {Name}-after.{ext}
+    2. Add ONE entry below (caption = the project title).
+  Spaces in filenames are %20-encoded; "&" is valid unencoded in a URL path.
 */
 export const beforeAfterTransformations: readonly BeforeAfterEntry[] = [
-  {
-    beforeImg: "/images/placeholders/before-1.jpg",
-    afterImg: "/images/placeholders/after-1.jpg",
-    caption: "Chimney Breast to Cinematic Centrepiece",
-    location: "Washington · 2025",
-  },
-  {
-    beforeImg: "/images/placeholders/before-2.jpg",
-    afterImg: "/images/placeholders/after-2.jpg",
-    caption: "Tired Living Room to Modern Repaint",
-    location: "Sunderland · 2025",
-  },
-  {
-    beforeImg: "/images/placeholders/before-1.jpg",
-    afterImg: "/images/placeholders/after-3.jpg",
-    caption: "Period Home Lighting Transformation",
-    location: "Seaham · 2025",
-  },
+  { beforeImg: "/images/Commercial-Office-Decorating-before.png", afterImg: "/images/Commercial-Office-Decorating-after.png", caption: "Commercial Office Decorating" },
+  { beforeImg: "/images/Complete-Exterior-Repaint-before.jpg", afterImg: "/images/Complete-Exterior-Repaint-after.jpg", caption: "Complete Exterior Repaint" },
+  { beforeImg: "/images/Consumer-Unit-Upgrade-before.jpg", afterImg: "/images/Consumer-Unit-Upgrade-after.jpg", caption: "Consumer Unit Upgrade" },
+  { beforeImg: "/images/Feature-Wall-Design-before.png", afterImg: "/images/Feature-Wall-Design-after.png", caption: "Feature Wall Design" },
+  { beforeImg: "/images/Full-Electrical-Rewiring-before.png", afterImg: "/images/Full-Electrical-Rewiring-after.png", caption: "Full Electrical Rewiring" },
+  { beforeImg: "/images/Kitchen-Repaint-and-Refresh-before.png", afterImg: "/images/Kitchen-Repaint-and-Refresh-after.png", caption: "Kitchen Repaint & Refresh" },
+  { beforeImg: "/images/Smart-Lighting-Installation-before.png", afterImg: "/images/Smart-Lighting-Installation-after.png", caption: "Smart Lighting Installation" },
+  { beforeImg: "/images/Hallway-and-Staircase-Renovation-before.jpg", afterImg: "/images/Hallway-and-Staircase-Renovation-after.jpeg", caption: "Hallway & Staircase Renovation" },
+  { beforeImg: "/images/Interior-living-room-Transformation-before.jpeg", afterImg: "/images/Interior-living-room-Transformation-after.jpg", caption: "Interior Living Room Transformation" },
 ];
