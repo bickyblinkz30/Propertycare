@@ -8,7 +8,7 @@ import FooterLinks from "../components/FooterLinks";
 import TestimonialCarousel from "../components/TestimonialCarousel";
 import { motion } from "framer-motion";
 import { testimonials } from "@/lib/site";
-import { beforeAfterTransformations, portfolioImages as IMG, portfolioProjectImages } from "@/lib/images";
+import { beforeAfterTransformations, portfolioImages as IMG, portfolioProjectImages, portfolioProjectBeforeImages } from "@/lib/images";
 
 const WA = "https://wa.me/447922909982?text=Hi%20Property%20Care%2C%20I%27d%20like%20a%20free%20quote.";
 
@@ -63,6 +63,7 @@ const PROJECT_DETAILS = [
 const ALL_PROJECTS = PROJECT_DETAILS.map((project, i) => ({
   ...project,
   img: portfolioProjectImages[i],
+  beforeImg: portfolioProjectBeforeImages[i],
 }));
 
 const CATEGORIES = ["All Projects", "Painting & Decorating", "Electrical", "Property Maintenance", "Media Walls"];
@@ -186,20 +187,36 @@ export default function Portfolio() {
               ))}
             </div>
 
-            {/* Project grid */}
+            {/* Project grid — each card is a before/after slider with autoplay */}
             <div key={activeCat} style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 28 }} className="grid-3">
-              {filtered.map((project) => (
+              {filtered.map((project, i) => (
                 <motion.div
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   key={project.title}
-                  className="port-card"
-                  style={{ height: 400 }}
+                  style={{ position: "relative", borderRadius: 4, overflow: "hidden" }}
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={project.img} alt={project.title} />
-                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,9,8,0.95) 0%, transparent 60%)", padding: 28, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
+                  {/*
+                    Slider fills the card. autoplay sweeps the divider until first
+                    touch/click. startOffset staggers each card so they don't sweep in
+                    unison. IntersectionObserver inside the component pauses off-screen.
+                  */}
+                  <BeforeAfterSlider
+                    beforeImg={project.beforeImg}
+                    afterImg={project.img}
+                    height={400}
+                    startOffset={((i * 17) % 65) + 18}
+                  />
+                  {/*
+                    Text overlay sits above the slider with pointerEvents: none so
+                    all taps/drags pass through to the slider interaction layer.
+                  */}
+                  <div style={{
+                    position: "absolute", inset: 0, zIndex: 15, pointerEvents: "none",
+                    background: "linear-gradient(to top, rgba(10,9,8,0.92) 0%, transparent 55%)",
+                    padding: 28, display: "flex", flexDirection: "column", justifyContent: "flex-end",
+                  }}>
                     <div style={{ display: "inline-flex", alignItems: "center", gap: 8, alignSelf: "flex-start", background: "var(--color-accent)", padding: "5px 11px", borderRadius: 2, marginBottom: 12 }}>
                       <span style={{ fontSize: 9, fontWeight: 800, letterSpacing: "0.2em", textTransform: "uppercase", color: "#fff" }}>{project.cat}</span>
                     </div>

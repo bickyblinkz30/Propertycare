@@ -121,6 +121,43 @@ export const portfolioProjectImages: readonly string[] = [
   "/images/placeholders/after-3.jpg",
 ];
 
+/*
+  "Before" images paired with portfolioProjectImages above.
+  CONFIRM WITH CLIENT: replace with real site-survey / pre-renovation photos.
+  For now these use different Unsplash shots or local placeholder images to
+  demonstrate the slider mechanic. Index order matches portfolioProjectImages.
+*/
+export const portfolioProjectBeforeImages: readonly string[] = [
+  // Painting & Decorating — before images (plain/unfinished rooms)
+  U("photo-1600566753190-17f0baa2a6c3", 900, 85),
+  U("photo-1600573472550-8090b5e0745e", 900, 85),
+  U("photo-1484154218962-a197022b5858", 900, 85),
+  U("photo-1513694203232-719a280e022f", 900, 85),
+  U("photo-1558618666-fcd25c85cd64", 900, 85),
+  U("photo-1600585154340-be6161a56a0c", 900, 85),
+  // Electrical — before images (dim/dated lighting)
+  U("photo-1616137466211-f939a420be84", 900, 85),
+  U("photo-1556909114-f6e7ad7d3136", 900, 85),
+  U("photo-1586023492125-27b2c045efd7", 900, 85),
+  U("photo-1616594039964-ae9021a400a0", 900, 85),
+  U("photo-1600607687920-4e2a09cf159d", 900, 85),
+  U("photo-1618220179428-22790b461013", 900, 85),
+  // Property Maintenance — before images (use real before placeholders)
+  "/images/placeholders/before-1.jpg",
+  "/images/placeholders/before-2.jpg",
+  "/images/placeholders/before-1.jpg",
+  "/images/placeholders/before-2.jpg",
+  "/images/placeholders/before-1.jpg",
+  "/images/placeholders/before-2.jpg",
+  // Media Walls — before images (rooms without feature walls)
+  U("photo-1504307651254-35680f356dfd", 900, 85),
+  U("photo-1600607687939-ce8a6d24cca4", 900, 85),
+  U("photo-1593784991095-a205069470b6", 900, 85),
+  U("photo-1558618666-fcd25c85cd64", 900, 85),
+  U("photo-1600585153490-76fb20a32601", 900, 85),
+  "/images/placeholders/before-1.jpg",
+];
+
 // --- Before / after transformations (drag-to-reveal slider) ---
 /*
   Local placeholders live in /public/images/placeholders/.
