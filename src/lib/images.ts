@@ -17,14 +17,14 @@ const U = (id: string, w: number, q = 82) =>
   `https://images.unsplash.com/${id}?w=${w}&q=${q}&auto=format&fit=crop`;
 
 // --- Hero images: one VISUALLY DISTINCT image per page ---
-// (Previously every page shared the same hero photo.)
+// TODO: replace home hero with /images/Hero-section-homepage.jpg once uploaded by client
 export const heroImages = {
-  home: U("photo-1600585154340-be6161a56a0c", 1920, 88),
-  services: U("photo-1600607687939-ce8a6d24cca4", 1920, 88),
-  portfolio: U("photo-1618220179428-22790b461013", 1920, 88),
-  whyChooseUs: U("photo-1556909114-f6e7ad7d3136", 1920, 88),
-  contact: U("photo-1600566753190-17f0baa2a6c3", 1920, 88),
-  about: U("photo-1558618666-fcd25c85cd64", 1920, 88),
+  home: "/images/Property-Care-team-at-work.jpg",                    // TEMP — swap for Hero-section-homepage.jpg
+  services: "/images/Painting%20and%20Decorating.jpg",               // REAL PC photo
+  portfolio: "/images/Interior-living-room-Transformation-after.jpg", // REAL PC photo
+  whyChooseUs: "/images/Property-Care-team-at-work.jpg",             // REAL PC photo
+  contact: "/images/Hallway-and-Staircase-Renovation-after.jpeg",    // REAL PC photo
+  about: "/images/Complete-Exterior-Repaint-after.jpg",              // REAL PC photo
 } as const;
 
 // Shared founder portrait (about / why-choose-us / contact).
@@ -91,71 +91,71 @@ export const aboutImages = {
   (6 painting · 6 electrical · 6 maintenance · 6 media walls).
 */
 export const portfolioProjectImages: readonly string[] = [
-  // Painting & Decorating
-  U("photo-1513694203232-719a280e022f", 900, 85),
-  U("photo-1484154218962-a197022b5858", 900, 85),
-  U("photo-1558618666-fcd25c85cd64", 900, 85),
-  U("photo-1600585153490-76fb20a32601", 900, 85),
-  U("photo-1600573472550-8090b5e0745e", 900, 85),
-  U("photo-1600585154084-4e5fe7c39198", 900, 85),
-  // Electrical
-  U("photo-1621905251189-08b45d6a269e", 900, 85),
-  U("photo-1616137466211-f939a420be84", 900, 85),
-  U("photo-1600607687920-4e2a09cf159d", 900, 85),
-  U("photo-1600305029164-c3c3d0c5e86e", 900, 85),
-  U("photo-1616594039964-ae9021a400a0", 900, 85),
-  U("photo-1586023492125-27b2c045efd7", 900, 85),
-  // Property Maintenance
-  U("photo-1504307651254-35680f356dfd", 900, 85),
-  U("photo-1556909114-f6e7ad7d3136", 900, 85),
-  "/images/placeholders/after-1.jpg",
-  "/images/placeholders/after-2.jpg",
-  "/images/placeholders/before-1.jpg",
-  "/images/placeholders/before-2.jpg",
-  // Media Walls
-  "/images/Bespoke-Media-Wall-Installation.jpg", // real photo — Bespoke Media Wall Installation card (single image, no slider)
-  U("photo-1618220179428-22790b461013", 900, 85),
-  U("photo-1600607687939-ce8a6d24cca4", 900, 85),
-  U("photo-1600566753190-17f0baa2a6c3", 900, 85),
-  U("photo-1600585154340-be6161a56a0c", 900, 85),
-  "/images/placeholders/after-3.jpg",
+  // Painting & Decorating — REAL client "after" photos (indices 0–5)
+  "/images/Interior-living-room-Transformation-after.jpg",  // 0 — slider ✓
+  "/images/Complete-Exterior-Repaint-after.jpg",            // 1 — slider ✓
+  "/images/Kitchen-Repaint-and-Refresh-after.png",          // 2 — slider ✓
+  "/images/Commercial-Office-Decorating-after.png",         // 3 — slider ✓
+  "/images/Hallway-and-Staircase-Renovation-after.jpeg",    // 4 — slider ✓
+  "/images/Feature-Wall-Design-after.png",                  // 5 — slider ✓
+  // Electrical — REAL client "after" photos (indices 6–8); TEMP category shots (9–11)
+  "/images/Consumer-Unit-Upgrade-after.jpg",                // 6 — slider ✓
+  "/images/Full-Electrical-Rewiring-after.png",             // 7 — slider ✓
+  "/images/Smart-Lighting-Installation-after.png",          // 8 — slider ✓
+  "/images/Electrical%20Services.jpg",                      // 9  — TEMP; TODO: replace with real Garden & Outdoor Lighting photo
+  "/images/Full-Electrical%20Rewiring.jpg",                 // 10 — TEMP; TODO: replace with real Electrical Fault Repair photo
+  "/images/Electrical%20Services.jpg",                      // 11 — TEMP; TODO: replace with real Video Doorbell Installation photo
+  // Property Maintenance — TEMP real category shots (indices 12–17)
+  "/images/Property-Improvement-and-maintenance.jpg",       // 12 — TEMP; TODO: replace with real Landlord Property Refresh photo
+  "/images/Property-Care-team-at-work.jpg",                 // 13 — TEMP; TODO: replace with real Routine Property Maintenance photo
+  "/images/Property-Improvement-and-maintenance.jpg",       // 14 — TEMP; TODO: replace with real General Repairs & Joinery photo
+  "/images/Property-Care-team-at-work.jpg",                 // 15 — TEMP; TODO: replace with real Property Inspection Report photo
+  "/images/Property-Improvement-and-maintenance.jpg",       // 16 — TEMP; TODO: replace with real Rental Property Maintenance photo
+  "/images/Property-Improvement-and-maintenance.jpg",       // 17 — TEMP; TODO: replace with real Emergency Maintenance Call-Out photo
+  // Media Walls — REAL + TEMP category shots (indices 18–23)
+  "/images/Bespoke-Media-Wall-Installation.jpg",            // 18 — REAL ✓ static
+  "/images/TV-Media-Wall-Installation.jpg",                 // 19 — TEMP; TODO: replace with real Contemporary LED Feature Wall photo
+  "/images/Bespoke-Media-Wall-Installation.jpg",            // 20 — TEMP; TODO: replace with real Living Room Centrepiece photo
+  "/images/TV-Media-Wall-Installation.jpg",                 // 21 — TEMP; TODO: replace with real Luxury TV Wall with Fireplace photo
+  "/images/Bespoke-Media-Wall-Installation.jpg",            // 22 — TEMP; TODO: replace with real Floating Media Unit photo
+  "/images/TV-Media-Wall-Installation.jpg",                 // 23 — TEMP; TODO: replace with real Modern Feature Wall with Panelling photo
 ];
 
 /*
   "Before" images paired with portfolioProjectImages above.
-  CONFIRM WITH CLIENT: replace with real site-survey / pre-renovation photos.
-  For now these use different Unsplash shots or local placeholder images to
-  demonstrate the slider mechanic. Index order matches portfolioProjectImages.
+  Cards with a non-empty beforeImg render as a drag-to-reveal slider.
+  Cards with an empty string ("") render as a single static image.
+  Index order matches portfolioProjectImages exactly.
 */
 export const portfolioProjectBeforeImages: readonly string[] = [
-  // Painting & Decorating — before images (plain/unfinished rooms)
-  U("photo-1600566753190-17f0baa2a6c3", 900, 85),
-  U("photo-1600573472550-8090b5e0745e", 900, 85),
-  U("photo-1484154218962-a197022b5858", 900, 85),
-  U("photo-1513694203232-719a280e022f", 900, 85),
-  U("photo-1558618666-fcd25c85cd64", 900, 85),
-  U("photo-1600585154340-be6161a56a0c", 900, 85),
-  // Electrical — before images (dim/dated lighting)
-  U("photo-1616137466211-f939a420be84", 900, 85),
-  U("photo-1556909114-f6e7ad7d3136", 900, 85),
-  U("photo-1586023492125-27b2c045efd7", 900, 85),
-  U("photo-1616594039964-ae9021a400a0", 900, 85),
-  U("photo-1600607687920-4e2a09cf159d", 900, 85),
-  U("photo-1618220179428-22790b461013", 900, 85),
-  // Property Maintenance — before images (use real before placeholders)
-  "/images/placeholders/before-1.jpg",
-  "/images/placeholders/before-2.jpg",
-  "/images/placeholders/before-1.jpg",
-  "/images/placeholders/before-2.jpg",
-  "/images/placeholders/before-1.jpg",
-  "/images/placeholders/before-2.jpg",
-  // Media Walls — before images (rooms without feature walls)
-  U("photo-1504307651254-35680f356dfd", 900, 85),
-  U("photo-1600607687939-ce8a6d24cca4", 900, 85),
-  U("photo-1593784991095-a205069470b6", 900, 85),
-  U("photo-1558618666-fcd25c85cd64", 900, 85),
-  U("photo-1600585153490-76fb20a32601", 900, 85),
-  "/images/placeholders/before-1.jpg",
+  // Painting & Decorating — REAL client "before" photos → all 6 cards are sliders
+  "/images/Interior-living-room-Transformation-before.jpeg", // 0
+  "/images/Complete-Exterior-Repaint-before.jpg",            // 1
+  "/images/Kitchen-Repaint-and-Refresh-before.png",          // 2
+  "/images/Commercial-Office-Decorating-before.png",         // 3
+  "/images/Hallway-and-Staircase-Renovation-before.jpg",     // 4
+  "/images/Feature-Wall-Design-before.png",                  // 5
+  // Electrical — REAL client "before" photos for indices 6–8; static for 9–11
+  "/images/Consumer-Unit-Upgrade-before.jpg",                // 6
+  "/images/Full-Electrical-Rewiring-before.png",             // 7
+  "/images/Smart-Lighting-Installation-before.png",          // 8
+  "",                                                        // 9  — static; TODO: add before photo when available
+  "",                                                        // 10 — static; TODO: add before photo when available
+  "",                                                        // 11 — static; TODO: add before photo when available
+  // Property Maintenance — no before photos available; all cards static
+  "",                                                        // 12 — static; TODO: add before photo when available
+  "",                                                        // 13 — static; TODO: add before photo when available
+  "",                                                        // 14 — static; TODO: add before photo when available
+  "",                                                        // 15 — static; TODO: add before photo when available
+  "",                                                        // 16 — static; TODO: add before photo when available
+  "",                                                        // 17 — static; TODO: add before photo when available
+  // Media Walls — no before photos available; all cards static
+  "",                                                        // 18 — static; TODO: add before photo when available
+  "",                                                        // 19 — static; TODO: add before photo when available
+  "",                                                        // 20 — static; TODO: add before photo when available
+  "",                                                        // 21 — static; TODO: add before photo when available
+  "",                                                        // 22 — static; TODO: add before photo when available
+  "",                                                        // 23 — static; TODO: add before photo when available
 ];
 
 // --- Before / after transformations (drag-to-reveal slider) ---

@@ -70,11 +70,11 @@ export default function Home() {
         ══════════════════════════════════════ */}
         <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "flex-end", overflow: "hidden", background: "#0A0908" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={IMG.hero} alt="Property transformation Sunderland" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%", opacity: 0.45 }} />
+          <img src={IMG.hero} alt="Property transformation Sunderland" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%", opacity: 0.68 }} />
 
           {/* Multi-layer overlay */}
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(10,10,10,0.98) 0%, rgba(10,10,10,0.86) 45%, rgba(10,10,10,0.55) 100%)" }} />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,10,10,0.99) 0%, rgba(10,10,10,0.55) 45%, transparent 78%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(10,10,10,0.80) 0%, rgba(10,10,10,0.52) 45%, rgba(10,10,10,0.15) 100%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.30) 45%, transparent 72%)" }} />
 
           <div style={{ position: "relative", zIndex: 2, padding: "140px 52px 140px", maxWidth: 920, width: "100%" }}>
 
@@ -371,36 +371,80 @@ export default function Home() {
         </section>
 
         {/* ══════════════════════════════════════
-            PORTFOLIO
+            SERVICE CREDENTIALS STRIP
         ══════════════════════════════════════ */}
-        <section style={{ padding: "120px 52px", background: "#F8F5F0" }}>
-          <div style={{ maxWidth: 1400, margin: "0 auto" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 56, flexWrap: "wrap", gap: 24 }}>
-              <div>
-                <div className="rv"><OrangeTab>Transformations</OrangeTab></div>
-                <h2 className="rv rv-d1" style={{ fontSize: "clamp(40px, 4.8vw, 64px)", fontWeight: 900, lineHeight: 1.05, letterSpacing: "-0.02em", color: "#0A0908", textTransform: "uppercase" }}>
-                  A Selection of<br /><span style={{ color: "var(--color-accent)" }}>Recent Work</span>
-                </h2>
-              </div>
-              <a href="#contact" className="btn-outline-dark rv">View All Projects</a>
+        <section style={{ padding: "100px 52px", background: "#0A0908", borderTop: "4px solid var(--color-accent)", borderBottom: "4px solid var(--color-accent)" }}>
+          <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+            <div style={{ textAlign: "center", marginBottom: 56 }}>
+              <div className="rv"><OrangeTab center>Our Credentials</OrangeTab></div>
+              <h2 className="rv rv-d1" style={{
+                fontSize: "clamp(36px, 4.5vw, 56px)",
+                fontWeight: 900, lineHeight: 1.05,
+                letterSpacing: "-0.02em", color: "#fff", textTransform: "uppercase",
+              }}>
+                Certified, Insured<br /><span style={{ color: "var(--color-accent)" }}>&amp; Guaranteed</span>
+              </h2>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 28 }} className="grid-3">
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 1, background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 4, overflow: "hidden" }} className="cred-grid">
               {[
-                { img: IMG.p1, tag: "Media Wall · Washington", title: "The Concord Media Wall", loc: "NE37 · 2025" },
-                { img: IMG.p2, tag: "Painting & Decorating", title: "Sulgrave Townhouse Repaint", loc: "NE37 · 2025" },
-                { img: IMG.p3, tag: "Electrical & Lighting", title: "Seaham Coastal Rewire", loc: "SR7 · 2025" },
-              ].map(({ img, tag, title, loc }, i) => (
-                <div key={title} className={`port-card rv rv-d${i + 1}`} style={{ height: 360 }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={img} alt={title} />
-                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,9,8,0.95) 0%, transparent 60%)", padding: 26, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
-                    <div style={{ display: "inline-flex", alignItems: "center", gap: 8, alignSelf: "flex-start", background: "var(--color-accent)", padding: "5px 11px", borderRadius: 2, marginBottom: 12 }}>
-                      <span style={{ fontSize: 9, fontWeight: 800, letterSpacing: "0.2em", textTransform: "uppercase", color: "#fff" }}>{tag}</span>
-                    </div>
-                    <div style={{ fontSize: 22, fontWeight: 800, color: "#fff", marginBottom: 5, letterSpacing: "-0.01em" }}>{title}</div>
-                    <div style={{ fontSize: 12, color: "rgba(255,255,255,0.7)", fontWeight: 600, letterSpacing: "0.06em" }}>{loc}</div>
+                {
+                  title: "NICEIC Certified",
+                  desc: "Electrical work inspected and approved to the highest industry standard.",
+                  icon: (
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                      <path d="M9 12l2 2 4-4" strokeWidth="2.5"/>
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Part P Registered",
+                  desc: "All electrical installations legally notified and compliant with building regulations.",
+                  icon: (
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                      <polyline points="14 2 14 8 20 8"/>
+                      <path d="M9 13h2a2 2 0 010 4H9v-4z" strokeWidth="2"/>
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Fully Insured",
+                  desc: "Full public liability cover on every project for complete peace of mind.",
+                  icon: (
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Written Guarantee",
+                  desc: "Every transformation backed by a clear, written workmanship guarantee.",
+                  icon: (
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M9 11l3 3L22 4"/>
+                      <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Free Estimates",
+                  desc: "No-obligation quotes with transparent, itemised pricing agreed before work begins.",
+                  icon: (
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="3" width="20" height="14" rx="2"/>
+                      <path d="M8 21h8M12 17v4"/>
+                    </svg>
+                  ),
+                },
+              ].map(({ title, desc, icon }, i) => (
+                <div key={title} className={`rv rv-d${i + 1}`} style={{ background: "rgba(248,245,240,0.025)", padding: "44px 28px", textAlign: "center" }}>
+                  <div style={{ width: 60, height: 60, background: "rgba(var(--color-accent-rgb),0.12)", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 22px", color: "var(--color-accent)" }}>
+                    {icon}
                   </div>
+                  <div style={{ fontSize: 16, fontWeight: 800, color: "#fff", marginBottom: 12, letterSpacing: "-0.01em" }}>{title}</div>
+                  <p style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", lineHeight: 1.7, fontWeight: 400 }}>{desc}</p>
                 </div>
               ))}
             </div>
@@ -614,6 +658,7 @@ export default function Home() {
               footer { padding: 60px 24px 32px !important; }
               .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
               .trust-grid { grid-template-columns: repeat(3, 1fr) !important; }
+              .cred-grid { grid-template-columns: repeat(3, 1fr) !important; }
             }
             @media (max-width: 700px) {
               .footer-grid { grid-template-columns: 1fr !important; }
@@ -621,6 +666,7 @@ export default function Home() {
               .grid-2 { grid-template-columns: 1fr !important; gap: 48px !important; }
               .grid-3 { grid-template-columns: 1fr !important; }
               .trust-grid { grid-template-columns: 1fr 1fr !important; gap: 18px !important; }
+              .cred-grid { grid-template-columns: 1fr 1fr !important; }
               section { padding-left: 20px !important; padding-right: 20px !important; }
               h1, h2 { font-size: 32px !important; }
             }
