@@ -101,7 +101,7 @@ async function handlePost(req: NextRequest): Promise<NextResponse> {
     address?: string;
     details?: string;
     contactMethod?: string;
-    _honey?: string;
+    _pcpe_b8k2?: string;
   };
 
   try {
@@ -113,10 +113,14 @@ async function handlePost(req: NextRequest): Promise<NextResponse> {
   }
 
   // ── Step 3: Honeypot ──────────────────────────────────────────────────────
-  if (body._honey) {
-    console.log("[contact] STEP 3 — honeypot triggered, discarding");
+  // Discard only when the hidden field has a non-empty, non-whitespace value.
+  const honeyValue = body._pcpe_b8k2?.trim() ?? "";
+  if (honeyValue) {
+    // Log what filled it so we can diagnose autofill vs bot traffic
+    console.warn(`[contact] STEP 3 — honeypot triggered, discarding. Field value: "${honeyValue.slice(0, 80)}"`);
     return NextResponse.json({ ok: true });
   }
+  console.log("[contact] STEP 3 OK — honeypot empty, proceeding");
 
   // ── Step 4: Validate required fields ─────────────────────────────────────
   console.log("[contact] STEP 4 — validating fields");

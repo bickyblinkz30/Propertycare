@@ -88,7 +88,7 @@ export default function Contact() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, _honey: honey }),
+        body: JSON.stringify({ ...form, _pcpe_b8k2: honey }),
       });
       const data = await res.json();
       if (res.ok) {
@@ -264,9 +264,17 @@ export default function Contact() {
             )}
 
             <form onSubmit={handleSubmit} className="rv rv-d1" style={{ background: "#F8F5F0", border: "1px solid #E8E2D9", borderRadius: 4, padding: "48px 40px" }}>
-              {/* Honeypot — hidden from real users, filled by bots */}
-              <div style={{ position: "absolute", left: "-9999px", top: "-9999px", opacity: 0, pointerEvents: "none" }} aria-hidden="true">
-                <input tabIndex={-1} autoComplete="off" name="_honey" value={honey} onChange={e => setHoney(e.target.value)} />
+              {/* Honeypot — visually hidden, must remain empty for real submissions */}
+              <div style={{ position: "absolute", left: "-9999px", top: "-9999px", width: 0, height: 0, overflow: "hidden", opacity: 0, pointerEvents: "none" }} aria-hidden="true">
+                <input
+                  tabIndex={-1}
+                  autoComplete="new-password"
+                  name="_pcpe_b8k2"
+                  id="_pcpe_b8k2"
+                  aria-hidden="true"
+                  value={honey}
+                  onChange={e => setHoney(e.target.value)}
+                />
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }} className="form-grid">
                 <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
