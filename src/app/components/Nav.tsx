@@ -39,27 +39,20 @@ export default function Nav() {
         }}>
 
           {/* ── LOGO ── */}
+          {/* nav-top = transparent overlay on dark hero → white logo
+              nav-scrolled = rgba(255,255,255,0.95) background → dark logo */}
           <a href="#top" style={{ textDecoration: "none", display: "flex", alignItems: "center", flexShrink: 0 }}>
-            <div style={{
-              background: scrolled ? "transparent" : "rgba(255,255,255,0.95)",
-              padding: scrolled ? "4px 12px 4px 0" : "8px 14px",
-              borderRadius: scrolled ? 0 : 6,
-              transition: "all 0.5s cubic-bezier(0.16,1,0.3,1)",
-              display: "flex",
-              alignItems: "center",
-            }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/propertycare-logo.jpg"
-                alt="Property Care Paint & Electrics"
-                style={{
-                  height: scrolled ? 46 : 60,
-                  width: "auto",
-                  display: "block",
-                  transition: "height 0.5s cubic-bezier(0.16,1,0.3,1)",
-                }}
-              />
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={scrolled ? "/images/propertycare-logo-transparent.png" : "/images/propertycare-logo-white.png"}
+              alt="Property Care Paint & Electrics"
+              style={{
+                height: scrolled ? 46 : 60,
+                width: "auto",
+                display: "block",
+                transition: "height 0.5s cubic-bezier(0.16,1,0.3,1)",
+              }}
+            />
           </a>
 
           {/* ── DESKTOP LINKS ── */}
@@ -151,10 +144,10 @@ export default function Nav() {
         transition: "transform 0.55s cubic-bezier(0.16,1,0.3,1)",
         overflowY: "auto",
       }}>
-        {/* Logo at top of mobile menu */}
+        {/* Logo at top of mobile menu — white background, use dark/transparent variant */}
         <div style={{ marginBottom: 40, display: "flex", justifyContent: "center", paddingTop: 8 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/propertycare-logo.jpg" alt="Property Care" style={{ height: 90, width: "auto" }} />
+          <img src="/images/propertycare-logo-transparent.png" alt="Property Care" style={{ height: 90, width: "auto" }} />
         </div>
 
         {links.map(([label, href], i) => (

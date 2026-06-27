@@ -79,10 +79,10 @@ export default function Home() {
           <div style={{ position: "relative", zIndex: 2, padding: "140px 52px 140px", maxWidth: 920, width: "100%" }}>
 
             {/* Orange tagline tab */}
-            <div className="h-a1" style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "rgba(var(--color-accent-rgb),0.15)", border: "1px solid rgba(var(--color-accent-rgb),0.4)", padding: "8px 16px", borderRadius: 4, marginBottom: 32 }}>
+            <div className="h-a1" style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "rgba(var(--color-accent-rgb),0.15)", border: "1px solid rgba(var(--color-accent-rgb),0.4)", padding: "8px 16px", borderRadius: 4, marginBottom: 32, maxWidth: "100%", flexWrap: "wrap" }}>
               <span style={{ width: 7, height: 7, background: "var(--color-accent)", borderRadius: "50%", flexShrink: 0 }} />
               <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--color-accent)" }}>
-                Sunderland&rsquo;s Trusted Property Specialists
+                Newcastle, Sunderland and North East Trusted Property Specialists
               </span>
             </div>
 
@@ -573,10 +573,8 @@ export default function Home() {
             <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr", gap: 56, marginBottom: 60 }} className="footer-grid">
 
               <div>
-                <div style={{ background: "#fff", padding: "14px 26px", borderRadius: 999, display: "inline-block", marginBottom: 24 }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/images/propertycare-logo.jpg" alt="Property Care Paint & Electrics" style={{ height: 90, width: "auto", display: "block" }} />
-                </div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/images/propertycare-logo-white.png" alt="Property Care Paint & Electrics" style={{ height: 90, width: "auto", display: "block", marginBottom: 24 }} />
 
                 <p style={{ fontSize: 14, color: "#C9C0B4", lineHeight: 1.7, maxWidth: 320, marginBottom: 24, fontWeight: 400 }}>
                   The North East&apos;s premium single-team property transformation specialists. Sunderland and the surrounding areas. Residential &amp; commercial.
