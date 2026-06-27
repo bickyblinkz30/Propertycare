@@ -63,19 +63,45 @@ function Accordion({ question, answer }: { question: string; answer: string }) {
   );
 }
 
+type Status = "idle" | "loading" | "success" | "error";
+
 export default function Contact() {
   const [form, setForm] = React.useState({
     name: "", phone: "", email: "", service: "",
     address: "", details: "", contactMethod: "",
   });
+  const [honey, setHoney] = React.useState(""); // honeypot — hidden from real users
+  const [status, setStatus] = React.useState<Status>("idle");
+  const [errorMsg, setErrorMsg] = React.useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Wire to backend form handler
+    if (status === "loading") return;
+    setStatus("loading");
+    setErrorMsg("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, _honey: honey }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setStatus("success");
+        setForm({ name: "", phone: "", email: "", service: "", address: "", details: "", contactMethod: "" });
+      } else {
+        setStatus("error");
+        setErrorMsg(data.error ?? "Something went wrong. Please call us on 07922 909982.");
+      }
+    } catch {
+      setStatus("error");
+      setErrorMsg("Network error — please check your connection and try again.");
+    }
   };
 
   return (
@@ -213,7 +239,35 @@ export default function Contact() {
               </h2>
             </div>
 
+            {/* Success banner */}
+            {status === "success" && (
+              <div role="alert" style={{ background: "#E8F5E9", border: "1px solid #A5D6A7", borderLeft: "4px solid #2E7D32", borderRadius: 4, padding: "20px 24px", marginBottom: 28, display: "flex", gap: 14, alignItems: "flex-start" }}>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: 1 }}><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <div>
+                  <div style={{ fontSize: 15, fontWeight: 800, color: "#1B5E20", marginBottom: 4 }}>Quote request sent!</div>
+                  <p style={{ margin: 0, fontSize: 13, color: "#2E7D32", lineHeight: 1.6 }}>
+                    Thanks! We&apos;ll review your request and be in touch shortly. For faster response WhatsApp us on 07922 909982.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* Error banner */}
+            {status === "error" && (
+              <div role="alert" style={{ background: "#FFF3E0", border: "1px solid #FFCC80", borderLeft: "4px solid #E65100", borderRadius: 4, padding: "20px 24px", marginBottom: 28, display: "flex", gap: 14, alignItems: "flex-start" }}>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E65100" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: 1 }}><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <div>
+                  <div style={{ fontSize: 15, fontWeight: 800, color: "#BF360C", marginBottom: 4 }}>Couldn&apos;t send your message</div>
+                  <p style={{ margin: 0, fontSize: 13, color: "#E65100", lineHeight: 1.6 }}>{errorMsg}</p>
+                </div>
+              </div>
+            )}
+
             <form onSubmit={handleSubmit} className="rv rv-d1" style={{ background: "#F8F5F0", border: "1px solid #E8E2D9", borderRadius: 4, padding: "48px 40px" }}>
+              {/* Honeypot — hidden from real users, filled by bots */}
+              <div style={{ position: "absolute", left: "-9999px", top: "-9999px", opacity: 0, pointerEvents: "none" }} aria-hidden="true">
+                <input tabIndex={-1} autoComplete="off" name="_honey" value={honey} onChange={e => setHoney(e.target.value)} />
+              </div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }} className="form-grid">
                 <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                   <label htmlFor="name" style={{ fontSize: 12, fontWeight: 700, color: "#0A0908", letterSpacing: "0.06em", textTransform: "uppercase" }}>Full Name *</label>
@@ -266,11 +320,24 @@ export default function Contact() {
               </div>
 
               <div style={{ marginTop: 32 }}>
-                <button type="submit" className="btn-orange" style={{ width: "100%", justifyContent: "center", padding: "20px 34px", fontSize: 14, cursor: "pointer" }}>
-                  <span>
-                    <CheckIcon size={16} color="#fff" />
-                    Request Free Quote
-                  </span>
+                <button
+                  type="submit"
+                  disabled={status === "loading" || status === "success"}
+                  className="btn-orange"
+                  style={{ width: "100%", justifyContent: "center", padding: "20px 34px", fontSize: 14, cursor: status === "loading" ? "wait" : "pointer", opacity: status === "loading" ? 0.75 : 1, transition: "opacity 0.2s" }}
+                >
+                  {status === "loading" ? (
+                    <span style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" style={{ animation: "spin 0.9s linear infinite" }}>
+                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+                      </svg>
+                      Sending…
+                    </span>
+                  ) : status === "success" ? (
+                    <span><CheckIcon size={16} color="#fff" /> Sent — Thank You!</span>
+                  ) : (
+                    <span><CheckIcon size={16} color="#fff" /> Request Free Quote</span>
+                  )}
                 </button>
               </div>
 
@@ -590,6 +657,7 @@ export default function Contact() {
           </div>
 
           <style>{`
+            @keyframes spin { to { transform: rotate(360deg); } }
             @media (max-width: 1100px) {
               .footer-grid { grid-template-columns: 1fr 1fr !important; }
               footer { padding: 60px 24px 32px !important; }
