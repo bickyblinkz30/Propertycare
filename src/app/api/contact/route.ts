@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
 
-const RECIPIENT = "info@propertycarepro.co.uk";
+// Env vars (set in Vercel — never hardcoded here):
+//   MS_TENANT_ID    — Azure AD tenant / directory ID
+//   MS_CLIENT_ID    — App registration client ID
+//   MS_CLIENT_SECRET — App registration client secret
+//   CONTACT_FROM    — Mailbox the app has Mail.Send over (e.g. info@propertycarepro.co.uk)
+//   CONTACT_TO      — Recipient address (usually the same mailbox)
 
 const SERVICE_LABELS: Record<string, string> = {
   painting: "Painting & Decorating",
@@ -11,18 +15,126 @@ const SERVICE_LABELS: Record<string, string> = {
   multiple: "Multiple Services",
 };
 
+function escHtml(s: string) {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/\n/g, "<br>");
+}
+
+function row(label: string, value: string) {
+  return `<tr>
+    <td style="padding:10px 0;border-bottom:1px solid #E8E2D9;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#9E9488;width:40%;vertical-align:top">${escHtml(label)}</td>
+    <td style="padding:10px 0 10px 16px;border-bottom:1px solid #E8E2D9;font-size:14px;color:#0A0908;font-weight:600;vertical-align:top">${escHtml(value)}</td>
+  </tr>`;
+}
+
+// Step 1 — Client Credentials token request
+async function getAccessToken(
+  tenantId: string,
+  clientId: string,
+  clientSecret: string
+): Promise<string> {
+  const tokenUrl = `https://login.microsoftonline.com/${tenantId}/oauth2/v2.0/token`;
+
+  const res = await fetch(tokenUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      grant_type: "client_credentials",
+      scope: "https://graph.microsoft.com/.default",
+      client_id: clientId,
+      client_secret: clientSecret,
+    }).toString(),
+    cache: "no-store",
+  });
+
+  const data = await res.json();
+
+  if (!res.ok || !data.access_token) {
+    // Log full response for diagnosis (tenant/client/secret issues)
+    console.error("Graph token error:", JSON.stringify(data, null, 2));
+    throw new Error(
+      data.error_description ?? data.error ?? `Token request failed (HTTP ${res.status})`
+    );
+  }
+
+  return data.access_token as string;
+}
+
+// Step 2 — Send via Graph users/{from}/sendMail
+async function sendGraphMail(
+  accessToken: string,
+  from: string,
+  to: string,
+  subject: string,
+  htmlBody: string,
+  plainText: string,
+  replyToAddress?: string,
+  replyToName?: string
+): Promise<void> {
+  const message: Record<string, unknown> = {
+    subject,
+    body: { contentType: "HTML", content: htmlBody },
+    toRecipients: [{ emailAddress: { address: to } }],
+  };
+
+  if (replyToAddress) {
+    message.replyTo = [
+      { emailAddress: { address: replyToAddress, name: replyToName ?? replyToAddress } },
+    ];
+  }
+
+  const res = await fetch(
+    `https://graph.microsoft.com/v1.0/users/${encodeURIComponent(from)}/sendMail`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ message, saveToSentItems: true }),
+      cache: "no-store",
+    }
+  );
+
+  if (!res.ok) {
+    // 202 Accepted = success; anything else is an error
+    let detail = `HTTP ${res.status}`;
+    try {
+      const errBody = await res.json();
+      console.error("Graph sendMail error:", JSON.stringify(errBody, null, 2));
+      detail = errBody?.error?.message ?? errBody?.error?.code ?? detail;
+    } catch {
+      // ignore parse failure
+    }
+    throw new Error(detail);
+  }
+
+  // 202 Accepted returns no body — that's fine, sendMail is fire-and-forget
+}
+
 export async function POST(req: NextRequest) {
-  // Environment variable guard — fail loudly so misconfiguration is obvious
-  const smtpUser = process.env.SMTP_USER;
-  const smtpPass = process.env.SMTP_PASS;
-  if (!smtpUser || !smtpPass) {
-    console.error("SMTP_USER or SMTP_PASS env vars are not set");
+  // ── Guard env vars ────────────────────────────────────────────────────────
+  const tenantId = process.env.MS_TENANT_ID;
+  const clientId = process.env.MS_CLIENT_ID;
+  const clientSecret = process.env.MS_CLIENT_SECRET;
+  const contactFrom = process.env.CONTACT_FROM;
+  const contactTo = process.env.CONTACT_TO;
+
+  if (!tenantId || !clientId || !clientSecret || !contactFrom || !contactTo) {
+    const missing = ["MS_TENANT_ID", "MS_CLIENT_ID", "MS_CLIENT_SECRET", "CONTACT_FROM", "CONTACT_TO"]
+      .filter((k) => !process.env[k]);
+    console.error("Missing env vars:", missing.join(", "));
     return NextResponse.json(
-      { error: "Server email configuration missing. Please contact us directly on 07922 909982." },
+      { error: "Server configuration error. Please contact us directly on 07922 909982." },
       { status: 500 }
     );
   }
 
+  // ── Parse body ────────────────────────────────────────────────────────────
   let body: {
     name?: string;
     phone?: string;
@@ -40,12 +152,12 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   }
 
-  // Honeypot — bots fill hidden fields; real users don't
+  // ── Honeypot ──────────────────────────────────────────────────────────────
   if (body._honey) {
     return NextResponse.json({ ok: true }); // silent discard
   }
 
-  // Required field validation (server-side mirror of client-side)
+  // ── Server-side validation ────────────────────────────────────────────────
   const { name, phone, service, address } = body;
   if (!name?.trim() || !phone?.trim() || !service?.trim() || !address?.trim()) {
     return NextResponse.json(
@@ -55,28 +167,13 @@ export async function POST(req: NextRequest) {
   }
 
   const serviceLabel = SERVICE_LABELS[service] ?? service;
+  const submitterEmail = body.email?.trim() || undefined;
+  const submitterName = name.trim();
 
-  // Plain-text email body
-  const textBody = [
-    "NEW QUOTE REQUEST — Property Care Paint & Electrics",
-    "=".repeat(52),
-    "",
-    `Name:              ${name.trim()}`,
-    `Phone:             ${phone.trim()}`,
-    `Email:             ${body.email?.trim() || "—"}`,
-    `Service Required:  ${serviceLabel}`,
-    `Property Address:  ${address.trim()}`,
-    `Contact Method:    ${body.contactMethod?.trim() || "—"}`,
-    "",
-    "Project Details:",
-    body.details?.trim() || "(none provided)",
-    "",
-    "=".repeat(52),
-    "Sent via propertycarepro.co.uk contact form",
-  ].join("\n");
+  // ── Build email content ───────────────────────────────────────────────────
+  const subject = `New Quote Request — ${submitterName} (${serviceLabel})`;
 
-  // HTML email body
-  const htmlBody = `
+  const htmlContent = `
 <!DOCTYPE html>
 <html lang="en">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
@@ -84,28 +181,27 @@ export async function POST(req: NextRequest) {
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#F8F5F0;padding:40px 20px">
     <tr><td align="center">
       <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:6px;overflow:hidden;max-width:600px;width:100%">
-        <!-- Header -->
         <tr><td style="background:#0A0908;padding:28px 36px;border-bottom:4px solid #F58220">
           <p style="margin:0;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#F58220;font-weight:700">Property Care Paint &amp; Electrics</p>
           <h1 style="margin:8px 0 0;font-size:22px;font-weight:900;color:#ffffff;letter-spacing:-0.01em">New Quote Request</h1>
         </td></tr>
-        <!-- Body -->
         <tr><td style="padding:36px">
           <table width="100%" cellpadding="0" cellspacing="0">
-            ${row("Name", name.trim())}
+            ${row("Name", submitterName)}
             ${row("Phone", phone.trim())}
-            ${row("Email", body.email?.trim() || "—")}
+            ${row("Email", submitterEmail ?? "—")}
             ${row("Service Required", serviceLabel)}
             ${row("Property Address", address.trim())}
             ${row("Contact Method", body.contactMethod?.trim() || "—")}
           </table>
           <div style="margin-top:24px;padding:20px;background:#F8F5F0;border-left:4px solid #F58220;border-radius:0 4px 4px 0">
             <p style="margin:0 0 8px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#F58220;font-weight:700">Project Details</p>
-            <p style="margin:0;font-size:14px;color:#3D3A37;line-height:1.7;white-space:pre-wrap">${escHtml(body.details?.trim() || "(none provided)")}</p>
+            <p style="margin:0;font-size:14px;color:#3D3A37;line-height:1.7">${escHtml(body.details?.trim() || "(none provided)")}</p>
           </div>
-          ${body.email?.trim() ? `<p style="margin:28px 0 0;font-size:13px;color:#6B6460">Reply to this email to respond directly to the customer at <strong>${escHtml(body.email.trim())}</strong>.</p>` : ""}
+          ${submitterEmail
+            ? `<p style="margin:28px 0 0;font-size:13px;color:#6B6460">Hit <strong>Reply</strong> to respond directly to <strong>${escHtml(submitterEmail)}</strong>.</p>`
+            : ""}
         </td></tr>
-        <!-- Footer -->
         <tr><td style="background:#F8F5F0;padding:20px 36px;border-top:1px solid #E8E2D9">
           <p style="margin:0;font-size:11px;color:#9E9488">Sent via propertycarepro.co.uk · ${new Date().toUTCString()}</p>
         </td></tr>
@@ -115,50 +211,49 @@ export async function POST(req: NextRequest) {
 </body>
 </html>`;
 
-  function row(label: string, value: string) {
-    return `<tr>
-      <td style="padding:10px 0;border-bottom:1px solid #E8E2D9;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#9E9488;width:40%;vertical-align:top">${escHtml(label)}</td>
-      <td style="padding:10px 0 10px 16px;border-bottom:1px solid #E8E2D9;font-size:14px;color:#0A0908;font-weight:600;vertical-align:top">${escHtml(value)}</td>
-    </tr>`;
-  }
+  const plainText = [
+    "NEW QUOTE REQUEST — Property Care Paint & Electrics",
+    "=".repeat(52),
+    "",
+    `Name:             ${submitterName}`,
+    `Phone:            ${phone.trim()}`,
+    `Email:            ${submitterEmail ?? "—"}`,
+    `Service:          ${serviceLabel}`,
+    `Address:          ${address.trim()}`,
+    `Contact method:   ${body.contactMethod?.trim() || "—"}`,
+    "",
+    "Project Details:",
+    body.details?.trim() || "(none provided)",
+    "",
+    "=".repeat(52),
+    "Sent via propertycarepro.co.uk",
+  ].join("\n");
 
-  function escHtml(s: string) {
-    return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-  }
-
-  // Nodemailer — Microsoft 365 SMTP via STARTTLS
-  const transporter = nodemailer.createTransport({
-    host: "smtp.office365.com",
-    port: 587,
-    secure: false, // STARTTLS
-    auth: { user: smtpUser, pass: smtpPass },
-    tls: {
-      // office365 requires SNI; ciphers must include TLS_AES_256_GCM_SHA384
-      ciphers: "SSLv3",
-    },
-  });
-
+  // ── Get token → send mail ─────────────────────────────────────────────────
   try {
-    await transporter.sendMail({
-      from: `"Property Care Website" <${smtpUser}>`,
-      to: RECIPIENT,
-      replyTo: body.email?.trim() ? `"${name.trim()}" <${body.email.trim()}>` : undefined,
-      subject: `New Quote Request — ${name.trim()} (${serviceLabel})`,
-      text: textBody,
-      html: htmlBody,
-    });
+    const accessToken = await getAccessToken(tenantId, clientId, clientSecret);
+
+    await sendGraphMail(
+      accessToken,
+      contactFrom,
+      contactTo,
+      subject,
+      htmlContent,
+      plainText,
+      submitterEmail,
+      submitterName
+    );
 
     return NextResponse.json({ ok: true });
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : String(err);
-    console.error("SMTP send failed:", msg);
+    console.error("Contact form send failed:", msg);
 
-    // Surface the raw SMTP error so we can diagnose auth issues immediately
     return NextResponse.json(
       {
         error:
           "We couldn't send your message right now — please call us on 07922 909982 or WhatsApp us directly.",
-        _smtpError: msg, // included in the JSON response for debugging; not shown in the UI
+        _graphError: msg, // visible in DevTools for diagnosis; not shown in the UI
       },
       { status: 502 }
     );
