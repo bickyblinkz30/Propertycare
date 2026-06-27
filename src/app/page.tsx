@@ -410,7 +410,7 @@ export default function Home() {
         {/* ══════════════════════════════════════
             WHY US — DARK
         ══════════════════════════════════════ */}
-        <section style={{ padding: "100px 52px 120px", background: "#0A0908", borderTop: "4px solid var(--color-accent)" }} id="whyus">
+        <section style={{ padding: "60px 52px 120px", background: "#0A0908", borderTop: "4px solid var(--color-accent)" }} id="whyus">
           <div style={{ maxWidth: 1280, margin: "0 auto" }}>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 80, marginBottom: 56 }} className="grid-2">
               <div>
