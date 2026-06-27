@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
+// Force Node.js runtime — Edge Runtime blocks certain fetch behaviours and
+// lacks some APIs used here.
+export const runtime = "nodejs";
+
 // Env vars (set in Vercel — never hardcoded here):
 //   MS_TENANT_ID     — Azure AD tenant / directory ID
 //   MS_CLIENT_ID     — App registration client ID
@@ -31,119 +35,26 @@ function row(label: string, value: string) {
   </tr>`;
 }
 
-// Step 1 — Client Credentials token request
-async function getAccessToken(
-  tenantId: string,
-  clientId: string,
-  clientSecret: string
-): Promise<string> {
-  const tokenUrl = `https://login.microsoftonline.com/${tenantId}/oauth2/v2.0/token`;
-  console.log("[contact] TOKEN REQUEST →", tokenUrl);
-
-  const res = await fetch(tokenUrl, {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({
-      grant_type: "client_credentials",
-      scope: "https://graph.microsoft.com/.default",
-      client_id: clientId,
-      client_secret: clientSecret,
-    }).toString(),
-    cache: "no-store",
-  });
-
-  // Always parse and log the full token response — even on apparent success
-  let data: Record<string, unknown> = {};
-  const rawText = await res.text();
-  try {
-    data = JSON.parse(rawText);
-  } catch {
-    console.error("[contact] TOKEN non-JSON response:", rawText.slice(0, 500));
-    throw new Error(`Token request returned non-JSON (HTTP ${res.status})`);
-  }
-
-  if (!res.ok || !data.access_token) {
-    console.error(
-      `[contact] TOKEN FAILED — HTTP ${res.status}:`,
-      JSON.stringify(data, null, 2)
-    );
-    throw new Error(
-      String(data.error_description ?? data.error ?? `Token request failed (HTTP ${res.status})`)
-    );
-  }
-
-  const token = data.access_token as string;
-  console.log(
-    `[contact] TOKEN OK — HTTP ${res.status}, token length=${token.length}, expires_in=${data.expires_in}`
-  );
-  return token;
-}
-
-// Step 2 — Send via Graph users/{from}/sendMail
-async function sendGraphMail(
-  accessToken: string,
-  from: string,
-  to: string,
-  subject: string,
-  htmlBody: string,
-  replyToAddress?: string,
-  replyToName?: string
-): Promise<void> {
-  const sendUrl = `https://graph.microsoft.com/v1.0/users/${encodeURIComponent(from)}/sendMail`;
-  console.log(
-    `[contact] SENDMAIL REQUEST → ${sendUrl}`,
-    `| from="${from}" to="${to}" subject="${subject}"`
-  );
-
-  const message: Record<string, unknown> = {
-    subject,
-    body: { contentType: "HTML", content: htmlBody },
-    toRecipients: [{ emailAddress: { address: to } }],
-  };
-
-  if (replyToAddress) {
-    message.replyTo = [
-      { emailAddress: { address: replyToAddress, name: replyToName ?? replyToAddress } },
-    ];
-  }
-
-  const res = await fetch(sendUrl, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ message, saveToSentItems: true }),
-    cache: "no-store",
-  });
-
-  // Read the raw body regardless of status so we can log it
-  const rawText = await res.text();
-  console.log(`[contact] SENDMAIL RESPONSE — HTTP ${res.status}`, rawText.slice(0, 1000) || "(empty body)");
-
-  // Graph returns 202 Accepted on success with no body.
-  // Any other status — including 200, 204, or any 4xx/5xx — is an error.
-  if (res.status !== 202) {
-    let detail = `HTTP ${res.status}`;
-    try {
-      const errBody = JSON.parse(rawText);
-      console.error(
-        `[contact] SENDMAIL FAILED — HTTP ${res.status}:`,
-        JSON.stringify(errBody, null, 2)
-      );
-      detail =
-        String(errBody?.error?.message ?? errBody?.error?.code ?? detail);
-    } catch {
-      console.error(`[contact] SENDMAIL FAILED — HTTP ${res.status} (non-JSON):`, rawText.slice(0, 500));
-    }
-    throw new Error(detail);
-  }
-
-  console.log("[contact] SENDMAIL SUCCESS — 202 Accepted");
-}
-
 export async function POST(req: NextRequest) {
-  // ── Log env var presence (never log values) ───────────────────────────────
+  // Top-level catch — any unhandled exception produces a logged 500 rather
+  // than a silent crash with no HTTP response.
+  try {
+    return await handlePost(req);
+  } catch (fatal: unknown) {
+    const msg = fatal instanceof Error
+      ? `${fatal.message}\n${fatal.stack ?? ""}`
+      : String(fatal);
+    console.error("[contact] FATAL UNHANDLED ERROR:", msg);
+    return NextResponse.json(
+      { error: "Server error. Please call us on 07922 909982.", _fatal: msg },
+      { status: 500 }
+    );
+  }
+}
+
+async function handlePost(req: NextRequest): Promise<NextResponse> {
+
+  // ── Step 1: Log env var presence (never log values) ───────────────────────
   const envCheck = {
     MS_TENANT_ID:     !!process.env.MS_TENANT_ID,
     MS_CLIENT_ID:     !!process.env.MS_CLIENT_ID,
@@ -156,7 +67,7 @@ export async function POST(req: NextRequest) {
     FROM_LEN:         process.env.CONTACT_FROM?.length ?? 0,
     TO_LEN:           process.env.CONTACT_TO?.length ?? 0,
   };
-  console.log("[contact] ENV CHECK:", JSON.stringify(envCheck));
+  console.log("[contact] STEP 1 — ENV CHECK:", JSON.stringify(envCheck));
 
   const tenantId     = process.env.MS_TENANT_ID?.trim();
   const clientId     = process.env.MS_CLIENT_ID?.trim();
@@ -174,13 +85,14 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  // Log first few chars of addresses to confirm they match expectations (no typos/spaces)
   console.log(
-    `[contact] ADDRESSES — from="${contactFrom.slice(0, 6)}…" to="${contactTo.slice(0, 6)}…"`,
-    `tenantId prefix="${tenantId.slice(0, 8)}…" clientId prefix="${clientId.slice(0, 8)}…"`
+    `[contact] STEP 1 OK — from="${contactFrom.slice(0, 6)}…" (len=${contactFrom.length})`,
+    `to="${contactTo.slice(0, 6)}…" (len=${contactTo.length})`,
+    `tenantId="${tenantId.slice(0, 8)}…" clientId="${clientId.slice(0, 8)}…"`
   );
 
-  // ── Parse body ────────────────────────────────────────────────────────────
+  // ── Step 2: Parse request body ────────────────────────────────────────────
+  console.log("[contact] STEP 2 — parsing request body");
   let body: {
     name?: string;
     phone?: string;
@@ -194,31 +106,38 @@ export async function POST(req: NextRequest) {
 
   try {
     body = await req.json();
-  } catch {
+    console.log("[contact] STEP 2 OK — body parsed, fields:", Object.keys(body).join(", "));
+  } catch (err) {
+    console.error("[contact] STEP 2 FAIL — body parse error:", String(err));
     return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   }
 
-  // ── Honeypot ──────────────────────────────────────────────────────────────
+  // ── Step 3: Honeypot ──────────────────────────────────────────────────────
   if (body._honey) {
-    return NextResponse.json({ ok: true }); // silent discard
+    console.log("[contact] STEP 3 — honeypot triggered, discarding");
+    return NextResponse.json({ ok: true });
   }
 
-  // ── Server-side validation ────────────────────────────────────────────────
+  // ── Step 4: Validate required fields ─────────────────────────────────────
+  console.log("[contact] STEP 4 — validating fields");
   const { name, phone, service, address } = body;
   if (!name?.trim() || !phone?.trim() || !service?.trim() || !address?.trim()) {
+    const missing = ["name", "phone", "service", "address"].filter(f => !body[f as keyof typeof body]?.trim());
+    console.log("[contact] STEP 4 FAIL — missing required fields:", missing.join(", "));
     return NextResponse.json(
       { error: "Please fill in all required fields." },
       { status: 422 }
     );
   }
+  console.log("[contact] STEP 4 OK — all required fields present");
 
-  const serviceLabel    = SERVICE_LABELS[service] ?? service;
-  const submitterEmail  = body.email?.trim() || undefined;
-  const submitterName   = name.trim();
+  const serviceLabel   = SERVICE_LABELS[service] ?? service;
+  const submitterEmail = body.email?.trim() || undefined;
+  const submitterName  = name.trim();
+  const subject        = `New Quote Request — ${submitterName} (${serviceLabel})`;
 
-  // ── Build email content ───────────────────────────────────────────────────
-  const subject = `New Quote Request — ${submitterName} (${serviceLabel})`;
-
+  // ── Step 5: Build email content ───────────────────────────────────────────
+  console.log("[contact] STEP 5 — building email content");
   const htmlContent = `
 <!DOCTYPE html>
 <html lang="en">
@@ -256,33 +175,107 @@ export async function POST(req: NextRequest) {
   </table>
 </body>
 </html>`;
+  console.log("[contact] STEP 5 OK — HTML built, length:", htmlContent.length);
 
-  // ── Get token → send mail ─────────────────────────────────────────────────
+  // ── Step 6: Get OAuth2 access token ──────────────────────────────────────
+  const tokenUrl = `https://login.microsoftonline.com/${tenantId}/oauth2/v2.0/token`;
+  console.log("[contact] STEP 6 — token request →", tokenUrl);
+
+  let accessToken: string;
   try {
-    const accessToken = await getAccessToken(tenantId, clientId, clientSecret);
+    const tokenRes = await fetch(tokenUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        grant_type: "client_credentials",
+        scope: "https://graph.microsoft.com/.default",
+        client_id: clientId,
+        client_secret: clientSecret,
+      }).toString(),
+      cache: "no-store",
+    });
 
-    await sendGraphMail(
-      accessToken,
-      contactFrom,
-      contactTo,
-      subject,
-      htmlContent,
-      submitterEmail,
-      submitterName
-    );
+    console.log("[contact] STEP 6 — token HTTP status:", tokenRes.status);
 
-    return NextResponse.json({ ok: true });
+    const rawToken = await tokenRes.text();
+    console.log("[contact] STEP 6 — token raw response (first 500 chars):", rawToken.slice(0, 500));
+
+    let tokenData: Record<string, unknown> = {};
+    try {
+      tokenData = JSON.parse(rawToken);
+    } catch {
+      console.error("[contact] STEP 6 FAIL — token response is not JSON");
+      throw new Error(`Token endpoint returned non-JSON (HTTP ${tokenRes.status}): ${rawToken.slice(0, 200)}`);
+    }
+
+    if (!tokenRes.ok || !tokenData.access_token) {
+      console.error("[contact] STEP 6 FAIL — no access_token:", JSON.stringify(tokenData, null, 2));
+      throw new Error(String(tokenData.error_description ?? tokenData.error ?? `Token HTTP ${tokenRes.status}`));
+    }
+
+    accessToken = tokenData.access_token as string;
+    console.log(`[contact] STEP 6 OK — token acquired, length=${accessToken.length}, expires_in=${tokenData.expires_in}`);
+  } catch (err: unknown) {
+    if (err instanceof Error && err.message.startsWith("Token")) throw err;
+    const msg = err instanceof Error ? err.message : String(err);
+    console.error("[contact] STEP 6 FAIL — fetch threw:", msg);
+    throw new Error(`Token fetch error: ${msg}`);
+  }
+
+  // ── Step 7: Send email via Graph sendMail ─────────────────────────────────
+  const sendUrl = `https://graph.microsoft.com/v1.0/users/${encodeURIComponent(contactFrom)}/sendMail`;
+  console.log("[contact] STEP 7 — sendMail →", sendUrl);
+
+  const message: Record<string, unknown> = {
+    subject,
+    body: { contentType: "HTML", content: htmlContent },
+    toRecipients: [{ emailAddress: { address: contactTo } }],
+  };
+  if (submitterEmail) {
+    message.replyTo = [
+      { emailAddress: { address: submitterEmail, name: submitterName } },
+    ];
+  }
+
+  let sendRes: Response;
+  try {
+    sendRes = await fetch(sendUrl, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ message, saveToSentItems: true }),
+      cache: "no-store",
+    });
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : String(err);
-    console.error("[contact] SEND FAILED:", msg);
-
-    return NextResponse.json(
-      {
-        error:
-          "We couldn't send your message right now — please call us on 07922 909982 or WhatsApp us directly.",
-        _graphError: msg,
-      },
-      { status: 502 }
-    );
+    console.error("[contact] STEP 7 FAIL — sendMail fetch threw:", msg);
+    throw new Error(`sendMail network error: ${msg}`);
   }
+
+  console.log("[contact] STEP 7 — sendMail HTTP status:", sendRes.status);
+
+  // Always read the body so it appears in logs
+  const rawSend = await sendRes.text();
+  console.log("[contact] STEP 7 — sendMail body:", rawSend.slice(0, 1000) || "(empty — expected for 202)");
+
+  // Graph returns 202 Accepted with empty body on success.
+  // Any other status — including other 2xx — is treated as failure.
+  if (sendRes.status !== 202) {
+    let detail = `sendMail HTTP ${sendRes.status}`;
+    try {
+      const errBody = JSON.parse(rawSend);
+      console.error("[contact] STEP 7 FAIL:", JSON.stringify(errBody, null, 2));
+      detail = String(errBody?.error?.message ?? errBody?.error?.code ?? detail);
+    } catch {
+      console.error("[contact] STEP 7 FAIL (non-JSON body):", rawSend.slice(0, 300));
+    }
+    throw new Error(detail);
+  }
+
+  console.log("[contact] STEP 7 OK — 202 Accepted, email queued");
+
+  // ── Success ───────────────────────────────────────────────────────────────
+  return NextResponse.json({ ok: true });
 }
