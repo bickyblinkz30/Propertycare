@@ -40,16 +40,16 @@ function OrangeTab({ children, center = false }: { children: React.ReactNode; ce
 const PROJECT_DETAILS = [
   // Painting & Decorating (6)
   { title: "Interior Living Room Transformation", cat: "Painting & Decorating", desc: "Complete living room repaint with feature wall and premium decorative finishes.", loc: "Sunderland" },
-  { title: "Complete Exterior Repaint", cat: "Painting & Decorating", desc: "Full exterior repaint including woodwork, soffits and masonry for a period property.", loc: "Washington", before: "/images/Complete-Exterior-Repaint-before.jpg", after: "/images/Complete-Exterior-Repaint-after.jpg" },
-  { title: "Kitchen Repaint & Refresh", cat: "Painting & Decorating", desc: "Kitchen cabinet repaint, wall preparation and durable satinwood finish throughout.", loc: "Durham", before: "/images/Kitchen-Repaint-and-Refresh-before.png", after: "/images/Kitchen-Repaint-and-Refresh-after.png" },
+  { title: "Roof Maintenance", cat: "Painting & Decorating", desc: "Full exterior repaint including woodwork, soffits and masonry for a period property.", loc: "Washington", before: "/images/Complete-Exterior-Repaint-before.jpg", after: "/images/Complete-Exterior-Repaint-after.jpg" },
+  { title: "Painting and Decorating", cat: "Painting & Decorating", desc: "Kitchen cabinet repaint, wall preparation and durable satinwood finish throughout.", loc: "Durham", before: "/images/Kitchen-Repaint-and-Refresh-before.png", after: "/images/Kitchen-Repaint-and-Refresh-after.png" },
   { title: "Commercial Office Decorating", cat: "Painting & Decorating", desc: "Full office interior redecorated with hard-wearing matt emulsion and satinwood trim.", loc: "Newcastle", before: "/images/Commercial-Office-Decorating-before.png", after: "/images/Commercial-Office-Decorating-after.png" },
-  { title: "Hallway & Staircase Renovation", cat: "Painting & Decorating", desc: "Transformed a narrow hallway with feature wall, dado rail and fresh neutral palette.", loc: "Sunderland", before: "/images/Hallway-and-Staircase-Renovation-before.jpg", after: "/images/Hallway-and-Staircase-Renovation-after.jpeg" },
-  { title: "Feature Wall Design", cat: "Painting & Decorating", desc: "Bespoke accent wall with geometric paint effect and complementary colour scheme.", loc: "Gateshead", before: "/images/Feature-Wall-Design-before.png", after: "/images/Feature-Wall-Design-after.png" },
+  { title: "Wall Repair, Removal, and Installation", cat: "Painting & Decorating", desc: "Transformed a narrow hallway with feature wall, dado rail and fresh neutral palette.", loc: "Sunderland", before: "/images/Hallway-and-Staircase-Renovation-before.jpg", after: "/images/Hallway-and-Staircase-Renovation-after.jpeg" },
+  { title: "Home Improvement", cat: "Painting & Decorating", desc: "Bespoke accent wall with geometric paint effect and complementary colour scheme.", loc: "Gateshead", before: "/images/Feature-Wall-Design-before.png", after: "/images/Feature-Wall-Design-after.png" },
   // Electrical (6)
   { title: "Consumer Unit Upgrade", cat: "Electrical", desc: "Modern consumer unit installation with full EICR certification and smart RCD protection.", loc: "Seaham", before: "/images/Consumer-Unit-Upgrade-before.jpg", after: "/images/Consumer-Unit-Upgrade-after.jpg" },
   { title: "Full Electrical Rewiring", cat: "Electrical", desc: "Complete rewiring of a three-bedroom home with smart lighting and new consumer unit.", loc: "Newcastle", before: "/images/Full-Electrical-Rewiring-before.png", after: "/images/Full-Electrical-Rewiring-after.png" },
   { title: "Smart Lighting Installation", cat: "Electrical", desc: "Integrated smart lighting system with dimmable zones, motion sensors and app control.", loc: "Sunderland", before: "/images/Smart-Lighting-Installation-before.png", after: "/images/Smart-Lighting-Installation-after.png" },
-  { title: "Garden & Outdoor Lighting", cat: "Electrical", desc: "Low-voltage garden lighting with IP-rated fittings, deck lights and feature spotlights.", loc: "Durham" },
+  { title: "Light Upgrade", cat: "Electrical", desc: "Low-voltage garden lighting with IP-rated fittings, deck lights and feature spotlights.", loc: "Durham" },
   { title: "Electrical Fault Repair", cat: "Electrical", desc: "Diagnosed and repaired intermittent power fault, replaced damaged wiring and tested circuits.", loc: "South Shields" },
   { title: "Video Doorbell Installation", cat: "Electrical", desc: "Hardwired video doorbell with chime kit, transformer upgrade and WiFi configuration.", loc: "Washington" },
   // Property Maintenance (6)
@@ -64,7 +64,7 @@ const PROJECT_DETAILS = [
   { title: "Contemporary LED Feature Wall", cat: "Media Walls", desc: "Modern LED-backlit media wall with floating shelves, downlighters and hidden cable system.", loc: "Washington" },
   { title: "Living Room Centrepiece", cat: "Media Walls", desc: "Full-width media wall as the room centrepiece with stone-effect cladding and TV recess.", loc: "Gateshead" },
   { title: "Luxury TV Wall with Fireplace", cat: "Media Walls", desc: "Premium media wall with inset electric fire, oak shelving and colour-changing LED strips.", loc: "Durham" },
-  { title: "Floating Media Unit", cat: "Media Walls", desc: "Floating wall-mounted media unit with concealed storage, cable management and LED glow.", loc: "Newcastle" },
+  { title: "Property Maintenance / Crack Refilling", cat: "Media Walls", desc: "Floating wall-mounted media unit with concealed storage, cable management and LED glow.", loc: "Newcastle" },
   { title: "Modern Feature Wall with Panelling", cat: "Media Walls", desc: "Media wall with decorative panelling, picture light and integrated soundbar recess.", loc: "Sunderland" },
 ];
 
