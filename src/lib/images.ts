@@ -84,41 +84,35 @@ export const aboutImages = {
 
 // --- Portfolio project grid ---
 /*
-  24 UNIQUE images, one per project card, so no two cards share a photo.
-  Sourced entirely from assets already in the repo (in-use Unsplash ids +
-  the local before/after placeholders) — nothing invented.
-  Order maps 1:1 to the project order in src/app/portfolio/page.tsx
-  (6 painting · 6 electrical · 6 maintenance · 6 media walls).
+  19 images, one per project card. Order maps 1:1 to the project order in
+  src/app/portfolio/page.tsx (6 painting · 6 electrical · 7 maintenance).
+  The Media Walls category was removed; the "Crack Refilling" card moved into
+  Property Maintenance. Real client photos where available; TEMP category shots
+  otherwise (see TODOs).
 */
 export const portfolioProjectImages: readonly string[] = [
   // Painting & Decorating — REAL client "after" photos (indices 0–5)
-  "/images/Interior-living-room-Transformation-after.jpg",  // 0 — slider ✓
-  "/images/Complete-Exterior-Repaint-after.jpg",            // 1 — slider ✓
-  "/images/Kitchen-Repaint-and-Refresh-after.png",          // 2 — slider ✓
-  "/images/Commercial-Office-Decorating-after.png",         // 3 — slider ✓
-  "/images/Hallway-and-Staircase-Renovation-after.jpeg",    // 4 — slider ✓
-  "/images/Feature-Wall-Design-after.png",                  // 5 — slider ✓
+  "/images/Interior-living-room-Transformation-after.jpg",  // 0 Interior Living Room Transformation — slider ✓
+  "/images/Complete-Exterior-Repaint-after.jpg",            // 1 Roof Maintenance — slider ✓
+  "/images/REPAINT-AND-DECORATING-AFTER.jpg",               // 2 Repaint and Decorating — REAL ✓ slider
+  "/images/Commercial-Office-Decorating-after.png",         // 3 Commercial Office Decorating — slider ✓
+  "/images/Hallway-and-Staircase-Renovation-after.jpeg",    // 4 Wallpaper Removal and Replacement — slider ✓
+  "/images/HOME-IMPROVEMENT-AFTER.jpg",                     // 5 Home Improvement — REAL ✓ slider
   // Electrical — REAL client "after" photos (indices 6–8); TEMP category shots (9–11)
-  "/images/Consumer-Unit-Upgrade-after.jpg",                // 6 — slider ✓
-  "/images/Full-Electrical-Rewiring-after.png",             // 7 — slider ✓
-  "/images/Smart-Lighting-Installation-after.png",          // 8 — slider ✓
-  "/images/Electrical%20Services.jpg",                      // 9  — TEMP; TODO: replace with real Garden & Outdoor Lighting photo
-  "/images/Full-Electrical%20Rewiring.jpg",                 // 10 — TEMP; TODO: replace with real Electrical Fault Repair photo
-  "/images/Electrical%20Services.jpg",                      // 11 — TEMP; TODO: replace with real Video Doorbell Installation photo
-  // Property Maintenance — TEMP real category shots (indices 12–17)
-  "/images/Property-Improvement-and-maintenance.jpg",       // 12 — TEMP; TODO: replace with real Landlord Property Refresh photo
-  "/images/Property-Care-team-at-work.jpg",                 // 13 — TEMP; TODO: replace with real Routine Property Maintenance photo
-  "/images/Property-Improvement-and-maintenance.jpg",       // 14 — TEMP; TODO: replace with real General Repairs & Joinery photo
-  "/images/Property-Care-team-at-work.jpg",                 // 15 — TEMP; TODO: replace with real Property Inspection Report photo
-  "/images/Property-Improvement-and-maintenance.jpg",       // 16 — TEMP; TODO: replace with real Rental Property Maintenance photo
-  "/images/Property-Improvement-and-maintenance.jpg",       // 17 — TEMP; TODO: replace with real Emergency Maintenance Call-Out photo
-  // Media Walls — REAL + TEMP category shots (indices 18–23)
-  "/images/Bespoke-Media-Wall-Installation.jpg",            // 18 — REAL ✓ static
-  "/images/TV-Media-Wall-Installation.jpg",                 // 19 — TEMP; TODO: replace with real Contemporary LED Feature Wall photo
-  "/images/Bespoke-Media-Wall-Installation.jpg",            // 20 — TEMP; TODO: replace with real Living Room Centrepiece photo
-  "/images/TV-Media-Wall-Installation.jpg",                 // 21 — TEMP; TODO: replace with real Luxury TV Wall with Fireplace photo
-  "/images/Bespoke-Media-Wall-Installation.jpg",            // 22 — TEMP; TODO: replace with real Floating Media Unit photo
-  "/images/TV-Media-Wall-Installation.jpg",                 // 23 — TEMP; TODO: replace with real Modern Feature Wall with Panelling photo
+  "/images/Consumer-Unit-Upgrade-after.jpg",                // 6 Consumer Unit Upgrade — slider ✓
+  "/images/Full-Electrical-Rewiring-after.png",             // 7 Full Electrical Rewiring — slider ✓
+  "/images/Smart-Lighting-Installation-after.png",          // 8 Smart Lighting Installation — slider ✓
+  "/images/Electrical%20Services.jpg",                      // 9  Light Upgrade — TEMP
+  "/images/Full-Electrical%20Rewiring.jpg",                 // 10 Electrical Fault Repair — TEMP
+  "/images/Electrical%20Services.jpg",                      // 11 Video Doorbell Installation — TEMP
+  // Property Maintenance — TEMP real category shots (12–17); REAL pair (18)
+  "/images/Property-Improvement-and-maintenance.jpg",       // 12 Landlord Property Refresh — TEMP
+  "/images/Property-Care-team-at-work.jpg",                 // 13 Routine Property Maintenance — TEMP
+  "/images/Property-Improvement-and-maintenance.jpg",       // 14 General Repairs & Joinery — TEMP
+  "/images/Property-Care-team-at-work.jpg",                 // 15 Property Inspection Report — TEMP
+  "/images/Property-Improvement-and-maintenance.jpg",       // 16 Rental Property Maintenance — TEMP
+  "/images/Property-Improvement-and-maintenance.jpg",       // 17 Emergency Maintenance Call-Out — TEMP
+  "/images/PROPERTY-MAINTENANCE-AFTER.jpg",                 // 18 Property Maintenance / Crack Refilling — REAL ✓ slider
 ];
 
 /*
@@ -129,33 +123,27 @@ export const portfolioProjectImages: readonly string[] = [
 */
 export const portfolioProjectBeforeImages: readonly string[] = [
   // Painting & Decorating — REAL client "before" photos → all 6 cards are sliders
-  "/images/Interior-living-room-Transformation-before.jpeg", // 0
-  "/images/Complete-Exterior-Repaint-before.jpg",            // 1
-  "/images/Kitchen-Repaint-and-Refresh-before.png",          // 2
-  "/images/Commercial-Office-Decorating-before.png",         // 3
-  "/images/Hallway-and-Staircase-Renovation-before.jpg",     // 4
-  "/images/Feature-Wall-Design-before.png",                  // 5
+  "/images/Interior-living-room-Transformation-before.jpeg", // 0 Interior Living Room Transformation
+  "/images/Complete-Exterior-Repaint-before.jpg",            // 1 Roof Maintenance
+  "/images/REPAINT-AND-DECORATING-BEFORE.jpg",               // 2 Repaint and Decorating — REAL ✓
+  "/images/Commercial-Office-Decorating-before.png",         // 3 Commercial Office Decorating
+  "/images/Hallway-and-Staircase-Renovation-before.jpg",     // 4 Wallpaper Removal and Replacement
+  "/images/HOME-IMPROVEMENT-BEFORE.jpg",                     // 5 Home Improvement — REAL ✓
   // Electrical — REAL client "before" photos for indices 6–8; static for 9–11
-  "/images/Consumer-Unit-Upgrade-before.jpg",                // 6
-  "/images/Full-Electrical-Rewiring-before.png",             // 7
-  "/images/Smart-Lighting-Installation-before.png",          // 8
-  "",                                                        // 9  — static; TODO: add before photo when available
-  "",                                                        // 10 — static; TODO: add before photo when available
-  "",                                                        // 11 — static; TODO: add before photo when available
-  // Property Maintenance — no before photos available; all cards static
-  "",                                                        // 12 — static; TODO: add before photo when available
-  "",                                                        // 13 — static; TODO: add before photo when available
-  "",                                                        // 14 — static; TODO: add before photo when available
-  "",                                                        // 15 — static; TODO: add before photo when available
-  "",                                                        // 16 — static; TODO: add before photo when available
-  "",                                                        // 17 — static; TODO: add before photo when available
-  // Media Walls — no before photos available; all cards static
-  "",                                                        // 18 — static; TODO: add before photo when available
-  "",                                                        // 19 — static; TODO: add before photo when available
-  "",                                                        // 20 — static; TODO: add before photo when available
-  "",                                                        // 21 — static; TODO: add before photo when available
-  "",                                                        // 22 — static; TODO: add before photo when available
-  "",                                                        // 23 — static; TODO: add before photo when available
+  "/images/Consumer-Unit-Upgrade-before.jpg",                // 6 Consumer Unit Upgrade
+  "/images/Full-Electrical-Rewiring-before.png",             // 7 Full Electrical Rewiring
+  "/images/Smart-Lighting-Installation-before.png",          // 8 Smart Lighting Installation
+  "",                                                        // 9  Light Upgrade — static
+  "",                                                        // 10 Electrical Fault Repair — static
+  "",                                                        // 11 Video Doorbell Installation — static
+  // Property Maintenance — static for 12–17; REAL before/after slider for 18
+  "",                                                        // 12 Landlord Property Refresh — static
+  "",                                                        // 13 Routine Property Maintenance — static
+  "",                                                        // 14 General Repairs & Joinery — static
+  "",                                                        // 15 Property Inspection Report — static
+  "",                                                        // 16 Rental Property Maintenance — static
+  "",                                                        // 17 Emergency Maintenance Call-Out — static
+  "/images/PROPERTY-MAINTENANCE-BEFORE.jpg",                 // 18 Property Maintenance / Crack Refilling — REAL ✓
 ];
 
 // --- Before / after transformations (drag-to-reveal slider) ---

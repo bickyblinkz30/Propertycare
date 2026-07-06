@@ -45,7 +45,7 @@ export default function Nav() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={scrolled ? "/images/propertycare-logo-transparent.png" : "/images/propertycare-logo-white.png"}
-              alt="Property Care Paint & Electrics"
+              alt="PropertyCare Paints & Electrics Ltd"
               style={{
                 height: scrolled ? 46 : 60,
                 width: "auto",

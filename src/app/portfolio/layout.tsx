@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Portfolio | Property Care Paint & Electrics",
+  title: "Portfolio | PropertyCare Paints & Electrics Ltd",
   description:
-    "View recent painting, decorating, electrical and property maintenance projects completed by Property Care Paint & Electrics.",
+    "View recent painting, decorating, electrical and property maintenance projects completed by PropertyCare Paints & Electrics Ltd.",
   openGraph: {
-    title: "Portfolio | Property Care Paint & Electrics",
+    title: "Portfolio | PropertyCare Paints & Electrics Ltd",
     description:
-      "View recent painting, decorating, electrical and property maintenance projects completed by Property Care Paint & Electrics.",
+      "View recent painting, decorating, electrical and property maintenance projects completed by PropertyCare Paints & Electrics Ltd.",
   },
 };
 

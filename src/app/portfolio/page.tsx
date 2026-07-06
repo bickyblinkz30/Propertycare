@@ -40,32 +40,26 @@ function OrangeTab({ children, center = false }: { children: React.ReactNode; ce
 const PROJECT_DETAILS = [
   // Painting & Decorating (6)
   { title: "Interior Living Room Transformation", cat: "Painting & Decorating", desc: "Complete living room repaint with feature wall and premium decorative finishes.", loc: "Sunderland" },
-  { title: "Roof Maintenance", cat: "Painting & Decorating", desc: "Full exterior repaint including woodwork, soffits and masonry for a period property.", loc: "Washington", before: "/images/Complete-Exterior-Repaint-before.jpg", after: "/images/Complete-Exterior-Repaint-after.jpg" },
-  { title: "Painting and Decorating", cat: "Painting & Decorating", desc: "Kitchen cabinet repaint, wall preparation and durable satinwood finish throughout.", loc: "Durham", before: "/images/Kitchen-Repaint-and-Refresh-before.png", after: "/images/Kitchen-Repaint-and-Refresh-after.png" },
-  { title: "Commercial Office Decorating", cat: "Painting & Decorating", desc: "Full office interior redecorated with hard-wearing matt emulsion and satinwood trim.", loc: "Newcastle", before: "/images/Commercial-Office-Decorating-before.png", after: "/images/Commercial-Office-Decorating-after.png" },
-  { title: "Wall Repair, Removal, and Installation", cat: "Painting & Decorating", desc: "Transformed a narrow hallway with feature wall, dado rail and fresh neutral palette.", loc: "Sunderland", before: "/images/Hallway-and-Staircase-Renovation-before.jpg", after: "/images/Hallway-and-Staircase-Renovation-after.jpeg" },
-  { title: "Home Improvement", cat: "Painting & Decorating", desc: "Bespoke accent wall with geometric paint effect and complementary colour scheme.", loc: "Gateshead", before: "/images/Feature-Wall-Design-before.png", after: "/images/Feature-Wall-Design-after.png" },
+  { title: "Roof Maintenance", cat: "Painting & Decorating", desc: "Full exterior repaint including woodwork, soffits and masonry for a period property.", loc: "Washington" },
+  { title: "Repaint and Decorating", cat: "Painting & Decorating", desc: "Full repaint and redecoration with meticulous surface preparation and a durable, hard-wearing finish throughout.", loc: "Durham" },
+  { title: "Commercial Office Decorating", cat: "Painting & Decorating", desc: "Full office interior redecorated with hard-wearing matt emulsion and satinwood trim.", loc: "Newcastle" },
+  { title: "Wallpaper Removal and Replacement", cat: "Painting & Decorating", desc: "Old wallpaper stripped back, walls made good and fresh new wallpaper hung for a flawless, lasting finish.", loc: "Sunderland" },
+  { title: "Home Improvement", cat: "Painting & Decorating", desc: "Complete home improvement and refresh, transforming a tired space with quality finishes throughout.", loc: "Gateshead" },
   // Electrical (6)
-  { title: "Consumer Unit Upgrade", cat: "Electrical", desc: "Modern consumer unit installation with full EICR certification and smart RCD protection.", loc: "Seaham", before: "/images/Consumer-Unit-Upgrade-before.jpg", after: "/images/Consumer-Unit-Upgrade-after.jpg" },
-  { title: "Full Electrical Rewiring", cat: "Electrical", desc: "Complete rewiring of a three-bedroom home with smart lighting and new consumer unit.", loc: "Newcastle", before: "/images/Full-Electrical-Rewiring-before.png", after: "/images/Full-Electrical-Rewiring-after.png" },
-  { title: "Smart Lighting Installation", cat: "Electrical", desc: "Integrated smart lighting system with dimmable zones, motion sensors and app control.", loc: "Sunderland", before: "/images/Smart-Lighting-Installation-before.png", after: "/images/Smart-Lighting-Installation-after.png" },
+  { title: "Consumer Unit Upgrade", cat: "Electrical", desc: "Modern consumer unit installation with full EICR certification and smart RCD protection.", loc: "Seaham" },
+  { title: "Full Electrical Rewiring", cat: "Electrical", desc: "Complete rewiring of a three-bedroom home with smart lighting and new consumer unit.", loc: "Newcastle" },
+  { title: "Smart Lighting Installation", cat: "Electrical", desc: "Integrated smart lighting system with dimmable zones, motion sensors and app control.", loc: "Sunderland" },
   { title: "Light Upgrade", cat: "Electrical", desc: "Low-voltage garden lighting with IP-rated fittings, deck lights and feature spotlights.", loc: "Durham" },
   { title: "Electrical Fault Repair", cat: "Electrical", desc: "Diagnosed and repaired intermittent power fault, replaced damaged wiring and tested circuits.", loc: "South Shields" },
   { title: "Video Doorbell Installation", cat: "Electrical", desc: "Hardwired video doorbell with chime kit, transformer upgrade and WiFi configuration.", loc: "Washington" },
-  // Property Maintenance (6)
+  // Property Maintenance (7)
   { title: "Landlord Property Refresh", cat: "Property Maintenance", desc: "Full tenant changeover refresh including repaint, minor repairs and electrical safety check.", loc: "Gateshead" },
   { title: "Routine Property Maintenance", cat: "Property Maintenance", desc: "Annual maintenance check including gutter clearance, sealant refresh and minor joinery repairs.", loc: "South Shields" },
   { title: "General Repairs & Joinery", cat: "Property Maintenance", desc: "Door adjustments, skirting replacement, sash cord repair and general joinery throughout.", loc: "Sunderland" },
   { title: "Property Inspection Report", cat: "Property Maintenance", desc: "Comprehensive property condition inspection with photographic evidence and priority actions.", loc: "Newcastle" },
   { title: "Rental Property Maintenance", cat: "Property Maintenance", desc: "Ongoing maintenance contract for HMO property including gas, electrical and fabric checks.", loc: "Sunderland" },
   { title: "Emergency Maintenance Call-Out", cat: "Property Maintenance", desc: "Emergency call-out for burst pipe isolation, electrical fault and temporary board-up.", loc: "Seaham" },
-  // Media Walls (6)
-  { title: "Bespoke Media Wall Installation", cat: "Media Walls", desc: "Custom media wall with electric fire, concealed cabling and integrated ambient lighting.", loc: "Sunderland" },
-  { title: "Contemporary LED Feature Wall", cat: "Media Walls", desc: "Modern LED-backlit media wall with floating shelves, downlighters and hidden cable system.", loc: "Washington" },
-  { title: "Living Room Centrepiece", cat: "Media Walls", desc: "Full-width media wall as the room centrepiece with stone-effect cladding and TV recess.", loc: "Gateshead" },
-  { title: "Luxury TV Wall with Fireplace", cat: "Media Walls", desc: "Premium media wall with inset electric fire, oak shelving and colour-changing LED strips.", loc: "Durham" },
-  { title: "Property Maintenance / Crack Refilling", cat: "Media Walls", desc: "Floating wall-mounted media unit with concealed storage, cable management and LED glow.", loc: "Newcastle" },
-  { title: "Modern Feature Wall with Panelling", cat: "Media Walls", desc: "Media wall with decorative panelling, picture light and integrated soundbar recess.", loc: "Sunderland" },
+  { title: "Property Maintenance / Crack Refilling", cat: "Property Maintenance", desc: "Wall and ceiling cracks raked out, filled and sanded smooth, then repainted for a seamless, lasting repair.", loc: "Newcastle" },
 ];
 
 type Project = {
@@ -88,7 +82,7 @@ const FEATURED = {
   location: "Sunderland",
 };
 
-const CATEGORIES = ["All Projects", "Painting & Decorating", "Electrical", "Property Maintenance", "Media Walls"];
+const CATEGORIES = ["All Projects", "Painting & Decorating", "Electrical", "Property Maintenance"];
 
 export default function Portfolio() {
   const [activeCat, setActiveCat] = React.useState("All Projects");
@@ -130,7 +124,7 @@ export default function Portfolio() {
               fontWeight: 500, color: "rgba(255,255,255,0.88)",
               lineHeight: 1.65, maxWidth: 640, marginBottom: 44,
             }}>
-              Take a look at some of the painting, decorating, electrical, maintenance and media wall projects completed by Property Care Paint &amp; Electrics.
+              Take a look at some of the painting, decorating, electrical and maintenance projects completed by PropertyCare Paints &amp; Electrics Ltd.
             </p>
             <div className="h-a4" style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
               <a href="#projects" className="btn-orange">
@@ -390,7 +384,7 @@ export default function Portfolio() {
                 fontSize: 18, fontWeight: 400, color: "rgba(255,255,255,0.8)",
                 lineHeight: 1.7, maxWidth: 540, margin: "0 auto 52px",
               }}>
-                Contact Property Care Paint &amp; Electrics today for a free quotation.
+                Contact PropertyCare Paints & Electrics Ltd today for a free quotation.
               </p>
 
               <div className="rv rv-d3" style={{ display: "flex", justifyContent: "center", gap: 14, flexWrap: "wrap", marginBottom: 40 }}>
@@ -422,7 +416,7 @@ export default function Portfolio() {
             <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr", gap: 56, marginBottom: 60 }} className="footer-grid">
               <div>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/images/propertycare-logo-white.png" alt="Property Care Paint & Electrics" style={{ height: 90, width: "auto", display: "block", marginBottom: 24 }} />
+                  <img src="/images/propertycare-logo-white.png" alt="PropertyCare Paints & Electrics Ltd" style={{ height: 90, width: "auto", display: "block", marginBottom: 24 }} />
                 <p style={{ fontSize: 14, color: "#C9C0B4", lineHeight: 1.7, maxWidth: 320, marginBottom: 24, fontWeight: 400 }}>
                   The North East&apos;s premium single-team property transformation specialists. Sunderland and the surrounding areas. Residential &amp; commercial.
                 </p>
@@ -446,7 +440,7 @@ export default function Portfolio() {
 
             <div style={{ height: 1, background: "linear-gradient(to right, rgba(var(--color-accent-rgb),0.4), rgba(var(--color-accent-rgb),0.12), transparent)", marginBottom: 28 }} />
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 11, color: "rgba(255,255,255,0.35)", letterSpacing: "0.04em", flexWrap: "wrap", gap: 10, fontWeight: 500 }}>
-              <span>© 2025 Property Care Paint &amp; Electrics. Fully insured · NICEIC / Part P · Written guarantee.</span>
+              <span>© 2025 PropertyCare Paints & Electrics Ltd. Fully insured · NICEIC / Part P · Written guarantee.</span>
               <span>Premium property transformations across the North East.</span>
             </div>
           </div>

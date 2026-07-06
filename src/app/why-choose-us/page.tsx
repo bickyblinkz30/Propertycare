@@ -63,7 +63,7 @@ function Accordion({ question, answer }: { question: string; answer: string }) {
 
 export default function WhyChooseUs() {
   const faqs = [
-    { q: "Why should I choose Property Care Paint & Electrics?", a: "We deliver premium painting, decorating, electrical and maintenance through one accountable team. Certified, insured, and backed by a written guarantee — no juggling trades, no finger-pointing." },
+    { q: "Why should I choose PropertyCare Paints & Electrics Ltd?", a: "We deliver premium painting, decorating, electrical and maintenance through one accountable team. Certified, insured, and backed by a written guarantee — no juggling trades, no finger-pointing." },
     { q: "Are you insured?", a: "Absolutely. We carry full public liability insurance and all electrical work is NICEIC / Part P certified." },
     { q: "Is your work guaranteed?", a: "Yes. Every project is backed by a clear, written workmanship guarantee. If something isn't right, we put it right — no arguments, no excuses." },
     { q: "Are your electricians certified?", a: "Yes. All electrical work is carried out to NICEIC / Part P standards and properly certified for your records and peace of mind." },
@@ -139,7 +139,7 @@ export default function WhyChooseUs() {
             </div>
             <div className="rv rv-d2" style={{ maxWidth: 780, margin: "0 auto", textAlign: "center" }}>
               <p style={{ fontSize: 18, color: "#3D3A37", lineHeight: 1.8, fontWeight: 400 }}>
-                At Property Care Paint &amp; Electrics, we understand that inviting tradespeople into your home or business requires trust. That&rsquo;s why we focus on professionalism, communication, reliability and high-quality workmanship on every project.
+                At PropertyCare Paints & Electrics Ltd, we understand that inviting tradespeople into your home or business requires trust. That&rsquo;s why we focus on professionalism, communication, reliability and high-quality workmanship on every project.
               </p>
             </div>
           </div>
@@ -382,7 +382,7 @@ export default function WhyChooseUs() {
                     Chukwudi Emmanuel Ifeanyi
                   </h3>
                   <p style={{ fontSize: 14, color: "#6B6460", fontWeight: 500, marginBottom: 24, letterSpacing: "0.04em" }}>
-                    Property Care Paint &amp; Electrics
+                    PropertyCare Paints & Electrics Ltd
                   </p>
                 </div>
 
@@ -465,7 +465,7 @@ export default function WhyChooseUs() {
             <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr", gap: 56, marginBottom: 60 }} className="footer-grid">
               <div>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/images/propertycare-logo-white.png" alt="Property Care Paint & Electrics" style={{ height: 90, width: "auto", display: "block", marginBottom: 24 }} />
+                  <img src="/images/propertycare-logo-white.png" alt="PropertyCare Paints & Electrics Ltd" style={{ height: 90, width: "auto", display: "block", marginBottom: 24 }} />
                 <p style={{ fontSize: 14, color: "#C9C0B4", lineHeight: 1.7, maxWidth: 320, marginBottom: 24, fontWeight: 400 }}>
                   The North East&apos;s premium single-team property transformation specialists. Sunderland and the surrounding areas. Residential &amp; commercial.
                 </p>
@@ -489,7 +489,7 @@ export default function WhyChooseUs() {
 
             <div style={{ height: 1, background: "linear-gradient(to right, rgba(var(--color-accent-rgb),0.4), rgba(var(--color-accent-rgb),0.12), transparent)", marginBottom: 28 }} />
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 11, color: "rgba(255,255,255,0.35)", letterSpacing: "0.04em", flexWrap: "wrap", gap: 10, fontWeight: 500 }}>
-              <span>© 2025 Property Care Paint &amp; Electrics. Fully insured · NICEIC / Part P · Written guarantee.</span>
+              <span>© 2025 PropertyCare Paints & Electrics Ltd. Fully insured · NICEIC / Part P · Written guarantee.</span>
               <span>Premium property transformations across the North East.</span>
             </div>
           </div>

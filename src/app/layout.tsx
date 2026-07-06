@@ -20,13 +20,13 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Property Care Paint & Electrics | Sunderland's Trusted Property Specialists",
+  title: "PropertyCare Paints & Electrics Ltd | Sunderland's Trusted Property Specialists",
   description:
     "Sunderland's premium painting, decorating, electrical and property maintenance specialists. Residential & commercial. Fully insured. Free quotations. NICEIC certified.",
   keywords:
     "Painter and Decorator Sunderland, Electrician Sunderland, Media Wall Sunderland, Property Maintenance Sunderland, North East",
   openGraph: {
-    title: "Property Care Paint & Electrics | Premium Property Services",
+    title: "PropertyCare Paints & Electrics Ltd | Premium Property Services",
     description:
       "One certified team for painting, electrical, media walls and maintenance across Sunderland and the surrounding areas.",
     type: "website",
@@ -56,7 +56,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              name: "Property Care Paint & Electrics",
+              name: "PropertyCare Paints & Electrics Ltd",
               description:
                 "Premium painting, decorating, electrical and property maintenance in Sunderland and the surrounding areas.",
               telephone: "+447922909982",
