@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Us | PropertyCare Paints & Electrics Ltd",
+  title: "Contact Us | PropertyCare Paint and Electrics Ltd",
   description:
-    "Contact PropertyCare Paints & Electrics Ltd for painting, decorating, electrical and property maintenance services. Free quotations available across Sunderland and the surrounding areas.",
+    "Contact PropertyCare Paint and Electrics Ltd for painting, decorating, electrical and property maintenance services. Free quotations available across Sunderland and the surrounding areas.",
   openGraph: {
-    title: "Contact Us | PropertyCare Paints & Electrics Ltd",
+    title: "Contact Us | PropertyCare Paint and Electrics Ltd",
     description:
-      "Contact PropertyCare Paints & Electrics Ltd for painting, decorating, electrical and property maintenance services. Free quotations available across Sunderland and the surrounding areas.",
+      "Contact PropertyCare Paint and Electrics Ltd for painting, decorating, electrical and property maintenance services. Free quotations available across Sunderland and the surrounding areas.",
   },
 };
 

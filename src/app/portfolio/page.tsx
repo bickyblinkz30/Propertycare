@@ -124,7 +124,7 @@ export default function Portfolio() {
               fontWeight: 500, color: "rgba(255,255,255,0.88)",
               lineHeight: 1.65, maxWidth: 640, marginBottom: 44,
             }}>
-              Take a look at some of the painting, decorating, electrical and maintenance projects completed by PropertyCare Paints &amp; Electrics Ltd.
+              Take a look at some of the painting, decorating, electrical and maintenance projects completed by PropertyCare Paint and Electrics Ltd.
             </p>
             <div className="h-a4" style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
               <a href="#projects" className="btn-orange">
@@ -384,7 +384,7 @@ export default function Portfolio() {
                 fontSize: 18, fontWeight: 400, color: "rgba(255,255,255,0.8)",
                 lineHeight: 1.7, maxWidth: 540, margin: "0 auto 52px",
               }}>
-                Contact PropertyCare Paints & Electrics Ltd today for a free quotation.
+                Contact PropertyCare Paint and Electrics Ltd today for a free quotation.
               </p>
 
               <div className="rv rv-d3" style={{ display: "flex", justifyContent: "center", gap: 14, flexWrap: "wrap", marginBottom: 40 }}>
@@ -416,7 +416,7 @@ export default function Portfolio() {
             <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr", gap: 56, marginBottom: 60 }} className="footer-grid">
               <div>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/images/propertycare-logo-white.png" alt="PropertyCare Paints & Electrics Ltd" style={{ height: 90, width: "auto", display: "block", marginBottom: 24 }} />
+                  <img src="/images/propertycare-logo-white.png" alt="PropertyCare Paint and Electrics Ltd" style={{ height: 90, width: "auto", display: "block", marginBottom: 24 }} />
                 <p style={{ fontSize: 14, color: "#C9C0B4", lineHeight: 1.7, maxWidth: 320, marginBottom: 24, fontWeight: 400 }}>
                   The North East&apos;s premium single-team property transformation specialists. Sunderland and the surrounding areas. Residential &amp; commercial.
                 </p>
@@ -440,7 +440,7 @@ export default function Portfolio() {
 
             <div style={{ height: 1, background: "linear-gradient(to right, rgba(var(--color-accent-rgb),0.4), rgba(var(--color-accent-rgb),0.12), transparent)", marginBottom: 28 }} />
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 11, color: "rgba(255,255,255,0.35)", letterSpacing: "0.04em", flexWrap: "wrap", gap: 10, fontWeight: 500 }}>
-              <span>© 2025 PropertyCare Paints & Electrics Ltd. Fully insured · NICEIC / Part P · Written guarantee.</span>
+              <span>© 2025 PropertyCare Paint and Electrics Ltd. Fully insured · NICEIC / Part P · Written guarantee.</span>
               <span>Premium property transformations across the North East.</span>
             </div>
           </div>

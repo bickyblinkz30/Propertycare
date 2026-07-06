@@ -46,7 +46,7 @@ export function Navbar() {
             {brand.name}
           </span>
           <span className="hidden text-[0.65rem] uppercase tracking-[0.18em] text-accent sm:inline">
-            Paints &amp; Electrics
+            Paint and Electrics Ltd
           </span>
         </Link>
 

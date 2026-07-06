@@ -1,4 +1,4 @@
-# Propertycare Paints & Electrics — Homepage Wireframe
+# PropertyCare Paint and Electrics Ltd — Homepage Wireframe
 
 Mobile-first low-fidelity wireframe. Desktop layouts are adapted up from these mobile blocks.
 Every block must support the conversion journey and keep WhatsApp / SMS / Call accessible.

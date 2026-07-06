@@ -102,7 +102,7 @@ export const portfolioProjectImages: readonly string[] = [
   "/images/Consumer-Unit-Upgrade-after.jpg",                // 6 Consumer Unit Upgrade — slider ✓
   "/images/Full-Electrical-Rewiring-after.png",             // 7 Full Electrical Rewiring — slider ✓
   "/images/Smart-Lighting-Installation-after.png",          // 8 Smart Lighting Installation — slider ✓
-  "/images/Electrical%20Services.jpg",                      // 9  Light Upgrade — TEMP
+  "/images/Light-upgrade-after.jpg",                        // 9  Light Upgrade — REAL ✓ slider
   "/images/Full-Electrical%20Rewiring.jpg",                 // 10 Electrical Fault Repair — TEMP
   "/images/Electrical%20Services.jpg",                      // 11 Video Doorbell Installation — TEMP
   // Property Maintenance — TEMP real category shots (12–17); REAL pair (18)
@@ -133,7 +133,7 @@ export const portfolioProjectBeforeImages: readonly string[] = [
   "/images/Consumer-Unit-Upgrade-before.jpg",                // 6 Consumer Unit Upgrade
   "/images/Full-Electrical-Rewiring-before.png",             // 7 Full Electrical Rewiring
   "/images/Smart-Lighting-Installation-before.png",          // 8 Smart Lighting Installation
-  "",                                                        // 9  Light Upgrade — static
+  "/images/Light-upgrade-before.jpg",                        // 9  Light Upgrade — REAL ✓
   "",                                                        // 10 Electrical Fault Repair — static
   "",                                                        // 11 Video Doorbell Installation — static
   // Property Maintenance — static for 12–17; REAL before/after slider for 18

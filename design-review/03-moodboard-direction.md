@@ -46,4 +46,4 @@ Restrained, cinematic, comprehension-first — luxury through calm, not spectacl
 - Honour `prefers-reduced-motion`. No parallax gimmicks, no heavy WebGL, no autoplay-with-sound. Motion must never delay content or hurt Core Web Vitals.
 
 ## Brand alignment check
-✅ Reads like a luxury interior/renovation/architecture brand. ✅ Never handyman/budget/template. ✅ Transformations are the hero. ✅ WhatsApp-first conversion. ✅ Mobile-first. ✅ Premium imagery only. ✅ Aligns with the Propertycare Paints & Electrics luxury property-transformation positioning.
+✅ Reads like a luxury interior/renovation/architecture brand. ✅ Never handyman/budget/template. ✅ Transformations are the hero. ✅ WhatsApp-first conversion. ✅ Mobile-first. ✅ Premium imagery only. ✅ Aligns with the PropertyCare Paint and Electrics Ltd luxury property-transformation positioning.

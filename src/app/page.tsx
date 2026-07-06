@@ -95,8 +95,8 @@ export default function Home() {
               marginBottom: 28,
               textTransform: "uppercase",
             }}>
-              Property Care,<br />
-              <span style={{ color: "var(--color-accent)" }}>Paint &amp; Electrics</span>
+              PropertyCare<br />
+              <span style={{ color: "var(--color-accent)" }}>Paint and Electrics Ltd</span>
             </h1>
 
             <p className="h-a3" style={{
@@ -197,7 +197,7 @@ export default function Home() {
                   <span style={{ color: "var(--color-accent)" }}>Zero Compromise.</span>
                 </h2>
                 <p className="rv rv-d2" style={{ fontSize: 16, fontWeight: 400, color: "#3D3A37", lineHeight: 1.75, maxWidth: 480, marginBottom: 20 }}>
-                  PropertyCare Paints & Electrics Ltd is Sunderland&apos;s premier single-team property specialist. We paint, wire, install media walls and maintain — all under one roof, with one point of contact and a written guarantee on every project.
+                  PropertyCare Paint and Electrics Ltd is Sunderland&apos;s premier single-team property specialist. We paint, wire, install media walls and maintain — all under one roof, with one point of contact and a written guarantee on every project.
                 </p>
                 <p className="rv rv-d3" style={{ fontSize: 16, fontWeight: 400, color: "#3D3A37", lineHeight: 1.75, maxWidth: 480, marginBottom: 44 }}>
                   No juggling trades. No unclear responsibility. Just one accountable team that delivers premium results — clean, on time, on budget.
@@ -618,7 +618,7 @@ export default function Home() {
 
               <div>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/images/propertycare-logo-white.png" alt="PropertyCare Paints & Electrics Ltd" style={{ height: 90, width: "auto", display: "block", marginBottom: 24 }} />
+                  <img src="/images/propertycare-logo-white.png" alt="PropertyCare Paint and Electrics Ltd" style={{ height: 90, width: "auto", display: "block", marginBottom: 24 }} />
 
                 <p style={{ fontSize: 14, color: "#C9C0B4", lineHeight: 1.7, maxWidth: 320, marginBottom: 24, fontWeight: 400 }}>
                   The North East&apos;s premium single-team property transformation specialists. Sunderland and the surrounding areas. Residential &amp; commercial.
@@ -647,7 +647,7 @@ export default function Home() {
 
             <div style={{ height: 1, background: "linear-gradient(to right, rgba(var(--color-accent-rgb),0.4), rgba(var(--color-accent-rgb),0.12), transparent)", marginBottom: 28 }} />
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 11, color: "rgba(255,255,255,0.35)", letterSpacing: "0.04em", flexWrap: "wrap", gap: 10, fontWeight: 500 }}>
-              <span>© 2025 PropertyCare Paints & Electrics Ltd. Fully insured · NICEIC / Part P · Written guarantee.</span>
+              <span>© 2025 PropertyCare Paint and Electrics Ltd. Fully insured · NICEIC / Part P · Written guarantee.</span>
               <span>Premium property transformations across the North East.</span>
             </div>
           </div>

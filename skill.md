@@ -6,7 +6,7 @@ These requirements are mandatory and must not be ignored, simplified, or replace
 
 Brand Positioning
 
-Propertycare Paints & Electrics is a premium property transformation company.
+PropertyCare Paint and Electrics Ltd is a premium property transformation company.
 
 The website must communicate:
 

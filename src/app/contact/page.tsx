@@ -116,7 +116,7 @@ export default function Contact() {
         ══════════════════════════════════════ */}
         <section style={{ position: "relative", minHeight: "55vh", display: "flex", alignItems: "center", overflow: "hidden", background: "#0A0908" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={IMG.hero} alt="Contact PropertyCare Paints & Electrics Ltd" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%", opacity: 0.68 }} />
+          <img src={IMG.hero} alt="Contact PropertyCare Paint and Electrics Ltd" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%", opacity: 0.68 }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(10,10,10,0.80) 0%, rgba(10,10,10,0.52) 45%, rgba(10,10,10,0.15) 100%)" }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.30) 45%, transparent 72%)" }} />
           <div style={{ position: "relative", zIndex: 2, padding: "100px 52px 80px", maxWidth: 920, width: "100%" }}>
@@ -408,7 +408,7 @@ export default function Contact() {
                 Areas We<br /><span style={{ color: "var(--color-accent)" }}>Cover</span>
               </h2>
               <p className="rv rv-d2" style={{ fontSize: 16, color: "#3D3A37", maxWidth: 600, margin: "16px auto 0", lineHeight: 1.7, fontWeight: 400 }}>
-                PropertyCare Paints & Electrics Ltd proudly serves Sunderland and the surrounding areas.
+                PropertyCare Paint and Electrics Ltd proudly serves Sunderland and the surrounding areas.
               </p>
             </div>
 
@@ -440,7 +440,7 @@ export default function Contact() {
                 height: 380, overflow: "hidden",
               }}>
                 <iframe
-                  title="PropertyCare Paints & Electrics Ltd service area — Sunderland"
+                  title="PropertyCare Paint and Electrics Ltd service area — Sunderland"
                   src="https://maps.google.com/maps?q=54.9069,-1.3838&z=11&output=embed"
                   width="100%"
                   height="100%"
@@ -570,7 +570,7 @@ export default function Contact() {
                     Chukwudi Emmanuel Ifeanyi
                   </h3>
                   <p style={{ fontSize: 14, color: "#6B6460", fontWeight: 500, marginBottom: 20, letterSpacing: "0.04em" }}>
-                    PropertyCare Paints & Electrics Ltd
+                    PropertyCare Paint and Electrics Ltd
                   </p>
                 </div>
 
@@ -587,7 +587,7 @@ export default function Contact() {
                 </div>
 
                 <p className="rv rv-d3" style={{ fontSize: 14, color: "#3D3A37", lineHeight: 1.75, fontWeight: 400 }}>
-                  When you contact PropertyCare Paints & Electrics Ltd, you speak directly with the founder. No call centres, no sales scripts — just honest, expert advice from someone who personally oversees every project.
+                  When you contact PropertyCare Paint and Electrics Ltd, you speak directly with the founder. No call centres, no sales scripts — just honest, expert advice from someone who personally oversees every project.
                 </p>
 
                 <div className="rv rv-d4" style={{ marginTop: 24, display: "flex", gap: 12, flexWrap: "wrap" }}>
@@ -618,7 +618,7 @@ export default function Contact() {
               fontSize: 17, fontWeight: 400, color: "rgba(255,255,255,0.8)",
               lineHeight: 1.7, maxWidth: 540, margin: "0 auto 40px",
             }}>
-              Contact PropertyCare Paints & Electrics Ltd and let us help bring your project to life.
+              Contact PropertyCare Paint and Electrics Ltd and let us help bring your project to life.
             </p>
             <div className="rv rv-d3" style={{ display: "flex", justifyContent: "center", gap: 14, flexWrap: "wrap" }}>
               <a href="tel:+447922909982" className="btn-orange"><span>Call 07922 909982</span></a>
@@ -635,7 +635,7 @@ export default function Contact() {
             <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr", gap: 56, marginBottom: 60 }} className="footer-grid">
               <div>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/images/propertycare-logo-white.png" alt="PropertyCare Paints & Electrics Ltd" style={{ height: 90, width: "auto", display: "block", marginBottom: 24 }} />
+                  <img src="/images/propertycare-logo-white.png" alt="PropertyCare Paint and Electrics Ltd" style={{ height: 90, width: "auto", display: "block", marginBottom: 24 }} />
                 <p style={{ fontSize: 14, color: "#C9C0B4", lineHeight: 1.7, maxWidth: 320, marginBottom: 24, fontWeight: 400 }}>
                   The North East&apos;s premium single-team property transformation specialists. Sunderland and the surrounding areas. Residential &amp; commercial.
                 </p>
@@ -659,7 +659,7 @@ export default function Contact() {
 
             <div style={{ height: 1, background: "linear-gradient(to right, rgba(var(--color-accent-rgb),0.4), rgba(var(--color-accent-rgb),0.12), transparent)", marginBottom: 28 }} />
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 11, color: "rgba(255,255,255,0.35)", letterSpacing: "0.04em", flexWrap: "wrap", gap: 10, fontWeight: 500 }}>
-              <span>© 2025 PropertyCare Paints & Electrics Ltd. Fully insured · NICEIC / Part P · Written guarantee.</span>
+              <span>© 2025 PropertyCare Paint and Electrics Ltd. Fully insured · NICEIC / Part P · Written guarantee.</span>
               <span>Premium property transformations across the North East.</span>
             </div>
           </div>

@@ -21,7 +21,7 @@ export const contact = {
 
 export const brand = {
   name: "Propertycare",
-  full: "PropertyCare Paints & Electrics Ltd",
+  full: "PropertyCare Paint and Electrics Ltd",
   tagline: "Premium Property Transformations",
   positioning:
     "The North East's only single-team whole-property transformation specialists.",
