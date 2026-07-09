@@ -602,8 +602,11 @@ export default function Contact() {
         {/* ══════════════════════════════════════
             FINAL FOOTER CTA
         ══════════════════════════════════════ */}
-        <section style={{ background: "#0A0908", padding: "100px 52px", textAlign: "center" }}>
-          <div style={{ maxWidth: 800, margin: "0 auto" }}>
+        <section style={{ position: "relative", overflow: "hidden", background: "#0A0908", padding: "100px 52px", textAlign: "center" }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={IMG.cta} alt="" loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(10,9,8,0.97) 0%, rgba(10,9,8,0.92) 50%, rgba(10,9,8,0.85) 100%)" }} />
+          <div style={{ position: "relative", zIndex: 1, maxWidth: 800, margin: "0 auto" }}>
             <div className="rv">
               <OrangeTab center>No Obligation</OrangeTab>
             </div>

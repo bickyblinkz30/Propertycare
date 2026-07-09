@@ -210,7 +210,7 @@ export default function Services() {
                   Safe, reliable electrical solutions for homes and commercial properties. All work is NICEIC / Part P certified and backed by a written guarantee.
                 </p>
                 <ul className="rv rv-d3" style={{ listStyle: "none", marginBottom: 32 }}>
-                  {["Electrical Installations", "Smart Lighting Upgrades", "Socket & Switch Replacements", "Fault Finding & Repairs", "Consumer Unit Upgrades", "Safety Inspections", "Video Doorbell Installation"].map((item) => (
+                  {["Electrical Installations", "Smart Lighting Upgrades", "Socket & Switch Replacements", "Fault Finding & Repairs", "Consumer Unit Upgrades", "Safety Inspections"].map((item) => (
                     <li key={item} style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
                       <CheckIcon size={18} />
                       <span style={{ fontSize: 15, color: "#3D3A37", fontWeight: 600 }}>{item}</span>

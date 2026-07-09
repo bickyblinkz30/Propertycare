@@ -38,27 +38,18 @@ function OrangeTab({ children, center = false }: { children: React.ReactNode; ce
   "See The Difference" section instead, so its card intentionally has no pair.)
 */
 const PROJECT_DETAILS = [
-  // Painting & Decorating (6)
+  // Painting & Decorating (5)
   { title: "Interior Living Room Transformation", cat: "Painting & Decorating", desc: "Complete living room repaint with feature wall and premium decorative finishes.", loc: "Sunderland" },
   { title: "Roof Maintenance", cat: "Painting & Decorating", desc: "Full exterior repaint including woodwork, soffits and masonry for a period property.", loc: "Washington" },
   { title: "Repaint and Decorating", cat: "Painting & Decorating", desc: "Full repaint and redecoration with meticulous surface preparation and a durable, hard-wearing finish throughout.", loc: "Durham" },
-  { title: "Commercial Office Decorating", cat: "Painting & Decorating", desc: "Full office interior redecorated with hard-wearing matt emulsion and satinwood trim.", loc: "Newcastle" },
   { title: "Wallpaper Removal and Replacement", cat: "Painting & Decorating", desc: "Old wallpaper stripped back, walls made good and fresh new wallpaper hung for a flawless, lasting finish.", loc: "Sunderland" },
   { title: "Home Improvement", cat: "Painting & Decorating", desc: "Complete home improvement and refresh, transforming a tired space with quality finishes throughout.", loc: "Gateshead" },
-  // Electrical (6)
+  // Electrical (4)
   { title: "Consumer Unit Upgrade", cat: "Electrical", desc: "Modern consumer unit installation with full EICR certification and smart RCD protection.", loc: "Seaham" },
-  { title: "Full Electrical Rewiring", cat: "Electrical", desc: "Complete rewiring of a three-bedroom home with smart lighting and new consumer unit.", loc: "Newcastle" },
   { title: "Smart Lighting Installation", cat: "Electrical", desc: "Integrated smart lighting system with dimmable zones, motion sensors and app control.", loc: "Sunderland" },
   { title: "Light Upgrade", cat: "Electrical", desc: "Low-voltage garden lighting with IP-rated fittings, deck lights and feature spotlights.", loc: "Durham" },
   { title: "Electrical Fault Repair", cat: "Electrical", desc: "Diagnosed and repaired intermittent power fault, replaced damaged wiring and tested circuits.", loc: "South Shields" },
-  { title: "Video Doorbell Installation", cat: "Electrical", desc: "Hardwired video doorbell with chime kit, transformer upgrade and WiFi configuration.", loc: "Washington" },
-  // Property Maintenance (7)
-  { title: "Landlord Property Refresh", cat: "Property Maintenance", desc: "Full tenant changeover refresh including repaint, minor repairs and electrical safety check.", loc: "Gateshead" },
-  { title: "Routine Property Maintenance", cat: "Property Maintenance", desc: "Annual maintenance check including gutter clearance, sealant refresh and minor joinery repairs.", loc: "South Shields" },
-  { title: "General Repairs & Joinery", cat: "Property Maintenance", desc: "Door adjustments, skirting replacement, sash cord repair and general joinery throughout.", loc: "Sunderland" },
-  { title: "Property Inspection Report", cat: "Property Maintenance", desc: "Comprehensive property condition inspection with photographic evidence and priority actions.", loc: "Newcastle" },
-  { title: "Rental Property Maintenance", cat: "Property Maintenance", desc: "Ongoing maintenance contract for HMO property including gas, electrical and fabric checks.", loc: "Sunderland" },
-  { title: "Emergency Maintenance Call-Out", cat: "Property Maintenance", desc: "Emergency call-out for burst pipe isolation, electrical fault and temporary board-up.", loc: "Seaham" },
+  // Property Maintenance (1)
   { title: "Property Maintenance / Crack Refilling", cat: "Property Maintenance", desc: "Wall and ceiling cracks raked out, filled and sanded smooth, then repainted for a seamless, lasting repair.", loc: "Newcastle" },
 ];
 

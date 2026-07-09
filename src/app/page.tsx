@@ -257,7 +257,7 @@ export default function Home() {
                 {
                   icon: Icons.electric, title: "Electrical Services", img: IMG.electric,
                   intro: "NICEIC certified electricians — every install signed off to Part P.",
-                  items: ["Electrical Installations","Smart Lighting Upgrades","Socket & Switch Replacements","Fault Finding & Repairs","Consumer Unit Upgrades","Safety Inspections","Video Doorbell Installation"],
+                  items: ["Electrical Installations","Smart Lighting Upgrades","Socket & Switch Replacements","Fault Finding & Repairs","Consumer Unit Upgrades","Safety Inspections"],
                 },
                 {
                   icon: Icons.media, title: "TV Media Wall Installation", img: IMG.media,
