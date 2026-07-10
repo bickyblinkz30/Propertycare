@@ -18,7 +18,6 @@ const COLS: { h: string; items: [string, string][] }[] = [
     items: [
       ["Painting & Decorating", "#services"],
       ["Electrical Services", "#services"],
-      ["TV Media Wall Installation", "#services"],
       ["Property Maintenance", "#services"],
     ],
   },

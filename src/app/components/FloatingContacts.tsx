@@ -4,7 +4,7 @@ export default function FloatingContacts() {
   return (
     <div className="floating-contacts">
       <a
-        href="https://wa.me/447922909982?text=Hi%20Property%20Care%2C%20I%27d%20like%20a%20free%20quote."
+        href="https://wa.me/447922909982?text=Hi%20PropertyCare%2C%20I%27d%20like%20a%20free%20quote."
         className="fab"
         style={{ background: "#25D366" }}
         aria-label="WhatsApp"

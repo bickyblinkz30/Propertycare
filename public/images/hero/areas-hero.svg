@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <radialGradient id="vig" cx="42%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#141414"/>
+      <stop offset="70%" stop-color="#0A0A0A"/>
+      <stop offset="100%" stop-color="#050505"/>
+    </radialGradient>
+    <radialGradient id="pinGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1D8F5A" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#1D8F5A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#C9A86A" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#C9A86A" stop-opacity="0.12"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#vig)"/>
+
+  <!-- faint contour arcs -->
+  <g stroke="#C9A86A" fill="none" opacity="0.10">
+    <circle cx="380" cy="540" r="220" stroke-width="1"/>
+    <circle cx="380" cy="540" r="340" stroke-width="0.8"/>
+    <circle cx="380" cy="540" r="470" stroke-width="0.6"/>
+    <circle cx="380" cy="540" r="610" stroke-width="0.5"/>
+    <circle cx="380" cy="540" r="760" stroke-width="0.4"/>
+  </g>
+
+  <!-- North Sea wash right of coastline -->
+  <path d="M1520,0 L1920,0 L1920,1080 L1470,1080 C1430,900 1500,780 1420,640 C1360,530 1520,400 1450,260 C1410,170 1500,80 1520,0 Z" fill="url(#sea)"/>
+
+  <!-- coastline -->
+  <path d="M1520,0 C1500,80 1410,170 1450,260 C1520,400 1360,530 1420,640 C1500,780 1430,900 1470,1080"
+        fill="none" stroke="#C9A86A" stroke-width="2" opacity="0.8"/>
+
+  <!-- River Tyne -->
+  <path d="M240,360 C480,330 640,380 830,340 C1000,305 1160,330 1300,295 C1380,275 1430,280 1462,262"
+        fill="none" stroke="#C9A86A" stroke-width="1.2" opacity="0.55"/>
+  <!-- River Wear -->
+  <path d="M900,900 C960,820 1010,780 1080,700 C1160,610 1240,640 1320,600 C1400,560 1430,570 1452,548"
+        fill="none" stroke="#C9A86A" stroke-width="1.2" opacity="0.55"/>
+
+  <!-- location pins -->
+  <g>
+    <circle cx="1310" cy="270" r="90" fill="url(#pinGlow)"/>
+    <circle cx="1310" cy="270" r="7" fill="#1D8F5A"/>
+    <circle cx="1310" cy="270" r="13" fill="none" stroke="#1D8F5A" stroke-width="1.5" opacity="0.6"/>
+    <text x="1338" y="262" fill="#FFFFFF" font-size="21" font-weight="700" letter-spacing="3">SOUTH SHIELDS</text>
+
+    <circle cx="1040" cy="330" r="90" fill="url(#pinGlow)"/>
+    <circle cx="1040" cy="330" r="7" fill="#1D8F5A"/>
+    <circle cx="1040" cy="330" r="13" fill="none" stroke="#1D8F5A" stroke-width="1.5" opacity="0.6"/>
+    <text x="1020" y="298" fill="#FFFFFF" font-size="21" font-weight="700" letter-spacing="3" text-anchor="end">NEWCASTLE</text>
+
+    <circle cx="1105" cy="415" r="80" fill="url(#pinGlow)"/>
+    <circle cx="1105" cy="415" r="7" fill="#1D8F5A"/>
+    <circle cx="1105" cy="415" r="13" fill="none" stroke="#1D8F5A" stroke-width="1.5" opacity="0.6"/>
+    <text x="1080" y="428" fill="#B3B3B3" font-size="19" font-weight="700" letter-spacing="3" text-anchor="end">GATESHEAD</text>
+
+    <circle cx="1190" cy="560" r="80" fill="url(#pinGlow)"/>
+    <circle cx="1190" cy="560" r="7" fill="#1D8F5A"/>
+    <circle cx="1190" cy="560" r="13" fill="none" stroke="#1D8F5A" stroke-width="1.5" opacity="0.6"/>
+    <text x="1165" y="545" fill="#B3B3B3" font-size="19" font-weight="700" letter-spacing="3" text-anchor="end">WASHINGTON</text>
+
+    <circle cx="1435" cy="555" r="110" fill="url(#pinGlow)"/>
+    <circle cx="1435" cy="555" r="9" fill="#1D8F5A"/>
+    <circle cx="1435" cy="555" r="17" fill="none" stroke="#1D8F5A" stroke-width="2" opacity="0.7"/>
+    <text x="1435" y="518" fill="#FFFFFF" font-size="24" font-weight="800" letter-spacing="4" text-anchor="middle">SUNDERLAND</text>
+
+    <circle cx="1408" cy="740" r="80" fill="url(#pinGlow)"/>
+    <circle cx="1408" cy="740" r="7" fill="#1D8F5A"/>
+    <circle cx="1408" cy="740" r="13" fill="none" stroke="#1D8F5A" stroke-width="1.5" opacity="0.6"/>
+    <text x="1378" y="752" fill="#B3B3B3" font-size="19" font-weight="700" letter-spacing="3" text-anchor="end">SEAHAM</text>
+
+    <circle cx="1010" cy="840" r="90" fill="url(#pinGlow)"/>
+    <circle cx="1010" cy="840" r="7" fill="#1D8F5A"/>
+    <circle cx="1010" cy="840" r="13" fill="none" stroke="#1D8F5A" stroke-width="1.5" opacity="0.6"/>
+    <text x="1010" y="890" fill="#FFFFFF" font-size="21" font-weight="700" letter-spacing="3" text-anchor="middle">DURHAM</text>
+  </g>
+
+  <!-- brass hairline frame accent -->
+  <line x1="80" y1="1000" x2="520" y2="1000" stroke="#C9A86A" stroke-width="1" opacity="0.5"/>
+  <text x="80" y="975" fill="#C9A86A" font-size="16" font-weight="700" letter-spacing="5" opacity="0.85">THE NORTH EAST</text>
+</svg>

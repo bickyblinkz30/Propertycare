@@ -12,7 +12,7 @@ export function Footer() {
                 {brand.name}
               </span>
               <span className="text-[0.65rem] uppercase tracking-[0.18em] text-accent">
-                Paints &amp; Electrics
+                Paint and Electrics Ltd
               </span>
             </div>
             <p className="mt-4 max-w-xs text-sm text-muted">

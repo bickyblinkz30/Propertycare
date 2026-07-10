@@ -2,7 +2,7 @@ Claude Agent Instructions
 
 Project Overview
 
-Build a world-class lead generation website for Propertycare Paints & Electrics.
+Build a world-class lead generation website for PropertyCare Paints and Electrics Ltd.
 
 The website must outperform typical local competitor websites and feel premium from the first interaction.
 

@@ -17,21 +17,39 @@ const U = (id: string, w: number, q = 82) =>
   `https://images.unsplash.com/${id}?w=${w}&q=${q}&auto=format&fit=crop`;
 
 // --- Hero images: one VISUALLY DISTINCT image per page ---
-// TODO: replace home hero with /images/Hero-section-homepage.jpg once uploaded by client
+/*
+  About / Services / Portfolio / Contact use dedicated 1920px landscape hero
+  assets in /public/images/hero/ (Unsplash, standard licence) — sourced for
+  hero use specifically. Do NOT point these at card/project photos: card
+  assets are portrait/square crops and look stretched at full-bleed hero size
+  (that was the bug this fixed, 2026-07).
+*/
 export const heroImages = {
-  home: "/images/Property-Care-team-at-work.jpg",                    // TEMP — swap for Hero-section-homepage.jpg
-  services: "/images/Painting%20and%20Decorating.jpg",               // REAL PC photo
-  portfolio: "/images/Interior-living-room-Transformation-after.jpg", // REAL PC photo
-  whyChooseUs: "/images/Property-Care-team-at-work.jpg",             // REAL PC photo
-  contact: "/images/Hallway-and-Staircase-Renovation-after.jpeg",    // REAL PC photo
-  about: "/images/Complete-Exterior-Repaint-after.jpg",              // REAL PC photo
+  // TEMP (2026-07): home + whyChooseUs are Unsplash stand-ins until the client
+  // supplies replacement photos — swap the two hero/*.jpg files or repoint here.
+  // Previous client photos remain in /public/images (Hero-section-homepage.jpg,
+  // Property-Care-team-at-work.jpg) if a rollback is wanted.
+  home: "/images/hero/home-hero.jpg",                    // TEMP Unsplash — navy lounge w/ media wall + electric fire
+  services: "/images/hero/services-hero.jpg",            // open-plan room, paint + lighting outcome
+  portfolio: "/images/hero/portfolio-hero.jpg",          // wide dramatic lounge w/ media wall
+  whyChooseUs: "/images/hero/why-choose-us-hero.jpg",    // TEMP Unsplash — decorators rolling colour, moody light
+  contact: "/images/hero/contact-hero.jpg",              // welcoming painted porch entrance
+  about: "/images/hero/about-hero.jpg",                  // renovation-in-progress, sheeted kitchen
 } as const;
 
 // Shared founder portrait (about / why-choose-us / contact).
 export const founderImage = U("photo-1560250097-0b93528c311a", 600, 85);
 
-// Faint, dark-overlaid backdrop behind the final CTA bands.
-export const ctaBackground = U("photo-1600566753190-17f0baa2a6c3", 1400, 82);
+// --- Pre-footer CTA band backgrounds: one contextual REAL photo per page ---
+// Rendered under a heavy dark overlay, so warm/detailed shots read best.
+export const ctaBackgrounds = {
+  home: "/images/Bespoke-Media-Wall-Installation.jpg",               // finished living space — payoff shot
+  services: "/images/TV-Media-Wall-Installation.jpg",                // combined-capability finished room
+  portfolio: "/images/HOME-IMPROVEMENT-AFTER.jpg",                   // strongest wide finished project
+  whyChooseUs: "/images/REPAINT-AND-DECORATING-AFTER.jpg",           // craftsmanship finish detail
+  contact: "/images/Property-Care-team-at-work.jpg",                 // team at work — direct, approachable
+  about: "/images/Light-upgrade-after.jpg",                          // warm lighting finish detail
+} as const;
 
 // --- Per-page image maps ---
 export const homeImages = {
@@ -44,7 +62,7 @@ export const homeImages = {
   p1: U("photo-1513694203232-719a280e022f", 900),
   p2: U("photo-1484154218962-a197022b5858", 900),
   p3: U("photo-1600607687920-4e2a09cf159d", 900),
-  cta: ctaBackground,
+  cta: ctaBackgrounds.home,
 } as const;
 
 export const servicesImages = {
@@ -53,72 +71,68 @@ export const servicesImages = {
   electric: "/images/Full-Electrical%20Rewiring.jpg",
   maint: "/images/Property-Improvement-and-maintenance.jpg",
   media: "/images/TV-Media-Wall-Installation.jpg",
-  showcase1: U("photo-1513694203232-719a280e022f", 800, 85),
-  showcase2: U("photo-1484154218962-a197022b5858", 800, 85),
-  showcase3: U("photo-1600585153490-76fb20a32601", 800, 85),
-  showcase4: U("photo-1618220179428-22790b461013", 800, 85),
-  showcase5: U("photo-1600566753190-17f0baa2a6c3", 800, 85),
-  cta: ctaBackground,
+  cta: ctaBackgrounds.services,
 } as const;
+
+/*
+  Services "Project Showcase" — portfolio-style cards backed by REAL client
+  project photos (replaced the old Unsplash stock showcase, 2026-07).
+  An empty `before` renders a static image card; otherwise the card is a
+  drag-to-reveal before/after slider, same as the Portfolio grid.
+*/
+export const servicesShowcase = [
+  { tag: "Painting", title: "Interior Painting", before: "/images/Kitchen-Repaint-and-Refresh-before.png", after: "/images/Kitchen-Repaint-and-Refresh-after.png" },
+  { tag: "Decorating", title: "Decorating Projects", before: "/images/REPAINT-AND-DECORATING-BEFORE.jpg", after: "/images/REPAINT-AND-DECORATING-AFTER.jpg" },
+  { tag: "Electrical", title: "Electrical Installations", before: "/images/Smart-lightin-installation-before.jpg", after: "/images/Smart-lightin-installation-after.jpg" },
+  { tag: "Maintenance", title: "Property Maintenance", before: "/images/PROPERTY-MAINTENANCE-BEFORE.jpg", after: "/images/PROPERTY-MAINTENANCE-AFTER.jpg" },
+  { tag: "Media Walls", title: "Media Wall Installations", before: "", after: "/images/TV-Media-Wall-Installation.jpg" },
+  { tag: "Full Service", title: "Complete Transformations", before: "/images/HOME-IMPROVEMENT-BEFORE.jpg", after: "/images/HOME-IMPROVEMENT-AFTER.jpg" },
+] as const;
 
 export const portfolioImages = {
   hero: heroImages.portfolio,
-  cta: ctaBackground,
+  cta: ctaBackgrounds.portfolio,
 } as const;
 
 export const whyChooseUsImages = {
   hero: heroImages.whyChooseUs,
-  cta: ctaBackground,
+  cta: ctaBackgrounds.whyChooseUs,
   founder: founderImage,
 } as const;
 
 export const contactImages = {
   hero: heroImages.contact,
+  cta: ctaBackgrounds.contact,
   founder: founderImage,
 } as const;
 
 export const aboutImages = {
   hero: heroImages.about,
+  cta: ctaBackgrounds.about,
   founder: founderImage,
 } as const;
 
 // --- Portfolio project grid ---
 /*
-  24 UNIQUE images, one per project card, so no two cards share a photo.
-  Sourced entirely from assets already in the repo (in-use Unsplash ids +
-  the local before/after placeholders) — nothing invented.
-  Order maps 1:1 to the project order in src/app/portfolio/page.tsx
-  (6 painting · 6 electrical · 6 maintenance · 6 media walls).
+  10 images, one per project card. Order maps 1:1 to the project order in
+  src/app/portfolio/page.tsx (5 painting · 4 electrical · 1 maintenance).
+  Only services with authentic project photography keep a card — placeholder
+  cards without real photos were removed per client instruction (2026-07).
 */
 export const portfolioProjectImages: readonly string[] = [
-  // Painting & Decorating — REAL client "after" photos (indices 0–5)
-  "/images/Interior-living-room-Transformation-after.jpg",  // 0 — slider ✓
-  "/images/Complete-Exterior-Repaint-after.jpg",            // 1 — slider ✓
-  "/images/Kitchen-Repaint-and-Refresh-after.png",          // 2 — slider ✓
-  "/images/Commercial-Office-Decorating-after.png",         // 3 — slider ✓
-  "/images/Hallway-and-Staircase-Renovation-after.jpeg",    // 4 — slider ✓
-  "/images/Feature-Wall-Design-after.png",                  // 5 — slider ✓
-  // Electrical — REAL client "after" photos (indices 6–8); TEMP category shots (9–11)
-  "/images/Consumer-Unit-Upgrade-after.jpg",                // 6 — slider ✓
-  "/images/Full-Electrical-Rewiring-after.png",             // 7 — slider ✓
-  "/images/Smart-Lighting-Installation-after.png",          // 8 — slider ✓
-  "/images/Electrical%20Services.jpg",                      // 9  — TEMP; TODO: replace with real Garden & Outdoor Lighting photo
-  "/images/Full-Electrical%20Rewiring.jpg",                 // 10 — TEMP; TODO: replace with real Electrical Fault Repair photo
-  "/images/Electrical%20Services.jpg",                      // 11 — TEMP; TODO: replace with real Video Doorbell Installation photo
-  // Property Maintenance — TEMP real category shots (indices 12–17)
-  "/images/Property-Improvement-and-maintenance.jpg",       // 12 — TEMP; TODO: replace with real Landlord Property Refresh photo
-  "/images/Property-Care-team-at-work.jpg",                 // 13 — TEMP; TODO: replace with real Routine Property Maintenance photo
-  "/images/Property-Improvement-and-maintenance.jpg",       // 14 — TEMP; TODO: replace with real General Repairs & Joinery photo
-  "/images/Property-Care-team-at-work.jpg",                 // 15 — TEMP; TODO: replace with real Property Inspection Report photo
-  "/images/Property-Improvement-and-maintenance.jpg",       // 16 — TEMP; TODO: replace with real Rental Property Maintenance photo
-  "/images/Property-Improvement-and-maintenance.jpg",       // 17 — TEMP; TODO: replace with real Emergency Maintenance Call-Out photo
-  // Media Walls — REAL + TEMP category shots (indices 18–23)
-  "/images/Bespoke-Media-Wall-Installation.jpg",            // 18 — REAL ✓ static
-  "/images/TV-Media-Wall-Installation.jpg",                 // 19 — TEMP; TODO: replace with real Contemporary LED Feature Wall photo
-  "/images/Bespoke-Media-Wall-Installation.jpg",            // 20 — TEMP; TODO: replace with real Living Room Centrepiece photo
-  "/images/TV-Media-Wall-Installation.jpg",                 // 21 — TEMP; TODO: replace with real Luxury TV Wall with Fireplace photo
-  "/images/Bespoke-Media-Wall-Installation.jpg",            // 22 — TEMP; TODO: replace with real Floating Media Unit photo
-  "/images/TV-Media-Wall-Installation.jpg",                 // 23 — TEMP; TODO: replace with real Modern Feature Wall with Panelling photo
+  // Painting & Decorating — REAL client "after" photos (indices 0–4)
+  "/images/Interior-living-room-Transformation-after.jpg",  // 0 Interior Living Room Transformation — slider ✓
+  "/images/Complete-Exterior-Repaint-after.jpg",            // 1 Roof Maintenance — slider ✓
+  "/images/REPAINT-AND-DECORATING-AFTER.jpg",               // 2 Repaint and Decorating — REAL ✓ slider
+  "/images/Hallway-and-Staircase-Renovation-after.jpeg",    // 3 Wallpaper Removal and Replacement — slider ✓
+  "/images/HOME-IMPROVEMENT-AFTER.jpg",                     // 4 Home Improvement — REAL ✓ slider
+  // Electrical — REAL client "after" photos (indices 5–7); TEMP category shot (8)
+  "/images/Consumer-Unit-Upgrade-after.jpg",                // 5 Consumer Unit Upgrade — slider ✓
+  "/images/Smart-lightin-installation-after.jpg",           // 6 Smart Lighting Installation — slider ✓
+  "/images/Light-upgrade-after.jpg",                        // 7 Light Upgrade — REAL ✓ slider
+  "/images/Full-Electrical%20Rewiring.jpg",                 // 8 Electrical Fault Repair — TEMP
+  // Property Maintenance — REAL pair (9)
+  "/images/PROPERTY-MAINTENANCE-AFTER.jpg",                 // 9 Property Maintenance / Crack Refilling — REAL ✓ slider
 ];
 
 /*
@@ -128,34 +142,19 @@ export const portfolioProjectImages: readonly string[] = [
   Index order matches portfolioProjectImages exactly.
 */
 export const portfolioProjectBeforeImages: readonly string[] = [
-  // Painting & Decorating — REAL client "before" photos → all 6 cards are sliders
-  "/images/Interior-living-room-Transformation-before.jpeg", // 0
-  "/images/Complete-Exterior-Repaint-before.jpg",            // 1
-  "/images/Kitchen-Repaint-and-Refresh-before.png",          // 2
-  "/images/Commercial-Office-Decorating-before.png",         // 3
-  "/images/Hallway-and-Staircase-Renovation-before.jpg",     // 4
-  "/images/Feature-Wall-Design-before.png",                  // 5
-  // Electrical — REAL client "before" photos for indices 6–8; static for 9–11
-  "/images/Consumer-Unit-Upgrade-before.jpg",                // 6
-  "/images/Full-Electrical-Rewiring-before.png",             // 7
-  "/images/Smart-Lighting-Installation-before.png",          // 8
-  "",                                                        // 9  — static; TODO: add before photo when available
-  "",                                                        // 10 — static; TODO: add before photo when available
-  "",                                                        // 11 — static; TODO: add before photo when available
-  // Property Maintenance — no before photos available; all cards static
-  "",                                                        // 12 — static; TODO: add before photo when available
-  "",                                                        // 13 — static; TODO: add before photo when available
-  "",                                                        // 14 — static; TODO: add before photo when available
-  "",                                                        // 15 — static; TODO: add before photo when available
-  "",                                                        // 16 — static; TODO: add before photo when available
-  "",                                                        // 17 — static; TODO: add before photo when available
-  // Media Walls — no before photos available; all cards static
-  "",                                                        // 18 — static; TODO: add before photo when available
-  "",                                                        // 19 — static; TODO: add before photo when available
-  "",                                                        // 20 — static; TODO: add before photo when available
-  "",                                                        // 21 — static; TODO: add before photo when available
-  "",                                                        // 22 — static; TODO: add before photo when available
-  "",                                                        // 23 — static; TODO: add before photo when available
+  // Painting & Decorating — REAL client "before" photos → all 5 cards are sliders
+  "/images/Interior-living-room-Transformation-before.jpeg", // 0 Interior Living Room Transformation
+  "/images/Complete-Exterior-Repaint-before.jpg",            // 1 Roof Maintenance
+  "/images/REPAINT-AND-DECORATING-BEFORE.jpg",               // 2 Repaint and Decorating — REAL ✓
+  "/images/Hallway-and-Staircase-Renovation-before.jpg",     // 3 Wallpaper Removal and Replacement
+  "/images/HOME-IMPROVEMENT-BEFORE.jpg",                     // 4 Home Improvement — REAL ✓
+  // Electrical — REAL client "before" photos for indices 5–7; static for 8
+  "/images/Consumer-Unit-Upgrade-before.jpg",                // 5 Consumer Unit Upgrade
+  "/images/Smart-lightin-installation-before.jpg",           // 6 Smart Lighting Installation
+  "/images/Light-upgrade-before.jpg",                        // 7 Light Upgrade — REAL ✓
+  "",                                                        // 8 Electrical Fault Repair — static
+  // Property Maintenance — REAL before/after slider
+  "/images/PROPERTY-MAINTENANCE-BEFORE.jpg",                 // 9 Property Maintenance / Crack Refilling — REAL ✓
 ];
 
 // --- Before / after transformations (drag-to-reveal slider) ---
@@ -169,13 +168,11 @@ export const portfolioProjectBeforeImages: readonly string[] = [
   Spaces in filenames are %20-encoded; "&" is valid unencoded in a URL path.
 */
 export const beforeAfterTransformations: readonly BeforeAfterEntry[] = [
-  { beforeImg: "/images/Commercial-Office-Decorating-before.png", afterImg: "/images/Commercial-Office-Decorating-after.png", caption: "Commercial Office Decorating" },
-  { beforeImg: "/images/Complete-Exterior-Repaint-before.jpg", afterImg: "/images/Complete-Exterior-Repaint-after.jpg", caption: "Complete Exterior Repaint" },
+  { beforeImg: "/images/Complete-Exterior-Repaint-before.jpg", afterImg: "/images/Complete-Exterior-Repaint-after.jpg", caption: "Roof Maintenance" },
   { beforeImg: "/images/Consumer-Unit-Upgrade-before.jpg", afterImg: "/images/Consumer-Unit-Upgrade-after.jpg", caption: "Consumer Unit Upgrade" },
   { beforeImg: "/images/Feature-Wall-Design-before.png", afterImg: "/images/Feature-Wall-Design-after.png", caption: "Feature Wall Design" },
-  { beforeImg: "/images/Full-Electrical-Rewiring-before.png", afterImg: "/images/Full-Electrical-Rewiring-after.png", caption: "Full Electrical Rewiring" },
   { beforeImg: "/images/Kitchen-Repaint-and-Refresh-before.png", afterImg: "/images/Kitchen-Repaint-and-Refresh-after.png", caption: "Kitchen Repaint & Refresh" },
-  { beforeImg: "/images/Smart-Lighting-Installation-before.png", afterImg: "/images/Smart-Lighting-Installation-after.png", caption: "Smart Lighting Installation" },
+  { beforeImg: "/images/Smart-lightin-installation-before.jpg", afterImg: "/images/Smart-lightin-installation-after.jpg", caption: "Smart Lighting Installation" },
   { beforeImg: "/images/Hallway-and-Staircase-Renovation-before.jpg", afterImg: "/images/Hallway-and-Staircase-Renovation-after.jpeg", caption: "Hallway & Staircase Renovation" },
   { beforeImg: "/images/Interior-living-room-Transformation-before.jpeg", afterImg: "/images/Interior-living-room-Transformation-after.jpg", caption: "Interior Living Room Transformation" },
 ];

@@ -1,8 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { brand } from "@/lib/site";
 
-const WA = "https://wa.me/447922909982?text=Hi%20Property%20Care%2C%20I%27d%20like%20a%20free%20quote.";
+const WA = "https://wa.me/447922909982?text=Hi%20PropertyCare%2C%20I%27d%20like%20a%20free%20quote.";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -45,7 +46,7 @@ export default function Nav() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={scrolled ? "/images/propertycare-logo-transparent.png" : "/images/propertycare-logo-white.png"}
-              alt="Property Care Paint & Electrics"
+              alt={brand.full}
               style={{
                 height: scrolled ? 46 : 60,
                 width: "auto",

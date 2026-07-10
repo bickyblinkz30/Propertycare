@@ -1,4 +1,4 @@
-# Propertycare Paints & Electrics — Design Research & Creative Review Process
+# PropertyCare Paints and Electrics Ltd — Design Research & Creative Review Process
 
 **This document is mandatory.**
 
