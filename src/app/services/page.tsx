@@ -8,7 +8,7 @@ import { servicesImages as IMG, servicesShowcase } from "@/lib/images";
 import BeforeAfterSlider from "../components/BeforeAfterSlider";
 import { brand } from "@/lib/site";
 
-const WA = "https://wa.me/447922909982?text=Hi%20Property%20Care%2C%20I%27d%20like%20a%20free%20quote.";
+const WA = "https://wa.me/447922909982?text=Hi%20PropertyCare%2C%20I%27d%20like%20a%20free%20quote.";
 
 function OrangeTab({ children, center = false }: { children: React.ReactNode; center?: boolean }) {
   return (
