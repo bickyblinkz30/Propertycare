@@ -15,7 +15,7 @@ export const contact = {
     "Hi Propertycare, I'd like a quote for a transformation.",
   )}`,
   raw: RAW_PHONE,
-  email: "hello@propertycarepe.co.uk", // placeholder — confirm before launch
+  email: "info@propertycarepro.co.uk",
   primaryArea: "Sunderland",
 } as const;
 

@@ -211,15 +211,15 @@ export default function About() {
                   <h4 style={{ fontSize: 16, fontWeight: 800, color: "#0A0908", marginBottom: 12, letterSpacing: "0.02em" }}>Experience</h4>
                   <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                     {[
-                      { yr: "2020 — Present", title: "Founder & Managing Director", org: "PropertyCare Paint and Electrics Ltd, Sunderland" },
-                      { yr: "2017 — 2020", title: "Senior Painter & Decorator", org: "North East Property Services" },
-                      { yr: "2014 — 2017", title: "Electrical Installations Engineer", org: "UK Building Solutions Ltd" },
+                      { yr: "2022 — Present", title: "Founder & Managing Director", org: "Propertycare Paints and Electrics Ltd" },
+                      { yr: "2020 — 2022", title: "Property Manager / Property Specialist", org: "Northeast Property Services" },
+                      { yr: "2014 — 2020", title: "Electrical Installation Engineer", org: "" },
                     ].map((exp) => (
                       <div key={exp.yr} style={{ display: "flex", gap: 20, padding: "14px 18px", background: "#F8F5F0", borderRadius: 4, borderLeft: "3px solid var(--color-accent)" }}>
                         <div style={{ fontSize: 12, fontWeight: 700, color: "var(--color-accent)", flexShrink: 0, width: 130, letterSpacing: "0.04em" }}>{exp.yr}</div>
                         <div>
                           <div style={{ fontSize: 14, fontWeight: 700, color: "#0A0908" }}>{exp.title}</div>
-                          <div style={{ fontSize: 12, color: "#6B6460", fontWeight: 500 }}>{exp.org}</div>
+                          {exp.org && <div style={{ fontSize: 12, color: "#6B6460", fontWeight: 500 }}>{exp.org}</div>}
                         </div>
                       </div>
                     ))}
