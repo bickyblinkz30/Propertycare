@@ -211,7 +211,7 @@ export default function About() {
                   <h4 style={{ fontSize: 16, fontWeight: 800, color: "#0A0908", marginBottom: 12, letterSpacing: "0.02em" }}>Experience</h4>
                   <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                     {[
-                      { yr: "2022 — Present", title: "Founder & Managing Director", org: "Propertycare Paints and Electrics Ltd" },
+                      { yr: "2022 — Present", title: "Founder & Managing Director", org: "PropertyCare Paint and Electrics Ltd" },
                       { yr: "2020 — 2022", title: "Property Manager / Property Specialist", org: "Northeast Property Services" },
                       { yr: "2014 — 2020", title: "Electrical Installation Engineer", org: "" },
                     ].map((exp) => (
