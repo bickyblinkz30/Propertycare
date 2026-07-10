@@ -251,8 +251,11 @@ export default function About() {
         {/* ══════════════════════════════════════
             CTA
         ══════════════════════════════════════ */}
-        <section style={{ background: "#0A0908", borderTop: "4px solid var(--color-accent)", padding: "120px 52px", textAlign: "center" }}>
-          <div style={{ maxWidth: 800, margin: "0 auto" }}>
+        <section style={{ position: "relative", overflow: "hidden", background: "#0A0908", borderTop: "4px solid var(--color-accent)", padding: "120px 52px", textAlign: "center" }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={aboutImages.cta} alt="" loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(10,9,8,0.88) 0%, rgba(10,9,8,0.74) 50%, rgba(10,9,8,0.58) 100%)" }} />
+          <div style={{ position: "relative", zIndex: 1, maxWidth: 800, margin: "0 auto" }}>
             <div className="rv">
               <OrangeTab center>Let&rsquo;s Work Together</OrangeTab>
             </div>

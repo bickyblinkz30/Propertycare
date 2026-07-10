@@ -40,11 +40,16 @@ export const heroImages = {
 // Shared founder portrait (about / why-choose-us / contact).
 export const founderImage = U("photo-1560250097-0b93528c311a", 600, 85);
 
-// --- Pre-footer CTA band backgrounds: one contextual REAL photo per page ---
-// Rendered under a heavy dark overlay, so warm/detailed shots read best.
+// --- Pre-footer CTA band backgrounds: one contextual photo per page ---
+// Rendered under a medium dark gradient (0.88→0.58), so the photo reads
+// clearly while centered white/orange text stays legible.
 export const ctaBackgrounds = {
-  home: "/images/Bespoke-Media-Wall-Installation.jpg",               // finished living space — payoff shot
-  services: "/images/TV-Media-Wall-Installation.jpg",                // combined-capability finished room
+  // TEMP (2026-07): home + services are Unsplash stand-ins. The previous promo
+  // graphics (Bespoke-Media-Wall-Installation.jpg, TV-Media-Wall-Installation.jpg)
+  // read as a lake photo / giant logo through the overlay — swap when the client
+  // supplies clean landscape project photos.
+  home: "/images/hero/home-footer-cta.jpg",                          // TEMP Unsplash — warm lounge, brick fireplace
+  services: "/images/hero/services-footer-cta.jpg",                  // TEMP Unsplash — roller mid-coat on wall
   portfolio: "/images/HOME-IMPROVEMENT-AFTER.jpg",                   // strongest wide finished project
   whyChooseUs: "/images/REPAINT-AND-DECORATING-AFTER.jpg",           // craftsmanship finish detail
   contact: "/images/Property-Care-team-at-work.jpg",                 // team at work — direct, approachable

@@ -457,7 +457,7 @@ export default function Services() {
           {/* TODO: Replace with client-supplied images */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={IMG.cta} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(10,9,8,0.97) 0%, rgba(10,9,8,0.92) 50%, rgba(10,9,8,0.85) 100%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(10,9,8,0.88) 0%, rgba(10,9,8,0.74) 50%, rgba(10,9,8,0.58) 100%)" }} />
 
           <div style={{ position: "relative", zIndex: 1, padding: "120px 52px", textAlign: "center" }}>
             <div style={{ maxWidth: 800, margin: "0 auto" }}>

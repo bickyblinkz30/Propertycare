@@ -26,6 +26,8 @@ direction in `DESIGN_REVIEW.md` and downloaded pre-optimized (≤ 200KB).
 | File | Subject | Source (Unsplash photo ID) |
 | --- | --- | --- |
 | home-hero.jpg | TEMP stand-in — navy lounge, integrated media wall + electric fire | photo-1611094016919-36b65678f3d6 |
+| home-footer-cta.jpg | TEMP stand-in — warm lounge, wood ceiling, brick fireplace | photo-1560185009-dddeb820c7b7 |
+| services-footer-cta.jpg | TEMP stand-in — paint roller mid-coat, dusty blue | photo-1562259949-e8e7689d7828 |
 | why-choose-us-hero.jpg | TEMP stand-in — decorators rolling red/blue walls, moody light | photo-1511822148790-e7b58ba14c72 |
 | about-hero.jpg | Kitchen renovation in progress, protective sheeting | photo-1618832515490-e181c4794a45 |
 | services-hero.jpg | Open-plan living/kitchen, fresh paint + pendant lighting | photo-1565183997392-2f6f122e5912 |
