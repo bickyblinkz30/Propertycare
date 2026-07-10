@@ -4,7 +4,8 @@ import Nav from "../components/Nav";
 import FloatingContacts from "../components/FloatingContacts";
 import ScrollReveal from "../components/ScrollReveal";
 import FooterLinks from "../components/FooterLinks";
-import { servicesImages as IMG } from "@/lib/images";
+import { servicesImages as IMG, servicesShowcase } from "@/lib/images";
+import BeforeAfterSlider from "../components/BeforeAfterSlider";
 import { brand } from "@/lib/site";
 
 const WA = "https://wa.me/447922909982?text=Hi%20Property%20Care%2C%20I%27d%20like%20a%20free%20quote.";
@@ -368,19 +369,17 @@ export default function Services() {
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }} className="grid-3">
-              {[
-                { img: IMG.showcase1, tag: "Painting", title: "Interior Painting" },
-                { img: IMG.showcase2, tag: "Decorating", title: "Decorating Projects" },
-                { img: IMG.showcase3, tag: "Electrical", title: "Electrical Installations" },
-                { img: IMG.showcase4, tag: "Maintenance", title: "Property Maintenance" },
-                { img: IMG.showcase5, tag: "Media Walls", title: "Media Wall Installations" },
-                { img: IMG.showcase1, tag: "Full Service", title: "Complete Transformations" },
-              ].map(({ img, tag, title }, i) => (
-                <div key={title} className={`port-card rv rv-d${(i % 3) + 1}`} style={{ height: 320 }}>
-                  {/* TODO: Replace with client-supplied project images */}
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={img} alt={title} />
-                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,9,8,0.95) 0%, transparent 60%)", padding: 24, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
+              {servicesShowcase.map(({ before, after, tag, title }, i) => (
+                <div key={title} className={`rv rv-d${(i % 3) + 1}`} style={{ position: "relative", borderRadius: 4, overflow: "hidden" }}>
+                  {/* Portfolio-style card: before/after slider when a real pair exists, static image otherwise. */}
+                  {before ? (
+                    <BeforeAfterSlider beforeImg={before} afterImg={after} height={320} startOffset={((i * 17) % 65) + 18} />
+                  ) : (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={after} alt={title} style={{ width: "100%", height: 320, objectFit: "cover", display: "block" }} />
+                  )}
+                  {/* Text overlay is pointer-transparent so taps/drags reach the slider */}
+                  <div style={{ position: "absolute", inset: 0, zIndex: 15, pointerEvents: "none", background: "linear-gradient(to top, rgba(10,9,8,0.95) 0%, transparent 60%)", padding: 24, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
                     <div style={{ display: "inline-flex", alignItems: "center", gap: 8, alignSelf: "flex-start", background: "var(--color-accent)", padding: "5px 11px", borderRadius: 2, marginBottom: 10 }}>
                       <span style={{ fontSize: 9, fontWeight: 800, letterSpacing: "0.2em", textTransform: "uppercase", color: "#fff" }}>{tag}</span>
                     </div>

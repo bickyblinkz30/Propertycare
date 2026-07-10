@@ -67,13 +67,23 @@ export const servicesImages = {
   electric: "/images/Full-Electrical%20Rewiring.jpg",
   maint: "/images/Property-Improvement-and-maintenance.jpg",
   media: "/images/TV-Media-Wall-Installation.jpg",
-  showcase1: U("photo-1513694203232-719a280e022f", 800, 85),
-  showcase2: U("photo-1484154218962-a197022b5858", 800, 85),
-  showcase3: U("photo-1600585153490-76fb20a32601", 800, 85),
-  showcase4: U("photo-1618220179428-22790b461013", 800, 85),
-  showcase5: U("photo-1600566753190-17f0baa2a6c3", 800, 85),
   cta: ctaBackgrounds.services,
 } as const;
+
+/*
+  Services "Project Showcase" — portfolio-style cards backed by REAL client
+  project photos (replaced the old Unsplash stock showcase, 2026-07).
+  An empty `before` renders a static image card; otherwise the card is a
+  drag-to-reveal before/after slider, same as the Portfolio grid.
+*/
+export const servicesShowcase = [
+  { tag: "Painting", title: "Interior Painting", before: "/images/Kitchen-Repaint-and-Refresh-before.png", after: "/images/Kitchen-Repaint-and-Refresh-after.png" },
+  { tag: "Decorating", title: "Decorating Projects", before: "/images/REPAINT-AND-DECORATING-BEFORE.jpg", after: "/images/REPAINT-AND-DECORATING-AFTER.jpg" },
+  { tag: "Electrical", title: "Electrical Installations", before: "/images/Smart-lightin-installation-before.jpg", after: "/images/Smart-lightin-installation-after.jpg" },
+  { tag: "Maintenance", title: "Property Maintenance", before: "/images/PROPERTY-MAINTENANCE-BEFORE.jpg", after: "/images/PROPERTY-MAINTENANCE-AFTER.jpg" },
+  { tag: "Media Walls", title: "Media Wall Installations", before: "", after: "/images/TV-Media-Wall-Installation.jpg" },
+  { tag: "Full Service", title: "Complete Transformations", before: "/images/HOME-IMPROVEMENT-BEFORE.jpg", after: "/images/HOME-IMPROVEMENT-AFTER.jpg" },
+] as const;
 
 export const portfolioImages = {
   hero: heroImages.portfolio,
