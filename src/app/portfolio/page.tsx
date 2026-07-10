@@ -40,7 +40,7 @@ function OrangeTab({ children, center = false }: { children: React.ReactNode; ce
 const PROJECT_DETAILS = [
   // Painting & Decorating (5)
   { title: "Interior Living Room Transformation", cat: "Painting & Decorating", desc: "Complete living room repaint with feature wall and premium decorative finishes.", loc: "Sunderland" },
-  { title: "Roof Maintenance", cat: "Painting & Decorating", desc: "Full exterior repaint including woodwork, soffits and masonry for a period property.", loc: "Washington" },
+  { title: "Roof Maintenance", cat: "Painting & Decorating", desc: "Porch roof re-tiled with new fascia, soffits and guttering for a weathertight, refreshed exterior.", loc: "Washington" },
   { title: "Repaint and Decorating", cat: "Painting & Decorating", desc: "Full repaint and redecoration with meticulous surface preparation and a durable, hard-wearing finish throughout.", loc: "Durham" },
   { title: "Wallpaper Removal and Replacement", cat: "Painting & Decorating", desc: "Old wallpaper stripped back, walls made good and fresh new wallpaper hung for a flawless, lasting finish.", loc: "Sunderland" },
   { title: "Home Improvement", cat: "Painting & Decorating", desc: "Complete home improvement and refresh, transforming a tired space with quality finishes throughout.", loc: "Gateshead" },
