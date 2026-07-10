@@ -151,7 +151,7 @@ async function handlePost(req: NextRequest): Promise<NextResponse> {
     <tr><td align="center">
       <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:6px;overflow:hidden;max-width:600px;width:100%">
         <tr><td style="background:#0A0908;padding:28px 36px;border-bottom:4px solid #F58220">
-          <p style="margin:0;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#F58220;font-weight:700">Property Care Paint &amp; Electrics</p>
+          <p style="margin:0;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#F58220;font-weight:700">Property Care Paint &amp; Electrics Ltd</p>
           <h1 style="margin:8px 0 0;font-size:22px;font-weight:900;color:#ffffff;letter-spacing:-0.01em">New Quote Request</h1>
         </td></tr>
         <tr><td style="padding:36px">

@@ -196,7 +196,7 @@ export default function Contact() {
                 </div>
               </a>
 
-              <a href="mailto:hello@propertycarepe.co.uk" style={{ textDecoration: "none" }}>
+              <a href="mailto:info@propertycarepro.co.uk" style={{ textDecoration: "none" }}>
                 <div className="rv rv-d3" style={{ background: "#FDFCFB", border: "1px solid #E8E2D9", borderRadius: 4, padding: "36px 28px", textAlign: "center", transition: "transform 0.3s, box-shadow 0.3s" }}>
                   <div style={{ width: 56, height: 56, background: "var(--color-accent-soft)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 18px" }}>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="2">
@@ -204,7 +204,7 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--color-accent)", marginBottom: 8 }}>Email</div>
-                  <div style={{ fontSize: 14, fontWeight: 700, color: "#0A0908", letterSpacing: "0.02em", wordBreak: "break-all" }}>hello@propertycarepe.co.uk</div>
+                  <div style={{ fontSize: 14, fontWeight: 700, color: "#0A0908", letterSpacing: "0.02em", wordBreak: "break-all" }}>info@propertycarepro.co.uk</div>
                 </div>
               </a>
 
@@ -408,7 +408,7 @@ export default function Contact() {
                 Areas We<br /><span style={{ color: "var(--color-accent)" }}>Cover</span>
               </h2>
               <p className="rv rv-d2" style={{ fontSize: 16, color: "#3D3A37", maxWidth: 600, margin: "16px auto 0", lineHeight: 1.7, fontWeight: 400 }}>
-                Property Care Paint &amp; Electrics proudly serves Sunderland and the surrounding areas.
+                Property Care Paint &amp; Electrics Ltd proudly serves Sunderland and the surrounding areas.
               </p>
             </div>
 
@@ -570,7 +570,7 @@ export default function Contact() {
                     Chukwudi Emmanuel Ifeanyi
                   </h3>
                   <p style={{ fontSize: 14, color: "#6B6460", fontWeight: 500, marginBottom: 20, letterSpacing: "0.04em" }}>
-                    Property Care Paint &amp; Electrics
+                    Property Care Paint &amp; Electrics Ltd
                   </p>
                 </div>
 
@@ -587,7 +587,7 @@ export default function Contact() {
                 </div>
 
                 <p className="rv rv-d3" style={{ fontSize: 14, color: "#3D3A37", lineHeight: 1.75, fontWeight: 400 }}>
-                  When you contact Property Care Paint &amp; Electrics, you speak directly with the founder. No call centres, no sales scripts — just honest, expert advice from someone who personally oversees every project.
+                  When you contact Property Care Paint &amp; Electrics Ltd, you speak directly with the founder. No call centres, no sales scripts — just honest, expert advice from someone who personally oversees every project.
                 </p>
 
                 <div className="rv rv-d4" style={{ marginTop: 24, display: "flex", gap: 12, flexWrap: "wrap" }}>
@@ -618,7 +618,7 @@ export default function Contact() {
               fontSize: 17, fontWeight: 400, color: "rgba(255,255,255,0.8)",
               lineHeight: 1.7, maxWidth: 540, margin: "0 auto 40px",
             }}>
-              Contact Property Care Paint &amp; Electrics and let us help bring your project to life.
+              Contact Property Care Paint &amp; Electrics Ltd and let us help bring your project to life.
             </p>
             <div className="rv rv-d3" style={{ display: "flex", justifyContent: "center", gap: 14, flexWrap: "wrap" }}>
               <a href="tel:+447922909982" className="btn-orange"><span>Call 07922 909982</span></a>
@@ -659,7 +659,7 @@ export default function Contact() {
 
             <div style={{ height: 1, background: "linear-gradient(to right, rgba(var(--color-accent-rgb),0.4), rgba(var(--color-accent-rgb),0.12), transparent)", marginBottom: 28 }} />
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 11, color: "rgba(255,255,255,0.35)", letterSpacing: "0.04em", flexWrap: "wrap", gap: 10, fontWeight: 500 }}>
-              <span>© 2025 Property Care Paint &amp; Electrics. Fully insured · NICEIC / Part P · Written guarantee.</span>
+              <span>© 2025 Property Care Paint &amp; Electrics Ltd. Fully insured · NICEIC / Part P · Written guarantee.</span>
               <span>Premium property transformations across the North East.</span>
             </div>
           </div>

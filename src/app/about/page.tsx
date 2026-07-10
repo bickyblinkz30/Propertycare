@@ -60,7 +60,7 @@ export default function About() {
               maxWidth: 640,
               marginBottom: 44,
             }}>
-              We are Property Care Paint &amp; Electrics &mdash; a Sunderland-based team of certified painters, electricians and property specialists. Every project is delivered by one accountable team from start to finish.
+              We are Property Care Paint &amp; Electrics Ltd &mdash; a Sunderland-based team of certified painters, electricians and property specialists. Every project is delivered by one accountable team from start to finish.
             </p>
             <div className="h-a4">
               <Link href="/#services" className="btn-orange">
@@ -174,7 +174,7 @@ export default function About() {
                     Chukwudi Emmanuel Ifeanyi
                   </h3>
                   <p style={{ fontSize: 15, color: "#6B6460", fontWeight: 500, letterSpacing: "0.04em" }}>
-                    Property Care Paint &amp; Electrics
+                    Property Care Paint &amp; Electrics Ltd
                   </p>
                 </div>
 
@@ -199,7 +199,7 @@ export default function About() {
                 <div className="rv rv-d3" style={{ marginBottom: 28 }}>
                   <h4 style={{ fontSize: 16, fontWeight: 800, color: "#0A0908", marginBottom: 12, letterSpacing: "0.02em" }}>Professional Biography</h4>
                   <p style={{ fontSize: 15, color: "#3D3A37", lineHeight: 1.8, fontWeight: 400, marginBottom: 16 }}>
-                    Chukwudi founded Property Care Paint &amp; Electrics with a clear mission: deliver premium property transformations through one accountable team. With combined expertise in painting, decorating, and electrical work, he personally ensures every project meets the highest standards of craftsmanship and professionalism.
+                    Chukwudi founded Property Care Paint &amp; Electrics Ltd with a clear mission: deliver premium property transformations through one accountable team. With combined expertise in painting, decorating, and electrical work, he personally ensures every project meets the highest standards of craftsmanship and professionalism.
                   </p>
                   <p style={{ fontSize: 15, color: "#3D3A37", lineHeight: 1.8, fontWeight: 400 }}>
                     From full interior repaints to complex electrical installations and property maintenance, Chukwudi brings hands-on experience, NICEIC certification, and an unwavering commitment to quality to every job across Sunderland and the surrounding areas.
@@ -211,7 +211,7 @@ export default function About() {
                   <h4 style={{ fontSize: 16, fontWeight: 800, color: "#0A0908", marginBottom: 12, letterSpacing: "0.02em" }}>Experience</h4>
                   <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                     {[
-                      { yr: "2020 — Present", title: "Founder & Managing Director", org: "Property Care Paint & Electrics, Sunderland" },
+                      { yr: "2020 — Present", title: "Founder & Managing Director", org: "Property Care Paint & Electrics Ltd, Sunderland" },
                       { yr: "2017 — 2020", title: "Senior Painter & Decorator", org: "North East Property Services" },
                       { yr: "2014 — 2017", title: "Electrical Installations Engineer", org: "UK Building Solutions Ltd" },
                     ].map((exp) => (
@@ -314,7 +314,7 @@ export default function About() {
             </div>
             <div style={{ height: 1, background: "linear-gradient(to right, rgba(var(--color-accent-rgb),0.4), rgba(var(--color-accent-rgb),0.12), transparent)", marginBottom: 28 }} />
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 11, color: "rgba(255,255,255,0.35)", letterSpacing: "0.04em", flexWrap: "wrap", gap: 10, fontWeight: 500 }}>
-              <span>© 2025 Property Care Paint &amp; Electrics. Fully insured · NICEIC / Part P · Written guarantee.</span>
+              <span>© 2025 Property Care Paint &amp; Electrics Ltd. Fully insured · NICEIC / Part P · Written guarantee.</span>
               <span>Premium property transformations across the North East.</span>
             </div>
           </div>

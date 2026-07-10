@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Why Choose Us | Property Care Paint & Electrics",
+  title: "Why Choose Us | Property Care Paint & Electrics Ltd",
   description:
-    "Discover why homeowners, landlords and businesses choose Property Care Paint & Electrics for reliable property services and quality workmanship.",
+    "Discover why homeowners, landlords and businesses choose Property Care Paint & Electrics Ltd for reliable property services and quality workmanship.",
   openGraph: {
-    title: "Why Choose Us | Property Care Paint & Electrics",
+    title: "Why Choose Us | Property Care Paint & Electrics Ltd",
     description:
-      "Discover why homeowners, landlords and businesses choose Property Care Paint & Electrics for reliable property services and quality workmanship.",
+      "Discover why homeowners, landlords and businesses choose Property Care Paint & Electrics Ltd for reliable property services and quality workmanship.",
   },
 };
 

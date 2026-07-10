@@ -15,13 +15,13 @@ export const contact = {
     "Hi Propertycare, I'd like a quote for a transformation.",
   )}`,
   raw: RAW_PHONE,
-  email: "hello@propertycarepe.co.uk", // placeholder — confirm before launch
+  email: "info@propertycarepro.co.uk",
   primaryArea: "Sunderland",
 } as const;
 
 export const brand = {
   name: "Propertycare",
-  full: "Propertycare Paints & Electrics",
+  full: "Property Care Paint & Electrics Ltd",
   tagline: "Premium Property Transformations",
   positioning:
     "The North East's only single-team whole-property transformation specialists.",
