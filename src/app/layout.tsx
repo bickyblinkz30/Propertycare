@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import { contact, serviceAreasStructured } from "@/lib/site";
+import { brand, contact, serviceAreasStructured } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,13 +20,13 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "PropertyCare Paint and Electrics Ltd | Sunderland's Trusted Property Specialists",
+  title: `${brand.full} | Sunderland's Trusted Property Specialists`,
   description:
     "Sunderland's premium painting, decorating, electrical and property maintenance specialists. Residential & commercial. Fully insured. Free quotations. NICEIC certified.",
   keywords:
     "Painter and Decorator Sunderland, Electrician Sunderland, Media Wall Sunderland, Property Maintenance Sunderland, North East",
   openGraph: {
-    title: "PropertyCare Paint and Electrics Ltd | Premium Property Services",
+    title: `${brand.full} | Premium Property Services`,
     description:
       "One certified team for painting, electrical, media walls and maintenance across Sunderland and the surrounding areas.",
     type: "website",
@@ -56,7 +56,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              name: "PropertyCare Paint and Electrics Ltd",
+              name: brand.full,
               description:
                 "Premium painting, decorating, electrical and property maintenance in Sunderland and the surrounding areas.",
               telephone: "+447922909982",

@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { brand } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Why Choose Us | PropertyCare Paint and Electrics Ltd",
+  title: `Why Choose Us | ${brand.full}`,
   description:
-    "Discover why homeowners, landlords and businesses choose PropertyCare Paint and Electrics Ltd for reliable property services and quality workmanship.",
+    `Discover why homeowners, landlords and businesses choose ${brand.full} for reliable property services and quality workmanship.`,
   openGraph: {
-    title: "Why Choose Us | PropertyCare Paint and Electrics Ltd",
+    title: `Why Choose Us | ${brand.full}`,
     description:
-      "Discover why homeowners, landlords and businesses choose PropertyCare Paint and Electrics Ltd for reliable property services and quality workmanship.",
+      `Discover why homeowners, landlords and businesses choose ${brand.full} for reliable property services and quality workmanship.`,
   },
 };
 
