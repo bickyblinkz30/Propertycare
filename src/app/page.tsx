@@ -70,7 +70,7 @@ export default function Home() {
         ══════════════════════════════════════ */}
         <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "flex-end", overflow: "hidden", background: "#0A0908" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={IMG.hero} alt="Property transformation Sunderland" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%", opacity: 0.68 }} />
+          <img src={IMG.hero} alt="Premium living room with integrated media wall and electric fire" fetchPriority="high" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%", opacity: 0.68 }} />
 
           {/* Multi-layer overlay */}
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(10,10,10,0.80) 0%, rgba(10,10,10,0.52) 45%, rgba(10,10,10,0.15) 100%)" }} />

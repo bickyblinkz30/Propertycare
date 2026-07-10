@@ -25,10 +25,14 @@ const U = (id: string, w: number, q = 82) =>
   (that was the bug this fixed, 2026-07).
 */
 export const heroImages = {
-  home: "/images/Hero-section-homepage.jpg",             // REAL PC photo — client-supplied home hero
+  // TEMP (2026-07): home + whyChooseUs are Unsplash stand-ins until the client
+  // supplies replacement photos — swap the two hero/*.jpg files or repoint here.
+  // Previous client photos remain in /public/images (Hero-section-homepage.jpg,
+  // Property-Care-team-at-work.jpg) if a rollback is wanted.
+  home: "/images/hero/home-hero.jpg",                    // TEMP Unsplash — navy lounge w/ media wall + electric fire
   services: "/images/hero/services-hero.jpg",            // open-plan room, paint + lighting outcome
   portfolio: "/images/hero/portfolio-hero.jpg",          // wide dramatic lounge w/ media wall
-  whyChooseUs: "/images/Property-Care-team-at-work.jpg", // REAL PC photo
+  whyChooseUs: "/images/hero/why-choose-us-hero.jpg",    // TEMP Unsplash — decorators rolling colour, moody light
   contact: "/images/hero/contact-hero.jpg",              // welcoming painted porch entrance
   about: "/images/hero/about-hero.jpg",                  // renovation-in-progress, sheeted kitchen
 } as const;
