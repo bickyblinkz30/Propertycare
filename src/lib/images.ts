@@ -34,7 +34,7 @@ export const heroImages = {
   portfolio: "/images/hero/portfolio-hero.jpg",          // wide dramatic lounge w/ media wall
   whyChooseUs: "/images/hero/why-choose-us-hero.jpg",    // TEMP Unsplash — decorators rolling colour, moody light
   contact: "/images/hero/contact-hero.jpg",              // welcoming painted porch entrance
-  about: "/images/hero/about-hero.jpg",                  // renovation-in-progress, sheeted kitchen
+  about: "/images/hero/about-hero.jpg",                  // TEMP Unsplash — grey lounge, fireplace + hardwood
 } as const;
 
 // Shared founder portrait (about / why-choose-us / contact).
