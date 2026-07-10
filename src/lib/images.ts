@@ -17,13 +17,20 @@ const U = (id: string, w: number, q = 82) =>
   `https://images.unsplash.com/${id}?w=${w}&q=${q}&auto=format&fit=crop`;
 
 // --- Hero images: one VISUALLY DISTINCT image per page ---
+/*
+  About / Services / Portfolio / Contact use dedicated 1920px landscape hero
+  assets in /public/images/hero/ (Unsplash, standard licence) — sourced for
+  hero use specifically. Do NOT point these at card/project photos: card
+  assets are portrait/square crops and look stretched at full-bleed hero size
+  (that was the bug this fixed, 2026-07).
+*/
 export const heroImages = {
-  home: "/images/Hero-section-homepage.jpg",                          // REAL PC photo — client-supplied home hero
-  services: "/images/Painting%20and%20Decorating.jpg",               // REAL PC photo
-  portfolio: "/images/Interior-living-room-Transformation-after.jpg", // REAL PC photo
-  whyChooseUs: "/images/Property-Care-team-at-work.jpg",             // REAL PC photo
-  contact: "/images/Hallway-and-Staircase-Renovation-after.jpeg",    // REAL PC photo
-  about: "/images/Complete-Exterior-Repaint-after.jpg",              // REAL PC photo
+  home: "/images/Hero-section-homepage.jpg",             // REAL PC photo — client-supplied home hero
+  services: "/images/hero/services-hero.jpg",            // open-plan room, paint + lighting outcome
+  portfolio: "/images/hero/portfolio-hero.jpg",          // wide dramatic lounge w/ media wall
+  whyChooseUs: "/images/Property-Care-team-at-work.jpg", // REAL PC photo
+  contact: "/images/hero/contact-hero.jpg",              // welcoming painted porch entrance
+  about: "/images/hero/about-hero.jpg",                  // renovation-in-progress, sheeted kitchen
 } as const;
 
 // Shared founder portrait (about / why-choose-us / contact).

@@ -1,4 +1,4 @@
-# Hero image assets — town pages, Areas hub, Testimonials
+# Hero image assets — core pages, town pages, Areas hub, Testimonials
 
 Pre-sourced backgrounds for pages that are **not built yet** (town pages,
 Areas We Cover hub, Testimonials). When a page is created, add its two images
@@ -25,6 +25,10 @@ direction in `DESIGN_REVIEW.md` and downloaded pre-optimized (≤ 200KB).
 
 | File | Subject | Source (Unsplash photo ID) |
 | --- | --- | --- |
+| about-hero.jpg | Kitchen renovation in progress, protective sheeting | photo-1618832515490-e181c4794a45 |
+| services-hero.jpg | Open-plan living/kitchen, fresh paint + pendant lighting | photo-1565183997392-2f6f122e5912 |
+| portfolio-hero.jpg | Coffered-ceiling lounge, fireplace + integrated media wall | photo-1598928506311-c55ded91a20c |
+| contact-hero.jpg | Welcoming painted porch entrance, lantern + swing | photo-1560184897-ae75f418493e |
 | sunderland-hero.jpg | Wearmouth Bridge over the River Wear | photo-1564397507330-786b6620fb4a |
 | sunderland-footer-cta.jpg | Brick house with pale front door, UK | photo-1607900840367-a83dcd63296d |
 | washington-hero.jpg | Terraced residential street at dusk | photo-1780554193584-2e4da0bd7b36 |
