@@ -5,8 +5,9 @@ import FloatingContacts from "../components/FloatingContacts";
 import ScrollReveal from "../components/ScrollReveal";
 import FooterLinks from "../components/FooterLinks";
 import { aboutImages } from "@/lib/images";
+import { brand } from "@/lib/site";
 
-const WA = "https://wa.me/447922909982?text=Hi%20Property%20Care%2C%20I%27d%20like%20a%20free%20quote.";
+const WA = "https://wa.me/447922909982?text=Hi%20PropertyCare%2C%20I%27d%20like%20a%20free%20quote.";
 
 function OrangeTab({ children, center = false }: { children: React.ReactNode; center?: boolean }) {
   return (
@@ -60,7 +61,7 @@ export default function About() {
               maxWidth: 640,
               marginBottom: 44,
             }}>
-              We are Property Care Paint &amp; Electrics Ltd &mdash; a Sunderland-based team of certified painters, electricians and property specialists. Every project is delivered by one accountable team from start to finish.
+              We are {brand.full} &mdash; a Sunderland-based team of certified painters, electricians and property specialists. Every project is delivered by one accountable team from start to finish.
             </p>
             <div className="h-a4">
               <Link href="/#services" className="btn-orange">
@@ -174,7 +175,7 @@ export default function About() {
                     Chukwudi Emmanuel Ifeanyi
                   </h3>
                   <p style={{ fontSize: 15, color: "#6B6460", fontWeight: 500, letterSpacing: "0.04em" }}>
-                    Property Care Paint &amp; Electrics Ltd
+                    {brand.full}
                   </p>
                 </div>
 
@@ -199,7 +200,7 @@ export default function About() {
                 <div className="rv rv-d3" style={{ marginBottom: 28 }}>
                   <h4 style={{ fontSize: 16, fontWeight: 800, color: "#0A0908", marginBottom: 12, letterSpacing: "0.02em" }}>Professional Biography</h4>
                   <p style={{ fontSize: 15, color: "#3D3A37", lineHeight: 1.8, fontWeight: 400, marginBottom: 16 }}>
-                    Chukwudi founded Property Care Paint &amp; Electrics Ltd with a clear mission: deliver premium property transformations through one accountable team. With combined expertise in painting, decorating, and electrical work, he personally ensures every project meets the highest standards of craftsmanship and professionalism.
+                    Chukwudi founded {brand.full} with a clear mission: deliver premium property transformations through one accountable team. With combined expertise in painting, decorating, and electrical work, he personally ensures every project meets the highest standards of craftsmanship and professionalism.
                   </p>
                   <p style={{ fontSize: 15, color: "#3D3A37", lineHeight: 1.8, fontWeight: 400 }}>
                     From full interior repaints to complex electrical installations and property maintenance, Chukwudi brings hands-on experience, NICEIC certification, and an unwavering commitment to quality to every job across Sunderland and the surrounding areas.
@@ -211,15 +212,15 @@ export default function About() {
                   <h4 style={{ fontSize: 16, fontWeight: 800, color: "#0A0908", marginBottom: 12, letterSpacing: "0.02em" }}>Experience</h4>
                   <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                     {[
-                      { yr: "2020 — Present", title: "Founder & Managing Director", org: "Property Care Paint & Electrics Ltd, Sunderland" },
-                      { yr: "2017 — 2020", title: "Senior Painter & Decorator", org: "North East Property Services" },
-                      { yr: "2014 — 2017", title: "Electrical Installations Engineer", org: "UK Building Solutions Ltd" },
+                      { yr: "2022 — Present", title: "Founder & Managing Director", org: `${brand.full}, Sunderland` },
+                      { yr: "2020 — 2022", title: "Property Manager / Property Specialist", org: "North East Property Services" },
+                      { yr: "2014 — 2020", title: "Electrical Installation Engineer", org: "" },
                     ].map((exp) => (
                       <div key={exp.yr} style={{ display: "flex", gap: 20, padding: "14px 18px", background: "#F8F5F0", borderRadius: 4, borderLeft: "3px solid var(--color-accent)" }}>
                         <div style={{ fontSize: 12, fontWeight: 700, color: "var(--color-accent)", flexShrink: 0, width: 130, letterSpacing: "0.04em" }}>{exp.yr}</div>
                         <div>
                           <div style={{ fontSize: 14, fontWeight: 700, color: "#0A0908" }}>{exp.title}</div>
-                          <div style={{ fontSize: 12, color: "#6B6460", fontWeight: 500 }}>{exp.org}</div>
+                          {exp.org && <div style={{ fontSize: 12, color: "#6B6460", fontWeight: 500 }}>{exp.org}</div>}
                         </div>
                       </div>
                     ))}
@@ -294,7 +295,7 @@ export default function About() {
             <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr", gap: 56, marginBottom: 60 }} className="footer-grid">
               <div>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/propertycare-logo-white.png" alt="Property Care Paint & Electrics" style={{ height: 90, width: "auto", display: "block", marginBottom: 24 }} />
+                <img src="/images/propertycare-logo-white.png" alt={brand.full} style={{ height: 90, width: "auto", display: "block", marginBottom: 24 }} />
                 <p style={{ fontSize: 14, color: "#C9C0B4", lineHeight: 1.7, maxWidth: 320, marginBottom: 24, fontWeight: 400 }}>
                   The North East&apos;s premium single-team property transformation specialists. Sunderland and the surrounding areas. Residential &amp; commercial.
                 </p>
@@ -317,7 +318,7 @@ export default function About() {
             </div>
             <div style={{ height: 1, background: "linear-gradient(to right, rgba(var(--color-accent-rgb),0.4), rgba(var(--color-accent-rgb),0.12), transparent)", marginBottom: 28 }} />
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 11, color: "rgba(255,255,255,0.35)", letterSpacing: "0.04em", flexWrap: "wrap", gap: 10, fontWeight: 500 }}>
-              <span>© 2025 Property Care Paint &amp; Electrics Ltd. Fully insured · NICEIC / Part P · Written guarantee.</span>
+              <span>© 2025 {brand.full}. Fully insured · NICEIC / Part P · Written guarantee.</span>
               <span>Premium property transformations across the North East.</span>
             </div>
           </div>

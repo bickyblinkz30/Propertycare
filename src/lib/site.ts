@@ -12,7 +12,7 @@ export const contact = {
   tel: "+447922909982",
   sms: `sms:+447922909982`,
   whatsapp: `https://wa.me/${INTL_PHONE}?text=${encodeURIComponent(
-    "Hi Propertycare, I'd like a quote for a transformation.",
+    "Hi PropertyCare, I'd like a free quote.",
   )}`,
   raw: RAW_PHONE,
   email: "info@propertycarepro.co.uk",
@@ -21,7 +21,7 @@ export const contact = {
 
 export const brand = {
   name: "Propertycare",
-  full: "Property Care Paint & Electrics Ltd",
+  full: "PropertyCare Paints and Electrics Ltd",
   tagline: "Premium Property Transformations",
   positioning:
     "The North East's only single-team whole-property transformation specialists.",

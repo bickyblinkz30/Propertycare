@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Registered company name
+
+The site displays the registered name as **"PropertyCare Paints and Electrics Ltd"** (`brand.full` in `src/lib/site.ts`), applied on the owner's/client's direct instruction. This has **not** been verified against Companies House.
+
+The logo wordmark image reads **"PAINT"** (singular) — this is a known, intentional mismatch with the text name above, not a typo.
+
 ## Getting Started
 
 First, run the development server:

@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { brand } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Services | Property Care Paint & Electrics Ltd",
+  title: `Services | ${brand.full}`,
   description:
     "Professional painting, decorating, electrical and property maintenance services in Sunderland. Free quotations available for residential and commercial clients.",
   openGraph: {
-    title: "Services | Property Care Paint & Electrics Ltd",
+    title: `Services | ${brand.full}`,
     description:
       "Professional painting, decorating, electrical and property maintenance services in Sunderland and the surrounding areas.",
   },

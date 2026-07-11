@@ -5,8 +5,9 @@ import FloatingContacts from "../components/FloatingContacts";
 import ScrollReveal from "../components/ScrollReveal";
 import FooterLinks from "../components/FooterLinks";
 import { servicesImages as IMG, servicesShowcase } from "@/lib/images";
+import { brand } from "@/lib/site";
 
-const WA = "https://wa.me/447922909982?text=Hi%20Property%20Care%2C%20I%27d%20like%20a%20free%20quote.";
+const WA = "https://wa.me/447922909982?text=Hi%20PropertyCare%2C%20I%27d%20like%20a%20free%20quote.";
 
 function OrangeTab({ children, center = false }: { children: React.ReactNode; center?: boolean }) {
   return (
@@ -88,7 +89,7 @@ export default function Services() {
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.30) 45%, transparent 72%)" }} />
           <div style={{ position: "relative", zIndex: 2, padding: "100px 52px 80px", maxWidth: 920, width: "100%" }}>
             <div className="h-a1" style={{ marginBottom: 32 }}>
-              <OrangeTab>Property Care Paint &amp; Electrics Ltd</OrangeTab>
+              <OrangeTab>{brand.full}</OrangeTab>
             </div>
             <h1 className="h-a2" style={{
               fontSize: "clamp(54px, 8.5vw, 112px)",
@@ -139,7 +140,7 @@ export default function Services() {
             </div>
             <div className="rv rv-d2" style={{ maxWidth: 780, margin: "0 auto", textAlign: "center" }}>
               <p style={{ fontSize: 18, color: "#3D3A37", lineHeight: 1.8, fontWeight: 400 }}>
-                Whether you need professional decorating, electrical installations, property maintenance or a custom media wall installation, Property Care Paint &amp; Electrics Ltd delivers reliable workmanship with attention to detail and customer satisfaction at the heart of every project.
+                Whether you need professional decorating, electrical installations, property maintenance or a custom media wall installation, {brand.full} delivers reliable workmanship with attention to detail and customer satisfaction at the heart of every project.
               </p>
             </div>
           </div>
@@ -473,7 +474,7 @@ export default function Services() {
                 fontSize: 18, fontWeight: 400, color: "rgba(255,255,255,0.8)",
                 lineHeight: 1.7, maxWidth: 540, margin: "0 auto 52px",
               }}>
-                Contact Property Care Paint &amp; Electrics Ltd today for a free no-obligation quotation. One team, one point of contact, one guarantee.
+                Contact {brand.full} today for a free no-obligation quotation. One team, one point of contact, one guarantee.
               </p>
 
               <div className="rv rv-d3" style={{ display: "flex", justifyContent: "center", gap: 14, flexWrap: "wrap", marginBottom: 40 }}>
@@ -505,7 +506,7 @@ export default function Services() {
             <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr", gap: 56, marginBottom: 60 }} className="footer-grid">
               <div>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/images/propertycare-logo-white.png" alt="Property Care Paint & Electrics" style={{ height: 90, width: "auto", display: "block", marginBottom: 24 }} />
+                  <img src="/images/propertycare-logo-white.png" alt={brand.full} style={{ height: 90, width: "auto", display: "block", marginBottom: 24 }} />
                 <p style={{ fontSize: 14, color: "#C9C0B4", lineHeight: 1.7, maxWidth: 320, marginBottom: 24, fontWeight: 400 }}>
                   The North East&apos;s premium single-team property transformation specialists. Sunderland and the surrounding areas. Residential &amp; commercial.
                 </p>
@@ -529,7 +530,7 @@ export default function Services() {
 
             <div style={{ height: 1, background: "linear-gradient(to right, rgba(var(--color-accent-rgb),0.4), rgba(var(--color-accent-rgb),0.12), transparent)", marginBottom: 28 }} />
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 11, color: "rgba(255,255,255,0.35)", letterSpacing: "0.04em", flexWrap: "wrap", gap: 10, fontWeight: 500 }}>
-              <span>© 2025 Property Care Paint &amp; Electrics Ltd. Fully insured · NICEIC / Part P · Written guarantee.</span>
+              <span>© 2025 {brand.full}. Fully insured · NICEIC / Part P · Written guarantee.</span>
               <span>Premium property transformations across the North East.</span>
             </div>
           </div>

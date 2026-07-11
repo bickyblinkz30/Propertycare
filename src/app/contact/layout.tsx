@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
+import { brand } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Property Care Paint & Electrics Ltd",
-  description:
-    "Contact Property Care Paint & Electrics Ltd for painting, decorating, electrical and property maintenance services. Free quotations available across Sunderland and the surrounding areas.",
+  title: `Contact Us | ${brand.full}`,
+  description: `Contact ${brand.full} for painting, decorating, electrical and property maintenance services. Free quotations available across Sunderland and the surrounding areas.`,
   openGraph: {
-    title: "Contact Us | Property Care Paint & Electrics Ltd",
-    description:
-      "Contact Property Care Paint & Electrics Ltd for painting, decorating, electrical and property maintenance services. Free quotations available across Sunderland and the surrounding areas.",
+    title: `Contact Us | ${brand.full}`,
+    description: `Contact ${brand.full} for painting, decorating, electrical and property maintenance services. Free quotations available across Sunderland and the surrounding areas.`,
   },
 };
 

@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
+import { brand } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Portfolio | Property Care Paint & Electrics Ltd",
-  description:
-    "View recent painting, decorating, electrical and property maintenance projects completed by Property Care Paint & Electrics Ltd.",
+  title: `Portfolio | ${brand.full}`,
+  description: `View recent painting, decorating, electrical and property maintenance projects completed by ${brand.full}.`,
   openGraph: {
-    title: "Portfolio | Property Care Paint & Electrics Ltd",
-    description:
-      "View recent painting, decorating, electrical and property maintenance projects completed by Property Care Paint & Electrics Ltd.",
+    title: `Portfolio | ${brand.full}`,
+    description: `View recent painting, decorating, electrical and property maintenance projects completed by ${brand.full}.`,
   },
 };
 
