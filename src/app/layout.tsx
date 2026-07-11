@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import { serviceAreasStructured, brand } from "@/lib/site";
+import { brand, contact, serviceAreasStructured } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -60,6 +60,7 @@ export default function RootLayout({
               description:
                 "Premium painting, decorating, electrical and property maintenance in Sunderland and the surrounding areas.",
               telephone: "+447922909982",
+              email: contact.email,
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Sunderland",

@@ -212,8 +212,8 @@ export default function About() {
                   <h4 style={{ fontSize: 16, fontWeight: 800, color: "#0A0908", marginBottom: 12, letterSpacing: "0.02em" }}>Experience</h4>
                   <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                     {[
-                      { yr: "2022 — Present", title: "Founder & Managing Director", org: `${brand.full}, Sunderland` },
-                      { yr: "2020 — 2022", title: "Property Manager / Property Specialist", org: "North East Property Services" },
+                      { yr: "2022 — Present", title: "Founder & Managing Director", org: brand.full },
+                      { yr: "2020 — 2022", title: "Property Manager / Property Specialist", org: "Northeast Property Services" },
                       { yr: "2014 — 2020", title: "Electrical Installation Engineer", org: "" },
                     ].map((exp) => (
                       <div key={exp.yr} style={{ display: "flex", gap: 20, padding: "14px 18px", background: "#F8F5F0", borderRadius: 4, borderLeft: "3px solid var(--color-accent)" }}>
@@ -255,7 +255,7 @@ export default function About() {
         <section style={{ position: "relative", overflow: "hidden", background: "#0A0908", borderTop: "4px solid var(--color-accent)", padding: "120px 52px", textAlign: "center" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={aboutImages.cta} alt="" loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(10,9,8,0.88) 0%, rgba(10,9,8,0.74) 50%, rgba(10,9,8,0.58) 100%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(10,9,8,0.97) 0%, rgba(10,9,8,0.92) 50%, rgba(10,9,8,0.85) 100%)" }} />
           <div style={{ position: "relative", zIndex: 1, maxWidth: 800, margin: "0 auto" }}>
             <div className="rv">
               <OrangeTab center>Let&rsquo;s Work Together</OrangeTab>

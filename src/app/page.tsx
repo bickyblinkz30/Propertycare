@@ -6,7 +6,7 @@ import BeforeAfterSlider from "./components/BeforeAfterSlider";
 import Marquee from "./components/Marquee";
 import FooterLinks from "./components/FooterLinks";
 import TestimonialCarousel from "./components/TestimonialCarousel";
-import { primaryArea, secondaryServiceAreas, testimonials, brand } from "@/lib/site";
+import { brand, primaryArea, secondaryServiceAreas, testimonials } from "@/lib/site";
 import { beforeAfterTransformations, homeImages as IMG } from "@/lib/images";
 
 const WA = "https://wa.me/447922909982?text=Hi%20PropertyCare%2C%20I%27d%20like%20a%20free%20quote.";
@@ -70,7 +70,7 @@ export default function Home() {
         ══════════════════════════════════════ */}
         <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "flex-end", overflow: "hidden", background: "#0A0908" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={IMG.hero} alt="Property transformation Sunderland" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%", opacity: 0.68 }} />
+          <img src={IMG.hero} alt="Premium living room with integrated media wall and electric fire" fetchPriority="high" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%", opacity: 0.68 }} />
 
           {/* Multi-layer overlay */}
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(10,10,10,0.80) 0%, rgba(10,10,10,0.52) 45%, rgba(10,10,10,0.15) 100%)" }} />
@@ -95,8 +95,8 @@ export default function Home() {
               marginBottom: 28,
               textTransform: "uppercase",
             }}>
-              Property Care,<br />
-              <span style={{ color: "var(--color-accent)" }}>Paint &amp; Electrics</span>
+              PropertyCare<br />
+              <span style={{ color: "var(--color-accent)" }}>Paint and Electrics Ltd</span>
             </h1>
 
             <p className="h-a3" style={{
@@ -257,7 +257,7 @@ export default function Home() {
                 {
                   icon: Icons.electric, title: "Electrical Services", img: IMG.electric,
                   intro: "NICEIC certified electricians — every install signed off to Part P.",
-                  items: ["Electrical Installations","Smart Lighting Upgrades","Socket & Switch Replacements","Fault Finding & Repairs","Consumer Unit Upgrades","Safety Inspections","Video Doorbell Installation"],
+                  items: ["Electrical Installations","Smart Lighting Upgrades","Socket & Switch Replacements","Fault Finding & Repairs","Consumer Unit Upgrades","Safety Inspections"],
                 },
                 {
                   icon: Icons.media, title: "TV Media Wall Installation", img: IMG.media,

@@ -20,7 +20,7 @@ export const contact = {
 } as const;
 
 export const brand = {
-  name: "Propertycare",
+  name: "PropertyCare",
   full: "PropertyCare Paints and Electrics Ltd",
   tagline: "Premium Property Transformations",
   positioning:

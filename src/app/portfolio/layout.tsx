@@ -3,10 +3,12 @@ import { brand } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: `Portfolio | ${brand.full}`,
-  description: `View recent painting, decorating, electrical and property maintenance projects completed by ${brand.full}.`,
+  description:
+    `View recent painting, decorating, electrical and property maintenance projects completed by ${brand.full}.`,
   openGraph: {
     title: `Portfolio | ${brand.full}`,
-    description: `View recent painting, decorating, electrical and property maintenance projects completed by ${brand.full}.`,
+    description:
+      `View recent painting, decorating, electrical and property maintenance projects completed by ${brand.full}.`,
   },
 };
 

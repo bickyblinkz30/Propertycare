@@ -5,7 +5,7 @@ import FloatingContacts from "../components/FloatingContacts";
 import ScrollReveal from "../components/ScrollReveal";
 import FooterLinks from "../components/FooterLinks";
 import TestimonialCarousel from "../components/TestimonialCarousel";
-import { primaryArea, secondaryServiceAreas, serviceAreasSentence, testimonials, brand } from "@/lib/site";
+import { brand, contact, primaryArea, secondaryServiceAreas, serviceAreasSentence, testimonials } from "@/lib/site";
 import { contactImages as IMG } from "@/lib/images";
 
 const WA = "https://wa.me/447922909982?text=Hi%20PropertyCare%2C%20I%27d%20like%20a%20free%20quote.";
@@ -116,7 +116,7 @@ export default function Contact() {
         ══════════════════════════════════════ */}
         <section style={{ position: "relative", minHeight: "55vh", display: "flex", alignItems: "center", overflow: "hidden", background: "#0A0908" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={IMG.hero} alt={`Contact ${brand.full}`} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%", opacity: 0.68 }} />
+          <img src={IMG.hero} alt="Welcoming freshly painted home entrance" fetchPriority="high" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%", opacity: 0.68 }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(10,10,10,0.80) 0%, rgba(10,10,10,0.52) 45%, rgba(10,10,10,0.15) 100%)" }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.30) 45%, transparent 72%)" }} />
           <div style={{ position: "relative", zIndex: 2, padding: "100px 52px 80px", maxWidth: 920, width: "100%" }}>
@@ -196,7 +196,7 @@ export default function Contact() {
                 </div>
               </a>
 
-              <a href="mailto:info@propertycarepro.co.uk" style={{ textDecoration: "none" }}>
+              <a href={`mailto:${contact.email}`} style={{ textDecoration: "none" }}>
                 <div className="rv rv-d3" style={{ background: "#FDFCFB", border: "1px solid #E8E2D9", borderRadius: 4, padding: "36px 28px", textAlign: "center", transition: "transform 0.3s, box-shadow 0.3s" }}>
                   <div style={{ width: 56, height: 56, background: "var(--color-accent-soft)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 18px" }}>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="2">
@@ -204,7 +204,7 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--color-accent)", marginBottom: 8 }}>Email</div>
-                  <div style={{ fontSize: 14, fontWeight: 700, color: "#0A0908", letterSpacing: "0.02em", wordBreak: "break-all" }}>info@propertycarepro.co.uk</div>
+                  <div style={{ fontSize: 14, fontWeight: 700, color: "#0A0908", letterSpacing: "0.02em", wordBreak: "break-all" }}>{contact.email}</div>
                 </div>
               </a>
 
