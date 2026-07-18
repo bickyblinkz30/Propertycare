@@ -148,7 +148,7 @@ export default function Nav() {
         {/* Logo at top of mobile menu — white background, use dark/transparent variant */}
         <div style={{ marginBottom: 40, display: "flex", justifyContent: "center", paddingTop: 8 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/propertycare-logo-transparent.png" alt="Property Care" style={{ height: 90, width: "auto" }} />
+          <img src="/images/propertycare-logo-transparent.png" alt={brand.full} style={{ height: 90, width: "auto" }} />
         </div>
 
         {links.map(([label, href], i) => (

@@ -96,7 +96,7 @@ export default function Home() {
               textTransform: "uppercase",
             }}>
               PropertyCare<br />
-              <span style={{ color: "var(--color-accent)" }}>Paint and Electrics Ltd</span>
+              <span style={{ color: "var(--color-accent)" }}>Paints and Electrics Ltd</span>
             </h1>
 
             <p className="h-a3" style={{
